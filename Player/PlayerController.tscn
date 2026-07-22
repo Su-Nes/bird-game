@@ -3,8 +3,14 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
 height = 1.3232422
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
+height = 1.3310547
+
 [node name="PlayerController" type="CharacterBody3D" unique_id=1403665214]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07519531, 0)
 shape = SubResource("CapsuleShape3D_6md3q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=121188186]
+mesh = SubResource("CapsuleMesh_qkran")

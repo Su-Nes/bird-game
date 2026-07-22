@@ -1,3 +1,37 @@
 [gd_scene format=3 uid="uid://gyv0w2cpssjs"]
 
+[ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
+
+[sub_resource type="Environment" id="Environment_qkran"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_60uoq"]
+
+[sub_resource type="Compositor" id="Compositor_joydu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qkran"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6md3q"]
+size = Vector3(50, 0.1, 50)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qkran"]
+
 [node name="World" type="Node3D" unique_id=2109053146]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2084513050]
+environment = SubResource("Environment_qkran")
+camera_attributes = SubResource("CameraAttributesPractical_60uoq")
+compositor = SubResource("Compositor_joydu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1505238696]
+physics_material_override = SubResource("PhysicsMaterial_qkran")
+
+[node name="Ground" type="CollisionShape3D" parent="StaticBody3D" unique_id=1745991292]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_6md3q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/Ground" unique_id=1043225278]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_qkran")
+
+[node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
