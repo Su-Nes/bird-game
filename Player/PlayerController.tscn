@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://babt3u5ap0jca"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
+height = 1.3232422
+
+[node name="PlayerController" type="CharacterBody3D" unique_id=1403665214]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07519531, 0)
+shape = SubResource("CapsuleShape3D_6md3q")
