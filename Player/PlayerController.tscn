@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://babt3u5ap0jca"]
 
+[ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_8rupm"]
+[ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/States/IdleState.gd" id="2_ldje2"]
+[ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/States/WalkState.gd" id="3_ldje2"]
+[ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/GeneralScripts/CameraMotion.gd" id="4_bacvh"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
 height = 1.3232422
 
@@ -8,9 +13,36 @@ height = 1.3310547
 
 [node name="PlayerController" type="CharacterBody3D" unique_id=1403665214]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07519531, 0)
 shape = SubResource("CapsuleShape3D_6md3q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=121188186]
 mesh = SubResource("CapsuleMesh_qkran")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_8rupm")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=984515081 node_paths=PackedStringArray("PLAYER_CONTROLLER")]
+script = ExtResource("2_ldje2")
+PLAYER_CONTROLLER = NodePath("../..")
+metadata/_custom_type_script = "uid://3m20wys6ugrl"
+
+[node name="WalkState" type="Node" parent="StateMachine" unique_id=1798480752]
+script = ExtResource("3_ldje2")
+MOVE_SPEED = 10.0
+GROUND_INERTIA = 100.0
+metadata/_custom_type_script = "uid://dsxe0ls16mjwb"
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=2114444008]
+script = ExtResource("4_bacvh")
+CAMERA_SENS = 0.5
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=780229940]
+spring_length = 3.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1870356551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+fov = 100.0

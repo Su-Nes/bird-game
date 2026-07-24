@@ -4,10 +4,6 @@
 
 [sub_resource type="Environment" id="Environment_qkran"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_60uoq"]
-
-[sub_resource type="Compositor" id="Compositor_joydu"]
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qkran"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6md3q"]
@@ -17,21 +13,35 @@ size = Vector3(50, 0.1, 50)
 
 [node name="World" type="Node3D" unique_id=2109053146]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2084513050]
-environment = SubResource("Environment_qkran")
-camera_attributes = SubResource("CameraAttributesPractical_60uoq")
-compositor = SubResource("Compositor_joydu")
+[node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9827304, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1505238696]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1303183820]
+transform = Transform3D(0.6550948, -0.6722641, 0.34483546, 0.27809775, 0.6389092, 0.71725625, -0.7025042, -0.3739729, 0.6055014, 0, 10, 0)
+light_color = Color(0.87777835, 0.8614303, 0.8024045, 1)
+light_energy = 2.0
+shadow_enabled = true
+shadow_opacity = 0.85
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1917248881]
+environment = SubResource("Environment_qkran")
+
+[node name="LevelObjects" type="Node3D" parent="." unique_id=2034537777]
+
+[node name="MajorObjects" type="StaticBody3D" parent="LevelObjects" unique_id=1505238696]
 physics_material_override = SubResource("PhysicsMaterial_qkran")
 
-[node name="Ground" type="CollisionShape3D" parent="StaticBody3D" unique_id=1745991292]
+[node name="GroundCollider" type="CollisionShape3D" parent="LevelObjects/MajorObjects" unique_id=1745991292]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_6md3q")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/Ground" unique_id=1043225278]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelObjects/MajorObjects/GroundCollider" unique_id=1043225278]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0.05, 0)
 mesh = SubResource("PlaneMesh_qkran")
 
-[node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="LevelObjects" unique_id=163098287]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=937943683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8234382, 1, -1.3801175)
+size = Vector3(1, 2, 1)
