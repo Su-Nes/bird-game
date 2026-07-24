@@ -6,6 +6,8 @@ class_name IdleState
 @onready var pivot: Node3D = $"../../CameraPivot"
 @onready var player_controller: CharacterBody3D = $"../.."
 @onready var walk_state: WalkState = $"../WalkState"
+@onready var collision_shape_3d: CollisionShape3D = $"../../CollisionShape3D"
+@onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 var direction
 
@@ -38,3 +40,5 @@ func handle_velocity(delta):
 	player_controller.velocity.z = lerp(player_controller.velocity.z, 0.0, delta * walk_state.GROUND_INERTIA)
 	
 	player_controller.move_and_slide()
+	
+	extension_functions.handle_model_transform(direction)

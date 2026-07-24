@@ -15,6 +15,7 @@ var direction
 @export var AIR_INERTIA = 2.5
 
 @onready var player_controller: CharacterBody3D = $"../.."
+@onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 func enter():
 	print("Entered Jump state")
@@ -47,3 +48,5 @@ func handle_velocity(delta):
 	player_controller.velocity.z = lerp(player_controller.velocity.z, direction.z * MOVE_SPEED, delta * AIR_INERTIA)
 	
 	player_controller.move_and_slide()
+	
+	extension_functions.handle_model_transform(direction)

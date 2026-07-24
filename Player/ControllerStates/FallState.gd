@@ -4,6 +4,8 @@ class_name FallState
 
 
 @onready var player_controller: CharacterBody3D = $"../.."
+@onready var collision_shape_3d: CollisionShape3D = $"../../CollisionShape3D"
+@onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 @export var GLIDE_SPEED = 4.5
 @export var AIR_INERTIA = 2.5
@@ -34,3 +36,6 @@ func handle_velocity(delta):
 	player_controller.velocity.z = lerp(player_controller.velocity.z, direction.z * GLIDE_SPEED, delta * AIR_INERTIA)
 	
 	player_controller.move_and_slide()
+	
+	extension_functions.handle_model_transform(direction)
+	

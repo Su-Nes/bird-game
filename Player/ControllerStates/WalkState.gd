@@ -10,6 +10,8 @@ class_name WalkState
 var coyoteTimer
 
 @onready var player_controller: CharacterBody3D = $"../.."
+@onready var collision_shape_3d: CollisionShape3D = $"../../CollisionShape3D"
+@onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 var direction
 var velocity
@@ -37,8 +39,10 @@ func physics_update(delta):
 	if direction.length() <= 0.0:
 		state_machine.change_state("idlestate")
 
-func handle_velocity(delta):	
+func handle_velocity(delta):
 	player_controller.velocity.x = lerp(player_controller.velocity.x, direction.x * MOVE_SPEED, delta * GROUND_INERTIA)
 	player_controller.velocity.z = lerp(player_controller.velocity.z, direction.z * MOVE_SPEED, delta * GROUND_INERTIA)
 	
 	player_controller.move_and_slide()
+	
+	extension_functions.handle_model_transform(direction)

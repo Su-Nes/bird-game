@@ -1,26 +1,34 @@
 [gd_scene format=3 uid="uid://babt3u5ap0jca"]
 
 [ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_8rupm"]
+[ext_resource type="Script" uid="uid://l7hd3n1tcy23" path="res://Player/GeneralScripts/ControllerFunctions.gd" id="1_vn67c"]
 [ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/ControllerStates/IdleState.gd" id="2_ldje2"]
 [ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/ControllerStates/WalkState.gd" id="3_ldje2"]
 [ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/GeneralScripts/CameraMotion.gd" id="4_bacvh"]
 [ext_resource type="Script" uid="uid://dh7ybwg1n3d1q" path="res://Player/ControllerStates/JumpState.gd" id="4_j8irr"]
 [ext_resource type="Script" uid="uid://bvfkhbgfu15mb" path="res://Player/ControllerStates/FallState.gd" id="5_mdtj2"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
-height = 1.3232422
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
 height = 1.3310547
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
+height = 1.3232422
+
 [node name="PlayerController" type="CharacterBody3D" unique_id=1403665214]
+script = ExtResource("1_vn67c")
+MESH_OFFSET = Vector3(0, 0.1, 0)
+LOOK_AT_LERP = 0.2
+
+[node name="Mesh" type="Node3D" parent="." unique_id=1026739179]
+top_level = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh" unique_id=121188186]
+transform = Transform3D(0.5, 0, 0, 0, 0.12940954, 0.4829629, 0, -0.4829629, 0.12940954, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_qkran")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755 groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07519531, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6md3q")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=121188186]
-mesh = SubResource("CapsuleMesh_qkran")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_8rupm")
