@@ -1,7 +1,7 @@
 extends Node
 
-
 class_name State
+
 	
 var state_machine: StateMachine
 

@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://babt3u5ap0jca"]
 
 [ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_8rupm"]
-[ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/States/IdleState.gd" id="2_ldje2"]
-[ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/States/WalkState.gd" id="3_ldje2"]
+[ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/ControllerStates/IdleState.gd" id="2_ldje2"]
+[ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/ControllerStates/WalkState.gd" id="3_ldje2"]
 [ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/GeneralScripts/CameraMotion.gd" id="4_bacvh"]
+[ext_resource type="Script" uid="uid://dh7ybwg1n3d1q" path="res://Player/ControllerStates/JumpState.gd" id="4_j8irr"]
+[ext_resource type="Script" uid="uid://bvfkhbgfu15mb" path="res://Player/ControllerStates/FallState.gd" id="5_mdtj2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
 height = 1.3232422
@@ -22,18 +24,24 @@ mesh = SubResource("CapsuleMesh_qkran")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_8rupm")
-initial_state = NodePath("IdleState")
+initial_state = NodePath("WalkState")
 
-[node name="IdleState" type="Node" parent="StateMachine" unique_id=984515081 node_paths=PackedStringArray("PLAYER_CONTROLLER")]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=984515081]
 script = ExtResource("2_ldje2")
-PLAYER_CONTROLLER = NodePath("../..")
-metadata/_custom_type_script = "uid://3m20wys6ugrl"
 
 [node name="WalkState" type="Node" parent="StateMachine" unique_id=1798480752]
 script = ExtResource("3_ldje2")
-MOVE_SPEED = 10.0
-GROUND_INERTIA = 100.0
-metadata/_custom_type_script = "uid://dsxe0ls16mjwb"
+MOVE_SPEED = 3.0
+GROUND_INERTIA = 7.0
+
+[node name="JumpState" type="Node" parent="StateMachine" unique_id=1176370450]
+script = ExtResource("4_j8irr")
+JUMP_VELOCITY = 2
+metadata/_custom_type_script = "uid://dh7ybwg1n3d1q"
+
+[node name="FallState" type="Node" parent="StateMachine" unique_id=329827307]
+script = ExtResource("5_mdtj2")
+metadata/_custom_type_script = "uid://bvfkhbgfu15mb"
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=2114444008]
 script = ExtResource("4_bacvh")
@@ -41,7 +49,7 @@ CAMERA_SENS = 0.5
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=780229940]
 spring_length = 3.0
-margin = 0.5
+margin = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1870356551]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
