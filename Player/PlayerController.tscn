@@ -11,6 +11,18 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
 height = 1.3310547
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60uoq"]
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_joydu"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_60uoq")
+size = Vector2(0.335, 0.51)
+
+[sub_resource type="PrismMesh" id="PrismMesh_qkran"]
+left_to_right = 0.8
+size = Vector3(0.135, 0.17, 0.195)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
 height = 1.3232422
 
@@ -22,9 +34,25 @@ LOOK_AT_LERP = 0.2
 [node name="Mesh" type="Node3D" parent="." unique_id=1026739179]
 top_level = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh" unique_id=121188186]
+[node name="BodyMesh" type="MeshInstance3D" parent="Mesh" unique_id=121188186]
 transform = Transform3D(0.5, 0, 0, 0, 0.12940954, 0.4829629, 0, -0.4829629, 0.12940954, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_qkran")
+
+[node name="Wings" type="Node3D" parent="Mesh" unique_id=1425311760]
+
+[node name="WingMeshL" type="MeshInstance3D" parent="Mesh/Wings" unique_id=1754773031]
+transform = Transform3D(0.25881907, 4.222196e-08, -0.9659258, 0.9659258, -1.1313341e-08, 0.25881907, 0, -1, -4.371139e-08, -0.30533126, 0, 0.18659747)
+mesh = SubResource("QuadMesh_joydu")
+
+[node name="WingMeshR" type="MeshInstance3D" parent="Mesh/Wings" unique_id=502445274]
+transform = Transform3D(-0.25881904, 5.5024728e-08, -0.9659258, 0.9659258, -4.222196e-08, -0.25881904, -5.5024728e-08, -1, -4.222196e-08, 0.3, 0, 0.187)
+mesh = SubResource("QuadMesh_joydu")
+
+[node name="Beak" type="Node3D" parent="Mesh" unique_id=1190860183]
+
+[node name="BeakMesh" type="MeshInstance3D" parent="Mesh/Beak" unique_id=852340943]
+transform = Transform3D(-4.371139e-08, 0, 1, -1, -4.371139e-08, -4.371139e-08, 4.371139e-08, -1, 1.9106855e-15, 0, 0, -0.35896307)
+mesh = SubResource("PrismMesh_qkran")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755 groups=["Player"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -52,11 +80,12 @@ script = ExtResource("5_mdtj2")
 metadata/_custom_type_script = "uid://bvfkhbgfu15mb"
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=2114444008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("4_bacvh")
 CAMERA_SENS = 0.5
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=780229940]
-spring_length = 3.0
+spring_length = 1.5
 margin = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1870356551]

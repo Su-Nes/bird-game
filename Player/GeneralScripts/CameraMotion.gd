@@ -17,7 +17,7 @@ func _unhandled_input(event):
 	#	pivot.rotate_y(-event..x * CAMERA_SENS)
 	#	pivot.rotate_x(-event.relative.y * CAMERA_SENS)
 	
-	rotation.x = clamp(rotation.x, deg_to_rad(-85), deg_to_rad(85))
+	rotation.x = clamp(rotation.x, deg_to_rad(-85), deg_to_rad(60))
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
