@@ -15,7 +15,7 @@ var direction
 
 func enter():
 	print("Entered Fall state.")
-	WING_STATES.change_state("wingsgliding")
+	#WING_STATES.change_state("wingsgliding")
 	
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

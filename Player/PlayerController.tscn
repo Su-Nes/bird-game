@@ -96,7 +96,8 @@ GROUND_INERTIA = 7.0
 
 [node name="JumpState" type="Node" parent="MovementStateMachine" unique_id=1176370450]
 script = ExtResource("4_j8irr")
-JUMP_VELOCITY = 2
+JUMP_VELOCITY = 1
+JUMP_TIME = 0.1
 JUMP_GRAVITY = 20
 metadata/_custom_type_script = "uid://dh7ybwg1n3d1q"
 
@@ -108,7 +109,7 @@ metadata/_custom_type_script = "uid://bvfkhbgfu15mb"
 [node name="CameraPivot" type="Node3D" parent="." unique_id=2114444008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("4_bacvh")
-CAMERA_SENS = 0.5
+STICK_SENS = 5.0
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=780229940]
 spring_length = 1.5
