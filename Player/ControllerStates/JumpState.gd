@@ -18,7 +18,7 @@ var direction
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 func enter():
-	print("Entered Jump state")
+	#print("Entered Jump state")
 	player_controller.velocity.y = JUMP_VELOCITY
 	
 	isJumping = true

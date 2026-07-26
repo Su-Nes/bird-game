@@ -3,18 +3,34 @@
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
 
 [sub_resource type="Environment" id="Environment_qkran"]
+fog_enabled = true
+fog_light_color = Color(0.61347324, 0.67559487, 0.84342957, 1)
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_nld0w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qkran"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6md3q"]
 size = Vector3(50, 0.1, 50)
 
+[sub_resource type="Curve" id="Curve_il6x7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3525641, 0.37078655), 0.0, 0.0, 0, 0, Vector2(0.49358976, 1), 0.0, 0.0, 0, 0, Vector2(0.74358976, 0.3820225), 0.0, 0.0, 0, 0, Vector2(0.9102564, 0.61797756), 0.0, 0.0, 0, 0, Vector2(1, 0.764045), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_mlekv"]
+curve = SubResource("Curve_il6x7")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_folwd"]
+albedo_color = Color(0.38908803, 0.48227894, 0.36401728, 1)
+albedo_texture = SubResource("CurveTexture_mlekv")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_qkran"]
+material = SubResource("ORMMaterial3D_folwd")
 
 [node name="World" type="Node3D" unique_id=2109053146]
 
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9827304, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1303183820]
 transform = Transform3D(0.6550948, -0.6722641, 0.34483546, 0.27809775, 0.6389092, 0.71725625, -0.7025042, -0.3739729, 0.6055014, 0, 10, 0)
@@ -25,6 +41,7 @@ shadow_opacity = 0.85
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1917248881]
 environment = SubResource("Environment_qkran")
+camera_attributes = SubResource("CameraAttributesPhysical_nld0w")
 
 [node name="LevelObjects" type="Node3D" parent="." unique_id=2034537777]
 

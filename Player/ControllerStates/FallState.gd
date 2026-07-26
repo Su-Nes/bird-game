@@ -7,6 +7,7 @@ class_name FallState
 @onready var collision_shape_3d: CollisionShape3D = $"../../CollisionShape3D"
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
+@export var WING_STATES : WingStateMachine
 @export var GLIDE_SPEED = 4.5
 @export var AIR_INERTIA = 2.5
 
@@ -14,6 +15,7 @@ var direction
 
 func enter():
 	print("Entered Fall state.")
+	WING_STATES.change_state("wingsgliding")
 	
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

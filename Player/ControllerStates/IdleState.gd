@@ -3,6 +3,8 @@ extends State
 class_name IdleState
 
 
+@export var WING_STATES : WingStateMachine
+
 @onready var pivot: Node3D = $"../../CameraPivot"
 @onready var player_controller: CharacterBody3D = $"../.."
 @onready var walk_state: WalkState = $"../WalkState"
@@ -13,7 +15,8 @@ var direction
 
 
 func enter():
-	print("Entering Idle state")
+	#print("Entering Idle state")
+	WING_STATES.change_state("wingsidle")
 	
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

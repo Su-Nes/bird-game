@@ -17,8 +17,9 @@ var direction
 var velocity
 
 func enter():
-	print("Entered Walk state")
-
+	#print("Entered W4alk state")
+	pass
+	
 func physics_update(delta):
 	# Switch to fall state if player controller is not on ground.
 	if !player_controller.is_on_floor():

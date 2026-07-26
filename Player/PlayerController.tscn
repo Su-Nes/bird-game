@@ -1,15 +1,22 @@
 [gd_scene format=3 uid="uid://babt3u5ap0jca"]
 
 [ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_8rupm"]
-[ext_resource type="Script" uid="uid://l7hd3n1tcy23" path="res://Player/GeneralScripts/ControllerFunctions.gd" id="1_vn67c"]
+[ext_resource type="Script" uid="uid://l7hd3n1tcy23" path="res://Player/Scripting/ControllerFunctions.gd" id="1_vn67c"]
+[ext_resource type="Script" uid="uid://bxdcmrg2ufjm8" path="res://Common/Scripts/Entity/WingStates/WingStateMachine.gd" id="2_2m3hy"]
 [ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/ControllerStates/IdleState.gd" id="2_ldje2"]
+[ext_resource type="Script" uid="uid://bei6l034pllt6" path="res://Common/Scripts/Entity/WingStates/WingsIdle.gd" id="3_laaob"]
 [ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/ControllerStates/WalkState.gd" id="3_ldje2"]
-[ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/GeneralScripts/CameraMotion.gd" id="4_bacvh"]
+[ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/Scripting/CameraMotion.gd" id="4_bacvh"]
 [ext_resource type="Script" uid="uid://dh7ybwg1n3d1q" path="res://Player/ControllerStates/JumpState.gd" id="4_j8irr"]
+[ext_resource type="Script" uid="uid://chuogpiglf4ke" path="res://Common/Scripts/Entity/WingStates/WingsGlide.gd" id="4_x8g6g"]
 [ext_resource type="Script" uid="uid://bvfkhbgfu15mb" path="res://Player/ControllerStates/FallState.gd" id="5_mdtj2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
 height = 1.3310547
+
+[sub_resource type="PrismMesh" id="PrismMesh_qkran"]
+left_to_right = 0.8
+size = Vector3(0.135, 0.17, 0.195)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60uoq"]
 cull_mode = 2
@@ -18,10 +25,6 @@ cull_mode = 2
 lightmap_size_hint = Vector2i(7, 7)
 material = SubResource("StandardMaterial3D_60uoq")
 size = Vector2(0.335, 0.51)
-
-[sub_resource type="PrismMesh" id="PrismMesh_qkran"]
-left_to_right = 0.8
-size = Vector3(0.135, 0.17, 0.195)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
 height = 1.3232422
@@ -38,45 +41,68 @@ top_level = true
 transform = Transform3D(0.5, 0, 0, 0, 0.12940954, 0.4829629, 0, -0.4829629, 0.12940954, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_qkran")
 
-[node name="Wings" type="Node3D" parent="Mesh" unique_id=1425311760]
-
-[node name="WingMeshL" type="MeshInstance3D" parent="Mesh/Wings" unique_id=1754773031]
-transform = Transform3D(0.25881907, 4.222196e-08, -0.9659258, 0.9659258, -1.1313341e-08, 0.25881907, 0, -1, -4.371139e-08, -0.30533126, 0, 0.18659747)
-mesh = SubResource("QuadMesh_joydu")
-
-[node name="WingMeshR" type="MeshInstance3D" parent="Mesh/Wings" unique_id=502445274]
-transform = Transform3D(-0.25881904, 5.5024728e-08, -0.9659258, 0.9659258, -4.222196e-08, -0.25881904, -5.5024728e-08, -1, -4.222196e-08, 0.3, 0, 0.187)
-mesh = SubResource("QuadMesh_joydu")
-
 [node name="Beak" type="Node3D" parent="Mesh" unique_id=1190860183]
 
 [node name="BeakMesh" type="MeshInstance3D" parent="Mesh/Beak" unique_id=852340943]
 transform = Transform3D(-4.371139e-08, 0, 1, -1, -4.371139e-08, -4.371139e-08, 4.371139e-08, -1, 1.9106855e-15, 0, 0, -0.35896307)
 mesh = SubResource("PrismMesh_qkran")
 
+[node name="Wings" type="Node3D" parent="Mesh" unique_id=1564395972]
+
+[node name="Meshes" type="Node3D" parent="Mesh/Wings" unique_id=1425311760]
+
+[node name="WingMeshL" type="MeshInstance3D" parent="Mesh/Wings/Meshes" unique_id=1754773031]
+transform = Transform3D(0.25881907, 4.222196e-08, -0.9659258, 0.9659258, -1.1313341e-08, 0.25881907, 0, -1, -4.371139e-08, -0.30533126, 0, 0.18659747)
+mesh = SubResource("QuadMesh_joydu")
+
+[node name="WingMeshR" type="MeshInstance3D" parent="Mesh/Wings/Meshes" unique_id=502445274]
+transform = Transform3D(-0.25881904, 5.5024728e-08, -0.9659258, 0.9659258, -4.222196e-08, -0.25881904, -5.5024728e-08, -1, -4.222196e-08, 0.3, 0, 0.187)
+mesh = SubResource("QuadMesh_joydu")
+
+[node name="WingStateMachine" type="Node" parent="Mesh/Wings" unique_id=1856348885 node_paths=PackedStringArray("WING_L", "WING_R", "initial_state")]
+script = ExtResource("2_2m3hy")
+WING_L = NodePath("../Meshes/WingMeshL")
+WING_R = NodePath("../Meshes/WingMeshR")
+initial_state = NodePath("WingsIdle")
+metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
+
+[node name="WingsIdle" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=1782642588]
+script = ExtResource("3_laaob")
+IDLE_LERP = 0.1
+metadata/_custom_type_script = "uid://bei6l034pllt6"
+
+[node name="WingsGliding" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=919575308]
+script = ExtResource("4_x8g6g")
+WING_ROTATION_DIST = Vector3(-60, -90, 0)
+GLIDE_LERP = 0.2
+metadata/_custom_type_script = "uid://chuogpiglf4ke"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755 groups=["Player"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6md3q")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state")]
+[node name="MovementStateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_8rupm")
 initial_state = NodePath("WalkState")
 
-[node name="IdleState" type="Node" parent="StateMachine" unique_id=984515081]
+[node name="IdleState" type="Node" parent="MovementStateMachine" unique_id=984515081 node_paths=PackedStringArray("WING_STATES")]
 script = ExtResource("2_ldje2")
+WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
 
-[node name="WalkState" type="Node" parent="StateMachine" unique_id=1798480752]
+[node name="WalkState" type="Node" parent="MovementStateMachine" unique_id=1798480752]
 script = ExtResource("3_ldje2")
 MOVE_SPEED = 3.0
 GROUND_INERTIA = 7.0
 
-[node name="JumpState" type="Node" parent="StateMachine" unique_id=1176370450]
+[node name="JumpState" type="Node" parent="MovementStateMachine" unique_id=1176370450]
 script = ExtResource("4_j8irr")
 JUMP_VELOCITY = 2
+JUMP_GRAVITY = 20
 metadata/_custom_type_script = "uid://dh7ybwg1n3d1q"
 
-[node name="FallState" type="Node" parent="StateMachine" unique_id=329827307]
+[node name="FallState" type="Node" parent="MovementStateMachine" unique_id=329827307 node_paths=PackedStringArray("WING_STATES")]
 script = ExtResource("5_mdtj2")
+WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
 metadata/_custom_type_script = "uid://bvfkhbgfu15mb"
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=2114444008]
