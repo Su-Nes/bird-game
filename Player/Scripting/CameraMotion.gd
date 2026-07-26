@@ -25,3 +25,4 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().quit()

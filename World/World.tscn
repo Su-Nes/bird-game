@@ -60,5 +60,8 @@ mesh = SubResource("PlaneMesh_qkran")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=937943683]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8234382, 1, -1.3801175)
-size = Vector3(1, 2, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8152645, 0.49528515, -1.3857778)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1748141795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8152645, 0.24528515, -1.3857778)
+size = Vector3(1, 0.5, 1)
