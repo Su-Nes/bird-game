@@ -13,6 +13,10 @@ var direction
 
 @export var MOVE_SPEED = 4
 @export var AIR_INERTIA = 2.5
+@export var CAMERA_MOVEMENT : CameraRotation
+@export var CAMERA_FOLLOW_STRENGTH = .05
+
+
 
 @onready var player_controller: CharacterBody3D = $"../.."
 @onready var camera_pivot_y: Node3D = $"../../CameraPivotY"
@@ -43,6 +47,9 @@ func physics_update(delta: float):
 	direction = (camera_pivot_y.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	handle_velocity(delta)
+	
+	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length())
+
 
 func handle_velocity(delta):
 	player_controller.velocity.x = lerp(player_controller.velocity.x, direction.x * MOVE_SPEED, delta * AIR_INERTIA)

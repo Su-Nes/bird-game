@@ -8,7 +8,6 @@ class_name WalkState
 @export var MOMENTUM_DECAY = 1.0
 @export var CAMERA_MOVEMENT : CameraRotation
 @export var CAMERA_FOLLOW_STRENGTH = .05
-var coyoteTimer
 
 @onready var player_controller: CharacterBody3D = $"../.."
 @onready var camera_pivot_y: Node3D = $"../../CameraPivotY"

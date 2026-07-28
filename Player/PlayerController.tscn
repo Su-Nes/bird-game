@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_8rupm"]
 [ext_resource type="Script" uid="uid://l7hd3n1tcy23" path="res://Player/Scripting/ControllerFunctions.gd" id="1_vn67c"]
 [ext_resource type="Script" uid="uid://bxdcmrg2ufjm8" path="res://Common/Scripts/Entity/WingStates/WingStateMachine.gd" id="2_2m3hy"]
-[ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/ControllerStates/IdleState.gd" id="2_ldje2"]
+[ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/States/IdleState.gd" id="2_ldje2"]
 [ext_resource type="Script" uid="uid://bei6l034pllt6" path="res://Common/Scripts/Entity/WingStates/WingsIdle.gd" id="3_laaob"]
-[ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/ControllerStates/WalkState.gd" id="3_ldje2"]
+[ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/States/WalkState.gd" id="3_ldje2"]
 [ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/Scripting/CameraRotation.gd" id="4_bacvh"]
-[ext_resource type="Script" uid="uid://dh7ybwg1n3d1q" path="res://Player/ControllerStates/JumpState.gd" id="4_j8irr"]
+[ext_resource type="Script" uid="uid://dh7ybwg1n3d1q" path="res://Player/States/JumpState.gd" id="4_j8irr"]
 [ext_resource type="Script" uid="uid://chuogpiglf4ke" path="res://Common/Scripts/Entity/WingStates/WingsGlide.gd" id="4_x8g6g"]
-[ext_resource type="Script" uid="uid://bvfkhbgfu15mb" path="res://Player/ControllerStates/FallState.gd" id="5_mdtj2"]
+[ext_resource type="Script" uid="uid://bvfkhbgfu15mb" path="res://Player/States/FallState.gd" id="5_mdtj2"]
+[ext_resource type="Script" uid="uid://28op0aiob2fe" path="res://Player/States/GlideState.gd" id="10_nwc8f"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
 height = 1.3310547
@@ -96,17 +97,29 @@ GROUND_INERTIA = 7.0
 CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
 CAMERA_FOLLOW_STRENGTH = 0.3
 
-[node name="JumpState" type="Node" parent="MovementStateMachine" unique_id=1176370450]
+[node name="JumpState" type="Node" parent="MovementStateMachine" unique_id=1176370450 node_paths=PackedStringArray("CAMERA_MOVEMENT")]
 script = ExtResource("4_j8irr")
 JUMP_VELOCITY = 1
 JUMP_TIME = 0.1
 JUMP_GRAVITY = 20
-metadata/_custom_type_script = "uid://dh7ybwg1n3d1q"
+CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
+CAMERA_FOLLOW_STRENGTH = 0.5
 
-[node name="FallState" type="Node" parent="MovementStateMachine" unique_id=329827307 node_paths=PackedStringArray("WING_STATES")]
+[node name="FallState" type="Node" parent="MovementStateMachine" unique_id=329827307 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("5_mdtj2")
 WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
-metadata/_custom_type_script = "uid://bvfkhbgfu15mb"
+CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
+CAMERA_FOLLOW_STRENGTH = 0.5
+
+[node name="GlideState" type="Node" parent="MovementStateMachine" unique_id=709554660 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
+script = ExtResource("10_nwc8f")
+WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
+GRAVITY_MOD = 0.1
+GLIDE_SPEED = 8.0
+GLIDE_INERTIA = 1.0
+CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
+CAMERA_FOLLOW_STRENGTH = 1.0
+metadata/_custom_type_script = "uid://28op0aiob2fe"
 
 [node name="CameraPivotY" type="Node3D" parent="." unique_id=545498020]
 
