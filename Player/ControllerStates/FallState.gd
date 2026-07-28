@@ -4,6 +4,7 @@ class_name FallState
 
 
 @onready var player_controller: CharacterBody3D = $"../.."
+@onready var camera_pivot_y: Node3D = $"../../CameraPivotY"
 @onready var collision_shape_3d: CollisionShape3D = $"../../CollisionShape3D"
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
@@ -29,7 +30,7 @@ func physics_update(delta: float):
 		
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-	direction = (player_controller.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (camera_pivot_y.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 	handle_velocity(delta)
 	

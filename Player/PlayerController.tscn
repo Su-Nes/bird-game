@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/ControllerStates/IdleState.gd" id="2_ldje2"]
 [ext_resource type="Script" uid="uid://bei6l034pllt6" path="res://Common/Scripts/Entity/WingStates/WingsIdle.gd" id="3_laaob"]
 [ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/ControllerStates/WalkState.gd" id="3_ldje2"]
-[ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/Scripting/CameraMotion.gd" id="4_bacvh"]
+[ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/Scripting/CameraRotation.gd" id="4_bacvh"]
 [ext_resource type="Script" uid="uid://dh7ybwg1n3d1q" path="res://Player/ControllerStates/JumpState.gd" id="4_j8irr"]
 [ext_resource type="Script" uid="uid://chuogpiglf4ke" path="res://Common/Scripts/Entity/WingStates/WingsGlide.gd" id="4_x8g6g"]
 [ext_resource type="Script" uid="uid://bvfkhbgfu15mb" path="res://Player/ControllerStates/FallState.gd" id="5_mdtj2"]
@@ -89,10 +89,12 @@ initial_state = NodePath("WalkState")
 script = ExtResource("2_ldje2")
 WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
 
-[node name="WalkState" type="Node" parent="MovementStateMachine" unique_id=1798480752]
+[node name="WalkState" type="Node" parent="MovementStateMachine" unique_id=1798480752 node_paths=PackedStringArray("CAMERA_MOVEMENT")]
 script = ExtResource("3_ldje2")
 MOVE_SPEED = 3.0
 GROUND_INERTIA = 7.0
+CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
+CAMERA_AUTO_LOOK_LERP = 0.005
 
 [node name="JumpState" type="Node" parent="MovementStateMachine" unique_id=1176370450]
 script = ExtResource("4_j8irr")
@@ -106,15 +108,17 @@ script = ExtResource("5_mdtj2")
 WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
 metadata/_custom_type_script = "uid://bvfkhbgfu15mb"
 
-[node name="CameraPivot" type="Node3D" parent="." unique_id=2114444008]
+[node name="CameraPivotY" type="Node3D" parent="." unique_id=545498020]
+
+[node name="CameraPivotX" type="Node3D" parent="CameraPivotY" unique_id=2114444008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("4_bacvh")
 STICK_SENS = 5.0
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=780229940]
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivotY/CameraPivotX" unique_id=780229940]
 spring_length = 1.5
 margin = 1.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1870356551]
+[node name="Camera3D" type="Camera3D" parent="CameraPivotY/CameraPivotX/SpringArm3D" unique_id=1870356551]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 fov = 100.0
