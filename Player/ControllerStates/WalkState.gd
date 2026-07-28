@@ -7,7 +7,7 @@ class_name WalkState
 @export var GROUND_INERTIA = 14.0
 @export var MOMENTUM_DECAY = 1.0
 @export var CAMERA_MOVEMENT : CameraRotation
-@export var CAMERA_AUTO_LOOK_LERP = .05
+@export var CAMERA_FOLLOW_STRENGTH = .05
 var coyoteTimer
 
 @onready var player_controller: CharacterBody3D = $"../.."
@@ -22,7 +22,7 @@ func enter():
 	#print("Entered Walk state")
 	pass
 	
-func physics_update(delta):
+func update(delta: float):
 	# Switch to fall state if player controller is not on ground.
 	if !player_controller.is_on_floor():
 		state_machine.change_state("fallstate")
@@ -37,8 +37,8 @@ func physics_update(delta):
 	direction = (camera_pivot_y.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	handle_velocity(delta)
-	
-	CAMERA_MOVEMENT.look_towards(direction, CAMERA_AUTO_LOOK_LERP)
+
+	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length())
 	
 	# Switch to idle when no movement direction is held.
 	if direction.length() <= 0.0:

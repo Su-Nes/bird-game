@@ -94,7 +94,7 @@ script = ExtResource("3_ldje2")
 MOVE_SPEED = 3.0
 GROUND_INERTIA = 7.0
 CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
-CAMERA_AUTO_LOOK_LERP = 0.005
+CAMERA_FOLLOW_STRENGTH = 0.3
 
 [node name="JumpState" type="Node" parent="MovementStateMachine" unique_id=1176370450]
 script = ExtResource("4_j8irr")
@@ -113,7 +113,7 @@ metadata/_custom_type_script = "uid://bvfkhbgfu15mb"
 [node name="CameraPivotX" type="Node3D" parent="CameraPivotY" unique_id=2114444008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("4_bacvh")
-STICK_SENS = 5.0
+STICK_SENS = 500.0
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivotY/CameraPivotX" unique_id=780229940]
 spring_length = 1.5
