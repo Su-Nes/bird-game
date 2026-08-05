@@ -115,10 +115,10 @@ CAMERA_FOLLOW_STRENGTH = 0.5
 script = ExtResource("10_nwc8f")
 WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
 GRAVITY_MOD = 0.1
-GLIDE_SPEED = 8.0
+GLIDE_SPEED = 5.0
 GLIDE_INERTIA = 1.0
 CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
-CAMERA_FOLLOW_STRENGTH = 1.0
+CAMERA_FOLLOW_STRENGTH = 3.0
 metadata/_custom_type_script = "uid://28op0aiob2fe"
 
 [node name="CameraPivotY" type="Node3D" parent="." unique_id=545498020]

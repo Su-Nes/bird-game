@@ -21,6 +21,7 @@ func enter():
 	print("Entered Glide state.")
 	
 	WING_STATES.change_state("WingsGliding")
+	CAMERA_MOVEMENT.disable_look_timer = 0
 	
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -38,7 +39,12 @@ func physics_update(delta: float):
 		
 	handle_velocity(delta)
 	
-	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length())
+	if input_dir.length() <= 0:
+		CAMERA_MOVEMENT.look_towards_y(input_dir.y, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length())
+	else:
+		var look_vector = player_controller.velocity
+		look_vector.y = 0
+		CAMERA_MOVEMENT.look_towards_vector(look_vector, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length())
 	
 	
 func handle_velocity(delta):	
