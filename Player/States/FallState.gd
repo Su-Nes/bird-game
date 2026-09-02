@@ -24,8 +24,11 @@ func enter():
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func physics_update(delta: float):
-	if Input.is_action_pressed("jump") and player_controller.velocity.y < 0.0:
-		state_machine.change_state("GlideState")
+	if Input.is_action_pressed("jump") and player_controller.velocity.y <= 0.0:
+		state_machine.change_state("HoverState")
+	
+	if Input.is_action_just_pressed("jump") and player_controller.velocity.y > 0.0:
+		state_machine.change_state("FlyState")
 	
 	# Add the gravity.
 	if !player_controller.is_on_floor():
@@ -39,7 +42,7 @@ func physics_update(delta: float):
 		
 	handle_velocity(delta)
 	
-	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length())
+	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length(), 0.0)
 	
 	
 func handle_velocity(delta):	

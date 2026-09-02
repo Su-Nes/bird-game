@@ -23,7 +23,7 @@ var direction
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 func enter():
-	#print("Entered Jump state")
+	print("Entered Jump state")
 	player_controller.velocity.y = JUMP_VELOCITY
 	
 	isJumping = true
@@ -48,7 +48,7 @@ func physics_update(delta: float):
 	
 	handle_velocity(delta)
 	
-	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length())
+	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length(), 0.0)
 
 
 func handle_velocity(delta):

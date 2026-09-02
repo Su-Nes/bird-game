@@ -37,7 +37,7 @@ func update(delta: float):
 	
 	handle_velocity(delta)
 
-	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length())
+	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length(), 0.0)
 	
 	# Switch to idle when no movement direction is held.
 	if direction.length() <= 0.0:

@@ -4,12 +4,12 @@ class_name CameraRotation
 
 
 @onready var pivot: Node3D = $".."
+@onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
 
 @export var MOUSE_SENS = 0.5
 @export var STICK_SENS = 0.05
 @export var LOOK_AHEAD_SMOOTHING = .04
-@export var DURATION_LOOK_DISABLED_ON_MOUSE_MOVE = .75
-var disable_look_timer = 0
+var disable_look_timer: float
 
 
 func _ready():
@@ -21,33 +21,32 @@ func _unhandled_input(event):
 		pivot.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
 		rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENS))
 		
-		disable_look_timer = DURATION_LOOK_DISABLED_ON_MOUSE_MOVE
+		disable_look_timer = 0
 		
 func _process(delta: float) -> void:	
 	# Stick look
 	var look_movement = Input.get_vector("lookLeft", "lookRight", "lookDown", "lookUp") * delta
 	
 	if look_movement.length() > 0:
-		disable_look_timer = DURATION_LOOK_DISABLED_ON_MOUSE_MOVE
+		disable_look_timer = 0
 	
 	pivot.rotate_y(deg_to_rad(-look_movement.x * STICK_SENS))
 	rotate_x(deg_to_rad(look_movement.y * STICK_SENS))
+	
+	rotation.x = clampf(rotation.x, deg_to_rad(-85), deg_to_rad(55))
+
+	# timer for camera look when moving ze camera
+	disable_look_timer += delta
 	
 	if Input.is_action_just_pressed("pause"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().quit()
 
-	rotation.x = clampf(rotation.x, deg_to_rad(-85), deg_to_rad(55))
-	
-	# timer for camera look when moving ze camera
-	if disable_look_timer > 0:
-		disable_look_timer -= delta
-
 	
 var previous_value : float
 var look_mod = .5
-func look_towards_y(value: float, strength: float):
-	if disable_look_timer > 0:
+func look_towards_y(value: float, strength: float, cam_reset_time = .5):
+	if disable_look_timer < cam_reset_time:
 		return
 	
 	if value == previous_value:
@@ -58,15 +57,22 @@ func look_towards_y(value: float, strength: float):
 
 	pivot.rotation.y += -value * strength * abs(look_mod)
 	
-func look_towards_vector(direction: Vector3, strength):
-	if disable_look_timer > 0:
-		return
+func look_towards_vector(direction: Vector3, strength: float, cam_reset_time: float = .5):
+	if disable_look_timer < cam_reset_time:
+		strength /= 4.0
 	
 	var look_pos = global_position + direction * 99
 
 	var start_rot = pivot.rotation
 	pivot.transform = pivot.transform.looking_at(look_pos)
 	var end_rot = pivot.rotation
-
-	pivot.rotation.y = lerp_angle(start_rot.y, end_rot.y, strength)
+	pivot.rotation = start_rot
+	
+	pivot.rotation.y = lerp_angle(pivot.rotation.y, end_rot.y, strength)
 	rotation.x = lerp_angle(rotation.x, end_rot.x, strength)
+	
+func get_camera_forward() -> Vector3:
+	return -camera_3d.global_basis.z
+	
+func get_camera_right() -> Vector3:
+	return camera_3d.global_basis.x
