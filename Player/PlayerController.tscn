@@ -2,24 +2,173 @@
 
 [ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_8rupm"]
 [ext_resource type="Script" uid="uid://l7hd3n1tcy23" path="res://Player/Scripting/ControllerFunctions.gd" id="1_vn67c"]
-[ext_resource type="Script" uid="uid://bxdcmrg2ufjm8" path="res://Common/Scripts/Entity/WingStates/WingStateMachine.gd" id="2_2m3hy"]
+[ext_resource type="Script" uid="uid://bxdcmrg2ufjm8" path="res://Player/States/WingStates/WingStateMachine.gd" id="2_2m3hy"]
 [ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/States/IdleState.gd" id="2_ldje2"]
-[ext_resource type="Script" uid="uid://bei6l034pllt6" path="res://Common/Scripts/Entity/WingStates/WingsIdle.gd" id="3_laaob"]
+[ext_resource type="Script" uid="uid://bei6l034pllt6" path="res://Player/States/WingStates/WingsIdle.gd" id="3_laaob"]
 [ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/States/WalkState.gd" id="3_ldje2"]
+[ext_resource type="Script" uid="uid://c8iux46pa1gou" path="res://Player/States/WingStates/WingFlapSingular.gd" id="4_0vcn1"]
 [ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/Scripting/CameraRotation.gd" id="4_bacvh"]
 [ext_resource type="Script" uid="uid://dh7ybwg1n3d1q" path="res://Player/States/JumpState.gd" id="4_j8irr"]
-[ext_resource type="Script" uid="uid://chuogpiglf4ke" path="res://Common/Scripts/Entity/WingStates/WingsGlide.gd" id="4_x8g6g"]
+[ext_resource type="Script" uid="uid://chuogpiglf4ke" path="res://Player/States/WingStates/WingsGlide.gd" id="4_x8g6g"]
 [ext_resource type="Script" uid="uid://bvfkhbgfu15mb" path="res://Player/States/FallState.gd" id="5_mdtj2"]
-[ext_resource type="Script" uid="uid://bx2ijy86hx2g7" path="res://Common/Scripts/Entity/WingStates/WingsFlapping.gd" id="5_s3wpl"]
+[ext_resource type="Script" uid="uid://bx2ijy86hx2g7" path="res://Player/States/WingStates/WingsFlapping.gd" id="5_s3wpl"]
 [ext_resource type="Script" uid="uid://28op0aiob2fe" path="res://Player/States/HoverState.gd" id="10_nwc8f"]
 [ext_resource type="Script" uid="uid://b42w7u62u1xtg" path="res://Player/States/FlyState.gd" id="11_s0b8n"]
+[ext_resource type="Script" uid="uid://co3t6e564eppe" path="res://Player/States/CrashState.gd" id="14_ds2wf"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
-height = 1.3310547
+[sub_resource type="Animation" id="Animation_g7pa4"]
+resource_name = "Break"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meshes/WingMeshL")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.5, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Meshes/WingMeshL")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.706138, 0.706138, 0.037007, -0.037007)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meshes/WingMeshR")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.5, 0, 0)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meshes/WingMeshR")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.706138, 0.706138, 0.037007, -0.037007)
+tracks/4/type = "scale_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Meshes/WingMeshL")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/5/type = "scale_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Meshes/WingMeshR")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
-[sub_resource type="PrismMesh" id="PrismMesh_qkran"]
-left_to_right = 0.8
-size = Vector3(0.135, 0.17, 0.195)
+[sub_resource type="Animation" id="Animation_f1frd"]
+resource_name = "Crash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.87153727, 0.81417084, 1.0441648), Vector3(1.0860227, -1.5370811, -1.6958805)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Meshes/WingMeshR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.32553568, 0.28526688, -0.038904924)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meshes/WingMeshL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.34064776, 0.0022884384, 0.17222457)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meshes/WingMeshL:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.1217066, 2.161273, 1.1194715)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Meshes/WingMeshR:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.7481714, 1.5053624, -3.131398)]
+}
+
+[sub_resource type="Animation" id="Animation_ds2wf"]
+resource_name = "Flap"
+length = 0.33333334
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meshes/WingMeshL")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.5, 0.147, 0, 0.1, 1, 0.5, -0.079, 0, 0.33333334, 1, 0.5, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Meshes/WingMeshL")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.5610599, 0.5610599, -0.4303624, 0.4303624)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meshes/WingMeshR")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.5, 0.147, 0, 0.1, 1, -0.5, -0.079, 0, 0.33333334, 1, -0.5, 0, 0)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meshes/WingMeshR")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.5609855, 0.56098557, -0.43045935, 0.43045932)
+tracks/4/type = "scale_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Meshes/WingMeshL")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/5/type = "scale_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Meshes/WingMeshR")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.9999999, 1, 0.9999999)
 
 [sub_resource type="Animation" id="Animation_s3wpl"]
 resource_name = "Flapping"
@@ -68,28 +217,115 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0, 1, 0.9999999, 1, 0.9999999)
 
+[sub_resource type="Animation" id="Animation_cqlj3"]
+resource_name = "Glide"
+length = 0.13333334
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meshes/WingMeshL")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.5, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Meshes/WingMeshL")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.5610599, 0.5610599, -0.4303624, 0.4303624)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meshes/WingMeshR")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.5, 0, 0)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meshes/WingMeshR")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.5609855, 0.56098557, -0.43045935, 0.43045932)
+tracks/4/type = "scale_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Meshes/WingMeshL")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/5/type = "scale_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Meshes/WingMeshR")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
 [sub_resource type="Animation" id="Animation_0vcn1"]
 length = 0.001
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Meshes/WingMeshL")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.5096024, -0.0012238398, 0.0132249)
-tracks/1/type = "position_3d"
+tracks/0/keys = PackedFloat32Array(0, 1, 0.3, 0, 0)
+tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Meshes/WingMeshR")
+tracks/1/path = NodePath("Meshes/WingMeshL")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.5, 0, 0)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.153046, 0.690346, 0.153046, 0.690346)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meshes/WingMeshR")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0.001, 1, -0.3, 0, 0)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meshes/WingMeshR")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.153046, 0.690346, -0.153046, 0.690346)
+tracks/4/type = "scale_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Meshes/WingMeshL")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/5/type = "scale_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Meshes/WingMeshR")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0.001, 1, 0.99999994, 1, 0.99999994)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0vcn1"]
 _data = {
+&"Break": SubResource("Animation_g7pa4"),
+&"Crash": SubResource("Animation_f1frd"),
+&"Flap": SubResource("Animation_ds2wf"),
 &"Flapping": SubResource("Animation_s3wpl"),
+&"Glide": SubResource("Animation_cqlj3"),
 &"RESET": SubResource("Animation_0vcn1")
 }
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
+radius = 0.4
+height = 1.3310547
+
+[sub_resource type="PrismMesh" id="PrismMesh_qkran"]
+left_to_right = 0.8
+size = Vector3(0.135, 0.17, 0.195)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60uoq"]
 cull_mode = 2
@@ -102,13 +338,38 @@ size = Vector2(0.335, 0.51)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
 height = 1.3232422
 
+[sub_resource type="Curve" id="Curve_f1frd"]
+_limits = [-1.0, 1.0, -90.0, 90.0]
+_data = [Vector2(-90, -1), 0.0, 0.01111111, 0, 1, Vector2(90, 1), 0.01111111, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_n84ad"]
+_limits = [0.0, 1.0, 0.0, 80.0]
+_data = [Vector2(0, 1), 0.0, -0.025983583, 0, 0, Vector2(80, 0), -0.0016170577, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_cqlj3"]
+_limits = [0.0, 1.0, 0.0, 80.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(80, 1), 0.0175, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ds2wf"]
+_limits = [0.0, 1.0, 0.0, 80.0]
+_data = [Vector2(0, 0), 0.0, 0.0021560763, 0, 0, Vector2(80, 1), 0.01940477, 0.0, 0, 0]
+point_count = 2
+
 [node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH")]
 script = ExtResource("1_vn67c")
 MESH_OFFSET = Vector3(0, 0.1, 0)
-LOOK_AT_LERP = 0.2
+LOOK_AT_LERP_Z = 0.05
 MESH = NodePath("Mesh")
 
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1816877548]
+root_node = NodePath("../Mesh/Wings")
+libraries/ = SubResource("AnimationLibrary_0vcn1")
+
 [node name="Mesh" type="Node3D" parent="." unique_id=1026739179]
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 top_level = true
 
 [node name="BodyMesh" type="MeshInstance3D" parent="Mesh" unique_id=121188186]
@@ -123,56 +384,57 @@ mesh = SubResource("PrismMesh_qkran")
 
 [node name="Wings" type="Node3D" parent="Mesh" unique_id=1564395972]
 
-[node name="WingAnimations" type="AnimationPlayer" parent="Mesh/Wings" unique_id=1816877548]
-libraries/ = SubResource("AnimationLibrary_0vcn1")
-
 [node name="Meshes" type="Node3D" parent="Mesh/Wings" unique_id=1425311760]
 
 [node name="WingMeshL" type="MeshInstance3D" parent="Mesh/Wings/Meshes" unique_id=1754773031]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5096024, -0.0012238398, 0.0132249)
+transform = Transform3D(0, -0.42261818, 0.9063078, 0, 0.9063078, 0.42261818, -1, 0, 0, 0.3, 0, 0)
 mesh = SubResource("QuadMesh_joydu")
 
 [node name="WingMeshR" type="MeshInstance3D" parent="Mesh/Wings/Meshes" unique_id=502445274]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+transform = Transform3D(0, 0.42261815, 0.90630776, 0, 0.9063078, -0.42261818, -0.99999994, 0, 0, -0.3, 0, 0)
 mesh = SubResource("QuadMesh_joydu")
 
-[node name="WingStateMachine" type="Node" parent="Mesh/Wings" unique_id=1856348885 node_paths=PackedStringArray("WING_L", "WING_R", "initial_state")]
+[node name="WingStateMachine" type="Node" parent="Mesh/Wings" unique_id=1856348885 node_paths=PackedStringArray("WING_L", "WING_R", "initial_state", "ANIMATOR")]
 script = ExtResource("2_2m3hy")
 WING_L = NodePath("../Meshes/WingMeshL")
 WING_R = NodePath("../Meshes/WingMeshR")
 initial_state = NodePath("WingsIdle")
+ANIMATOR = NodePath("../../../Animator")
 metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
 
-[node name="WingsIdle" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=1782642588]
+[node name="WingsIdle" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=1782642588 node_paths=PackedStringArray("ANIMATOR_ALT")]
 script = ExtResource("3_laaob")
+ANIMATOR_ALT = NodePath("../../../../Animator")
 IDLE_LERP = 0.1
-metadata/_custom_type_script = "uid://bei6l034pllt6"
 
-[node name="WingsFlapping" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=129285710 node_paths=PackedStringArray("ANIMATOR")]
+[node name="WingsFlapSingular" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=659312467]
+script = ExtResource("4_0vcn1")
+metadata/_custom_type_script = "uid://c8iux46pa1gou"
+
+[node name="WingsFlapping" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=129285710]
 script = ExtResource("5_s3wpl")
-ANIMATOR = NodePath("../../WingAnimations")
-metadata/_custom_type_script = "uid://bx2ijy86hx2g7"
 
 [node name="WingsGliding" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=919575308]
 script = ExtResource("4_x8g6g")
-WING_ROTATION_DIST = Vector3(-60, -90, 0)
+WING_ROTATION_DIST = Vector3(-60, 90, 0)
 GLIDE_LERP = 0.2
-metadata/_custom_type_script = "uid://chuogpiglf4ke"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755 groups=["Player"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6md3q")
 
-[node name="MovementStateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state")]
+[node name="MovementStateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
 script = ExtResource("1_8rupm")
 initial_state = NodePath("WalkState")
+ANIMATOR = NodePath("../Animator")
 
 [node name="IdleState" type="Node" parent="MovementStateMachine" unique_id=984515081 node_paths=PackedStringArray("WING_STATES")]
 script = ExtResource("2_ldje2")
 WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
 
-[node name="WalkState" type="Node" parent="MovementStateMachine" unique_id=1798480752 node_paths=PackedStringArray("CAMERA_MOVEMENT")]
+[node name="WalkState" type="Node" parent="MovementStateMachine" unique_id=1798480752 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("3_ldje2")
+WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
 MOVE_SPEED = 3.0
 GROUND_INERTIA = 7.0
 CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
@@ -189,6 +451,7 @@ CAMERA_FOLLOW_STRENGTH = 0.5
 [node name="FallState" type="Node" parent="MovementStateMachine" unique_id=329827307 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("5_mdtj2")
 WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
+FLIGHT_TRANSITION_VELOCITY = 10.0
 CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
 CAMERA_FOLLOW_STRENGTH = 0.5
 
@@ -204,12 +467,28 @@ metadata/_custom_type_script = "uid://28op0aiob2fe"
 [node name="FlyState" type="Node" parent="MovementStateMachine" unique_id=41892790 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("11_s0b8n")
 WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
-START_SPEED = 12.0
-GRAVITY_MOD = 0.1
-YAW_ROT_SPEED = 2.0
+ANGLE_ACCELERATION_CURVE = SubResource("Curve_f1frd")
+AUTO_ANGLE_MULT = 150.0
+THRUST_CURVE = SubResource("Curve_n84ad")
+DRAG_CURVE = SubResource("Curve_cqlj3")
+DRAG_STRENGTH = -0.4
+BREAK_CURVE = SubResource("Curve_ds2wf")
+BREAK_STRENGTH = 200.0
+PITCH_ROT_SPEED = 1.5
+YAW_ROT_SPEED = 1.25
+ROLL_ROT_SPEED = 5.0
+PITCH_ROLL_COMPENSATION = 0.25
+ROLL_ROT_LIMIT = 55.0
 CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
-CAMERA_FOLLOW_STRENGTH = 3.0
+CAMERA_FOLLOW_STRENGTH = 5.0
+CAMERA_RESET_TIME = 1.0
 metadata/_custom_type_script = "uid://b42w7u62u1xtg"
+
+[node name="CrashState" type="Node" parent="MovementStateMachine" unique_id=375807589 node_paths=PackedStringArray("ANIMATOR")]
+script = ExtResource("14_ds2wf")
+ANIMATOR = NodePath("../../Animator")
+CRASH_DURATION = 1.0
+metadata/_custom_type_script = "uid://co3t6e564eppe"
 
 [node name="CameraPivotY" type="Node3D" parent="." unique_id=545498020]
 
@@ -218,6 +497,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("4_bacvh")
 MOUSE_SENS = 0.2
 STICK_SENS = 500.0
+CAM_RESET_MOD = 0.05
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivotY/CameraPivotX" unique_id=780229940]
 spring_length = 1.5

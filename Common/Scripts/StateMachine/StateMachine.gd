@@ -4,8 +4,12 @@ class_name StateMachine
 
 
 @export var initial_state: State
+@export var ANIMATOR : AnimationPlayer
+
 var current_state: State 
 var states: Dictionary = {}
+
+var stored_vector : Vector3
 
 func _ready() -> void:
 	# Register all states in children

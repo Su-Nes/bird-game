@@ -3,6 +3,7 @@ extends State
 class_name WalkState
 
 
+@export var WING_STATES : WingStateMachine
 @export var MOVE_SPEED: float
 @export var GROUND_INERTIA = 14.0
 @export var MOMENTUM_DECAY = 1.0
@@ -17,9 +18,6 @@ class_name WalkState
 var direction
 var velocity
 
-func enter():
-	#print("Entered Walk state")
-	pass
 	
 func update(delta: float):
 	# Switch to fall state if player controller is not on ground.
@@ -50,3 +48,4 @@ func handle_velocity(delta):
 	player_controller.move_and_slide()
 	
 	extension_functions.handle_model_transform(direction)
+	extension_functions.rotate_to_floor_normal()

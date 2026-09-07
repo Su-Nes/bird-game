@@ -3,8 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
 
 [sub_resource type="Environment" id="Environment_qkran"]
-fog_enabled = true
-fog_light_color = Color(0.61347324, 0.67559487, 0.84342957, 1)
+background_mode = 1
+background_color = Color(0.39224166, 0.77681565, 0.88966763, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.43283385, 0.38038287, 0.25770286, 1)
+fog_mode = 1
+fog_light_color = Color(0.57155645, 0.79634225, 0.89866644, 1)
+fog_density = 1.0
+fog_depth_curve = 0.63728046
+adjustment_enabled = true
+adjustment_brightness = 1.17
+adjustment_contrast = 0.805
+adjustment_saturation = 1.15
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_nld0w"]
 
@@ -30,7 +40,6 @@ material = SubResource("ORMMaterial3D_folwd")
 [node name="World" type="Node3D" unique_id=2109053146]
 
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1303183820]
 transform = Transform3D(0.6550948, -0.6722641, 0.34483546, 0.27809775, 0.6389092, 0.71725625, -0.7025042, -0.3739729, 0.6055014, 0, 10, 0)
