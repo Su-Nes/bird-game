@@ -16,7 +16,7 @@ var disable_look_timer: float
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _unhandled_input(event):
+func _input(event):
 	# Mouse look
 	if event is InputEventMouseMotion:
 		pivot.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))

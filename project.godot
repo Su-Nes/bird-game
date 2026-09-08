@@ -20,7 +20,9 @@ settings/addon_root_folder="res://addons/debug_draw_3d"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/size/viewport_width=640
+window/size/viewport_height=426
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [input]
@@ -100,4 +102,5 @@ alt={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

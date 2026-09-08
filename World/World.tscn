@@ -1,22 +1,55 @@
 [gd_scene format=3 uid="uid://gyv0w2cpssjs"]
 
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
+[ext_resource type="Shader" uid="uid://dcnakafcrt4fu" path="res://World/FreemanSky.gdshader" id="2_y6flb"]
 
-[sub_resource type="Environment" id="Environment_qkran"]
-background_mode = 1
-background_color = Color(0.39224166, 0.77681565, 0.88966763, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.43283385, 0.38038287, 0.25770286, 1)
-fog_mode = 1
-fog_light_color = Color(0.57155645, 0.79634225, 0.89866644, 1)
-fog_density = 1.0
-fog_depth_curve = 0.63728046
-adjustment_enabled = true
-adjustment_brightness = 1.17
-adjustment_contrast = 0.805
-adjustment_saturation = 1.15
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eue43"]
+shader = ExtResource("2_y6flb")
+shader_parameter/sun_intensity = 40.000000596048
+shader_parameter/sun_wavelengths = Vector3(0.68, 0.55, 0.48)
+shader_parameter/rayleigh_scale_height = 8000.0
+shader_parameter/rayleigh_multi_scattering = 0.01
+shader_parameter/mie_scale_height = 1200.0
+shader_parameter/mie_scattering = 5e-06
+shader_parameter/mie_albedo = 0.9
+shader_parameter/mie_g_forward = 0.85
+shader_parameter/mie_g_backward = -0.15
+shader_parameter/mie_weight = 0.85
+shader_parameter/mie_multi_scattering = 0.3
+shader_parameter/multiscattering_mie_g_forward = 0.5
+shader_parameter/multiscattering_mie_g_backward = -0.05
+shader_parameter/multiscattering_mie_weight = 0.75
+shader_parameter/ozone_center = 25000.0
+shader_parameter/ozone_width = 30000.0
+shader_parameter/planet_radius = 6360000.0
+shader_parameter/atmosphere_height = 100000.0
+shader_parameter/base_altitude = 0.0
+shader_parameter/ground_color = Vector3(0.12, 0.11, 0.08)
+shader_parameter/view_samples = 24
+shader_parameter/sun_samples = 8
+shader_parameter/clouds_enabled = true
+shader_parameter/cloud_color = Color(1, 1, 1, 1)
+shader_parameter/cloud_color_dark = Color(0, 0, 0, 1)
+shader_parameter/cloud_edge_sharpness = 0.0670000031825
+shader_parameter/cloud_scale = 0.50700002082262
+shader_parameter/cloud_speed = 0.02
 
-[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_nld0w"]
+[sub_resource type="Sky" id="Sky_y6flb"]
+sky_material = SubResource("ShaderMaterial_eue43")
+
+[sub_resource type="Environment" id="Environment_y6flb"]
+background_mode = 2
+sky = SubResource("Sky_y6flb")
+ambient_light_source = 3
+reflected_light_source = 2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.002
+volumetric_fog_anisotropy = 0.67
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kvd28"]
+
+[sub_resource type="Compositor" id="Compositor_35w67"]
+compositor_effects = Array[CompositorEffect]([null])
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qkran"]
 
@@ -37,20 +70,26 @@ albedo_texture = SubResource("CurveTexture_mlekv")
 [sub_resource type="PlaneMesh" id="PlaneMesh_qkran"]
 material = SubResource("ORMMaterial3D_folwd")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ds2wf"]
+albedo_color = Color(0.12530395, 0.059494026, 0, 1)
+
 [node name="World" type="Node3D" unique_id=2109053146]
 
-[node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
+[node name="Environment" type="Node" parent="." unique_id=395164615]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1303183820]
-transform = Transform3D(0.6550948, -0.6722641, 0.34483546, 0.27809775, 0.6389092, 0.71725625, -0.7025042, -0.3739729, 0.6055014, 0, 10, 0)
-light_color = Color(0.87777835, 0.8614303, 0.8024045, 1)
-light_energy = 2.0
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1303183820]
+transform = Transform3D(0.86074376, 0.491754, 0.13153523, 2.9802322e-08, -0.2583977, 0.9660388, 0.50904244, -0.8315107, -0.22241375, 0, 0, 0)
+light_color = Color(0.9999996, 0.9287603, 0.8215887, 1)
 shadow_enabled = true
-shadow_opacity = 0.85
+shadow_opacity = 0.75
+shadow_blur = 3.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1917248881]
-environment = SubResource("Environment_qkran")
-camera_attributes = SubResource("CameraAttributesPhysical_nld0w")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1917248881]
+environment = SubResource("Environment_y6flb")
+camera_attributes = SubResource("CameraAttributesPractical_kvd28")
+compositor = SubResource("Compositor_35w67")
+
+[node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
 
 [node name="LevelObjects" type="Node3D" parent="." unique_id=2034537777]
 
@@ -66,171 +105,215 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0.05, 0)
 mesh = SubResource("PlaneMesh_qkran")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="LevelObjects" unique_id=163098287]
+autosmooth = true
+smoothing_angle = 95.8
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=937943683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8152645, 0.49528515, -1.3857778)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1071372668]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.315296, 30, 12.918581)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1606666527]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.011948, 30, -22.383673)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1841092913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6495056, 30, -23.297216)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=2049837960]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.809835, 30, -48.344353)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=2143605358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.645788, 30, -15.981098)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=655772602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.985596, 30, 35.520615)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1282249770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.68224, 30, 0.218359)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1978923395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.02079, 30, -0.6951847)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=155844591]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.480133, 30, -25.742321)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1826306284]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.316086, 30, 6.6209335)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1402071974]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.974186, 30, 92.00648)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1279627473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.670834, 30, 56.704224)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1720240794]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.00938, 30, 55.79068)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1107247332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.468723, 30, 30.743542)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1819390787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.304676, 30, 63.106796)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=2036581180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.732048, 30, 69.49371)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1473038161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9646, 30, 34.191463)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1374642578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.696854, 30, 33.27792)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1573030792]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.237511, 30, 8.230782)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=401452473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.401558, 30, 40.594036)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=153307041]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.575735, 30, -17.459915)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=521357311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.879087, 30, -52.762165)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1708091874]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.540543, 30, -53.67571)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=547723306]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.0812, 30, -78.72285)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D27" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1091686532]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.245245, 30, -46.359592)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=97727848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.996407, 30, 35.86006)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=2090325272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.29976, 30, 0.55781174)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1599862725]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.96121, 30, -0.35573196)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D31" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=880919708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.50187, 30, -25.40287)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=22738635]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.665916, 30, 6.9603844)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D33" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=275399908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.144644, 30, 123.55308)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D34" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1286447045]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4479961, 30, 88.250824)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D35" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=146296475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.10945, 30, 87.33728)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=691385163]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.650106, 30, 62.290146)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D37" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=390388448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.814154, 30, 94.6534)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D38" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1568261804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.297005, 30, 146.52863)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D39" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1898961131]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.993652, 30, 111.22638)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D40" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=163789176]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.332199, 30, 110.312836)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D41" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1969383028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.791544, 30, 85.2657)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D42" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=937725606]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.627495, 30, 117.62895)
 size = Vector3(2, 60, 2)
+material = SubResource("StandardMaterial3D_ds2wf")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="LevelObjects/CSGCombiner3D" unique_id=1748141795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8152645, 0.24528515, -1.3857778)
 size = Vector3(1, 0.5, 1)
+material = SubResource("StandardMaterial3D_ds2wf")
