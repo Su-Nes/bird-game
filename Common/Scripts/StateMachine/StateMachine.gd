@@ -3,11 +3,12 @@ extends Node
 class_name StateMachine
 
 
-@export var initial_state: State
+@export var initial_state : State
 @export var ANIMATOR : AnimationPlayer
 
 var current_state: State 
-var states: Dictionary = {}
+var previous_state : State
+var states : Dictionary = {}
 
 var stored_vector : Vector3
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 			child.state_machine = self
 			
 	if initial_state:
+		previous_state = initial_state
 		change_state(initial_state.name.to_lower())
 	
 func _process(delta: float) -> void:
@@ -35,6 +37,7 @@ func _input(event: InputEvent) -> void:
 	
 func change_state(new_state_name: String) -> void:
 	if current_state:
+		previous_state = current_state
 		current_state.exit()
 		
 	current_state = states.get(new_state_name.to_lower())

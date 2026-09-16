@@ -7,11 +7,11 @@ class_name WalkState
 @export var MOVE_SPEED: float
 @export var GROUND_INERTIA = 14.0
 @export var MOMENTUM_DECAY = 1.0
-@export var CAMERA_MOVEMENT : CameraRotation
+@export var CAMERA_MOVEMENT : CameraMovement
 @export var CAMERA_FOLLOW_STRENGTH = .05
 
 @onready var player_controller: CharacterBody3D = $"../.."
-@onready var camera_pivot_y: Node3D = $"../../CameraPivotY"
+@onready var camera_pivot_y: Node3D = $"../../CameraControl/CameraPivotY"
 @onready var collision_shape_3d: CollisionShape3D = $"../../CollisionShape3D"
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 

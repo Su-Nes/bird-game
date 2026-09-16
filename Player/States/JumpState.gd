@@ -13,13 +13,13 @@ var direction
 
 @export var MOVE_SPEED = 4
 @export var AIR_INERTIA = 2.5
-@export var CAMERA_MOVEMENT : CameraRotation
+@export var CAMERA_MOVEMENT : CameraMovement
 @export var CAMERA_FOLLOW_STRENGTH = .05
 
 
 
 @onready var player_controller: CharacterBody3D = $"../.."
-@onready var camera_pivot_y: Node3D = $"../../CameraPivotY"
+@onready var camera_pivot_y: Node3D = $"../../CameraControl/CameraPivotY"
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 func enter():

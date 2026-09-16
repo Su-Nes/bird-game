@@ -4,10 +4,11 @@ class_name FlyState
 
 
 @onready var player_controller: CharacterBody3D = $"../.."
-@onready var camera_pivot_y: Node3D = $"../../CameraPivotY"
+@onready var camera_pivot_y: Node3D = $"../../CameraControl/CameraPivotY"
 @onready var collision_shape_3d: CollisionShape3D = $"../../CollisionShape3D"
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
+@export var INTERACTION_RAYCAST : RayCast3D
 @export var WING_STATES : WingStateMachine
 
 @export_category("Velocity calculation")
@@ -32,7 +33,6 @@ class_name FlyState
 @export var BREAK_TURN_MODIFIER : float = 2.5
 
 @export_category("Stamina")
-@export var STATS_CONTROLLER : StatsController
 @export var CONSTANT_FLAP_COST : float = 12
 @export var TIME_FOR_FLAP : float = .1
 @export var FLAP_COST : float = 15
@@ -43,7 +43,10 @@ class_name FlyState
 @export var ROLL_ROT_LIMIT : float = 60.0
 
 @export_category("Camera")
-@export var CAMERA_MOVEMENT : CameraRotation
+@export var CAMERA_MOVEMENT : CameraMovement
+@export var CAMERA_POSITION : Vector3 = Vector3(0, .7, 0)
+@export var CAMERA_DISTANCE : float = 1.75
+@export var CAMERA_MOVE_LERP : float = .15
 @export var CAMERA_FOLLOW_STRENGTH = .5
 @export var CAMERA_RESET_TIME: float = .5
 
@@ -55,7 +58,10 @@ var rotation_mod : float
 
 func enter():
 	print("Entered Fly state.")
+	INTERACTION_RAYCAST.enabled = false
 	WING_STATES.change_state("wingsGliding")
+	
+	CAMERA_MOVEMENT.move_cam(CAMERA_DISTANCE, CAMERA_POSITION, CAMERA_MOVE_LERP)
 	CAMERA_MOVEMENT.disable_look_timer = 999
 	
 	forward_v = player_controller.velocity.length()
@@ -104,7 +110,7 @@ func update(delta: float):
 		pitch_input = clamp(pitch_input, 0, 1)
 		
 	# Auto pitch when low velocity
-	if player_controller.velocity.length() <= 4:
+	if player_controller.velocity.length() <= 3:
 		pitch_input = clamp(pitch_input, -1, 0)
 		
 		pitch_input -= AUTO_ANGLE_MULT * delta #TO-DO: make this smoother
@@ -150,7 +156,7 @@ func handle_constant_flap(delta: float):
 	if WING_STATES.ANIMATOR.current_animation.get_basename() == "Flap":
 		return
 		
-	if STATS_CONTROLLER.spend_stamina(CONSTANT_FLAP_COST * delta, .1):
+	if StatController.spend_stamina(CONSTANT_FLAP_COST * delta, .1):
 		forward_v += THRUST_CURVE.sample(player_controller.velocity.length()) * THRUST_STRENGTH_PASSIVE * delta
 		state_machine.ANIMATOR.play("Flapping", .2)
 		
@@ -158,7 +164,7 @@ func handle_flap():
 	if WING_STATES.ANIMATOR.current_animation.get_basename() == "Flap":
 		return
 		
-	if STATS_CONTROLLER.spend_stamina(FLAP_COST):
+	if StatController.spend_stamina(FLAP_COST):
 		forward_v += THRUST_CURVE.sample(player_controller.velocity.length()) * THRUST_STRENGTH
 		state_machine.ANIMATOR.play("Flap", .5)
 	else:
@@ -187,4 +193,7 @@ func handle_flight_velocity(_delta: float):
 			state_machine.stored_vector = player_controller.velocity.bounce(collision_info.get_normal()) * CRASH_SPEED_MOD
 			state_machine.change_state("CrashState")
 		else:
-			state_machine.change_state("IdleState")
+			player_controller.velocity = player_controller.velocity.bounce(collision_info.get_normal()) * CRASH_SPEED_MOD
+			
+func exit():
+	INTERACTION_RAYCAST.enabled = true

@@ -24,7 +24,9 @@ func handle_model_transform(direction: Vector3, up = Vector3.UP, lerp_strength =
 	
 	if MESH.global_transform.origin.is_equal_approx(look_pos):
 		return
-	
+
+	look_pos -= MESH.global_basis.z * .1 # To avoid colinear vectors in the upcoming line
+		
 	MESH.global_transform = MESH.global_transform.looking_at(look_pos, up)
 	var end_rot = MESH.global_rotation
 

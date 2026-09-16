@@ -3,67 +3,67 @@
 [ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_8rupm"]
 [ext_resource type="Script" uid="uid://l7hd3n1tcy23" path="res://Player/Scripting/ControllerFunctions.gd" id="1_vn67c"]
 [ext_resource type="Script" uid="uid://bxdcmrg2ufjm8" path="res://Player/States/WingStates/WingStateMachine.gd" id="2_2m3hy"]
+[ext_resource type="Material" uid="uid://1m6pw0fqks58" path="res://Player/Mesh/Textures&Materials/Mat_Temp_Player_Body.tres" id="2_g7pa4"]
 [ext_resource type="Script" uid="uid://3m20wys6ugrl" path="res://Player/States/IdleState.gd" id="2_ldje2"]
 [ext_resource type="Script" uid="uid://bei6l034pllt6" path="res://Player/States/WingStates/WingsIdle.gd" id="3_laaob"]
 [ext_resource type="Script" uid="uid://dsxe0ls16mjwb" path="res://Player/States/WalkState.gd" id="3_ldje2"]
+[ext_resource type="Material" uid="uid://c04es3e2joe5y" path="res://Player/Mesh/Textures&Materials/Mat_Temp_Player_Wings.tres" id="3_n84ad"]
 [ext_resource type="Script" uid="uid://c8iux46pa1gou" path="res://Player/States/WingStates/WingFlapSingular.gd" id="4_0vcn1"]
-[ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/Scripting/CameraRotation.gd" id="4_bacvh"]
+[ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/Scripting/CameraMovement.gd" id="4_bacvh"]
 [ext_resource type="Script" uid="uid://dh7ybwg1n3d1q" path="res://Player/States/JumpState.gd" id="4_j8irr"]
 [ext_resource type="Script" uid="uid://chuogpiglf4ke" path="res://Player/States/WingStates/WingsGlide.gd" id="4_x8g6g"]
+[ext_resource type="Script" uid="uid://be6pkheh5acwc" path="res://Player/Scripting/SmoothCam.gd" id="5_7c45o"]
 [ext_resource type="Script" uid="uid://bvfkhbgfu15mb" path="res://Player/States/FallState.gd" id="5_mdtj2"]
 [ext_resource type="Script" uid="uid://bx2ijy86hx2g7" path="res://Player/States/WingStates/WingsFlapping.gd" id="5_s3wpl"]
+[ext_resource type="Script" uid="uid://cqhsvjyckyhop" path="res://Player/Scripting/InteractionScript.gd" id="10_n84ad"]
 [ext_resource type="Script" uid="uid://28op0aiob2fe" path="res://Player/States/HoverState.gd" id="10_nwc8f"]
 [ext_resource type="Script" uid="uid://b42w7u62u1xtg" path="res://Player/States/FlyState.gd" id="11_s0b8n"]
 [ext_resource type="Script" uid="uid://co3t6e564eppe" path="res://Player/States/CrashState.gd" id="14_ds2wf"]
-[ext_resource type="Script" uid="uid://07x8nkvd02a8" path="res://Player/Scripting/StaminaController.gd" id="16_cqlj3"]
+[ext_resource type="Script" uid="uid://op2ayievpwum" path="res://Player/States/PauseState.gd" id="15_p87aw"]
+[ext_resource type="Script" uid="uid://dd4ae5jd5p1aw" path="res://Player/States/FaintState.gd" id="16_4rx01"]
+[ext_resource type="Script" uid="uid://0x68ocgreffp" path="res://Player/Scripting/UI/HUD/StatDisplay.gd" id="19_h5t5w"]
+[ext_resource type="Script" uid="uid://d1853gq10xt6p" path="res://Player/Scripting/GrabScript.gd" id="19_vi1d0"]
+[ext_resource type="Script" uid="uid://c8eoylguwivp" path="res://Player/Scripting/BuildController.gd" id="20_4l6g3"]
+[ext_resource type="Texture2D" uid="uid://bo748bg7vjxr4" path="res://Player/UI/Sprites/InteractionReticle.png" id="20_h5t5w"]
+[ext_resource type="Script" uid="uid://mh5848ne4ksa" path="res://Player/Scripting/UI/HUD/ToolTipDisplay.gd" id="22_8hxfm"]
+[ext_resource type="PackedScene" uid="uid://bchn3wywka0ms" path="res://Player/Scripting/UI/HUD/ToolTipContainer.tscn" id="23_8hxfm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
-height = 1.3232422
+radius = 0.6
+height = 1.2
 
 [sub_resource type="Animation" id="Animation_g7pa4"]
 resource_name = "Break"
+length = 0.3
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Meshes/WingMeshL")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.5, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.5, 0, 0, 0.13333334, 1, 0.38, 0, 0)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Meshes/WingMeshL")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.706138, 0.706138, 0.037007, -0.037007)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.706138, 0.706138, 0.037007, 0.037007, 0.13333334, 1, 0.61869, -0.686747, -0.284088, 0.254744)
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Meshes/WingMeshR")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.5, 0, 0)
+tracks/2/keys = PackedFloat32Array(0, 1, -0.5, 0, 0, 0.13333334, 1, -0.3800046, 0, 0)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Meshes/WingMeshR")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0.706138, 0.706138, 0.037007, -0.037007)
-tracks/4/type = "scale_3d"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Meshes/WingMeshL")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 1, 1, 1)
-tracks/5/type = "scale_3d"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Meshes/WingMeshR")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/3/keys = PackedFloat32Array(0, 1, 0.706138, 0.706138, 0.037007, -0.037007, 0.13333334, 1, 0.66560036, 0.6370037, 0.30696312, 0.23869675)
 
 [sub_resource type="Animation" id="Animation_f1frd"]
 resource_name = "Crash"
@@ -113,7 +113,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.1217066, 2.161273, 1.1194715)]
+"values": [Vector3(1.1222467, 2.1607177, -1.8779743)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -144,7 +144,7 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("Meshes/WingMeshL")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.5610599, 0.5610599, -0.4303624, 0.4303624)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.560986, 0.560986, -0.430459, -0.430459)
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -191,7 +191,7 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("Meshes/WingMeshL")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.5610599, 0.5610599, -0.4303624, 0.4303624)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.560986, 0.560986, -0.430459, -0.430459)
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -238,7 +238,7 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("Meshes/WingMeshL")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.5610599, 0.5610599, -0.4303624, 0.4303624)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.560986, 0.560986, -0.430459, -0.430459)
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -267,6 +267,30 @@ tracks/5/path = NodePath("Meshes/WingMeshR")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Tail:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-4.8573597e-08, -1.5707964, -1.6893232)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Tail:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.054083243, 0.3401465)]
+}
 
 [sub_resource type="Animation" id="Animation_s3wpl"]
 resource_name = "Hovering"
@@ -285,7 +309,7 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("Meshes/WingMeshL")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.5610599, 0.5610599, -0.4303624, 0.4303624)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.560986, 0.560986, -0.430459, -0.430459)
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -359,6 +383,30 @@ tracks/5/path = NodePath("Meshes/WingMeshR")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0.001, 1, 0.99999994, 1, 0.99999994)
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Tail:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.7099532e-08, -1.5707964, -1.239195)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Tail:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.017605467, 0.3401465)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0vcn1"]
 _data = {
@@ -372,24 +420,40 @@ _data = {
 }
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
+material = ExtResource("2_g7pa4")
 radius = 0.4
 height = 1.3310547
 
-[sub_resource type="PrismMesh" id="PrismMesh_qkran"]
-left_to_right = 0.8
-size = Vector3(0.135, 0.17, 0.195)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4817"]
+albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60uoq"]
-cull_mode = 2
+[sub_resource type="PrismMesh" id="PrismMesh_qkran"]
+material = SubResource("StandardMaterial3D_s4817")
+left_to_right = 1.1
+size = Vector3(0.08, 0.17, 0.195)
 
 [sub_resource type="QuadMesh" id="QuadMesh_joydu"]
 lightmap_size_hint = Vector2i(7, 7)
-material = SubResource("StandardMaterial3D_60uoq")
+material = ExtResource("3_n84ad")
 size = Vector2(0.335, 0.51)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qkran"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p87aw"]
+cull_mode = 2
+shading_mode = 2
+albedo_color = Color(0, 0.2115745, 0.12495578, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_joydu"]
+material = SubResource("StandardMaterial3D_p87aw")
+size = Vector3(0.115, 0.425, 0.155)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4l6g3"]
+size = Vector3(1, 2, 0.1)
 
 [sub_resource type="Curve" id="Curve_f1frd"]
 _limits = [-1.0, 1.0, -90.0, 90.0]
-_data = [Vector2(-90, -1), 0.0, -0.0010435698, 0, 0, Vector2(0, 0), 0.030730398, 0.014923015, 0, 0, Vector2(90, 1), 0.0006074496, 0.0, 0, 0]
+_data = [Vector2(-90, -1), 0.0, 0.017543858, 0, 0, Vector2(0, 0), 0.019359145, 0.020072103, 0, 0, Vector2(90, 1), 0.0006074496, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_n84ad"]
@@ -399,19 +463,27 @@ point_count = 2
 
 [sub_resource type="Curve" id="Curve_cqlj3"]
 _limits = [0.0, 1.0, 0.0, 100.0]
-_data = [Vector2(0, 0), 0.0, 0.000872133, 0, 0, Vector2(100, 1), 0.03796931, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0024968784, 0, 0, Vector2(100, 1), 0.035955053, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_ds2wf"]
 _limits = [0.0, 1.0, 0.0, 80.0]
-_data = [Vector2(0, 0), 0.0, 0.0021560763, 0, 0, Vector2(80, 1), 0.01940477, 0.0, 0, 0]
+_data = [Vector2(0, 0.008130074), 0.0, 0.0030251553, 0, 0, Vector2(80, 1), 0.033505764, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7c45o"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.35686275)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l6g3"]
+transparency = 1
+albedo_color = Color(1, 0.17254902, 0.27058825, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n84ad"]
 bg_color = Color(0.3137255, 0.7764706, 0.5137255, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqlj3"]
-bg_color = Color(0.32156864, 0.16078432, 0.1254902, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5t5w"]
+bg_color = Color(0.36548287, 0.14428478, 2.4065375e-08, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkran"]
 bg_color = Color(0.77254903, 0.39215687, 0, 1)
@@ -419,103 +491,127 @@ bg_color = Color(0.77254903, 0.39215687, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7pa4"]
 bg_color = Color(0.7607843, 0.9411765, 0.9843137, 1)
 
-[node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH")]
+[node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH") groups=["Player"]]
+collision_layer = 2
+floor_max_angle = 1.0471976
 script = ExtResource("1_vn67c")
 MESH_OFFSET = Vector3(0, 0.1, 0)
 LOOK_AT_LERP_Z = 0.05
-MESH = NodePath("Mesh")
+MESH = NodePath("MeshHandle")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755 groups=["Player"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6md3q")
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=1816877548]
-root_node = NodePath("../Mesh/Wings")
+root_node = NodePath("../MeshParts/Wings")
 libraries/ = SubResource("AnimationLibrary_0vcn1")
 
-[node name="Mesh" type="Node3D" parent="." unique_id=1026739179]
-transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
+[node name="MeshHandle" type="Marker3D" parent="." unique_id=759058265]
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.01, 0)
 top_level = true
 
-[node name="BodyMesh" type="MeshInstance3D" parent="Mesh" unique_id=121188186]
+[node name="MeshParts" type="Node3D" parent="." unique_id=1447518268 node_paths=PackedStringArray("target")]
+transform = Transform3D(0.8731633, 0.1437664, -0.46574312, -0.4623671, -0.058138363, -0.88478035, -0.15427923, 0.98790234, 0.015708579, 0, 0.01, 0)
+script = ExtResource("5_7c45o")
+target = NodePath("../MeshHandle")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="MeshParts" unique_id=121188186]
 transform = Transform3D(0.5, 0, 0, 0, 0.12940954, 0.4829629, 0, -0.4829629, 0.12940954, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_qkran")
 
-[node name="Beak" type="Node3D" parent="Mesh" unique_id=1190860183]
+[node name="Beak" type="Node3D" parent="MeshParts" unique_id=1190860183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026460862, -0.29249212)
 
-[node name="BeakMesh" type="MeshInstance3D" parent="Mesh/Beak" unique_id=852340943]
-transform = Transform3D(-4.371139e-08, 0, 1, -1, -4.371139e-08, -4.371139e-08, 4.371139e-08, -1, 1.9106855e-15, 0, 0, -0.35896307)
+[node name="BeakTop" type="Node3D" parent="MeshParts/Beak" unique_id=754296223]
+
+[node name="Mesh" type="MeshInstance3D" parent="MeshParts/Beak/BeakTop" unique_id=852340943]
+transform = Transform3D(-4.3711392e-08, 0, 1, -1, -4.371139e-08, -4.371139e-08, 4.371139e-08, -1, 1.9106855e-15, 0, 0.024, -0.085)
 mesh = SubResource("PrismMesh_qkran")
 
-[node name="Wings" type="Node3D" parent="Mesh" unique_id=1564395972]
+[node name="BeakBottom" type="Node3D" parent="MeshParts/Beak" unique_id=2074247745]
 
-[node name="Meshes" type="Node3D" parent="Mesh/Wings" unique_id=1425311760]
+[node name="Mesh" type="MeshInstance3D" parent="MeshParts/Beak/BeakBottom" unique_id=157975564]
+transform = Transform3D(-4.35885e-08, 3.2754166e-09, -1, 0.99718857, -0.074932836, -4.371139e-08, -0.074932836, -0.99718857, 1.9053138e-15, 0, -0.064, -0.085)
+mesh = SubResource("PrismMesh_qkran")
 
-[node name="WingMeshL" type="MeshInstance3D" parent="Mesh/Wings/Meshes" unique_id=1754773031]
+[node name="GrabPoint" type="Marker3D" parent="MeshParts/Beak" unique_id=1685434782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.028193481, -0.07281435)
+
+[node name="Wings" type="Node3D" parent="MeshParts" unique_id=1564395972]
+
+[node name="Meshes" type="Node3D" parent="MeshParts/Wings" unique_id=1425311760]
+
+[node name="WingMeshL" type="MeshInstance3D" parent="MeshParts/Wings/Meshes" unique_id=1754773031]
 transform = Transform3D(0, -0.42261818, 0.9063078, 0, 0.9063078, 0.42261818, -1, 0, 0, 0.3, 0, 0)
 mesh = SubResource("QuadMesh_joydu")
 
-[node name="WingMeshR" type="MeshInstance3D" parent="Mesh/Wings/Meshes" unique_id=502445274]
+[node name="WingMeshR" type="MeshInstance3D" parent="MeshParts/Wings/Meshes" unique_id=502445274]
 transform = Transform3D(0, 0.42261815, 0.90630776, 0, 0.9063078, -0.42261818, -0.99999994, 0, 0, -0.3, 0, 0)
 mesh = SubResource("QuadMesh_joydu")
 
-[node name="WingStateMachine" type="Node" parent="Mesh/Wings" unique_id=1856348885 node_paths=PackedStringArray("WING_L", "WING_R", "initial_state", "ANIMATOR")]
-script = ExtResource("2_2m3hy")
-WING_L = NodePath("../Meshes/WingMeshL")
-WING_R = NodePath("../Meshes/WingMeshR")
-initial_state = NodePath("WingsIdle")
-ANIMATOR = NodePath("../../../Animator")
-metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
+[node name="EyeL" type="MeshInstance3D" parent="MeshParts" unique_id=826373975]
+transform = Transform3D(0.07840207, 0, 0, 0, 0.07840205, 0, 0, 0, 0.07840205, -0.16100001, 0.07, -0.182)
+mesh = SubResource("SphereMesh_qkran")
 
-[node name="WingsIdle" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=1782642588 node_paths=PackedStringArray("ANIMATOR_ALT")]
-script = ExtResource("3_laaob")
-ANIMATOR_ALT = NodePath("../../../../Animator")
-IDLE_LERP = 0.1
+[node name="EyeR" type="MeshInstance3D" parent="MeshParts" unique_id=131597333]
+transform = Transform3D(0.07840207, 0, 0, 0, 0.07840205, 0, 0, 0, 0.07840205, 0.16093658, 0.07012178, -0.18180116)
+mesh = SubResource("SphereMesh_qkran")
 
-[node name="WingsFlapSingular" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=659312467]
-script = ExtResource("4_0vcn1")
-metadata/_custom_type_script = "uid://c8iux46pa1gou"
+[node name="Tail" type="MeshInstance3D" parent="MeshParts" unique_id=667488055]
+transform = Transform3D(-3.9853784e-08, -3.2507636e-08, -1.0000001, -0.94552225, 0.3255576, 2.7099535e-08, 0.32555756, 0.94552237, -4.3711392e-08, 0, 0.017605467, 0.3401465)
+mesh = SubResource("PrismMesh_joydu")
 
-[node name="WingsFlapping" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=129285710]
-script = ExtResource("5_s3wpl")
+[node name="CameraControl" type="Node3D" parent="." unique_id=799988347]
+script = ExtResource("5_7c45o")
 
-[node name="WingsGliding" type="Node" parent="Mesh/Wings/WingStateMachine" unique_id=919575308]
-script = ExtResource("4_x8g6g")
-WING_ROTATION_DIST = Vector3(-60, 90, 0)
-GLIDE_LERP = 0.2
+[node name="CameraPivotY" type="Node3D" parent="CameraControl" unique_id=545498020]
 
-[node name="CameraPivotY" type="Node3D" parent="." unique_id=545498020]
-
-[node name="CameraPivotX" type="Node3D" parent="CameraPivotY" unique_id=2114444008]
+[node name="CameraPivotX" type="Node3D" parent="CameraControl/CameraPivotY" unique_id=2114444008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("4_bacvh")
-MOUSE_SENS = 0.2
-STICK_SENS = 500.0
+MOUSE_SENS = 10.0
+STICK_SENS = 200.0
 CAM_RESET_MOD = 0.05
+SIDE_SWITCH_SENSITIVITY = 30.0
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivotY/CameraPivotX" unique_id=780229940]
-spring_length = 1.5
+[node name="CameraSpring" type="SpringArm3D" parent="CameraControl/CameraPivotY/CameraPivotX" unique_id=780229940]
 margin = 1.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivotY/CameraPivotX/SpringArm3D" unique_id=1870356551]
+[node name="Camera3D" type="Camera3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring" unique_id=1870356551]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 fov = 100.0
+
+[node name="InteractableRay" type="RayCast3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D" unique_id=1582326067 node_paths=PackedStringArray("GRAB_SCRIPT", "RETICLE_IDLE", "RETICLE_ACTIVE")]
+target_position = Vector3(0, 0, -3)
+script = ExtResource("10_n84ad")
+GRAB_SCRIPT = NodePath("../../../../../../GrabController")
+RETICLE_IDLE = NodePath("../../../../../../HUD&Stats/Reticle/Idle")
+RETICLE_ACTIVE = NodePath("../../../../../../HUD&Stats/Reticle/Interacting")
+
+[node name="BuildShapeCast" type="ShapeCast3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D" unique_id=1410923098]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_4l6g3")
+target_position = Vector3(0, -2, 0)
 
 [node name="MovementStateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
 script = ExtResource("1_8rupm")
 initial_state = NodePath("WalkState")
 ANIMATOR = NodePath("../Animator")
 
-[node name="IdleState" type="Node" parent="MovementStateMachine" unique_id=984515081 node_paths=PackedStringArray("WING_STATES")]
+[node name="IdleState" type="Node" parent="MovementStateMachine" unique_id=984515081 node_paths=PackedStringArray("WING_STATES", "CAMERA_SCRIPT")]
 script = ExtResource("2_ldje2")
-WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
+WING_STATES = NodePath("../../WingStateMachine")
+CAMERA_SCRIPT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
+CAMERA_POSITION = Vector3(0.5, 0.6, -0.1)
+CAMERA_MOVE_LERP = 2.0
 
 [node name="WalkState" type="Node" parent="MovementStateMachine" unique_id=1798480752 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("3_ldje2")
-WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
+WING_STATES = NodePath("../../WingStateMachine")
 MOVE_SPEED = 3.0
 GROUND_INERTIA = 7.0
-CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
+CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAMERA_FOLLOW_STRENGTH = 0.1
 
 [node name="JumpState" type="Node" parent="MovementStateMachine" unique_id=1176370450 node_paths=PackedStringArray("CAMERA_MOVEMENT")]
@@ -523,39 +619,52 @@ script = ExtResource("4_j8irr")
 JUMP_VELOCITY = 1
 JUMP_TIME = 0.1
 JUMP_GRAVITY = 20
-CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
+CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAMERA_FOLLOW_STRENGTH = 0.5
 
 [node name="FallState" type="Node" parent="MovementStateMachine" unique_id=329827307 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("5_mdtj2")
-WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
-FLIGHT_TRANSITION_VELOCITY = 10.0
-CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
+WING_STATES = NodePath("../../WingStateMachine")
+FALL_ANGLE_MOD = 0.1
+MINIMUM_FLIGHT_VELOCITY = 5.0
+FLIGHT_V_MULTIPLIER = 2.0
+CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAMERA_FOLLOW_STRENGTH = 0.5
 
 [node name="HoverState" type="Node" parent="MovementStateMachine" unique_id=709554660 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("10_nwc8f")
-WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
+WING_STATES = NodePath("../../WingStateMachine")
 HOVER_SPEED = 4.0
+FLIGHT_TRANSITION_VELOCITY = 6.0
 TIME_FOR_DOUBLE_TAP_FLY = 0.2
-CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
+CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAMERA_FOLLOW_STRENGTH = 0.1
+CAMERA_POSITION = Vector3(0.5, 0.6, -0.75)
+CAMERA_DISTANCE = 1.5
+CAMERA_MOVE_LERP = 2.0
 metadata/_custom_type_script = "uid://28op0aiob2fe"
 
-[node name="FlyState" type="Node" parent="MovementStateMachine" unique_id=41892790 node_paths=PackedStringArray("WING_STATES", "STATS_CONTROLLER", "CAMERA_MOVEMENT")]
+[node name="FlyState" type="Node" parent="MovementStateMachine" unique_id=41892790 node_paths=PackedStringArray("INTERACTION_RAYCAST", "WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("11_s0b8n")
-WING_STATES = NodePath("../../Mesh/Wings/WingStateMachine")
+INTERACTION_RAYCAST = NodePath("../../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D/InteractableRay")
+WING_STATES = NodePath("../../WingStateMachine")
 ANGLE_ACCELERATION_CURVE = SubResource("Curve_f1frd")
 AUTO_ANGLE_MULT = 150.0
 THRUST_CURVE = SubResource("Curve_n84ad")
+THRUST_STRENGTH = 4.0
 THRUST_STRENGTH_PASSIVE = 2.5
 DRAG_CURVE = SubResource("Curve_cqlj3")
 BREAK_CURVE = SubResource("Curve_ds2wf")
-STATS_CONTROLLER = NodePath("../../HUD&Stats")
+CRASH_VELOCITY = 8.0
+CRASH_SPEED_MOD = 0.2
+BREAK_TURN_MODIFIER = 2.0
+CONSTANT_FLAP_COST = 5.0
 TIME_FOR_FLAP = 0.2
+FLAP_COST = 8.0
 PITCH_ROLL_COMPENSATION = 0.25
 ROLL_ROT_LIMIT = 55.0
-CAMERA_MOVEMENT = NodePath("../../CameraPivotY/CameraPivotX")
+CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
+CAMERA_MOVE_LERP = 3.0
 CAMERA_FOLLOW_STRENGTH = 4.5
 CAMERA_RESET_TIME = 1.0
 metadata/_custom_type_script = "uid://b42w7u62u1xtg"
@@ -563,8 +672,59 @@ metadata/_custom_type_script = "uid://b42w7u62u1xtg"
 [node name="CrashState" type="Node" parent="MovementStateMachine" unique_id=375807589 node_paths=PackedStringArray("ANIMATOR")]
 script = ExtResource("14_ds2wf")
 ANIMATOR = NodePath("../../Animator")
-CRASH_DURATION = 1.0
+CRASH_DAMAGE_MULT = 50.0
+CRASH_DURATION = 0.5
 metadata/_custom_type_script = "uid://co3t6e564eppe"
+
+[node name="PauseState" type="Node" parent="MovementStateMachine" unique_id=1077234940]
+script = ExtResource("15_p87aw")
+metadata/_custom_type_script = "uid://op2ayievpwum"
+
+[node name="FaintState" type="Node" parent="MovementStateMachine" unique_id=2102638991 node_paths=PackedStringArray("CAMERA_MOVEMENT")]
+script = ExtResource("16_4rx01")
+CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
+metadata/_custom_type_script = "uid://dd4ae5jd5p1aw"
+
+[node name="WingStateMachine" type="Node" parent="." unique_id=1856348885 node_paths=PackedStringArray("WING_L", "WING_R", "initial_state", "ANIMATOR")]
+script = ExtResource("2_2m3hy")
+WING_L = NodePath("../MeshParts/Wings/Meshes/WingMeshL")
+WING_R = NodePath("../MeshParts/Wings/Meshes/WingMeshR")
+initial_state = NodePath("WingsIdle")
+ANIMATOR = NodePath("../Animator")
+metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
+
+[node name="WingsIdle" type="Node" parent="WingStateMachine" unique_id=1782642588 node_paths=PackedStringArray("ANIMATOR_ALT")]
+script = ExtResource("3_laaob")
+ANIMATOR_ALT = NodePath("../../Animator")
+IDLE_LERP = 0.1
+
+[node name="WingsFlapSingular" type="Node" parent="WingStateMachine" unique_id=659312467]
+script = ExtResource("4_0vcn1")
+metadata/_custom_type_script = "uid://c8iux46pa1gou"
+
+[node name="WingsFlapping" type="Node" parent="WingStateMachine" unique_id=129285710]
+script = ExtResource("5_s3wpl")
+
+[node name="WingsGliding" type="Node" parent="WingStateMachine" unique_id=919575308]
+script = ExtResource("4_x8g6g")
+WING_ROTATION_DIST = Vector3(-60, 90, 0)
+GLIDE_LERP = 0.2
+
+[node name="GrabController" type="Node" parent="." unique_id=202790247 node_paths=PackedStringArray("GRAB_POINT", "BEAK_TOP", "BEAK_BOTTOM")]
+script = ExtResource("19_vi1d0")
+GRAB_POINT = NodePath("../MeshParts/Beak/GrabPoint")
+DROP_OFFSET = Vector3(0, -0.5, 0.5)
+BEAK_TOP = NodePath("../MeshParts/Beak/BeakTop")
+BEAK_BOTTOM = NodePath("../MeshParts/Beak/BeakBottom")
+BREAK_ROT_PER_ITEM = 30
+
+[node name="BuildController" type="Node" parent="." unique_id=1493140422 node_paths=PackedStringArray("SHAPE_RAY", "GRAB_SCRIPT")]
+script = ExtResource("20_4l6g3")
+SHAPE_RAY = NodePath("../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D/BuildShapeCast")
+GRAB_SCRIPT = NodePath("../GrabController")
+ROTATION_SPEED = 5.0
+GHOST_MATERIAL = SubResource("StandardMaterial3D_7c45o")
+ERROR_MATERIAL = SubResource("StandardMaterial3D_4l6g3")
 
 [node name="HUD&Stats" type="Control" parent="." unique_id=28684432 node_paths=PackedStringArray("STAMINA_UI")]
 layout_mode = 3
@@ -573,12 +733,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("16_cqlj3")
-STAMINA_LIMIT_DRAIN = 50.0
+script = ExtResource("19_h5t5w")
 active_style = SubResource("StyleBoxFlat_n84ad")
-inactive_style = SubResource("StyleBoxFlat_cqlj3")
+inactive_style = SubResource("StyleBoxFlat_h5t5w")
 STAMINA_UI = NodePath("StaminaBar/ProgressBar")
-metadata/_edit_use_anchors_ = true
 
 [node name="StaminaBar" type="Panel" parent="HUD&Stats" unique_id=1118466893]
 show_behind_parent = true
@@ -588,10 +746,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -175.0
-offset_top = -46.0
-offset_right = 175.0
-offset_bottom = -26.0
+offset_left = -301.0
+offset_top = -35.0
+offset_right = 301.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qkran")
@@ -607,3 +765,51 @@ theme_override_styles/background = SubResource("StyleBoxFlat_g7pa4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_n84ad")
 value = 33.0
 show_percentage = false
+
+[node name="Reticle" type="Control" parent="HUD&Stats" unique_id=954644438]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Idle" type="MarginContainer" parent="HUD&Stats/Reticle" unique_id=1567985165]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite" type="ColorRect" parent="HUD&Stats/Reticle/Idle" unique_id=1858806068]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0.78431374)
+
+[node name="Interacting" type="MarginContainer" parent="HUD&Stats/Reticle" unique_id=584472370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD&Stats/Reticle/Interacting" unique_id=2104032844]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("20_h5t5w")
+
+[node name="ToolTips" type="MarginContainer" parent="HUD&Stats" unique_id=1231947341]
+layout_mode = 1
+offset_right = 419.0
+offset_bottom = 209.0
+script = ExtResource("22_8hxfm")
+TOOL_TIP_CONTAINER = ExtResource("23_8hxfm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD&Stats/ToolTips" unique_id=1146441075]
+layout_mode = 2

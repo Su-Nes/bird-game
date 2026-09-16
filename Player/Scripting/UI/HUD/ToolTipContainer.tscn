@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bchn3wywka0ms"]
+
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="1_hvajo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4l6g3"]
+width = 32
+height = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_qkran"]
+paragraph_spacing = -4.455
+font = ExtResource("1_hvajo")
+font_size = 60
+
+[node name="ColorRect" type="ColorRect" unique_id=1441582672]
+custom_minimum_size = Vector2(400, 100)
+offset_right = 86.075
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2013028804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=707419500]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("NoiseTexture2D_4l6g3")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1357053630]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = ": Pick up"
+label_settings = SubResource("LabelSettings_qkran")
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+max_lines_visible = 2

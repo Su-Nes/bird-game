@@ -3,6 +3,7 @@ extends State
 class_name CrashState
 
 @export var ANIMATOR : AnimationPlayer
+@export var CRASH_DAMAGE_MULT : float = 2
 @export var CRASH_DURATION : float = 2
 @export var CRASH_VELOCITY : float = 10
 @export var CRASH_SPEED_MOD : float = .5
@@ -15,15 +16,19 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func enter():
 	print("Entered Crash state.")
+	HitStopManager.hit_stop_short()
+	
 	ANIMATOR.play("Crash")
+	
+	StatController.spend_max_stamina(player_controller.velocity.length() * CRASH_DAMAGE_MULT)
 
 	player_controller.velocity = state_machine.stored_vector
 	
 	await get_tree().create_timer(CRASH_DURATION).timeout
-	if player_controller.is_on_floor():
-		state_machine.change_state("IdleState")
-	else:
-		state_machine.change_state("FlyState")
+	if MenuManager.has_fainted:
+		return
+	
+	state_machine.change_state("IdleState")
 
 func physics_update(_delta: float):
 	player_controller.velocity += Vector3.DOWN * gravity * _delta

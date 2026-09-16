@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cvknri82ocq2e"]
+
+[ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="1_uylkb"]
+[ext_resource type="Script" uid="uid://cfq5aybfrdv4h" path="res://Player/Scripting/UI/Menus/FaintMenuScript.gd" id="2_8v05s"]
+
+[node name="FaintMenu" unique_id=172216686 instance=ExtResource("1_uylkb")]
+script = ExtResource("2_8v05s")
+
+[node name="Resume" parent="MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(923266316) index="0" unique_id=312023862]
+text = "Revive"

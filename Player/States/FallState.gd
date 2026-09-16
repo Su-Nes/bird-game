@@ -4,18 +4,21 @@ class_name FallState
 
 
 @onready var player_controller: CharacterBody3D = $"../.."
-@onready var camera_pivot_y: Node3D = $"../../CameraPivotY"
+@onready var camera_pivot_y: Node3D = $"../../CameraControl/CameraPivotY"
 @onready var collision_shape_3d: CollisionShape3D = $"../../CollisionShape3D"
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 @export var WING_STATES : WingStateMachine
-@export var FLIGHT_TRANSITION_VELOCITY : float = 20
-@export var HOVER_SPEED = 4.5
-@export var AIR_INERTIA = 2.5
-@export var CAMERA_MOVEMENT : CameraRotation
+@export_range(0, 1) var FALL_ANGLE_MOD : float = .3
+@export var MINIMUM_FLIGHT_VELOCITY : float = 2
+@export var FLIGHT_V_MULTIPLIER : float = 20
+@export var HOVER_SPEED : float = 4.5
+@export var AIR_INERTIA : float = 2.5
+@export var CAMERA_MOVEMENT : CameraMovement
 @export var CAMERA_FOLLOW_STRENGTH = .05
 
 var direction
+var flight_timer
 
 func enter():
 	print("Entered Fall state.")
@@ -24,17 +27,23 @@ func enter():
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-func physics_update(delta: float):
-	if Input.is_action_pressed("jump") and player_controller.velocity.y <= 0.0:
+func update(delta: float):
+	if Input.is_action_pressed("jump") and player_controller.velocity.length() < MINIMUM_FLIGHT_VELOCITY and player_controller.velocity.y <= 0.0 or Input.is_action_pressed("break"):
 		state_machine.change_state("HoverState")
+		return
 	
-	if Input.is_action_just_pressed("jump") and player_controller.velocity.y > 0.0:
-		player_controller.velocity = -CAMERA_MOVEMENT.get_camera_forward().normalized().rotated(CAMERA_MOVEMENT.get_camera_right(), -15) * FLIGHT_TRANSITION_VELOCITY
+	if Input.is_action_just_pressed("jump"):
+		if player_controller.velocity.y > 0:
+			player_controller.velocity = player_controller.velocity.rotated(extension_functions.MESH.global_basis.x, deg_to_rad(3)) * FLIGHT_V_MULTIPLIER
 		state_machine.change_state("FlyState")
+		return
 	
 	# Add the gravity.
 	if !player_controller.is_on_floor():
-		player_controller.velocity.y -= gravity * delta
+		var flat_cam_forward = CAMERA_MOVEMENT.get_camera_forward()
+		flat_cam_forward.y = 0
+		player_controller.velocity += flat_cam_forward * gravity * FALL_ANGLE_MOD * delta
+		player_controller.velocity.y -= gravity * (1 - FALL_ANGLE_MOD) * delta
 	else:
 		state_machine.change_state("idlestate")
 		

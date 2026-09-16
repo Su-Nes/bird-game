@@ -4,8 +4,12 @@ class_name IdleState
 
 
 @export var WING_STATES : WingStateMachine
+@export var CAMERA_SCRIPT : CameraMovement
+@export var CAMERA_POSITION : Vector3 = Vector3(.3, .6, 0)
+@export var CAMERA_DISTANCE : float = 1
+@export var CAMERA_MOVE_LERP : float = .15
 
-@onready var camera_pivot_y: Node3D = $"../../CameraPivotY"
+@onready var camera_pivot_y: Node3D = $"../../CameraControl/CameraPivotY"
 @onready var player_controller: CharacterBody3D = $"../.."
 @onready var walk_state: WalkState = $"../WalkState"
 @onready var collision_shape_3d: CollisionShape3D = $"../../CollisionShape3D"
@@ -17,6 +21,7 @@ var direction
 func enter():
 	#print("Entering Idle state")
 	WING_STATES.change_state("wingsidle")
+	CAMERA_SCRIPT.move_cam(CAMERA_DISTANCE, CAMERA_POSITION, CAMERA_MOVE_LERP)
 	
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
