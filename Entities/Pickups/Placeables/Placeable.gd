@@ -3,6 +3,8 @@ extends Interactable
 class_name Placeable
 
 
+var colliders : Array[Variant]
+
 func on_focus():
 	var tip_kb : Dictionary[Texture2D, String] = {GRAB_ICON_KB : GRAB_TOOL_TIP}
 	var tip_gp : Dictionary[Texture2D, String] = {GRAB_ICON_GP : GRAB_TOOL_TIP}
@@ -21,3 +23,6 @@ func on_unselected():
 
 func on_use():
 	return false if Signals.build_controller.place() else true
+
+func on_placed():
+	pass

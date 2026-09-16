@@ -11,7 +11,7 @@ class_name BuildController
 
 @onready var camera_3d: Camera3D = $"../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D"
 
-var current_buildable : Interactable
+var current_buildable : Placeable
 var ghost : Node3D
 var ghost_material : MeshInstance3D
 var rotation : Vector3
@@ -20,7 +20,7 @@ var can_place = false
 func _ready() -> void:
 	Signals.build_controller = self
 
-func initiate_building(block: Interactable):
+func initiate_building(block: Placeable): ## Block must have CollisionShape3D as child 0 and MeshInstance3D as child 1
 	if ghost:
 		ghost.queue_free()
 	
@@ -64,6 +64,7 @@ func place() -> bool:
 	if !current_buildable or !can_place:
 		return false
 	
+	current_buildable.on_placed()
 	current_buildable.reparent(SHAPE_RAY)
 	
 	var collision_distance = SHAPE_RAY.get_collision_point(0).distance_to(camera_3d.global_position)
