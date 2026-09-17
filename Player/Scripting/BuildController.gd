@@ -30,6 +30,7 @@ func initiate_building(block: Placeable): ## Block must have CollisionShape3D as
 	ghost_scene.pack(block)
 
 	ghost = ghost_scene.instantiate()
+	ghost.get_child(0).queue_free() # Get rid of collider on the placeable block
 	
 	SHAPE_RAY.add_child(ghost)
 	

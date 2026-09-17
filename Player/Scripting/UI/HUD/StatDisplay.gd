@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 class_name StatDisplay
 
@@ -14,7 +14,9 @@ var bar_start_width : float
 
 func _ready() -> void:
 	bar_start_width = STAMINA_UI.size.x
-
+	MenuManager.has_paused.connect(hide)
+	MenuManager.has_unpaused.connect(show)
+	
 
 func _process(_delta: float) -> void:
 	STAMINA_UI.value = StatController.stamina

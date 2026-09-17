@@ -15,6 +15,8 @@ var STAMINA_LIMIT_DRAIN : float = 3
 var DRAIN_PERIOD : float = 20
 var drain_timer : float
 
+
+var fainted = false
 signal has_fainted
 
 var stamina : float
@@ -24,6 +26,9 @@ func _ready() -> void:
 	stamina = stamina_max_limit
 	
 func _process(delta: float) -> void:
+	if MenuManager.paused:
+		return
+	
 	regen_delay_timer -= delta
 	penalty_timer -= delta
 
@@ -49,14 +54,18 @@ func spend_stamina(value: float, regen_delay : float = 0.0) -> bool:
 	
 	return true
 	
-func spend_max_stamina(value: float):
+func spend_max_stamina(value: float) -> bool:
 	stamina_max_limit -= value
 	
 	if stamina_max_limit <= 0:
+		return true
+		fainted = true
 		has_fainted.emit()
+	else:
+		return false
 	
 func handle_max_stamina_loss():
-	if MenuManager.has_fainted:
+	if fainted:
 		return
 	
 	drain_timer += get_process_delta_time()
@@ -66,6 +75,7 @@ func handle_max_stamina_loss():
 		drain_timer = 0
 		
 	if stamina_max_limit <= 0:
+		fainted = true
 		has_fainted.emit()
 	
 func regain_max_stamina(value: float) -> bool:

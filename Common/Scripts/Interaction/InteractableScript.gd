@@ -52,12 +52,11 @@ func on_unselected():
 func on_use() -> bool: ##Returns false if interactable is freed after interaction
 	return true
 	
-# Enable rigidbody if not touching static body 
-#func _process(_delta: float) -> void:
-	#if !COLLIDER.disabled:  # TO-DO: Branches touching each other will float
-		#if !RIGIDBODY.move_and_collide(Vector3.ZERO, true):
-			#has_physics(true, true)
+func on_grabbed():
+	pass
 	
 func has_physics(collider_active : bool, rb_active : bool):
-	COLLIDER.disabled = !collider_active
-	RIGIDBODY.freeze = !rb_active
+	if COLLIDER:
+		COLLIDER.disabled = !collider_active
+	if RIGIDBODY:
+		RIGIDBODY.freeze = !rb_active

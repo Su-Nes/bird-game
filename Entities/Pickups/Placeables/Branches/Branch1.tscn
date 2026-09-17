@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://mlswckjo8gss" path="res://Entities/Pickups/Placeables/Branches/BranchInteractable.gd" id="1_tbyng"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nd5ly"]
-size = Vector3(1, 0.1, 0.1)
+size = Vector3(1.1, 0.2, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v23kt"]
 albedo_color = Color(0.12530395, 0.059494026, 0, 1)
@@ -13,6 +13,8 @@ material = SubResource("StandardMaterial3D_v23kt")
 size = Vector3(1, 0.1, 0.1)
 
 [node name="Branch1" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("COLLIDER", "RIGIDBODY") groups=["Interactable"]]
+freeze = true
+freeze_mode = 1
 linear_damp = 3.0
 script = ExtResource("1_tbyng")
 GRAB_ONLY = true
@@ -32,3 +34,8 @@ gizmo_extents = 0.5
 [node name="EndPivot" type="Marker3D" parent="." unique_id=1747983165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.502234, 0, 0)
 gizmo_extents = 0.5
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1451190019]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=1152923073]
+shape = SubResource("BoxShape3D_nd5ly")

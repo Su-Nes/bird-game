@@ -22,9 +22,6 @@ var camera_side = 1
 
 
 func _input(event):
-	if !enabled:
-		return
-	
 	# Mouse look
 	if event is InputEventMouseMotion:
 		pivot.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS * get_process_delta_time()))
@@ -33,9 +30,6 @@ func _input(event):
 		disable_look_timer = 0
 		
 func _process(delta: float):
-	if !enabled:
-		return
-	
 	# Stick look
 	var look_movement = Input.get_vector("lookLeft", "lookRight", "lookDown", "lookUp") * delta
 	

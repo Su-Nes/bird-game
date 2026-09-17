@@ -57,7 +57,6 @@ var angle_of_attack : float
 var rotation_mod : float
 
 func enter():
-	print("Entered Fly state.")
 	INTERACTION_RAYCAST.enabled = false
 	WING_STATES.change_state("wingsGliding")
 	

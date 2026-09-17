@@ -1,15 +1,14 @@
-[gd_scene format=3 uid="uid://gyv0w2cpssjs"]
+[gd_scene format=3 uid="uid://om62mmeaoyl3"]
 
-[ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
-[ext_resource type="Shader" uid="uid://dcnakafcrt4fu" path="res://World/FreemanSky.gdshader" id="2_y6flb"]
-[ext_resource type="PackedScene" uid="uid://dipqgg0d0k4h3" path="res://Entities/Spawners/BerryBush/BerryBush.tscn" id="3_mlekv"]
-[ext_resource type="PackedScene" uid="uid://cf3g34mvtspqt" path="res://Entities/Pickups/Placeables/Branches/Branch1.tscn" id="4_il6x7"]
-[ext_resource type="PackedScene" uid="uid://ct7esywm4lggm" path="res://World/Objects/Trees/Scenes/TestTree.tscn" id="5_o14yy"]
-[ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="6_eue43"]
-[ext_resource type="PackedScene" uid="uid://cvknri82ocq2e" path="res://Player/Scripting/UI/Menus/FaintMenu.tscn" id="7_eue43"]
+[ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_e7lyh"]
+[ext_resource type="Shader" uid="uid://dcnakafcrt4fu" path="res://World/Shaders/FreemanSky.gdshader" id="2_3n563"]
+[ext_resource type="PackedScene" uid="uid://dipqgg0d0k4h3" path="res://Entities/Spawners/BerryBush/BerryBush.tscn" id="3_j2oos"]
+[ext_resource type="PackedScene" uid="uid://cf3g34mvtspqt" path="res://Entities/Pickups/Placeables/Branches/Branch1.tscn" id="4_cod3r"]
+[ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="5_un0i4"]
+[ext_resource type="PackedScene" uid="uid://cvknri82ocq2e" path="res://Player/Scripting/UI/Menus/FaintMenu.tscn" id="6_pb8gn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eue43"]
-shader = ExtResource("2_y6flb")
+shader = ExtResource("2_3n563")
 shader_parameter/sun_intensity = 40.000000596048
 shader_parameter/sun_wavelengths = Vector3(0.68, 0.55, 0.48)
 shader_parameter/rayleigh_scale_height = 8000.0
@@ -35,8 +34,8 @@ shader_parameter/sun_samples = 8
 shader_parameter/clouds_enabled = true
 shader_parameter/cloud_color = Color(1, 1, 1, 1)
 shader_parameter/cloud_color_dark = Color(0, 0, 0, 1)
-shader_parameter/cloud_edge_sharpness = 0.0670000031825
-shader_parameter/cloud_scale = 0.50700002082262
+shader_parameter/cloud_edge_sharpness = 0.178000008455
+shader_parameter/cloud_scale = 2.02000009269012
 shader_parameter/cloud_speed = 0.02
 
 [sub_resource type="Sky" id="Sky_y6flb"]
@@ -75,9 +74,9 @@ albedo_texture = SubResource("CurveTexture_mlekv")
 [sub_resource type="PlaneMesh" id="PlaneMesh_qkran"]
 material = SubResource("ORMMaterial3D_folwd")
 
-[node name="World" type="Node3D" unique_id=2109053146]
+[node name="Testing" type="Node3D" unique_id=2109053146]
 
-[node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
+[node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_e7lyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6688969, 0)
 
 [node name="Environment" type="Node" parent="." unique_id=395164615]
@@ -107,27 +106,20 @@ mesh = SubResource("PlaneMesh_qkran")
 
 [node name="LevelObjects" type="Node3D" parent="." unique_id=2034537777]
 
-[node name="BerryBush" parent="LevelObjects" unique_id=1109566799 instance=ExtResource("3_mlekv")]
+[node name="BerryBush" parent="LevelObjects" unique_id=1109566799 instance=ExtResource("3_j2oos")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.74564123, 0, -2.9388878)
 
-[node name="Branch1" parent="." unique_id=943419720 instance=ExtResource("4_il6x7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74467564, 0.05901766, -1.0864415)
+[node name="Branch1" parent="." unique_id=943419720 instance=ExtResource("4_cod3r")]
+transform = Transform3D(0.49215716, 0.5110835, 0.70468074, -0.7203183, 0.6936436, 2.9802322e-08, -0.48879725, -0.50759447, 0.7095245, -0.038399816, 1.2785243, -1.75004)
 
-[node name="Branch2" parent="." unique_id=1168123239 instance=ExtResource("4_il6x7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74467564, 0.05901766, -1.4109266)
+[node name="Branch2" parent="." unique_id=1168123239 instance=ExtResource("4_cod3r")]
+transform = Transform3D(0.70111734, 0, 0.71304595, 0, 1, 0, -0.71304595, 0, 0.70111734, -0.5717959, 1.6133677, -1.240939)
+test_subject = true
 
-[node name="Branch3" parent="." unique_id=1019754246 instance=ExtResource("4_il6x7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74467564, 0.05901766, -0.79544103)
+[node name="Branch3" parent="." unique_id=875803 instance=ExtResource("4_cod3r")]
+transform = Transform3D(0.5154536, 0.47526112, 0.71304595, -0.6778625, 0.7351887, 0, -0.5242234, -0.4833471, 0.7011174, -0.9042117, 1.9650263, -0.9028677)
+test_subject = true
 
-[node name="TestTree" parent="." unique_id=46511288 instance=ExtResource("5_o14yy")]
-transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0.889791, -0.41995525, -9.6439)
+[node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("5_un0i4")]
 
-[node name="TestTree2" parent="." unique_id=1336874920 instance=ExtResource("5_o14yy")]
-transform = Transform3D(-0.011759682, 0, -0.4198353, 0, 0.8143144, 0, 0.4198353, 0, -0.011759682, 52.190624, -0.41995335, 0.5515728)
-
-[node name="TestTree3" parent="." unique_id=1845510963 instance=ExtResource("5_o14yy")]
-transform = Transform3D(-0.38770178, 0, 0.16151556, 0, 0.5808014, 0, -0.16151556, 0, -0.38770178, 31.798817, -0.41995335, -42.186256)
-
-[node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("6_eue43")]
-
-[node name="FaintMenu" parent="." unique_id=974351880 instance=ExtResource("7_eue43")]
+[node name="FaintMenu" parent="." unique_id=974351880 instance=ExtResource("6_pb8gn")]

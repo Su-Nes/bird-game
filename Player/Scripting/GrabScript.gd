@@ -20,6 +20,7 @@ func grab_item(item: Interactable):
 	
 	item.reparent(GRAB_POINT)
 	item.is_grabbed = true
+	item.on_grabbed()
 	item.has_physics(false, false)
 	item.reparent(GRAB_POINT)
 
@@ -96,7 +97,7 @@ func remove_selected_item(drop_physically = false):
 	if !drop_physically:
 		return
 	
-	item.global_position = item.global_position + -$"../Mesh".global_basis.z * DROP_OFFSET.z + Vector3.UP * DROP_OFFSET.y
+	item.global_position = item.global_position - $"../MeshHandle".global_basis.z * DROP_OFFSET.z + Vector3.UP * DROP_OFFSET.y
 	
 	item.has_physics(true, true)
 	

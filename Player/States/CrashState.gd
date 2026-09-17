@@ -15,17 +15,15 @@ class_name CrashState
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func enter():
-	print("Entered Crash state.")
-	HitStopManager.hit_stop_short()
-	
 	ANIMATOR.play("Crash")
 	
-	StatController.spend_max_stamina(player_controller.velocity.length() * CRASH_DAMAGE_MULT)
+	if !StatController.spend_max_stamina(player_controller.velocity.length() * CRASH_DAMAGE_MULT):
+		HitStopManager.hit_stop_short()
 
 	player_controller.velocity = state_machine.stored_vector
 	
 	await get_tree().create_timer(CRASH_DURATION).timeout
-	if MenuManager.has_fainted:
+	if StatController.fainted:
 		return
 	
 	state_machine.change_state("IdleState")

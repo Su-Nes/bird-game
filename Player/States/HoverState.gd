@@ -26,7 +26,6 @@ var input_dir : Vector2
 var direction : Vector3
 
 func enter():
-	print("Entered Hover state.")
 	WING_STATES.change_state("WingsFlapping")
 	
 	CAMERA_MOVEMENT.move_cam(CAMERA_DISTANCE, CAMERA_POSITION, CAMERA_MOVE_LERP)

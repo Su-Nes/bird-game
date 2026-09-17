@@ -5,7 +5,7 @@ class_name PauseMenuScript
 
 func _ready() -> void:
 	MenuManager.pause_menu = self
-	MenuManager.on_paused()
+	MenuManager.on_unpaused()
 
 
 func _on_resume_pressed() -> void:

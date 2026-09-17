@@ -10,7 +10,6 @@ var target_rotation_l : Vector3
 var target_rotation_r : Vector3
 
 func enter():
-	print("Wings entered Glide state.")
 	#state_machine_wing.ANIMATOR.set_blend_time("Flap", "Glide", 2)
 	state_machine_wing.ANIMATOR.play("Glide")
 	

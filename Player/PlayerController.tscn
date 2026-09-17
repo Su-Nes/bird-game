@@ -512,7 +512,7 @@ transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.01, 0)
 top_level = true
 
 [node name="MeshParts" type="Node3D" parent="." unique_id=1447518268 node_paths=PackedStringArray("target")]
-transform = Transform3D(0.8731633, 0.1437664, -0.46574312, -0.4623671, -0.058138363, -0.88478035, -0.15427923, 0.98790234, 0.015708579, 0, 0.01, 0)
+transform = Transform3D(0.87316334, 0.1437664, -0.465743, -0.46236697, -0.05813835, -0.88478035, -0.15427923, 0.9879023, 0.015708573, 0, 0.01, 0)
 script = ExtResource("5_7c45o")
 target = NodePath("../MeshHandle")
 
@@ -596,7 +596,7 @@ target_position = Vector3(0, -2, 0)
 
 [node name="MovementStateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
 script = ExtResource("1_8rupm")
-initial_state = NodePath("WalkState")
+initial_state = NodePath("HoverState")
 ANIMATOR = NodePath("../Animator")
 
 [node name="IdleState" type="Node" parent="MovementStateMachine" unique_id=984515081 node_paths=PackedStringArray("WING_STATES", "CAMERA_SCRIPT")]
@@ -672,18 +672,21 @@ metadata/_custom_type_script = "uid://b42w7u62u1xtg"
 [node name="CrashState" type="Node" parent="MovementStateMachine" unique_id=375807589 node_paths=PackedStringArray("ANIMATOR")]
 script = ExtResource("14_ds2wf")
 ANIMATOR = NodePath("../../Animator")
-CRASH_DAMAGE_MULT = 50.0
+CRASH_DAMAGE_MULT = 1.5
 CRASH_DURATION = 0.5
 metadata/_custom_type_script = "uid://co3t6e564eppe"
-
-[node name="PauseState" type="Node" parent="MovementStateMachine" unique_id=1077234940]
-script = ExtResource("15_p87aw")
-metadata/_custom_type_script = "uid://op2ayievpwum"
 
 [node name="FaintState" type="Node" parent="MovementStateMachine" unique_id=2102638991 node_paths=PackedStringArray("CAMERA_MOVEMENT")]
 script = ExtResource("16_4rx01")
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 metadata/_custom_type_script = "uid://dd4ae5jd5p1aw"
+
+[node name="PauseState" type="Node" parent="MovementStateMachine" unique_id=1077234940 node_paths=PackedStringArray("MAIN_CAMERA")]
+script = ExtResource("15_p87aw")
+MAIN_CAMERA = NodePath("../../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D")
+CAM_LERP_UP = 0.02
+CAM_HEIGHT = 25.0
+metadata/_custom_type_script = "uid://op2ayievpwum"
 
 [node name="WingStateMachine" type="Node" parent="." unique_id=1856348885 node_paths=PackedStringArray("WING_L", "WING_R", "initial_state", "ANIMATOR")]
 script = ExtResource("2_2m3hy")

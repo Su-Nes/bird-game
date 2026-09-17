@@ -7,7 +7,6 @@ class_name WingsIdle
 
 
 func enter():
-	print("Wings entered Idle state.")
 	ANIMATOR_ALT.play("RESET")
 		
 #func physics_update(_delta: float):

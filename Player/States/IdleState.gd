@@ -19,7 +19,6 @@ var direction
 
 
 func enter():
-	#print("Entering Idle state")
 	WING_STATES.change_state("wingsidle")
 	CAMERA_SCRIPT.move_cam(CAMERA_DISTANCE, CAMERA_POSITION, CAMERA_MOVE_LERP)
 	
