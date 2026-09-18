@@ -28,7 +28,7 @@ func toggle_pause():
 
 func on_paused():
 	pause_menu.show()
-	Engine.time_scale = .1
+	Engine.time_scale = 0
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	has_paused.emit()

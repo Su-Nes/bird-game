@@ -15,6 +15,7 @@ var enabled = true
 @export var SIDE_SWITCH_SENSITIVITY : float = 3
 var disable_look_timer: float
 
+var rot_clamped = true
 var target_distance : float = 1.5
 var target_position : Vector3 = Vector3(0, .7, 0)
 var lerp_value : float = .1
@@ -39,7 +40,8 @@ func _process(delta: float):
 	pivot.rotate_y(deg_to_rad(-look_movement.x * STICK_SENS))
 	rotate_x(deg_to_rad(look_movement.y * STICK_SENS))
 	
-	rotation.x = clampf(rotation.x, deg_to_rad(-85), deg_to_rad(55))
+	if rot_clamped:
+		rotation.x = clampf(rotation.x, deg_to_rad(-85), deg_to_rad(55))
 	
 	# Change camera side based on camera and bird angle
 	#var flat_camera_forward = get_camera_forward()

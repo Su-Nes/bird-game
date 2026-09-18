@@ -1,20 +1,20 @@
-[gd_scene format=3 uid="uid://cf3g34mvtspqt"]
+[gd_scene format=3 uid="uid://dcaqmr8n5v177"]
 
-[ext_resource type="Script" uid="uid://mlswckjo8gss" path="res://Entities/Pickups/Placeables/Branches/BranchInteractable.gd" id="1_tbyng"]
+[ext_resource type="Script" uid="uid://mlswckjo8gss" path="res://Entities/Pickups/Placeables/Branches/BranchInteractable.gd" id="1_wd43s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nd5ly"]
-size = Vector3(1, 0.1, 0.1)
+size = Vector3(0.5, 0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v23kt"]
 albedo_color = Color(0.12530395, 0.059494026, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_60uoq"]
 material = SubResource("StandardMaterial3D_v23kt")
-size = Vector3(1, 0.1, 0.1)
+size = Vector3(0.5, 0.1, 0.1)
 
-[node name="Branch1" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("COLLIDER", "RIGIDBODY") groups=["Interactable"]]
+[node name="Branch_small" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("COLLIDER", "RIGIDBODY") groups=["Interactable"]]
 linear_damp = 3.0
-script = ExtResource("1_tbyng")
+script = ExtResource("1_wd43s")
 GRAB_ONLY = true
 COLLIDER = NodePath("CollisionShape3D")
 RIGIDBODY = NodePath(".")
@@ -26,9 +26,7 @@ shape = SubResource("BoxShape3D_nd5ly")
 mesh = SubResource("BoxMesh_60uoq")
 
 [node name="StartPivot" type="Marker3D" parent="." unique_id=904074708]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49776602, 0, 0)
-gizmo_extents = 0.5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24776602, 0, 0)
 
 [node name="EndPivot" type="Marker3D" parent="." unique_id=1747983165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.502234, 0, 0)
-gizmo_extents = 0.5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25223398, 0, 0)

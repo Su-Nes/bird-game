@@ -47,5 +47,5 @@ func handle_velocity(delta):
 	
 	player_controller.move_and_slide()
 	
-	extension_functions.handle_model_transform(direction)
+	extension_functions.handle_model_transform(direction, player_controller.get_floor_normal())
 	extension_functions.rotate_to_floor_normal()

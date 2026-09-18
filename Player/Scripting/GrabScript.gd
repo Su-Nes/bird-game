@@ -73,13 +73,15 @@ func use_item():
 func display_active_item():
 	var index = 0
 	for n : Interactable in GRAB_POINT.get_children():
-		if index == active_index:
-			n.visible = true
-			n.on_selected()
-		else:
+		if index != active_index:
 			n.visible = false
 			n.on_unselected()
 		index += 1
+	
+	if GRAB_POINT.get_child_count() > 0:
+		var active_child : Interactable = GRAB_POINT.get_child(active_index)
+		active_child.visible = true
+		active_child.on_selected()
 
 func unselect_all():
 	for n : Interactable in GRAB_POINT.get_children():

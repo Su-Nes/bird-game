@@ -512,7 +512,7 @@ transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.01, 0)
 top_level = true
 
 [node name="MeshParts" type="Node3D" parent="." unique_id=1447518268 node_paths=PackedStringArray("target")]
-transform = Transform3D(0.87316334, 0.1437664, -0.465743, -0.46236697, -0.05813835, -0.88478035, -0.15427923, 0.9879023, 0.015708573, 0, 0.01, 0)
+transform = Transform3D(0.8731634, 0.14376642, -0.46574286, -0.46236685, -0.05813833, -0.88478035, -0.15427923, 0.9879022, 0.01570857, 0, 0.01, 0)
 script = ExtResource("5_7c45o")
 target = NodePath("../MeshHandle")
 
@@ -681,10 +681,11 @@ script = ExtResource("16_4rx01")
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 metadata/_custom_type_script = "uid://dd4ae5jd5p1aw"
 
-[node name="PauseState" type="Node" parent="MovementStateMachine" unique_id=1077234940 node_paths=PackedStringArray("MAIN_CAMERA")]
+[node name="PauseState" type="Node" parent="MovementStateMachine" unique_id=1077234940 node_paths=PackedStringArray("CAMERA_MOVEMENT")]
 script = ExtResource("15_p87aw")
-MAIN_CAMERA = NodePath("../../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D")
+CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAM_LERP_UP = 0.02
+CAM_LERP_DOWN = 0.1
 CAM_HEIGHT = 25.0
 metadata/_custom_type_script = "uid://op2ayievpwum"
 
@@ -725,7 +726,7 @@ BREAK_ROT_PER_ITEM = 30
 script = ExtResource("20_4l6g3")
 SHAPE_RAY = NodePath("../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D/BuildShapeCast")
 GRAB_SCRIPT = NodePath("../GrabController")
-ROTATION_SPEED = 5.0
+ROTATION_SPEED = 3.0
 GHOST_MATERIAL = SubResource("StandardMaterial3D_7c45o")
 ERROR_MATERIAL = SubResource("StandardMaterial3D_4l6g3")
 

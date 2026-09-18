@@ -3,17 +3,15 @@ extends State
 class_name PauseState
 
 
-@export var MAIN_CAMERA : Camera3D
+@export var CAMERA_MOVEMENT : CameraMovement
 @export var CAM_LERP_UP : float = .1
 @export var CAM_LERP_DOWN : float = .2
 @export var CAM_HEIGHT : float = 15
 
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
-var start_pos : Transform3D
-var target_pos : Vector3
+var going_up : bool
 var look_pos : Vector3
-var cam_spring : SpringArm3D
 
 func _ready() -> void:
 	MenuManager.has_paused.connect(enter_pause_state)
@@ -26,42 +24,40 @@ func exit_pause_state():
 	state_machine.change_state(state_machine.previous_state.name)
 	
 func enter():
-	start_pos = MAIN_CAMERA.transform
-	cam_spring = MAIN_CAMERA.get_parent()
-	MAIN_CAMERA.reparent(self)
-	
-	target_pos = MAIN_CAMERA.global_position + Vector3.UP * CAM_HEIGHT
-	look_pos = MAIN_CAMERA.global_position + Vector3.UP * 999.9 + -MAIN_CAMERA.global_basis.z * .1
+	CAMERA_MOVEMENT.rot_clamped = false
+	look_pos = CAMERA_MOVEMENT.global_position + Vector3.UP * 999.9 + CAMERA_MOVEMENT.get_camera_forward() * .1
 
+	going_up = true
 	cam_transition_up()
 	
 func exit():
-	MAIN_CAMERA.reparent(cam_spring)
-	MAIN_CAMERA.transform = start_pos
-	#cam_transition_down()
+	going_up = false
+	cam_transition_down()
 
 func cam_transition_up():
-	if MAIN_CAMERA.get_parent() == cam_spring:
+	if !going_up:
 		return
 	
-	MAIN_CAMERA.global_position = lerp(MAIN_CAMERA.global_position, target_pos, CAM_LERP_UP)
+	CAMERA_MOVEMENT.pivot.position.y = lerp(CAMERA_MOVEMENT.pivot.position.y, CAM_HEIGHT, CAM_LERP_UP)
 	
-	var start_rot = MAIN_CAMERA.rotation
-	MAIN_CAMERA.global_transform = MAIN_CAMERA.global_transform.looking_at(look_pos)
-	var end_rot = MAIN_CAMERA.rotation
-	MAIN_CAMERA.rotation = start_rot
+	CAMERA_MOVEMENT.rotation.x = lerp(CAMERA_MOVEMENT.rotation.x, deg_to_rad(90), CAM_LERP_UP)
 	
-	MAIN_CAMERA.rotation.y = lerp_angle(MAIN_CAMERA.rotation.y, end_rot.y, CAM_LERP_UP)
-	MAIN_CAMERA.rotation.x = lerp_angle(MAIN_CAMERA.rotation.x, end_rot.x, CAM_LERP_UP)
-	
-	if MAIN_CAMERA.global_position.distance_to(target_pos) > .1:
+	if CAMERA_MOVEMENT.pivot.position.y < CAM_HEIGHT - .1:
 		await get_tree().process_frame
 		cam_transition_up()
 	
 func cam_transition_down():
-	MAIN_CAMERA.transform = lerp(MAIN_CAMERA.transform, start_pos, CAM_LERP_DOWN)
+	if going_up:
+		return
 	
-	if MAIN_CAMERA.position.distance_to(start_pos.origin) < .1:
+	CAMERA_MOVEMENT.pivot.position.y = lerp(CAMERA_MOVEMENT.pivot.position.y, 0.0, CAM_LERP_DOWN)
+	
+	CAMERA_MOVEMENT.rotation.x = lerp_angle(CAMERA_MOVEMENT.rotation.x, 0, CAM_LERP_UP)
+	
+	if CAMERA_MOVEMENT.pivot.position.y < .1:
+		CAMERA_MOVEMENT.rot_clamped = false
+
+		CAMERA_MOVEMENT.pivot.position.y = 0
 		return
 		
 	await get_tree().process_frame

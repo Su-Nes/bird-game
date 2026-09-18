@@ -111,10 +111,10 @@ mesh = SubResource("PlaneMesh_qkran")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.74564123, 0, -2.9388878)
 
 [node name="Branch1" parent="." unique_id=943419720 instance=ExtResource("4_il6x7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74467564, 0.05901766, -1.0864415)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74467564, 0.05901766, -0.36982143)
 
 [node name="Branch2" parent="." unique_id=1168123239 instance=ExtResource("4_il6x7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74467564, 0.05901766, -1.4109266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74467564, 0.05901766, -0.5879447)
 
 [node name="Branch3" parent="." unique_id=1019754246 instance=ExtResource("4_il6x7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74467564, 0.05901766, -0.79544103)

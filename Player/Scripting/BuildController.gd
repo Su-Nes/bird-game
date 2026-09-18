@@ -21,9 +21,12 @@ func _ready() -> void:
 	Signals.build_controller = self
 
 func initiate_building(block: Placeable): ## Block must have CollisionShape3D as child 0 and MeshInstance3D as child 1
+	if current_buildable:
+		stop_building()
+	
 	if ghost:
 		ghost.queue_free()
-	
+	print("%s is fuckin building" % [block.name])
 	# Create ghost mesh
 	current_buildable = block
 	var ghost_scene = PackedScene.new()
@@ -33,6 +36,10 @@ func initiate_building(block: Placeable): ## Block must have CollisionShape3D as
 	ghost.get_child(0).queue_free() # Get rid of collider on the placeable block
 	
 	SHAPE_RAY.add_child(ghost)
+	var ray_box : BoxShape3D = SHAPE_RAY.shape
+	var block_collider : CollisionShape3D = block.get_child(0)
+	var collider_shape : BoxShape3D = block_collider.shape
+	ray_box.size.x = collider_shape.size.x
 	
 	ghost_material = ghost.get_child(1) # Get mesh
 	ghost_material.material_override = GHOST_MATERIAL
@@ -85,6 +92,6 @@ func place() -> bool:
 func stop_building():
 	if ghost:
 		ghost.queue_free()
-	
+
 	if current_buildable:
 		current_buildable = null
