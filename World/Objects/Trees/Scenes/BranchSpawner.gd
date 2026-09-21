@@ -25,7 +25,6 @@ func _ready() -> void:
 			branch_pivot.rotate_y(randf_range(deg_to_rad(RAND_ROTATION_TOWARD_BRANCH_DIRECTION.x), deg_to_rad(RAND_ROTATION_TOWARD_BRANCH_DIRECTION.x)))
 			branch_pivot.rotate_z(deg_to_rad(360) * randf())
 			
-			
 			new_branch.global_position = branch_pivot.global_position + branch_pivot.global_basis.x * branch_pivot.gizmo_extents
 			new_branch.global_rotation = branch_pivot.global_rotation
 			

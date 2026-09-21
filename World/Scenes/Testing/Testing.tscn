@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cf3g34mvtspqt" path="res://Entities/Pickups/Placeables/Branches/Branch1.tscn" id="4_cod3r"]
 [ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="5_un0i4"]
 [ext_resource type="PackedScene" uid="uid://cvknri82ocq2e" path="res://Player/Scripting/UI/Menus/FaintMenu.tscn" id="6_pb8gn"]
+[ext_resource type="PackedScene" uid="uid://ct7esywm4lggm" path="res://World/Objects/Trees/Scenes/TestTree.tscn" id="7_3n563"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eue43"]
 shader = ExtResource("2_3n563")
@@ -111,15 +112,46 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.74564123, 0, -2.93888
 
 [node name="Branch1" parent="." unique_id=943419720 instance=ExtResource("4_cod3r")]
 transform = Transform3D(0.49215716, 0.5110835, 0.70468074, -0.7203183, 0.6936436, 2.9802322e-08, -0.48879725, -0.50759447, 0.7095245, -0.038399816, 1.2785243, -1.75004)
+RANDOM_BRANCH_ROTATION_RANGE = null
+CHANCE_TO_SPLIT = null
+IS_GRABBABLE = null
+INTERACT_ICON_KB = null
+INTERACT_ICON_GP = null
+INTERACT_TOOL_TIP = null
+GRAB_ICON_KB = null
+GRAB_ICON_GP = null
+GRAB_TOOL_TIP = null
+SELECTED_TOOL_TIP = null
 
 [node name="Branch2" parent="." unique_id=1168123239 instance=ExtResource("4_cod3r")]
 transform = Transform3D(0.70111734, 0, 0.71304595, 0, 1, 0, -0.71304595, 0, 0.70111734, -0.5717959, 1.6133677, -1.240939)
-test_subject = true
+RANDOM_BRANCH_ROTATION_RANGE = null
+CHANCE_TO_SPLIT = null
+IS_GRABBABLE = null
+INTERACT_ICON_KB = null
+INTERACT_ICON_GP = null
+INTERACT_TOOL_TIP = null
+GRAB_ICON_KB = null
+GRAB_ICON_GP = null
+GRAB_TOOL_TIP = null
+SELECTED_TOOL_TIP = null
 
 [node name="Branch3" parent="." unique_id=875803 instance=ExtResource("4_cod3r")]
 transform = Transform3D(0.5154536, 0.47526112, 0.71304595, -0.6778625, 0.7351887, 0, -0.5242234, -0.4833471, 0.7011174, -0.9042117, 1.9650263, -0.9028677)
-test_subject = true
+RANDOM_BRANCH_ROTATION_RANGE = null
+CHANCE_TO_SPLIT = null
+IS_GRABBABLE = null
+INTERACT_ICON_KB = null
+INTERACT_ICON_GP = null
+INTERACT_TOOL_TIP = null
+GRAB_ICON_KB = null
+GRAB_ICON_GP = null
+GRAB_TOOL_TIP = null
+SELECTED_TOOL_TIP = null
 
 [node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("5_un0i4")]
 
 [node name="FaintMenu" parent="." unique_id=974351880 instance=ExtResource("6_pb8gn")]
+
+[node name="TestTree" parent="." unique_id=46511288 instance=ExtResource("7_3n563")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, -0.9572716, -0.22637296, -9.78817)

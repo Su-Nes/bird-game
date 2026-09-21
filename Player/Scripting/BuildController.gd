@@ -26,7 +26,7 @@ func initiate_building(block: Placeable): ## Block must have CollisionShape3D as
 	
 	if ghost:
 		ghost.queue_free()
-	print("%s is fuckin building" % [block.name])
+
 	# Create ghost mesh
 	current_buildable = block
 	var ghost_scene = PackedScene.new()

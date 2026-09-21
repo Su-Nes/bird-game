@@ -193,6 +193,7 @@ func handle_flight_velocity(_delta: float):
 			state_machine.change_state("CrashState")
 		else:
 			player_controller.velocity = player_controller.velocity.bounce(collision_info.get_normal()) * CRASH_SPEED_MOD
+			state_machine.change_state("idlestate")
 			
 func exit():
 	INTERACTION_RAYCAST.enabled = true

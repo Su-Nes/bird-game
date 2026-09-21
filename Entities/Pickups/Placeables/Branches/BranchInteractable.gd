@@ -27,5 +27,8 @@ func grow_branch_random(chance = .5):
 	
 	new_branch.grow_branch_random(chance)
 	
+	forward_connections.append(new_branch)
+	new_branch.backwards_connections.append(self)
+	
 	if randf() < CHANCE_TO_SPLIT:
 		grow_branch_random(chance)
