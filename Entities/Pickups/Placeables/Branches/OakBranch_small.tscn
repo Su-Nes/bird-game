@@ -1,15 +1,13 @@
 [gd_scene format=3 uid="uid://dcaqmr8n5v177"]
 
 [ext_resource type="Script" uid="uid://mlswckjo8gss" path="res://Entities/Pickups/Placeables/Branches/BranchInteractable.gd" id="1_wd43s"]
+[ext_resource type="Material" uid="uid://dmr68clh4c438" path="res://World/Objects/Trees/Materials/OakBark.tres" id="2_4hs2j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nd5ly"]
 size = Vector3(0.5, 0.1, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v23kt"]
-albedo_color = Color(0.12530395, 0.059494026, 0, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_60uoq"]
-material = SubResource("StandardMaterial3D_v23kt")
+material = ExtResource("2_4hs2j")
 size = Vector3(0.5, 0.1, 0.1)
 
 [node name="Branch_small" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("COLLIDER", "RIGIDBODY") groups=["Interactable"]]

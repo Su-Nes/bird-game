@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cqbsp5tnjsrhi"]
+
+[ext_resource type="Texture2D" uid="uid://behkro6obcfbm" path="res://World/Objects/Trees/Textures/Leaves_Tiled_Transp.png" id="1_btuit"]
+
+[resource]
+depth_draw_mode = 1
+shading_mode = 2
+albedo_texture = ExtResource("1_btuit")
+roughness = 0.86
+billboard_keep_scale = true
+distance_fade_mode = 2
+distance_fade_max_distance = 5.0
+stencil_color = Color(0.37567735, 0.3352677, 0.2010898, 1)
+stencil_outline_thickness = 0.042

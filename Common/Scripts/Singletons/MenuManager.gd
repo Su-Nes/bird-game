@@ -17,6 +17,13 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause()
 		
+	if Input.is_action_just_pressed("fullscreen"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		
+		
 func toggle_pause():
 	if StatController.fainted:
 		return

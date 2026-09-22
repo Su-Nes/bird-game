@@ -5,18 +5,19 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkran"]
 font = ExtResource("2_7wc5j")
-font_size = 172
+font_size = 80
 outline_size = 7
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7wc5j"]
 font = ExtResource("2_7wc5j")
-font_size = 84
+font_size = 43
 outline_size = 7
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_joydu"]
-font_size = 24
+line_spacing = 0.95
+font_size = 12
 outline_size = 4
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 

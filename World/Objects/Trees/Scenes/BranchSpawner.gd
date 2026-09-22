@@ -5,9 +5,10 @@ class_name BranchSpawner
 
 @export var BRANCHES : Array[PackedScene]
 @export var SPAWN_MARKER_PARENT : Node
+@export var SPAWN_OFFSET : float = 0
 @export var SPAWN_GROUP_PER_BRANCH : Vector2
-@export var RAND_ROTATION_TOWARD_BRANCH_DIRECTION : Vector2
-@export_range(0, 1) var CHANCE_FOR_BRANCH_GROWTH : float
+@export var RAND_ROTATION_TOWARD_BRANCH_DIRECTION : Vector2 = Vector2(45, 90)
+@export_range(0, 1) var CHANCE_FOR_BRANCH_GROWTH : float = .5
 
 
 func _ready() -> void:
@@ -20,7 +21,7 @@ func _ready() -> void:
 			
 			new_branch.scale /= scale
 			
-			branch_pivot.global_position = spawn_marker.global_position - spawn_marker.global_basis.z * spawn_marker.gizmo_extents * randf()
+			branch_pivot.global_position = spawn_marker.global_position - spawn_marker.global_basis.z * (spawn_marker.gizmo_extents + SPAWN_OFFSET) * randf()
 
 			branch_pivot.rotate_y(randf_range(deg_to_rad(RAND_ROTATION_TOWARD_BRANCH_DIRECTION.x), deg_to_rad(RAND_ROTATION_TOWARD_BRANCH_DIRECTION.x)))
 			branch_pivot.rotate_z(deg_to_rad(360) * randf())
