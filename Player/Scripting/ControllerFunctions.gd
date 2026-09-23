@@ -29,6 +29,7 @@ func handle_model_transform(direction: Vector3, up = Vector3.UP, lerp_strength =
 	
 	if up.length() == 0:
 		up = Vector3.UP
+		
 	MESH.global_transform = MESH.global_transform.looking_at(look_pos, up)
 	var end_rot = MESH.global_rotation
 

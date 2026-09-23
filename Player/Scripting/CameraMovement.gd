@@ -113,6 +113,8 @@ func move_cam(new_spring_dist: float, new_position : Vector3, lerp_strength : fl
 	
 	# Recursion! (it's kinda pointless because now I can handle this all in _process but it still works
 	if abs(new_spring_dist - $CameraSpring.spring_length) > .05:
+		if !get_tree():
+			return
 		await get_tree().process_frame
 		move_cam(target_distance, target_position, lerp_value)
 	else: 

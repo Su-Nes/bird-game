@@ -5,7 +5,7 @@ class_name StateMachine
 
 @export var initial_state : State
 @export var ANIMATOR : AnimationPlayer
-@export var debug = false
+@export var DEBUG = false
 
 var current_state: State 
 var previous_state : State
@@ -39,8 +39,12 @@ func _input(event: InputEvent) -> void:
 		current_state.handle_input(event)
 	
 func change_state(new_state_name: String) -> void:
-	if debug:
+	if !states.has(new_state_name.to_lower()):
+		return
+		
+	if DEBUG:
 		print("Entered state: %s" % new_state_name)
+		
 	if current_state:
 		previous_state = current_state
 		current_state.exit()

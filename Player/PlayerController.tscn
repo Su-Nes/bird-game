@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://c8iux46pa1gou" path="res://Player/States/WingStates/WingFlapSingular.gd" id="4_0vcn1"]
 [ext_resource type="Script" uid="uid://isw8sgo3oloe" path="res://Player/Scripting/CameraMovement.gd" id="4_bacvh"]
 [ext_resource type="Script" uid="uid://dh7ybwg1n3d1q" path="res://Player/States/JumpState.gd" id="4_j8irr"]
+[ext_resource type="Script" uid="uid://cjy3flbvrfu5f" path="res://Common/Scripts/Interaction/InteractableScript.gd" id="4_l7evj"]
 [ext_resource type="Script" uid="uid://chuogpiglf4ke" path="res://Player/States/WingStates/WingsGlide.gd" id="4_x8g6g"]
 [ext_resource type="Script" uid="uid://be6pkheh5acwc" path="res://Player/Scripting/SmoothCam.gd" id="5_7c45o"]
 [ext_resource type="Script" uid="uid://bvfkhbgfu15mb" path="res://Player/States/FallState.gd" id="5_mdtj2"]
@@ -26,8 +27,6 @@
 [ext_resource type="Script" uid="uid://d1853gq10xt6p" path="res://Player/Scripting/GrabScript.gd" id="19_vi1d0"]
 [ext_resource type="Script" uid="uid://c8eoylguwivp" path="res://Player/Scripting/BuildController.gd" id="20_4l6g3"]
 [ext_resource type="Texture2D" uid="uid://bo748bg7vjxr4" path="res://Player/UI/Sprites/InteractionReticle.png" id="20_h5t5w"]
-[ext_resource type="Script" uid="uid://mh5848ne4ksa" path="res://Player/Scripting/UI/HUD/ToolTipDisplay.gd" id="22_8hxfm"]
-[ext_resource type="PackedScene" uid="uid://bchn3wywka0ms" path="res://Player/Scripting/UI/HUD/ToolTipContainer.tscn" id="23_8hxfm"]
 [ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="28_be8bd"]
 [ext_resource type="PackedScene" uid="uid://cvknri82ocq2e" path="res://Player/Scripting/UI/Menus/FaintMenu.tscn" id="29_kl3dy"]
 
@@ -474,6 +473,9 @@ _limits = [0.0, 1.0, 0.0, 80.0]
 _data = [Vector2(0, 0.008130074), 0.0, 0.0030251553, 0, 0, Vector2(80, 1), 0.033505764, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_qkran"]
+radius = 0.6
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7c45o"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.35686275)
@@ -541,6 +543,9 @@ mesh = SubResource("PrismMesh_qkran")
 [node name="GrabPoint" type="Marker3D" parent="MeshParts/Beak" unique_id=1685434782]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.028193481, -0.07281435)
 
+[node name="EmptyInteractable" type="Node3D" parent="MeshParts/Beak/GrabPoint" unique_id=1330320654]
+script = ExtResource("4_l7evj")
+
 [node name="Wings" type="Node3D" parent="MeshParts" unique_id=1564395972]
 
 [node name="Meshes" type="Node3D" parent="MeshParts/Wings" unique_id=1425311760]
@@ -602,7 +607,6 @@ debug_shape_custom_color = Color(0.78352344, 0.7835234, 0.7835234, 1)
 script = ExtResource("1_8rupm")
 initial_state = NodePath("HoverState")
 ANIMATOR = NodePath("../Animator")
-debug = true
 
 [node name="IdleState" type="Node" parent="MovementStateMachine" unique_id=984515081 node_paths=PackedStringArray("WING_STATES", "CAMERA_SCRIPT")]
 script = ExtResource("2_ldje2")
@@ -660,6 +664,7 @@ THRUST_CURVE = SubResource("Curve_n84ad")
 THRUST_STRENGTH = 4.0
 THRUST_STRENGTH_PASSIVE = 2.5
 DRAG_CURVE = SubResource("Curve_cqlj3")
+DRAG_STRENGTH = -0.25
 BREAK_CURVE = SubResource("Curve_ds2wf")
 CRASH_VELOCITY = 8.0
 CRASH_SPEED_MOD = 0.2
@@ -687,6 +692,7 @@ script = ExtResource("15_kl3dy")
 WING_STATES = NodePath("../../WingStateMachine")
 UP_FLOAT_STRENGTH = 5.0
 MAX_VELOCITY = 12.0
+SWIM_SPEED = 1.0
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 metadata/_custom_type_script = "uid://dhwul35l75avv"
 
@@ -728,13 +734,21 @@ script = ExtResource("4_x8g6g")
 WING_ROTATION_DIST = Vector3(-60, 90, 0)
 GLIDE_LERP = 0.2
 
-[node name="GrabController" type="Node" parent="." unique_id=202790247 node_paths=PackedStringArray("GRAB_POINT", "BEAK_TOP", "BEAK_BOTTOM")]
+[node name="GrabController" type="Node" parent="." unique_id=202790247 node_paths=PackedStringArray("GRAB_POINT", "STATE_MACHINE", "BEAK_TOP", "BEAK_BOTTOM")]
 script = ExtResource("19_vi1d0")
 GRAB_POINT = NodePath("../MeshParts/Beak/GrabPoint")
-DROP_OFFSET = Vector3(0, -0.5, 0.5)
+STATE_MACHINE = NodePath("../MovementStateMachine")
+DROP_OFFSET = Vector3(0, -0.2, 1)
 BEAK_TOP = NodePath("../MeshParts/Beak/BeakTop")
 BEAK_BOTTOM = NodePath("../MeshParts/Beak/BeakBottom")
+MAX_ITEMS = 10
 BREAK_ROT_PER_ITEM = 30
+
+[node name="FishingArea" type="Area3D" parent="." unique_id=95746984]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FishingArea" unique_id=137301275]
+shape = SubResource("SphereShape3D_qkran")
 
 [node name="BuildController" type="Node" parent="." unique_id=1493140422 node_paths=PackedStringArray("SHAPE_RAY", "GRAB_SCRIPT")]
 script = ExtResource("20_4l6g3")
@@ -822,18 +836,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("20_h5t5w")
 
-[node name="ToolTips" type="MarginContainer" parent="HUD&Stats" unique_id=1231947341]
-layout_mode = 1
-offset_right = 419.0
-offset_bottom = 209.0
-script = ExtResource("22_8hxfm")
-TOOL_TIP_CONTAINER = ExtResource("23_8hxfm")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD&Stats/ToolTips" unique_id=1146441075]
-layout_mode = 2
-
 [node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("28_be8bd")]
 visible = false
 
 [node name="FaintMenu" parent="." unique_id=1307687841 instance=ExtResource("29_kl3dy")]
 visible = false
+
+[connection signal="body_entered" from="FishingArea" to="GrabController" method="_on_grab_area_body_entered"]

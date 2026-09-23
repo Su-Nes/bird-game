@@ -2,9 +2,12 @@ extends Node
 
 class_name GrabScript
 
+@onready var player_controller: CharacterBody3D = $".."
 
 @export var GRAB_POINT : Marker3D
+@export var STATE_MACHINE : StateMachine
 @export var DROP_OFFSET : Vector3
+@export var DROP_VELOCITY_MOD : float = 2
 @export var BEAK_TOP : Node3D
 @export var BEAK_BOTTOM : Node3D
 @export_category("Storage settings")
@@ -14,7 +17,7 @@ class_name GrabScript
 var active_index = 0
 
 func grab_item(item: Interactable):
-	if GRAB_POINT.get_child_count() >= MAX_ITEMS:
+	if GRAB_POINT.get_child_count() >= MAX_ITEMS + 1:
 		print("Too many items!")
 		return
 	
@@ -31,9 +34,7 @@ func grab_item(item: Interactable):
 	
 	display_active_item()
 	
-func _process(_delta: float) -> void:	
-	handle_beak_rotation()
-	
+func _process(_delta: float) -> void:		
 	if GRAB_POINT.get_child_count() <= 0:
 		return
 	
@@ -51,7 +52,6 @@ func _process(_delta: float) -> void:
 		if active_index < 0:
 			active_index = GRAB_POINT.get_child_count() - 1
 		display_active_item()
-
 
 func use_item():
 	if GRAB_POINT.get_child_count() <= 0:
@@ -81,13 +81,17 @@ func display_active_item():
 		var active_child : Interactable = GRAB_POINT.get_child(active_index)
 		active_child.visible = true
 		active_child.on_selected()
+		
+	handle_beak_rotation()
 
 func unselect_all():
 	for n : Interactable in GRAB_POINT.get_children():
 		n.on_unselected()
 	
 func remove_selected_item(drop_physically = false):
-	var item : Interactable = GRAB_POINT.get_child(-1)
+	var item : Interactable = GRAB_POINT.get_child(active_index)
+	if item.get_child_count() < 1:
+		return # Ignore EmptyInteractable
 
 	item.reparent(get_tree().root)
 	item.is_grabbed = false
@@ -101,13 +105,18 @@ func remove_selected_item(drop_physically = false):
 		return
 	
 	item.global_position = item.global_position - $"../MeshHandle".global_basis.z * DROP_OFFSET.z + Vector3.UP * DROP_OFFSET.y
-	
 	item.has_physics(true, true)
-	
+	if item.RIGIDBODY:
+		item.RIGIDBODY.linear_velocity = player_controller.velocity * DROP_VELOCITY_MOD
+
 func handle_beak_rotation():
 	BEAK_TOP.rotation.x = 0
 	BEAK_BOTTOM.rotation.x = 0
 	#TO-DO: Have seperate rotation values for each item.
-	if GRAB_POINT.get_child_count() > 0:
+	if GRAB_POINT.get_child(active_index).get_child_count() > 0: # Single out EmptyInteractable
 		BEAK_TOP.rotate_x(deg_to_rad(BREAK_ROT_PER_ITEM) / 2)
 		BEAK_BOTTOM.rotate_x(deg_to_rad(-BREAK_ROT_PER_ITEM) / 2)
+
+func _on_grab_area_body_entered(body: Node3D) -> void:
+	if body is Edible and STATE_MACHINE.current_state.name == "SwimState":
+		grab_item(body)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dipqgg0d0k4h3"]
 
 [ext_resource type="Script" uid="uid://bvkeke4dy4a43" path="res://Entities/Spawners/BerryBush/BerryBushScript.gd" id="1_6er4m"]
-[ext_resource type="PackedScene" uid="uid://ciwdfugksg6gx" path="res://Entities/Pickups/Berry/Berry.tscn" id="2_a00iv"]
+[ext_resource type="PackedScene" uid="uid://ciwdfugksg6gx" path="res://Entities/Pickups/Edibles/Berry/Berry.tscn" id="2_a00iv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qkran"]
 radius = 1.0

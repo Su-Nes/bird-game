@@ -8,12 +8,6 @@ var forward_connections : Array[Placeable]
 var backwards_connections : Array[Placeable]
 @export var COLLISION_SEARCH_MARGIN : float = 1.5
 
-func on_focus():
-	var tip_kb : Dictionary[Texture2D, String] = {GRAB_ICON_KB : GRAB_TOOL_TIP}
-	var tip_gp : Dictionary[Texture2D, String] = {GRAB_ICON_GP : GRAB_TOOL_TIP}
-
-	Signals.display_tool_tips.emit(tip_kb, tip_gp, String.num_int64(interaction_tip_index))
-
 func on_placed():
 	await get_colliders()
 	if colliders.size() < 1:

@@ -252,4 +252,4 @@ transform = Transform3D(1.0552073, 0, 0.07881987, 0, 1.058147, 0, -0.07881987, 0
 metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
 
 [node name="Lake" parent="." unique_id=819962188 instance=ExtResource("5_ph8fn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.74283, -10.254694, 77.92697)
+transform = Transform3D(1.2927271, 0, 0, 0, 1.2927271, 0, 0, 0, 1.2927271, 183.06226, -4.5545063, 77.92697)

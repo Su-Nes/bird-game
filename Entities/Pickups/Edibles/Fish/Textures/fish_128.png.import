@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cih52pv5yk1ok"
-path.s3tc="res://.godot/imported/fish_128.png-b6c1aca4597f731e2907bd4e5d39a2df.s3tc.ctex"
+path.s3tc="res://.godot/imported/fish_128.png-f4a1c76f29772cbb3d319397d144024e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/NPCs/Edibles/Fish/Textures/fish_128.png"
-dest_files=["res://.godot/imported/fish_128.png-b6c1aca4597f731e2907bd4e5d39a2df.s3tc.ctex"]
+source_file="res://Entities/Pickups/Edibles/Fish/Textures/fish_128.png"
+dest_files=["res://.godot/imported/fish_128.png-f4a1c76f29772cbb3d319397d144024e.s3tc.ctex"]
 
 [params]
 

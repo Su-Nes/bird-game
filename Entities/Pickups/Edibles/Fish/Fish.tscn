@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://vnib5g438mv"]
+
+[ext_resource type="Script" uid="uid://exoyfvb4frkp" path="res://Entities/Pickups/Edibles/Berry/Edible.gd" id="1_6lrxk"]
+[ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="2_w2rb1"]
+[ext_resource type="Script" uid="uid://tqnyhu5r1roo" path="res://Entities/Pickups/Edibles/Fish/Scripts/FishSwim.gd" id="3_birth"]
+[ext_resource type="Script" uid="uid://c7unolesehp8s" path="res://Entities/Pickups/Edibles/Fish/Scripts/FishOutOfWater.gd" id="4_5e32g"]
+[ext_resource type="PackedScene" uid="uid://d1kfjy0gg7om7" path="res://Entities/Pickups/Edibles/Fish/Model/Fish.blend" id="5_salkk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6lrxk"]
+bounce = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qkran"]
+radius = 0.061523438
+height = 0.51064456
+
+[node name="Fish" type="RigidBody3D" unique_id=2106081441 node_paths=PackedStringArray("STATE_MACHINE", "GRABBED_STATE", "COLLIDER", "RIGIDBODY") groups=["Fish"]]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_6lrxk")
+script = ExtResource("1_6lrxk")
+STATE_MACHINE = NodePath("StateMachine")
+GRABBED_STATE = NodePath("StateMachine/FishOutOfWater")
+STAMINA_VALUE = 15.0
+COLLIDER = NodePath("CollisionShape3D")
+RIGIDBODY = NodePath(".")
+
+[node name="StateMachine" type="Node" parent="." unique_id=31138759 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
+script = ExtResource("2_w2rb1")
+initial_state = NodePath("FishSwim")
+ANIMATOR = NodePath("../Mesh/AnimationPlayer")
+metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
+
+[node name="FishSwim" type="Node" parent="StateMachine" unique_id=573104966]
+script = ExtResource("3_birth")
+SWIM_SPEED = 2.0
+metadata/_custom_type_script = "uid://tqnyhu5r1roo"
+
+[node name="FishOutOfWater" type="Node" parent="StateMachine" unique_id=1252398929]
+script = ExtResource("4_5e32g")
+metadata/_custom_type_script = "uid://c7unolesehp8s"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1906311143]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.4182134e-09, -0.055322275)
+shape = SubResource("CapsuleShape3D_qkran")
+
+[node name="Mesh" parent="." unique_id=764040040 instance=ExtResource("5_salkk")]
+
+[node name="Skeleton3D" parent="Mesh/Armature" parent_id_path=PackedInt32Array(764040040, 577916294) index="0" unique_id=1714032697]
+bones/0/rotation = Quaternion(-3.2836713e-08, -7.397027e-08, 4.5239013e-08, 1)
+bones/1/position = Vector3(-5.0231777e-15, 1.3844187, -1.6352358e-15)
+bones/1/rotation = Quaternion(-0.08715576, -1.1778506e-08, 1.3026084e-07, 0.9961947)
+bones/1/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
+
+[editable path="Mesh"]

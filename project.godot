@@ -105,6 +105,7 @@ enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 Player=""
 Spawners="Bushes, trees, ant nests, etc."
 Interactable="Anything that can be picked up."
+Fish="Fish"
 
 [input]
 

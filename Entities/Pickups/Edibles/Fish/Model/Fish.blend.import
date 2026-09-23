@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d1kfjy0gg7om7"
-path="res://.godot/imported/Fish.blend-bffec9b6e182b780e4342e4c799c6e90.scn"
+path="res://.godot/imported/Fish.blend-859936df7d3a34edb7b7fe26f93260ee.scn"
 
 [deps]
 
-source_file="res://Entities/NPCs/Edibles/Fish/Model/Fish.blend"
-dest_files=["res://.godot/imported/Fish.blend-bffec9b6e182b780e4342e4c799c6e90.scn"]
+source_file="res://Entities/Pickups/Edibles/Fish/Model/Fish.blend"
+dest_files=["res://.godot/imported/Fish.blend-859936df7d3a34edb7b7fe26f93260ee.scn"]
 
 [params]
 

@@ -60,5 +60,7 @@ func cam_transition_down():
 		CAMERA_MOVEMENT.pivot.position.y = 0
 		return
 		
-	await get_tree().process_frame
+	if !get_tree():
+		return
+	await get_tree().process_frame # idk why this gave an error sometimes
 	cam_transition_down()
