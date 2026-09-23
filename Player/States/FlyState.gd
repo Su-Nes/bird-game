@@ -58,7 +58,7 @@ var rotation_mod : float
 
 func enter():
 	INTERACTION_RAYCAST.enabled = false
-	WING_STATES.change_state("wingsGliding")
+	WING_STATES.change_state("wingsIdle")
 	
 	CAMERA_MOVEMENT.move_cam(CAMERA_DISTANCE, CAMERA_POSITION, CAMERA_MOVE_LERP)
 	CAMERA_MOVEMENT.disable_look_timer = 999

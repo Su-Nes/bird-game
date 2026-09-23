@@ -39,7 +39,6 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("drop"):
 		remove_selected_item(true)
-		display_active_item()
 		
 	if Input.is_action_just_pressed("scroll_plus"):
 		active_index += 1
@@ -93,6 +92,8 @@ func remove_selected_item(drop_physically = false):
 	item.reparent(get_tree().root)
 	item.is_grabbed = false
 	item.on_unselected()
+	
+	active_index = GRAB_POINT.get_child_count() - 1
 
 	display_active_item()
 	

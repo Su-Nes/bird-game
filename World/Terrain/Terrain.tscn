@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dipqgg0d0k4h3" path="res://Entities/Spawners/BerryBush/BerryBush.tscn" id="2_sx3xv"]
 [ext_resource type="PackedScene" uid="uid://ct7esywm4lggm" path="res://World/Objects/Trees/Scenes/OakTree1.tscn" id="3_t84eb"]
 [ext_resource type="PackedScene" uid="uid://ctd6yevovrnl1" path="res://World/Objects/Trees/Scenes/PineTree1.tscn" id="4_jjvf7"]
+[ext_resource type="PackedScene" uid="uid://bgh5pndnen6fm" path="res://World/Objects/Water/Lake.tscn" id="5_ph8fn"]
 
 [sub_resource type="Gradient" id="Gradient_jocfy"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -67,8 +68,7 @@ data_directory = "res://World/Terrain/Terrain3D_Data"
 material = SubResource("Terrain3DMaterial_ph8fn")
 assets = ExtResource("1_jocfy")
 collision_mask = 3
-mesh_size = 8
-vertex_spacing = 2.0
+vertex_spacing = 10.0
 top_level = true
 metadata/_edit_lock_ = true
 
@@ -113,6 +113,10 @@ metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
 
 [node name="TestTree (1)" parent="LevelObjects" unique_id=1439773288 instance=ExtResource("3_t84eb")]
 transform = Transform3D(0.6972154, 0, 0.052079264, 0, 0.6991577, 0, -0.052079264, 0, 0.6972154, 80.04399, 0.01359227, 90.7675)
+metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
+
+[node name="TestTree (1)2" parent="LevelObjects" unique_id=46511288 instance=ExtResource("3_t84eb")]
+transform = Transform3D(-0.0032865107, 0, -0.50487214, 0, 0.50488275, 0, 0.50487214, 0, -0.0032865107, 128.31863, -4.313131, 22.66745)
 metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
 
 [node name="PineTree1 (3)" parent="LevelObjects" unique_id=149640181 instance=ExtResource("4_jjvf7")]
@@ -246,3 +250,6 @@ metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
 [node name="TestTree (22)" parent="LevelObjects" unique_id=692054920 instance=ExtResource("3_t84eb")]
 transform = Transform3D(1.0552073, 0, 0.07881987, 0, 1.058147, 0, -0.07881987, 0, 1.0552073, -5.666889, 0.0002643861, -179.61494)
 metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
+
+[node name="Lake" parent="." unique_id=819962188 instance=ExtResource("5_ph8fn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.74283, -10.254694, 77.92697)

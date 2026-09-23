@@ -1,0 +1,46 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://brh64my442it4"]
+
+[ext_resource type="Shader" uid="uid://cekuxppkvycey" path="res://Shaders/EA_CoolWater.gdshader" id="1_j8x4u"]
+[ext_resource type="Texture2D" uid="uid://byd17awl1gpfy" path="res://addons/toon_water/Textures/EA_Foam_Voronoi.tres" id="2_cdobg"]
+[ext_resource type="Texture2D" uid="uid://sarajcytxpgx" path="res://addons/toon_water/Textures/EA_Water_Normal.tres" id="3_n28mi"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_j8x4u")
+shader_parameter/shallow_color = Color(0.35839066, 0.72383195, 0.7598442, 0.6509804)
+shader_parameter/deep_color = Color(0.20646623, 0.44669735, 0.645244, 0.92156863)
+shader_parameter/water_depth = 2.00000009174012
+shader_parameter/color_bands = 2
+shader_parameter/shore_glow_color = Color(0.7480886, 0.9483139, 0.9999997, 1)
+shader_parameter/shore_glow_width = 0.15
+shader_parameter/specular_color = Color(0.39318144, 0.7265234, 0.81171334, 1)
+shader_parameter/specular_size = 20.036000714209997
+shader_parameter/specular_softness = 0.05
+shader_parameter/specular_hardness = 0.85
+shader_parameter/specular_intensity = 0.5270000250325
+shader_parameter/fresnel_power = 2.82400013414
+shader_parameter/refraction_strength = 0.10000000149012
+shader_parameter/foam_style = 4
+shader_parameter/foam_color = Color(0.972, 0.985, 1, 1)
+shader_parameter/foam_texture = ExtResource("2_cdobg")
+shader_parameter/foam_tiling = 0.02800000133
+shader_parameter/foam_cutoff = 0.5230000248425
+shader_parameter/foam_depth = 1.27600006061
+shader_parameter/foam_speed = 0.4
+shader_parameter/foam_edge_break = 0.8610000408975
+shader_parameter/shore_edge_break = 0.366000017385
+shader_parameter/foam_hardness = 0.242000011495
+shader_parameter/foam_overlay = 1.0
+shader_parameter/caustics_tint = Color(0.50687265, 0.6184701, 0.7007763, 1)
+shader_parameter/caustics_strength = 0.3110000147725
+shader_parameter/caustics_scale = 0.055
+shader_parameter/caustics_speed = 0.80800003838
+shader_parameter/chromatic_aberration = false
+shader_parameter/sparkle_boost = 0.874000041515
+shader_parameter/sparkle_density = 0.7830000371925
+shader_parameter/sparkle_size = 0.7210000342475
+shader_parameter/normal_map = ExtResource("3_n28mi")
+shader_parameter/normal_tiling = 0.06
+shader_parameter/normal_strength = 0.8830000419425
+shader_parameter/wave_speed = 0.02
+shader_parameter/wave_height = 0.04

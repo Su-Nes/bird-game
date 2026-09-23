@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bgh5pndnen6fm"]
+
+[ext_resource type="Script" uid="uid://dmy38iaitjcxf" path="res://World/Objects/Water/WaterScript.gd" id="1_4qwnb"]
+[ext_resource type="Material" uid="uid://brh64my442it4" path="res://Materials/EA_Water_64.tres" id="1_m1k3q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qkran"]
+material = ExtResource("1_m1k3q")
+size = Vector2(125, 125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ph8fn"]
+size = Vector3(125, 50, 125)
+
+[node name="Lake" type="Area3D" unique_id=819962188]
+collision_mask = 3
+gravity_space_override = 3
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+gravity = 3.0
+linear_damp_space_override = 3
+script = ExtResource("1_4qwnb")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=2122321559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.462418, 4.5599065, -7.489937)
+mesh = SubResource("PlaneMesh_qkran")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1742185738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.462, -20.44, -7.49)
+shape = SubResource("BoxShape3D_ph8fn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -5,6 +5,7 @@ class_name StateMachine
 
 @export var initial_state : State
 @export var ANIMATOR : AnimationPlayer
+@export var debug = false
 
 var current_state: State 
 var previous_state : State
@@ -13,6 +14,8 @@ var states : Dictionary = {}
 var stored_vector : Vector3
 
 func _ready() -> void:
+	Signals.player_change_state.connect(change_state)
+	
 	# Register all states in children
 	for child in get_children():
 		if child is State:
@@ -36,6 +39,8 @@ func _input(event: InputEvent) -> void:
 		current_state.handle_input(event)
 	
 func change_state(new_state_name: String) -> void:
+	if debug:
+		print("Entered state: %s" % new_state_name)
 	if current_state:
 		previous_state = current_state
 		current_state.exit()

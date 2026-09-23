@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://vnib5g438mv"]
+
+[ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_hb4qt"]
+[ext_resource type="PackedScene" uid="uid://d1kfjy0gg7om7" path="res://Entities/NPCs/Edibles/Fish/Model/Fish.blend" id="2_em64d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qkran"]
+
+[node name="Fish" type="CharacterBody3D" unique_id=898206454]
+
+[node name="StateMachine" type="Node" parent="." unique_id=31138759 node_paths=PackedStringArray("ANIMATOR")]
+script = ExtResource("1_hb4qt")
+ANIMATOR = NodePath("../Mesh/AnimationPlayer")
+metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
+
+[node name="Mesh" parent="." unique_id=560682796 instance=ExtResource("2_em64d")]
+
+[node name="Skeleton3D" parent="Mesh/Armature" parent_id_path=PackedInt32Array(560682796, 192137128) index="0" unique_id=2097495902]
+bones/1/rotation = Quaternion(-0.11005327, -0.00067681086, -0.0022391747, 0.99392295)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1906311143]
+shape = SubResource("CapsuleShape3D_qkran")
+
+[editable path="Mesh"]

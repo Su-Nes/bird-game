@@ -61,4 +61,6 @@ func handle_velocity(delta):
 	
 	player_controller.move_and_slide()
 	
-	extension_functions.handle_model_transform(player_controller.velocity, Vector3.UP, .05)
+	var look_at_flat = player_controller.velocity
+	look_at_flat.y = 0
+	extension_functions.handle_model_transform(look_at_flat, Vector3.UP, .05)

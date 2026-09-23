@@ -9,6 +9,7 @@
 [node name="Environment" parent="." unique_id=163002060 instance=ExtResource("2_kjd56")]
 
 [node name="Terrain" parent="." unique_id=750404762 instance=ExtResource("9_004o5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048797607, 0.05398941, -0.039505005)
 
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7342253, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.36773, 7.7342253, 40.580883)
