@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://gyv0w2cpssjs"]
 
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
-[ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="2_kjd56"]
 [ext_resource type="PackedScene" uid="uid://rbf3r26b40pt" path="res://World/Terrain/Terrain.tscn" id="9_004o5"]
 
-[node name="World" type="Node3D" unique_id=2109053146]
-
-[node name="Environment" parent="." unique_id=163002060 instance=ExtResource("2_kjd56")]
+[node name="Main" type="Node3D" unique_id=2109053146]
 
 [node name="Terrain" parent="." unique_id=750404762 instance=ExtResource("9_004o5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048797607, 0.05398941, -0.039505005)

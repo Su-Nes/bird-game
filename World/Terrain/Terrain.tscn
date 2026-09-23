@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://rbf3r26b40pt"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://ronu5hq0rd3t" path="res://World/Terrain/new_terrain_3d_assets.res" id="1_jocfy"]
-[ext_resource type="PackedScene" uid="uid://dipqgg0d0k4h3" path="res://Entities/Spawners/BerryBush/BerryBush.tscn" id="2_sx3xv"]
-[ext_resource type="PackedScene" uid="uid://ct7esywm4lggm" path="res://World/Objects/Trees/Scenes/OakTree1.tscn" id="3_t84eb"]
+[ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="1_lrfnj"]
 [ext_resource type="PackedScene" uid="uid://ctd6yevovrnl1" path="res://World/Objects/Trees/Scenes/PineTree1.tscn" id="4_jjvf7"]
+[ext_resource type="Script" uid="uid://epa0acfts1uo" path="res://World/Objects/Trees/Scenes/BranchSpawner.gd" id="5_l17ic"]
 [ext_resource type="PackedScene" uid="uid://bgh5pndnen6fm" path="res://World/Objects/Water/Lake.tscn" id="5_ph8fn"]
+[ext_resource type="PackedScene" uid="uid://cf3g34mvtspqt" path="res://Entities/Pickups/Placeables/Branches/PineBranch.tscn" id="6_t84eb"]
 
 [sub_resource type="Gradient" id="Gradient_jocfy"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -63,6 +64,8 @@ auto_shader = true
 
 [node name="Terrain" type="Node3D" unique_id=750404762]
 
+[node name="Environment" parent="." unique_id=163002060 instance=ExtResource("1_lrfnj")]
+
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=267656163]
 data_directory = "res://World/Terrain/Terrain3D_Data"
 material = SubResource("Terrain3DMaterial_ph8fn")
@@ -74,182 +77,905 @@ metadata/_edit_lock_ = true
 
 [node name="LevelObjects" type="Node3D" parent="." unique_id=1891099059]
 
-[node name="BerryBush" parent="LevelObjects" unique_id=1109566799 instance=ExtResource("2_sx3xv")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 158.92598, -0.74161243, 0.75450206)
-
-[node name="TestTree2" parent="LevelObjects" unique_id=546119185 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.73465306, 0, -0.22085395, 0, 0.76713204, 0, 0.22085395, 0, -0.73465306, 210.37097, 1.2502632, 0.5515728)
-
-[node name="TestTree3" parent="LevelObjects" unique_id=566334289 instance=ExtResource("3_t84eb")]
-transform = Transform3D(0.3799842, 0, 0.40452072, 0, 0.555, 0, -0.40452072, 0, 0.3799842, 192.64777, 1.2502613, -30.598291)
-
-[node name="PineTree1" parent="LevelObjects" unique_id=1563042728 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(0.0044161305, 0, 0.79289, 0, 0.7929023, 0, -0.79289, 0, 0.0044161305, 169.00763, 1.6702161, -45.50422)
-
-[node name="PineTree2" parent="LevelObjects" unique_id=62686014 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-1.3488165, 0, -0.1769033, 0, 1.360368, 0, 0.1769033, 0, -1.3488165, 221.9109, 1.6702161, -42.5164)
-
-[node name="PineTree3" parent="LevelObjects" unique_id=1125128828 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.436204, 0, -1.0665932, 0, 1.1523433, 0, 1.0665932, 0, -0.436204, 198.9533, 1.6702161, -53.910934)
-
-[node name="PineTree4" parent="LevelObjects" unique_id=1320773154 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.13069755, 0, 0.93952435, 0, 0.9485715, 0, -0.93952435, 0, -0.13069755, 182.81337, 1.6702101, -8.12871)
-
-[node name="PineTree5" parent="LevelObjects" unique_id=60968619 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.270615, 0.0026261155, 53.937057)
+[node name="PineTree1" type="StaticBody3D" parent="LevelObjects" unique_id=1563042728 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.545975, -0.1155099, 37.288544)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="PineTree1 (1)" parent="LevelObjects" unique_id=740025971 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.6626874, 0, 0.08691376, 0, 0.6683626, 0, -0.08691376, 0, -0.6626874, -1.0872889, 0.01937093, -14.786587)
+[node name="PineTree1 (1)" type="StaticBody3D" parent="LevelObjects" unique_id=117682263 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.99899983, 0, 0.04471207, 0, 1, 0, -0.04471207, 0, 0.9989999, 85, -0.3293903, 85)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="PineTree1 (2)" parent="LevelObjects" unique_id=1325813294 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.6626874, 0, 0.08691376, 0, 0.6683626, 0, -0.08691376, 0, -0.6626874, -37.77958, 0.017622696, -67.59541)
+[node name="PineTree1 (2)" type="StaticBody3D" parent="LevelObjects" unique_id=960588143 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.49417356, 0, 0.86036927, 0, 0.99219084, 0, -0.8603692, 0, -0.49417353, 95, -3.66196, 35)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree4" parent="LevelObjects" unique_id=1633935645 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.6626874, 0, 0.08691376, 0, 0.6683626, 0, -0.08691376, 0, -0.6626874, 16.760887, 0.000797904, 25.14153)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (1)" parent="LevelObjects" unique_id=1439773288 instance=ExtResource("3_t84eb")]
-transform = Transform3D(0.6972154, 0, 0.052079264, 0, 0.6991577, 0, -0.052079264, 0, 0.6972154, 80.04399, 0.01359227, 90.7675)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (1)2" parent="LevelObjects" unique_id=46511288 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.0032865107, 0, -0.50487214, 0, 0.50488275, 0, 0.50487214, 0, -0.0032865107, 128.31863, -4.313131, 22.66745)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="PineTree1 (3)" parent="LevelObjects" unique_id=149640181 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.6626874, 0, 0.08691376, 0, 0.6683626, 0, -0.08691376, 0, -0.6626874, -36.798668, 0.0013722474, 5.8891907)
+[node name="PineTree1 (3)" type="StaticBody3D" parent="LevelObjects" unique_id=1862127985 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(1.0159429, 0, 0.43253535, 0, 1.104186, 0, -0.43253535, 0, 1.0159429, 155, -3.5914145, 5)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (2)" parent="LevelObjects" unique_id=1065960920 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.6626874, 0, 0.08691376, 0, 0.6683626, 0, -0.08691376, 0, -0.6626874, 92.66922, 0.028360091, -87.25493)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (3)" parent="LevelObjects" unique_id=794629822 instance=ExtResource("3_t84eb")]
-transform = Transform3D(0.5964964, 0, 0.3647102, 0, 0.6991577, 0, -0.3647102, 0, 0.5964964, 137.44118, -6.019832, -23.495195)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="PineTree1 (4)" parent="LevelObjects" unique_id=600449077 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.6626874, 0, 0.08691376, 0, 0.6683626, 0, -0.08691376, 0, -0.6626874, -69.74859, 0.050180525, -26.454876)
+[node name="PineTree1 (4)" type="StaticBody3D" parent="LevelObjects" unique_id=827379583 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.5077778, 0, 0.5030152, 0, 0.7147466, 0, -0.5030152, 0, 0.5077778, 80, 0.061537165, -55)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (4)" parent="LevelObjects" unique_id=1832811651 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.6626874, 0, 0.08691376, 0, 0.6683626, 0, -0.08691376, 0, -0.6626874, -63.509506, 0.026499582, -3.6243248)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (5)" parent="LevelObjects" unique_id=554903176 instance=ExtResource("3_t84eb")]
-transform = Transform3D(0.6972154, 0, 0.052079264, 0, 0.6991577, 0, -0.052079264, 0, 0.6972154, -0.2264061, 8.623741e-06, 62.001648)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="PineTree1 (5)" parent="LevelObjects" unique_id=1276774236 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.6626874, 0, 0.08691376, 0, 0.6683626, 0, -0.08691376, 0, -0.6626874, -45.65475, 0.00860905, -4.9118385)
+[node name="PineTree1 (5)" type="StaticBody3D" parent="LevelObjects" unique_id=1595964639 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.6367955, 0, 0.07352813, 0, 0.6410265, 0, -0.07352814, 0, 0.6367956, 35, 0.16272143, -45)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="PineTree1 (6)" parent="LevelObjects" unique_id=1675374420 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -56.82774, 0.0054510217, 30.30579)
+[node name="PineTree1 (6)" type="StaticBody3D" parent="LevelObjects" unique_id=2031960077 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.70423514, 0, 0.26157585, 0, 0.751245, 0, -0.26157585, 0, 0.70423514, 40, -0.027657302, 35)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="PineTree1 (7)" parent="LevelObjects" unique_id=269549483 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, 32.336765, 0.00044286365, 18.33192)
+[node name="PineTree1 (7)" type="StaticBody3D" parent="LevelObjects" unique_id=1357798692 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.58387566, 0, 0.4673977, 0, 0.74791133, 0, -0.46739772, 0, -0.5838757, 45, -0.0821692, 35)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (6)" parent="LevelObjects" unique_id=31215218 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -52.503887, 0.0005706375, 50.529408)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (7)" parent="LevelObjects" unique_id=423201338 instance=ExtResource("3_t84eb")]
-transform = Transform3D(1.0552073, 0, 0.07881987, 0, 1.058147, 0, -0.07881987, 0, 1.0552073, 10.779213, 2.8688484e-05, 116.15538)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (8)" parent="LevelObjects" unique_id=846067760 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, 25.297798, 0.017687008, -94.624176)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (9)" parent="LevelObjects" unique_id=1294451754 instance=ExtResource("3_t84eb")]
-transform = Transform3D(1.0552073, 0, 0.07881987, 0, 1.058147, 0, -0.07881987, 0, 1.0552073, 88.5809, 0.0064734723, -28.998201)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="PineTree1 (8)" parent="LevelObjects" unique_id=669924268 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -174.63177, 0.20560566, -99.858185)
+[node name="PineTree1 (8)" type="StaticBody3D" parent="LevelObjects" unique_id=1999966316 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.73469776, 0, 0.11364787, 0, 0.74343574, 0, -0.11364788, 0, 0.7346978, 45, -0.107161425, 70)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (10)" parent="LevelObjects" unique_id=299991419 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -144.79442, 0.16349638, 30.307362)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (11)" parent="LevelObjects" unique_id=1747415109 instance=ExtResource("3_t84eb")]
-transform = Transform3D(1.0552073, 0, 0.07881987, 0, 1.058147, 0, -0.07881987, 0, 1.0552073, -81.51132, 0.000101521524, 95.933334)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="PineTree1 (9)" parent="LevelObjects" unique_id=57302862 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -158.17259, 0.026199188, -104.906494)
+[node name="PineTree1 (9)" type="StaticBody3D" parent="LevelObjects" unique_id=41949080 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.5390131, 0, 0.85393894, 0, 1.0098251, 0, -0.85393894, 0, -0.5390131, 30, -0.03647811, 130)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (12)" parent="LevelObjects" unique_id=1987087853 instance=ExtResource("3_t84eb")]
-transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, -142.34265, 0.01768509, -56.8517)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (13)" parent="LevelObjects" unique_id=1725527164 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -157.0392, 0.023865156, -105.03516)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (15)" parent="LevelObjects" unique_id=91874868 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -155.75935, 0.021586116, -105.7453)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (16)" parent="LevelObjects" unique_id=856689192 instance=ExtResource("3_t84eb")]
-transform = Transform3D(1.0552073, 0, 0.07881987, 0, 1.058147, 0, -0.07881987, 0, 1.0552073, -92.47626, 0.38782933, -40.119324)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="PineTree1 (10)" parent="LevelObjects" unique_id=129981719 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -155.05559, 0.019243354, -106.93935)
+[node name="PineTree1 (10)" type="StaticBody3D" parent="LevelObjects" unique_id=938902965 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.2741122, 0, 1.0231459, 0, 1.0592285, 0, -1.0231458, 0, 0.27411216, 95, -3.1196282, 60)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="PineTree1 (11)" parent="LevelObjects" unique_id=346078670 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -154.89398, 0.018833227, -107.00917)
+[node name="PineTree1 (11)" type="StaticBody3D" parent="LevelObjects" unique_id=1072053372 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.9355324, 0, 0.1754957, 0, 0.95185065, 0, -0.17549571, 0, 0.93553245, 105, -1.1744004, 105)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="PineTree1 (12)" parent="LevelObjects" unique_id=1433199011 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -163.18513, 5.7373973e-06, 70.53819)
+[node name="PineTree1 (12)" type="StaticBody3D" parent="LevelObjects" unique_id=1275856194 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.5407814, 0, 0.18715174, 0, 0.57225025, 0, -0.18715176, 0, 0.54078144, 105, 1.7705768, 115)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="PineTree1 (13)" parent="LevelObjects" unique_id=244034218 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, 71.09735, 0.0053993333, 105.11023)
+[node name="PineTree1 (13)" type="StaticBody3D" parent="LevelObjects" unique_id=1195461651 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.95156926, 0, 0.49297616, 0, 1.0716853, 0, -0.4929761, 0, -0.95156914, 165, 28.304506, 155)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="PineTree1 (14)" parent="LevelObjects" unique_id=714047430 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -90.13433, 4.700784e-05, 126.98457)
+[node name="PineTree1 (14)" type="StaticBody3D" parent="LevelObjects" unique_id=1704648533 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(1.1771622, 0, 0.09099011, 0, 1.1806736, 0, -0.09099012, 0, 1.1771623, 50, 1.6082171, 180)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (17)" parent="LevelObjects" unique_id=1345239894 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -37.120674, 6.937643e-06, 164.49368)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="TestTree (18)" parent="LevelObjects" unique_id=1989789596 instance=ExtResource("3_t84eb")]
-transform = Transform3D(1.0552073, 0, 0.07881987, 0, 1.058147, 0, -0.07881987, 0, 1.0552073, 26.162428, 1.1080626, 230.11966)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
-[node name="PineTree1 (15)" parent="LevelObjects" unique_id=1760845489 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, 138.41858, 0.1648559, 135.99327)
+[node name="PineTree1 (15)" type="StaticBody3D" parent="LevelObjects" unique_id=2099197592 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.21951339, 0, 0.88298875, 0, 0.9098655, 0, -0.8829887, 0, 0.21951337, 75, 6.4396806, 185)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (19)" parent="LevelObjects" unique_id=991457667 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, 98.07519, 6.458916e-06, -237.8951)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
+[node name="PineTree1 (16)" type="StaticBody3D" parent="LevelObjects" unique_id=1291221815 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.1427339, 0, 0.4866145, 0, 0.50711596, 0, -0.48661444, 0, -0.14273387, 120, 9.589727, 135)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (20)" parent="LevelObjects" unique_id=1156018003 instance=ExtResource("3_t84eb")]
-transform = Transform3D(1.0552073, 0, 0.07881987, 0, 1.058147, 0, -0.07881987, 0, 1.0552073, 161.35829, 0.076740816, -172.26912)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
+[node name="PineTree1 (17)" type="StaticBody3D" parent="LevelObjects" unique_id=2051082000 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.60287905, 0, 0.5009745, 0, 0.7838613, 0, -0.5009745, 0, 0.60287905, 140, 17.089478, 130)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (21)" parent="LevelObjects" unique_id=458971933 instance=ExtResource("3_t84eb")]
-transform = Transform3D(-0.98198813, 0, 0.12879115, 0, 0.9903978, 0, -0.12879115, 0, -0.98198813, -68.94999, 4.4546596e-06, -245.24092)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
+[node name="PineTree1 (18)" type="StaticBody3D" parent="LevelObjects" unique_id=1662977545 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.25248513, 0, 0.975443, 0, 1.00759, 0, -0.9754429, 0, -0.2524851, 85, 9.243151, 150)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="TestTree (22)" parent="LevelObjects" unique_id=692054920 instance=ExtResource("3_t84eb")]
-transform = Transform3D(1.0552073, 0, 0.07881987, 0, 1.058147, 0, -0.07881987, 0, 1.0552073, -5.666889, 0.0002643861, -179.61494)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
+[node name="PineTree1 (19)" type="StaticBody3D" parent="LevelObjects" unique_id=1256422729 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.27920714, 0, 0.5076253, 0, 0.5793445, 0, -0.5076253, 0, 0.27920714, 70, 3.0087366, 135)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (20)" type="StaticBody3D" parent="LevelObjects" unique_id=609747578 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.70315766, 0, 0.7715795, 0, 1.0439184, 0, -0.77157944, 0, 0.7031576, 40, -0.14725088, 75)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (21)" type="StaticBody3D" parent="LevelObjects" unique_id=1021132432 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.6045346, 0, 0.6064023, 0, 0.8562627, 0, -0.6064023, 0, -0.6045346, 75, 0.095577896, 105)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (22)" type="StaticBody3D" parent="LevelObjects" unique_id=827837555 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(1.125727, 0, 0.051780842, 0, 1.1269172, 0, -0.05178085, 0, 1.1257272, 40, -0.18997845, 95)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (23)" type="StaticBody3D" parent="LevelObjects" unique_id=2137091092 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.63326454, 0, 0.11192674, 0, 0.64307976, 0, -0.11192675, 0, 0.63326454, 125, -3.7437806, 15)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (24)" type="StaticBody3D" parent="LevelObjects" unique_id=1964079958 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(1.0315386, 0, 0.26280028, 0, 1.0644886, 0, -0.2628003, 0, 1.0315387, 205, 44.31984, 160)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (25)" type="StaticBody3D" parent="LevelObjects" unique_id=801937693 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.6714083, 0, 0.2054996, 0, 0.7021532, 0, -0.20549962, 0, -0.67140836, 275, 24.795666, 140)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (26)" type="StaticBody3D" parent="LevelObjects" unique_id=115540686 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.3043303, 0, 0.893818, 0, 0.94420743, 0, -0.89381796, 0, -0.30433026, 250, 15.073717, 40)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (27)" type="StaticBody3D" parent="LevelObjects" unique_id=2052721713 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.17512485, 0, 0.8460922, 0, 0.8640259, 0, -0.84609216, 0, 0.17512484, 150, 22.043495, 190)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (28)" type="StaticBody3D" parent="LevelObjects" unique_id=2023308109 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.6935574, 0, 0.4587615, 0, 0.8315551, 0, -0.4587615, 0, -0.6935574, 205, 53.039463, 180)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (29)" type="StaticBody3D" parent="LevelObjects" unique_id=740766215 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.4572188, 0, 0.5164756, 0, 0.68977976, 0, -0.51647556, 0, 0.45721877, 250, 28.577461, 130)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (30)" type="StaticBody3D" parent="LevelObjects" unique_id=23567732 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.3451271, 0, 0.63178515, 0, 0.7199064, 0, -0.63178515, 0, -0.3451271, 250, 26.77628, 105)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (31)" type="StaticBody3D" parent="LevelObjects" unique_id=1931671693 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.7820887, 0, 0.2870982, 0, 0.8331195, 0, -0.28709823, 0, 0.78208876, 245, 18.644, 60)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (32)" type="StaticBody3D" parent="LevelObjects" unique_id=1752152905 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.4268246, 0, 0.8918189, 0, 0.9886962, 0, -0.8918189, 0, -0.42682457, 230, 5.0819073, 35)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (33)" type="StaticBody3D" parent="LevelObjects" unique_id=1407969330 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.9118724, 0, 0.063144624, 0, 0.9140561, 0, -0.063144624, 0, 0.91187245, 220, -0.11443214, 15)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (34)" type="StaticBody3D" parent="LevelObjects" unique_id=515738850 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.8100541, 0, 0.3312438, 0, 0.8751629, 0, -0.3312438, 0, -0.8100541, 240, 5.077162, 20)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (35)" type="StaticBody3D" parent="LevelObjects" unique_id=1644048596 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.38871795, 0, 0.33835512, 0, 0.51535016, 0, -0.33835512, 0, -0.38871795, 135, 25.424444, 160)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (36)" type="StaticBody3D" parent="LevelObjects" unique_id=1007961358 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.21753322, 0, 0.85775495, 0, 0.8849092, 0, -0.8577549, 0, -0.2175332, 155, 27.813128, 140)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (37)" type="StaticBody3D" parent="LevelObjects" unique_id=196058484 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.39882684, 0, 0.6054323, 0, 0.7249905, 0, -0.6054323, 0, 0.39882684, 105, -0.09596386, -55)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (38)" type="StaticBody3D" parent="LevelObjects" unique_id=950982874 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.6751685, 0, 0.9636386, 0, 1.1766274, 0, -0.9636386, 0, 0.6751685, 65, -0.22393936, 0)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (39)" type="StaticBody3D" parent="LevelObjects" unique_id=1524594777 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.22823907, 0, 0.49020427, 0, 0.54073405, 0, -0.49020427, 0, 0.22823907, -95, 6.1314044e-05, 185)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (40)" type="StaticBody3D" parent="LevelObjects" unique_id=166059100 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.55090207, 0, 0.7741613, 0, 0.9501678, 0, -0.7741612, 0, -0.550902, -130, 0.0018598825, 70)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (41)" type="StaticBody3D" parent="LevelObjects" unique_id=733486373 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.8198521, 0, 0.80295986, 0, 1.1475635, 0, -0.80295986, 0, 0.8198521, -95, 0.00022458589, 155)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (42)" type="StaticBody3D" parent="LevelObjects" unique_id=706392558 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.66781974, 0, 0.8180235, 0, 1.0560045, 0, -0.8180235, 0, -0.66781974, -160, 0.0008172896, 90)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (43)" type="StaticBody3D" parent="LevelObjects" unique_id=668579896 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-1.1338931, 0, 0.17395045, 0, 1.1471586, 0, -0.17395046, 0, -1.1338933, -125, 0.0005863846, 130)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (44)" type="StaticBody3D" parent="LevelObjects" unique_id=1158274756 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.029862568, 0, 0.77502984, 0, 0.77560496, 0, -0.77502984, 0, -0.029862568, -180, 0.0008790301, 90)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (45)" type="StaticBody3D" parent="LevelObjects" unique_id=646757434 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.15390301, 0, 0.97777414, 0, 0.9898123, 0, -0.9777741, 0, -0.153903, -95, 0.0014327369, 75)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (46)" type="StaticBody3D" parent="LevelObjects" unique_id=490274177 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.36975983, 0, 0.70492965, 0, 0.79602027, 0, -0.7049297, 0, -0.36975986, -40, -0.0011548062, 55)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (47)" type="StaticBody3D" parent="LevelObjects" unique_id=1288398728 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.44518596, 0, 0.37935802, 0, 0.58489573, 0, -0.37935802, 0, -0.44518596, -120, 0.0005045547, 135)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (48)" type="StaticBody3D" parent="LevelObjects" unique_id=599931325 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.0023513217, 0, 0.7640763, 0, 0.76407987, 0, -0.76407623, 0, -0.0023513215, -100, 0.0019541932, 50)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (49)" type="StaticBody3D" parent="LevelObjects" unique_id=781111403 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.9824307, 0, 0.62983763, 0, 1.16699, 0, -0.6298377, 0, -0.9824308, -95, 0.0021968293, -5)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (50)" type="StaticBody3D" parent="LevelObjects" unique_id=1107127796 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.59887916, 0, 0.5085135, 0, 0.78564763, 0, -0.5085135, 0, 0.59887916, -95, 0.003149557, -70)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (51)" type="StaticBody3D" parent="LevelObjects" unique_id=585611064 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.46189335, 0, 0.8582364, 0, 0.97463584, 0, -0.8582364, 0, 0.46189335, 35, 0.0068426193, -110)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (52)" type="StaticBody3D" parent="LevelObjects" unique_id=850964680 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.92178506, 0, 0.13919528, 0, 0.9322356, 0, -0.1391953, 0, 0.9217851, 45, -0.10528536, 5)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (53)" type="StaticBody3D" parent="LevelObjects" unique_id=1714627736 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.52304417, 0, 0.23170483, 0, 0.5720685, 0, -0.23170483, 0, -0.52304417, 50, 0.07493797, -30)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (54)" type="StaticBody3D" parent="LevelObjects" unique_id=515243954 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.44975507, 0, 0.5883496, 0, 0.74056387, 0, -0.5883496, 0, -0.44975507, 10, 0.07186368, -20)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (55)" type="StaticBody3D" parent="LevelObjects" unique_id=832528411 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.97048485, 0, 0.45324326, 0, 1.0711071, 0, -0.45324332, 0, 0.970485, 40, 0.07474479, -80)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (56)" type="StaticBody3D" parent="LevelObjects" unique_id=1110135401 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.5628892, 0, 0.6890553, 0, 0.8897424, 0, -0.6890553, 0, 0.5628892, -40, 0.0043954314, -55)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (57)" type="StaticBody3D" parent="LevelObjects" unique_id=1854475942 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.5821581, 0, 0.53615296, 0, 0.79143417, 0, -0.53615296, 0, 0.5821581, -50, 3.9736893e-05, 165)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (58)" type="StaticBody3D" parent="LevelObjects" unique_id=1740393453 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.619805, 0, 0.5609375, 0, 0.8359481, 0, -0.5609376, 0, 0.61980504, -20, -0.003736839, 150)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (59)" type="StaticBody3D" parent="LevelObjects" unique_id=175312215 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(1.1536186, 0, 0.29556462, 0, 1.1908796, 0, -0.29556462, 0, 1.1536186, -35, -0.009979799, 70)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (60)" type="StaticBody3D" parent="LevelObjects" unique_id=1281191820 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.034592193, 0, 0.6552977, 0, 0.65621, 0, -0.65529764, 0, -0.03459219, -60, 0.00043923644, 110)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (61)" type="StaticBody3D" parent="LevelObjects" unique_id=424909811 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.50658137, 0, 0.9784793, 0, 1.1018379, 0, -0.9784793, 0, -0.50658137, 95, -0.64135873, 100)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (62)" type="StaticBody3D" parent="LevelObjects" unique_id=1269080480 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.35384548, 0, 1.1155614, 0, 1.1703348, 0, -1.1155614, 0, 0.35384548, 75, -0.03634455, 95)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (63)" type="StaticBody3D" parent="LevelObjects" unique_id=1216915644 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-1.0194861, 0, 0.03358932, 0, 1.0200393, 0, -0.03358932, 0, -1.0194861, 155, -0.13103671, -25)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (64)" type="StaticBody3D" parent="LevelObjects" unique_id=1990518242 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.048035823, 0, 1.069963, 0, 1.0710406, 0, -1.0699629, 0, -0.048035815, 145, 0.0017647195, -165)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (65)" type="StaticBody3D" parent="LevelObjects" unique_id=586845000 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.72901374, 0, 0.23242515, 0, 0.7651683, 0, -0.23242517, 0, 0.7290138, 150, -0.010406297, -135)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (66)" type="StaticBody3D" parent="LevelObjects" unique_id=1577457138 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.4856236, 0, 0.79093736, 0, 0.928123, 0, -0.79093736, 0, 0.4856236, 315, -0.9500403, -85)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (67)" type="StaticBody3D" parent="LevelObjects" unique_id=107265289 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.32532835, 0, 0.47552213, 0, 0.57615954, 0, -0.47552213, 0, -0.32532835, 230, 1.1113578, 10)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (68)" type="StaticBody3D" parent="LevelObjects" unique_id=1245623680 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.6886717, 0, 0.40144452, 0, 0.7971364, 0, -0.40144455, 0, -0.68867177, 210, -0.2882334, -85)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (69)" type="StaticBody3D" parent="LevelObjects" unique_id=1396436880 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.5105127, 0, 0.3806456, 0, 0.6368, 0, -0.3806456, 0, 0.5105127, 200, -0.24034244, -45)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (70)" type="StaticBody3D" parent="LevelObjects" unique_id=1503442792 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.15360433, 0, 1.1072723, 0, 1.1178758, 0, -1.1072723, 0, -0.15360433, 315, -0.9593799, -85)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (71)" type="StaticBody3D" parent="LevelObjects" unique_id=1176689708 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.7303976, 0, 0.30958626, 0, 0.7932997, 0, -0.3095863, 0, 0.73039764, 285, -0.5173416, -100)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (72)" type="StaticBody3D" parent="LevelObjects" unique_id=1313945798 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.8263547, 0, 0.04337831, 0, 0.8274925, 0, -0.043378312, 0, 0.82635474, 265, -0.2514653, -55)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (73)" type="StaticBody3D" parent="LevelObjects" unique_id=1561499701 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.16290103, 0, 0.53808945, 0, 0.5622073, 0, -0.53808945, 0, -0.16290103, 235, 0.05405228, -110)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (74)" type="StaticBody3D" parent="LevelObjects" unique_id=1863635699 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.26882002, 0, 0.5673877, 0, 0.6278479, 0, -0.5673877, 0, 0.26882, 175, -0.093659535, -35)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (75)" type="StaticBody3D" parent="LevelObjects" unique_id=575376004 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.95923895, 0, 0.09242811, 0, 0.9636817, 0, -0.09242812, 0, -0.959239, 130, -0.034620438, -120)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (76)" type="StaticBody3D" parent="LevelObjects" unique_id=428304250 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.036383275, 0, 1.0707479, 0, 1.0713658, 0, -1.0707479, 0, -0.036383275, 55, 0.017017683, -120)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (77)" type="StaticBody3D" parent="LevelObjects" unique_id=1053117646 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.07031176, 0, 0.50290704, 0, 0.50779843, 0, -0.50290704, 0, -0.07031176, 135, -0.027159838, -50)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (78)" type="StaticBody3D" parent="LevelObjects" unique_id=1546766820 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-1.1392648, 0, 0.13273163, 0, 1.1469709, 0, -0.13273163, 0, -1.1392648, 335, -0.26201037, -20)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (79)" type="StaticBody3D" parent="LevelObjects" unique_id=1784747156 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.06597491, 0, 0.7235265, 0, 0.72652817, 0, -0.7235264, 0, 0.065974906, 235, -0.02270783, -20)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (80)" type="StaticBody3D" parent="LevelObjects" unique_id=2073425915 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.2367243, 0, 1.1509049, 0, 1.174998, 0, -1.1509048, 0, 0.23672427, 290, -0.67800474, -75)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (81)" type="StaticBody3D" parent="LevelObjects" unique_id=1059254220 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.88260543, 0, 0.124116555, 0, 0.8912897, 0, -0.124116555, 0, 0.88260543, 335, -0.7352636, -65)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (82)" type="StaticBody3D" parent="LevelObjects" unique_id=945829497 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.63537955, 0, 0.37789688, 0, 0.7392653, 0, -0.37789688, 0, -0.63537955, 320, 7.435183, 35)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (83)" type="StaticBody3D" parent="LevelObjects" unique_id=1865866189 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.20554781, 0, 0.48862547, 0, 0.5300988, 0, -0.48862547, 0, -0.20554781, 295, 19.170504, 55)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (84)" type="StaticBody3D" parent="LevelObjects" unique_id=1535945663 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.617411, 0, 0.85075593, 0, 1.0511812, 0, -0.85075593, 0, 0.617411, 395, 1.7602522, 80)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (85)" type="StaticBody3D" parent="LevelObjects" unique_id=847690164 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.6038356, 0, 0.3631523, 0, 0.7046255, 0, -0.36315233, 0, 0.60383564, 275, 28.302082, 90)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (86)" type="StaticBody3D" parent="LevelObjects" unique_id=1228111687 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.43445867, 0, 0.28818578, 0, 0.52134955, 0, -0.28818578, 0, 0.43445867, 270, 19.777563, 45)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (87)" type="StaticBody3D" parent="LevelObjects" unique_id=2095009696 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(-0.24787492, 0, 0.67140675, 0, 0.7157017, 0, -0.6714066, 0, -0.24787487, 120, 0.008894749, -250)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (88)" type="StaticBody3D" parent="LevelObjects" unique_id=300538932 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.060087834, 0, 0.8337441, 0, 0.8359065, 0, -0.83374405, 0, 0.06008783, 95, -0.0049724383, -110)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="PineTree1 (89)" type="StaticBody3D" parent="LevelObjects" unique_id=1747290284 node_paths=PackedStringArray("SPAWN_MARKER_PARENT") instance=ExtResource("4_jjvf7")]
+transform = Transform3D(0.86560357, 0, 0.74366975, 0, 1.1411898, 0, -0.74366975, 0, 0.86560357, 65, 0.019480946, -215)
+script = ExtResource("5_l17ic")
+BRANCHES = Array[PackedScene]([ExtResource("6_t84eb")])
+SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
+SPAWN_OFFSET = 0.2
+SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+CHANCE_FOR_BRANCH_GROWTH = 0.4
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="Lake" parent="." unique_id=819962188 instance=ExtResource("5_ph8fn")]
 transform = Transform3D(1.2927271, 0, 0, 0, 1.2927271, 0, 0, 0, 1.2927271, 183.06226, -4.5545063, 77.92697)

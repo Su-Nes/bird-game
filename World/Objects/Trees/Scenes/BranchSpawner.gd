@@ -6,14 +6,14 @@ class_name BranchSpawner
 @export var BRANCHES : Array[PackedScene]
 @export var SPAWN_MARKER_PARENT : Node
 @export var SPAWN_OFFSET : float = 0
-@export var SPAWN_GROUP_PER_BRANCH : Vector2
+@export var RAND_BRANCHES_PER_METER : Vector2
 @export var RAND_ROTATION_TOWARD_BRANCH_DIRECTION : Vector2 = Vector2(45, 90)
 @export_range(0, 1) var CHANCE_FOR_BRANCH_GROWTH : float = .5
 
 
 func _ready() -> void:
 	for spawn_marker : Marker3D in SPAWN_MARKER_PARENT.get_children():
-		for n in randi_range(roundi(SPAWN_GROUP_PER_BRANCH.x), roundi(SPAWN_GROUP_PER_BRANCH.y)):
+		for n in randi_range(roundi(RAND_BRANCHES_PER_METER.x), roundi(RAND_BRANCHES_PER_METER.y)):
 			var branch_scene = BRANCHES[randi_range(0, BRANCHES.size() - 1)]
 			var new_branch : BranchInteractable = branch_scene.instantiate()
 			var branch_pivot : Marker3D = new_branch.get_child(2)
