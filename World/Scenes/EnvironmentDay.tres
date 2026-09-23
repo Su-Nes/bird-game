@@ -1,0 +1,57 @@
+[gd_resource type="Environment" format=3 uid="uid://eirugfxkrhp6"]
+
+[ext_resource type="Shader" uid="uid://dcnakafcrt4fu" path="res://World/Shaders/FreemanSky.gdshader" id="1_7bohi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eue43"]
+shader = ExtResource("1_7bohi")
+shader_parameter/sun_intensity = 40.000000596048
+shader_parameter/sun_wavelengths = Vector3(0.68, 0.55, 0.48)
+shader_parameter/rayleigh_scale_height = 8000.0
+shader_parameter/rayleigh_multi_scattering = 0.01
+shader_parameter/mie_scale_height = 1200.0
+shader_parameter/mie_scattering = 5e-06
+shader_parameter/mie_albedo = 0.9
+shader_parameter/mie_g_forward = 0.85
+shader_parameter/mie_g_backward = -0.15
+shader_parameter/mie_weight = 0.85
+shader_parameter/mie_multi_scattering = 0.3
+shader_parameter/multiscattering_mie_g_forward = 0.5
+shader_parameter/multiscattering_mie_g_backward = -0.05
+shader_parameter/multiscattering_mie_weight = 0.75
+shader_parameter/ozone_center = 25000.0
+shader_parameter/ozone_width = 30000.0
+shader_parameter/planet_radius = 6360000.0
+shader_parameter/atmosphere_height = 100000.0
+shader_parameter/base_altitude = 0.0
+shader_parameter/ground_color = Vector3(0.12, 0.11, 0.08)
+shader_parameter/view_samples = 24
+shader_parameter/sun_samples = 8
+shader_parameter/clouds_enabled = true
+shader_parameter/cloud_color = Color(1, 1, 1, 1)
+shader_parameter/cloud_color_dark = Color(0, 0, 0, 1)
+shader_parameter/cloud_edge_sharpness = 0.178000008455
+shader_parameter/cloud_scale = 2.02000009269012
+shader_parameter/cloud_speed = 0.02
+
+[sub_resource type="Sky" id="Sky_y6flb"]
+sky_material = SubResource("ShaderMaterial_eue43")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_y6flb")
+ambient_light_source = 3
+reflected_light_source = 2
+fog_enabled = true
+fog_mode = 1
+fog_sun_scatter = 0.27
+fog_density = 0.3855
+fog_aerial_perspective = 1.0
+fog_depth_curve = 2.1435478
+fog_depth_begin = 111.3
+fog_depth_end = 921.5
+volumetric_fog_density = 0.0162
+volumetric_fog_anisotropy = 0.67
+volumetric_fog_length = 340.52
+volumetric_fog_detail_spread = 1.5691681
+volumetric_fog_ambient_inject = 0.56
+volumetric_fog_sky_affect = 0.0

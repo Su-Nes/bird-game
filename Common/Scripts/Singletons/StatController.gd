@@ -16,12 +16,13 @@ var DRAIN_PERIOD : float = 20
 var drain_timer : float
 
 
-var fainted = false
+var fainted
 signal has_fainted
 
 var stamina : float
 
 func _ready() -> void:
+	fainted = false
 	stamina_max_limit = MAX_BASE_STAMINA
 	stamina = stamina_max_limit
 	

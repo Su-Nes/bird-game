@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bbuuycsq7i3wg"]
+
+[ext_resource type="Environment" uid="uid://eirugfxkrhp6" path="res://World/Scenes/EnvironmentDay.tres" id="1_auryq"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kvd28"]
+
+[sub_resource type="Compositor" id="Compositor_35w67"]
+compositor_effects = Array[CompositorEffect]([null])
+
+[node name="Environment" type="Node" unique_id=163002060]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=53265174]
+transform = Transform3D(0.86074376, 0.491754, 0.13153523, 2.9802322e-08, -0.2583977, 0.9660388, 0.50904244, -0.8315107, -0.22241375, 0, 0, 0)
+light_color = Color(0.9999996, 0.9287603, 0.8215887, 1)
+shadow_enabled = true
+shadow_opacity = 0.85
+shadow_blur = 3.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1703432688]
+environment = ExtResource("1_auryq")
+camera_attributes = SubResource("CameraAttributesPractical_kvd28")
+compositor = SubResource("Compositor_35w67")

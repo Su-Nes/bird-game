@@ -8,6 +8,70 @@
 
 config_version=5
 
+[Vertex_Studio]
+
+Shortcuts/Tools/Toggle_Brush=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Toggle Brush","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":66,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Tools/Paint_Add=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Paint Add","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Tools/Toggle_Eraser=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Toggle Eraser","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":69,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Tools/Paint_Precision=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Paint Precision","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Tools/Paint_Normals=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Paint Normals","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Tools/Blur_Brush=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Blur Brush","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Tools/Lasso_Selection=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Lasso Selection","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":76,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Tools/Single_Selection=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Single Selection","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Tools/Rectangle_Selection=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Rectangle Selection","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Tools/Ellipse_Selection=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Ellipse Selection","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Tools/Select_Linked=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Select Linked","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Tools/Invert_Selection=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Invert Selection","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Tools/Deselect=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Deselect","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":76,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Actions/Fill_All_Or_Selection=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Fill All Or Selection","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":71,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Actions/Erase_All=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Erase All","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/View/Toggle_Merge_Or_Split_Shared_Vertices=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Toggle Merge Or Split Shared Vertices","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/View/Show_Front_Verts_Only=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Show Front Verts Only","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Material/Restore_Material=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Restore Material","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Source_Mesh/Resync_Uvs=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Resync Uvs","events":Array[InputEvent]([]),"script":null)
+
+Shortcuts/Brush/Increase_Size=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Increase Size","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":93,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Brush/Decrease_Size=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Decrease Size","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":91,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Brush/Increase_Opacity=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Increase Opacity","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":47,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Brush/Decrease_Opacity=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Decrease Opacity","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":92,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Brush/Open_Tool_Popup=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Open Tool Popup","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"command_or_control_autoremap":true,"alt_pressed":false,"shift_pressed":false,"pressed":false,"keycode":70,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+Shortcuts/Brush/Cycle_Swatch_Color=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"Vertex Studio: Cycle Swatch Color","events":Array[InputEvent]([Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]),"script":null)
+
+
 [application]
 
 config/name="Bird Game"
@@ -31,6 +95,10 @@ window/size/viewport_width=640
 window/size/viewport_height=480
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
 [global_group]
 

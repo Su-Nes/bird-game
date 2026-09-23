@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://bo748bg7vjxr4" path="res://Player/UI/Sprites/InteractionReticle.png" id="20_h5t5w"]
 [ext_resource type="Script" uid="uid://mh5848ne4ksa" path="res://Player/Scripting/UI/HUD/ToolTipDisplay.gd" id="22_8hxfm"]
 [ext_resource type="PackedScene" uid="uid://bchn3wywka0ms" path="res://Player/Scripting/UI/HUD/ToolTipContainer.tscn" id="23_8hxfm"]
+[ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="28_be8bd"]
+[ext_resource type="PackedScene" uid="uid://cvknri82ocq2e" path="res://Player/Scripting/UI/Menus/FaintMenu.tscn" id="29_kl3dy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
 radius = 0.6
@@ -512,7 +514,7 @@ transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.01, 0)
 top_level = true
 
 [node name="MeshParts" type="Node3D" parent="." unique_id=1447518268 node_paths=PackedStringArray("target")]
-transform = Transform3D(0.8731634, 0.1437664, -0.46574283, -0.46236685, -0.058138322, -0.88478035, -0.15427923, 0.9879021, 0.015708568, 0, 0.01, 0)
+transform = Transform3D(0.8731634, 0.14376637, -0.46574283, -0.46236685, -0.05813831, -0.88478035, -0.15427923, 0.9879019, 0.015708568, 0, 0.01, 0)
 script = ExtResource("5_7c45o")
 target = NodePath("../MeshHandle")
 
@@ -570,7 +572,7 @@ script = ExtResource("5_7c45o")
 [node name="CameraPivotX" type="Node3D" parent="CameraControl/CameraPivotY" unique_id=2114444008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("4_bacvh")
-MOUSE_SENS = 10.0
+MOUSE_SENS = 20.0
 STICK_SENS = 200.0
 CAM_RESET_MOD = 0.05
 SIDE_SWITCH_SENSITIVITY = 30.0
@@ -819,3 +821,9 @@ TOOL_TIP_CONTAINER = ExtResource("23_8hxfm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD&Stats/ToolTips" unique_id=1146441075]
 layout_mode = 2
+
+[node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("28_be8bd")]
+visible = false
+
+[node name="FaintMenu" parent="." unique_id=1307687841 instance=ExtResource("29_kl3dy")]
+visible = false

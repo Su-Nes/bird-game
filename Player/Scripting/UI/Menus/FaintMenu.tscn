@@ -6,5 +6,5 @@
 [node name="FaintMenu" unique_id=172216686 instance=ExtResource("1_uylkb")]
 script = ExtResource("2_8v05s")
 
-[node name="Resume" parent="MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(923266316) index="0" unique_id=312023862]
+[node name="Resume" parent="MarginContainer/Menu/Buttons" parent_id_path=PackedInt32Array(923266316) index="0" unique_id=312023862]
 text = "Revive"

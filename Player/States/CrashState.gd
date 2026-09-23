@@ -26,7 +26,7 @@ func enter():
 	if StatController.fainted:
 		return
 	
-	state_machine.change_state("IdleState")
+	state_machine.change_state("HoverState")
 
 func physics_update(_delta: float):
 	player_controller.velocity += Vector3.DOWN * gravity * _delta

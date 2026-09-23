@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://b354qj64qfoio"]
 
-[ext_resource type="Script" uid="uid://b3eowb18per1b" path="res://Player/Scripting/UI/Menus/PauseMenuScript.gd" id="1_whmkr"]
-[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="2_7wc5j"]
+[ext_resource type="Script" uid="uid://b3eowb18per1b" path="res://Player/Scripting/UI/Menus/PauseMenuScript.gd" id="1_5w5j5"]
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="2_5a7l1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkran"]
-font = ExtResource("2_7wc5j")
+font = ExtResource("2_5a7l1")
 font_size = 80
 outline_size = 7
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7wc5j"]
-font = ExtResource("2_7wc5j")
+font = ExtResource("2_5a7l1")
 font_size = 43
 outline_size = 7
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
@@ -28,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_whmkr")
+script = ExtResource("1_5w5j5")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1956847817]
 layout_mode = 1

@@ -1,136 +1,14 @@
 [gd_scene format=3 uid="uid://gyv0w2cpssjs"]
 
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
-[ext_resource type="Shader" uid="uid://dcnakafcrt4fu" path="res://World/Shaders/FreemanSky.gdshader" id="2_y6flb"]
-[ext_resource type="PackedScene" uid="uid://dipqgg0d0k4h3" path="res://Entities/Spawners/BerryBush/BerryBush.tscn" id="3_mlekv"]
-[ext_resource type="PackedScene" uid="uid://ct7esywm4lggm" path="res://World/Objects/Trees/Scenes/OakTree1.tscn" id="5_o14yy"]
-[ext_resource type="PackedScene" uid="uid://ctd6yevovrnl1" path="res://World/Objects/Trees/Scenes/PineTree1.tscn" id="5_rplbl"]
-[ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="6_eue43"]
-[ext_resource type="PackedScene" uid="uid://cvknri82ocq2e" path="res://Player/Scripting/UI/Menus/FaintMenu.tscn" id="7_eue43"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eue43"]
-shader = ExtResource("2_y6flb")
-shader_parameter/sun_intensity = 40.000000596048
-shader_parameter/sun_wavelengths = Vector3(0.68, 0.55, 0.48)
-shader_parameter/rayleigh_scale_height = 8000.0
-shader_parameter/rayleigh_multi_scattering = 0.01
-shader_parameter/mie_scale_height = 1200.0
-shader_parameter/mie_scattering = 5e-06
-shader_parameter/mie_albedo = 0.9
-shader_parameter/mie_g_forward = 0.85
-shader_parameter/mie_g_backward = -0.15
-shader_parameter/mie_weight = 0.85
-shader_parameter/mie_multi_scattering = 0.3
-shader_parameter/multiscattering_mie_g_forward = 0.5
-shader_parameter/multiscattering_mie_g_backward = -0.05
-shader_parameter/multiscattering_mie_weight = 0.75
-shader_parameter/ozone_center = 25000.0
-shader_parameter/ozone_width = 30000.0
-shader_parameter/planet_radius = 6360000.0
-shader_parameter/atmosphere_height = 100000.0
-shader_parameter/base_altitude = 0.0
-shader_parameter/ground_color = Vector3(0.12, 0.11, 0.08)
-shader_parameter/view_samples = 24
-shader_parameter/sun_samples = 8
-shader_parameter/clouds_enabled = true
-shader_parameter/cloud_color = Color(1, 1, 1, 1)
-shader_parameter/cloud_color_dark = Color(0, 0, 0, 1)
-shader_parameter/cloud_edge_sharpness = 0.178000008455
-shader_parameter/cloud_scale = 2.02000009269012
-shader_parameter/cloud_speed = 0.02
-
-[sub_resource type="Sky" id="Sky_y6flb"]
-sky_material = SubResource("ShaderMaterial_eue43")
-
-[sub_resource type="Environment" id="Environment_y6flb"]
-background_mode = 2
-sky = SubResource("Sky_y6flb")
-ambient_light_source = 3
-reflected_light_source = 2
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.002
-volumetric_fog_anisotropy = 0.67
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kvd28"]
-
-[sub_resource type="Compositor" id="Compositor_35w67"]
-compositor_effects = Array[CompositorEffect]([null])
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qkran"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6md3q"]
-size = Vector3(50, 0.1, 50)
-
-[sub_resource type="Curve" id="Curve_il6x7"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3525641, 0.37078655), 0.0, 0.0, 0, 0, Vector2(0.49358976, 1), 0.0, 0.0, 0, 0, Vector2(0.74358976, 0.3820225), 0.0, 0.0, 0, 0, Vector2(0.9102564, 0.61797756), 0.0, 0.0, 0, 0, Vector2(1, 0.764045), 0.0, 0.0, 0, 0]
-point_count = 6
-
-[sub_resource type="CurveTexture" id="CurveTexture_mlekv"]
-curve = SubResource("Curve_il6x7")
-
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_folwd"]
-albedo_color = Color(0.38908803, 0.48227894, 0.36401728, 1)
-albedo_texture = SubResource("CurveTexture_mlekv")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_qkran"]
-material = SubResource("ORMMaterial3D_folwd")
+[ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="2_kjd56"]
+[ext_resource type="PackedScene" uid="uid://rbf3r26b40pt" path="res://World/Terrain/Terrain.tscn" id="9_004o5"]
 
 [node name="World" type="Node3D" unique_id=2109053146]
 
+[node name="Environment" parent="." unique_id=163002060 instance=ExtResource("2_kjd56")]
+
+[node name="Terrain" parent="." unique_id=750404762 instance=ExtResource("9_004o5")]
+
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6688969, 0)
-
-[node name="Environment" type="Node" parent="." unique_id=395164615]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1303183820]
-transform = Transform3D(0.86074376, 0.491754, 0.13153523, 2.9802322e-08, -0.2583977, 0.9660388, 0.50904244, -0.8315107, -0.22241375, 0, 0, 0)
-light_color = Color(0.9999996, 0.9287603, 0.8215887, 1)
-shadow_enabled = true
-shadow_opacity = 0.85
-shadow_blur = 3.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1917248881]
-environment = SubResource("Environment_y6flb")
-camera_attributes = SubResource("CameraAttributesPractical_kvd28")
-compositor = SubResource("Compositor_35w67")
-
-[node name="Ground" type="StaticBody3D" parent="Environment" unique_id=1505238696]
-physics_material_override = SubResource("PhysicsMaterial_qkran")
-
-[node name="GroundCollider" type="CollisionShape3D" parent="Environment/Ground" unique_id=1745991292]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_6md3q")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground/GroundCollider" unique_id=1043225278]
-transform = Transform3D(50.08393, 0, 0, 0, 50.08393, 0, 0, 0, 50.08393, 0, 0.05, 0)
-mesh = SubResource("PlaneMesh_qkran")
-
-[node name="LevelObjects" type="Node3D" parent="." unique_id=2034537777]
-
-[node name="BerryBush" parent="LevelObjects" unique_id=1109566799 instance=ExtResource("3_mlekv")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.74564123, 0, -2.9388878)
-
-[node name="TestTree" parent="LevelObjects" unique_id=46511288 instance=ExtResource("5_o14yy")]
-transform = Transform3D(0.56369495, 0, 0, 0, 0.56369495, 0, 0, 0, 0.56369495, 0.889791, -0.41995525, -9.6439)
-
-[node name="TestTree2" parent="LevelObjects" unique_id=1336874920 instance=ExtResource("5_o14yy")]
-transform = Transform3D(-0.73465306, 0, -0.22085395, 0, 0.76713204, 0, 0.22085395, 0, -0.73465306, 52.190624, -0.41995335, 0.5515728)
-
-[node name="TestTree3" parent="LevelObjects" unique_id=1845510963 instance=ExtResource("5_o14yy")]
-transform = Transform3D(0.3799842, 0, 0.40452072, 0, 0.555, 0, -0.40452072, 0, 0.3799842, 34.467426, -0.41995525, -30.598291)
-
-[node name="PineTree1" parent="LevelObjects" unique_id=1563042728 instance=ExtResource("5_rplbl")]
-transform = Transform3D(0.0044161305, 0, 0.79289, 0, 0.7929023, 0, -0.79289, 0, 0.0044161305, 10.82729, -3.9500753e-07, -45.50422)
-
-[node name="PineTree2" parent="LevelObjects" unique_id=1248870486 instance=ExtResource("5_rplbl")]
-transform = Transform3D(-1.3488165, 0, -0.1769033, 0, 1.360368, 0, 0.1769033, 0, -1.3488165, 63.73056, -3.9500753e-07, -42.5164)
-
-[node name="PineTree3" parent="LevelObjects" unique_id=810377915 instance=ExtResource("5_rplbl")]
-transform = Transform3D(-0.436204, 0, -1.0665932, 0, 1.1523433, 0, 1.0665932, 0, -0.436204, 40.772945, -3.9500753e-07, -53.910934)
-
-[node name="PineTree4" parent="LevelObjects" unique_id=143509204 instance=ExtResource("5_rplbl")]
-transform = Transform3D(-0.13069755, 0, 0.93952435, 0, 0.9485715, 0, -0.93952435, 0, -0.13069755, 24.633018, -6.444372e-06, -8.12871)
-
-[node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("6_eue43")]
-
-[node name="FaintMenu" parent="." unique_id=974351880 instance=ExtResource("7_eue43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7342253, 0)

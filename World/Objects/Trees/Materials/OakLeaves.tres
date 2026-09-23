@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://behkro6obcfbm" path="res://World/Objects/Trees/Textures/Leaves_Tiled_Transp.png" id="1_btuit"]
 
 [resource]
+transparency = 1
 depth_draw_mode = 1
 shading_mode = 2
 albedo_texture = ExtResource("1_btuit")
