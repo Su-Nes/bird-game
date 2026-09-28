@@ -78,12 +78,17 @@ config/name="Bird Game"
 run/main_scene="uid://gyv0w2cpssjs"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="uid://csitp8n76x4ua"
+
 [autoload]
 
 StatController="*uid://07x8nkvd02a8"
 Signals="*uid://cb4bncx3ockjk"
 HitStopManager="*uid://bm86r8qw2k72q"
 MenuManager="*uid://ba5kl0c8exb1g"
+SfxManager="*uid://coqd7nkoyltmu"
 
 [debug_draw_3d]
 
@@ -106,6 +111,7 @@ Player=""
 Spawners="Bushes, trees, ant nests, etc."
 Interactable="Anything that can be picked up."
 Fish="Fish"
+Nest=""
 
 [input]
 
@@ -231,11 +237,22 @@ fullscreen={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Default"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Terrain"
+3d_physics/layer_4="WorldUI"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/limits/max_bodies=20480
+3d/default_gravity=14.700000000000005
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+occlusion_culling/occlusion_rays_per_thread=256
+occlusion_culling/use_occlusion_culling=true

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c4pj5jb64e0lx"]
+
+[ext_resource type="Script" uid="uid://dnyqumsbuxanj" path="res://Entities/Pickups/Placeables/Placeable.gd" id="1_af4bw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmdgp"]
+size = Vector3(0.5, 0.2, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qkran"]
+size = Vector3(0.5, 0.2, 0.05)
+
+[node name="Key" type="RigidBody3D" unique_id=1942355811 node_paths=PackedStringArray("COLLIDER", "RIGIDBODY") groups=["Interactable"]]
+freeze = true
+script = ExtResource("1_af4bw")
+DECOR_VALUE = 10
+GRAB_ONLY = true
+COLLIDER = NodePath("CollisionShape3D")
+RIGIDBODY = NodePath(".")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1414000620]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_bmdgp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1633696604]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_qkran")

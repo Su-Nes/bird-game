@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://c8eoylguwivp" path="res://Player/Scripting/BuildController.gd" id="20_4l6g3"]
 [ext_resource type="Texture2D" uid="uid://bo748bg7vjxr4" path="res://Player/UI/Sprites/InteractionReticle.png" id="20_h5t5w"]
 [ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="28_be8bd"]
+[ext_resource type="Script" uid="uid://ethltlxdnmgb" path="res://Common/Scripts/FPSCounter.gd" id="28_kl3dy"]
 [ext_resource type="PackedScene" uid="uid://cvknri82ocq2e" path="res://Player/Scripting/UI/Menus/FaintMenu.tscn" id="29_kl3dy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
@@ -426,11 +427,11 @@ material = ExtResource("2_g7pa4")
 radius = 0.4
 height = 1.3310547
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4817"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_be8bd"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_qkran"]
-material = SubResource("StandardMaterial3D_s4817")
+material = SubResource("StandardMaterial3D_be8bd")
 left_to_right = 1.1
 size = Vector3(0.08, 0.17, 0.195)
 
@@ -439,15 +440,24 @@ lightmap_size_hint = Vector2i(7, 7)
 material = ExtResource("3_n84ad")
 size = Vector2(0.335, 0.51)
 
-[sub_resource type="SphereMesh" id="SphereMesh_qkran"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kl3dy"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p87aw"]
+[sub_resource type="SphereMesh" id="SphereMesh_qkran"]
+material = SubResource("StandardMaterial3D_kl3dy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7evj"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kl3dy"]
+material = SubResource("StandardMaterial3D_l7evj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n68f6"]
 cull_mode = 2
 shading_mode = 2
 albedo_color = Color(0, 0.2115745, 0.12495578, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_joydu"]
-material = SubResource("StandardMaterial3D_p87aw")
+material = SubResource("StandardMaterial3D_n68f6")
 size = Vector3(0.115, 0.425, 0.155)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4l6g3"]
@@ -473,16 +483,16 @@ _limits = [0.0, 1.0, 0.0, 80.0]
 _data = [Vector2(0, 0.008130074), 0.0, 0.0030251553, 0, 0, Vector2(80, 1), 0.033505764, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_qkran"]
-radius = 0.6
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7c45o"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.35686275)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l6g3"]
 transparency = 1
-albedo_color = Color(1, 0.17254902, 0.27058825, 0)
+albedo_color = Color(0.94509804, 0, 0.13725491, 0.60784316)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qkran"]
+radius = 0.6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n84ad"]
 bg_color = Color(0.3137255, 0.7764706, 0.5137255, 1)
@@ -504,7 +514,7 @@ MESH_OFFSET = Vector3(0, 0.1, 0)
 LOOK_AT_LERP_Z = 0.05
 MESH = NodePath("MeshHandle")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755 groups=["Player"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6md3q")
 
@@ -517,7 +527,7 @@ transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.01, 0)
 top_level = true
 
 [node name="MeshParts" type="Node3D" parent="." unique_id=1447518268 node_paths=PackedStringArray("target")]
-transform = Transform3D(0.8731634, 0.14376636, -0.46574283, -0.46236685, -0.05813831, -0.88478035, -0.15427923, 0.98790187, 0.015708568, 0, 0.01, 0)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999946, 0, 0, 0, 0.9999997, 0, 0.01, 0)
 script = ExtResource("5_7c45o")
 target = NodePath("../MeshHandle")
 
@@ -541,7 +551,7 @@ transform = Transform3D(-4.35885e-08, 3.2754166e-09, -1, 0.99718857, -0.07493283
 mesh = SubResource("PrismMesh_qkran")
 
 [node name="GrabPoint" type="Marker3D" parent="MeshParts/Beak" unique_id=1685434782]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.028193481, -0.07281435)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018001217, -0.123229206)
 
 [node name="EmptyInteractable" type="Node3D" parent="MeshParts/Beak/GrabPoint" unique_id=1330320654]
 script = ExtResource("4_l7evj")
@@ -562,9 +572,19 @@ mesh = SubResource("QuadMesh_joydu")
 transform = Transform3D(0.07840207, 0, 0, 0, 0.07840205, 0, 0, 0, 0.07840205, -0.16100001, 0.07, -0.182)
 mesh = SubResource("SphereMesh_qkran")
 
+[node name="EyeLid_L" type="MeshInstance3D" parent="MeshParts/EyeL" unique_id=1815907345]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.07049623, 0.17059872, 0.015394078)
+visible = false
+mesh = SubResource("SphereMesh_kl3dy")
+
 [node name="EyeR" type="MeshInstance3D" parent="MeshParts" unique_id=131597333]
 transform = Transform3D(0.07840207, 0, 0, 0, 0.07840205, 0, 0, 0, 0.07840205, 0.16093658, 0.07012178, -0.18180116)
 mesh = SubResource("SphereMesh_qkran")
+
+[node name="EyeLid_R" type="MeshInstance3D" parent="MeshParts/EyeR" unique_id=337846432]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.07, 0.171, 0.015)
+visible = false
+mesh = SubResource("SphereMesh_kl3dy")
 
 [node name="Tail" type="MeshInstance3D" parent="MeshParts" unique_id=667488055]
 transform = Transform3D(-3.9853784e-08, -3.2507636e-08, -1.0000001, -0.94552225, 0.3255576, 2.7099535e-08, 0.32555756, 0.94552237, -4.3711392e-08, 0, 0.017605467, 0.3401465)
@@ -592,6 +612,7 @@ fov = 100.0
 
 [node name="InteractableRay" type="RayCast3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D" unique_id=1582326067 node_paths=PackedStringArray("GRAB_SCRIPT", "RETICLE_IDLE", "RETICLE_ACTIVE")]
 target_position = Vector3(0, 0, -3)
+collision_mask = 9
 script = ExtResource("10_n84ad")
 GRAB_SCRIPT = NodePath("../../../../../../GrabController")
 RETICLE_IDLE = NodePath("../../../../../../HUD&Stats/Reticle/Idle")
@@ -666,7 +687,7 @@ THRUST_STRENGTH_PASSIVE = 2.5
 DRAG_CURVE = SubResource("Curve_cqlj3")
 DRAG_STRENGTH = -0.25
 BREAK_CURVE = SubResource("Curve_ds2wf")
-CRASH_VELOCITY = 8.0
+CRASH_VELOCITY = 4.0
 CRASH_SPEED_MOD = 0.2
 BREAK_TURN_MODIFIER = 2.0
 CONSTANT_FLAP_COST = 5.0
@@ -685,6 +706,7 @@ script = ExtResource("14_ds2wf")
 ANIMATOR = NodePath("../../Animator")
 CRASH_DAMAGE_MULT = 1.5
 CRASH_DURATION = 0.5
+CRASH_VELOCITY = 5.0
 metadata/_custom_type_script = "uid://co3t6e564eppe"
 
 [node name="SwimState" type="Node" parent="MovementStateMachine" unique_id=1134345718 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
@@ -734,29 +756,34 @@ script = ExtResource("4_x8g6g")
 WING_ROTATION_DIST = Vector3(-60, 90, 0)
 GLIDE_LERP = 0.2
 
-[node name="GrabController" type="Node" parent="." unique_id=202790247 node_paths=PackedStringArray("GRAB_POINT", "STATE_MACHINE", "BEAK_TOP", "BEAK_BOTTOM")]
+[node name="GrabController" type="Node" parent="." unique_id=202790247 node_paths=PackedStringArray("GRAB_POINT", "STATE_MACHINE", "BEAK_TOP", "BEAK_BOTTOM", "EYE_LID_R", "EYE_LID_L")]
 script = ExtResource("19_vi1d0")
 GRAB_POINT = NodePath("../MeshParts/Beak/GrabPoint")
 STATE_MACHINE = NodePath("../MovementStateMachine")
-DROP_OFFSET = Vector3(0, -0.2, 1)
+DROP_OFFSET = Vector3(0, -0.1, 0.1)
 BEAK_TOP = NodePath("../MeshParts/Beak/BeakTop")
 BEAK_BOTTOM = NodePath("../MeshParts/Beak/BeakBottom")
+EYE_LID_R = NodePath("../MeshParts/EyeR/EyeLid_R")
+EYE_LID_L = NodePath("../MeshParts/EyeL/EyeLid_L")
 MAX_ITEMS = 10
-BREAK_ROT_PER_ITEM = 30
+BEAK_ROT_PER_ITEM = 17
 
-[node name="FishingArea" type="Area3D" parent="." unique_id=95746984]
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FishingArea" unique_id=137301275]
-shape = SubResource("SphereShape3D_qkran")
-
-[node name="BuildController" type="Node" parent="." unique_id=1493140422 node_paths=PackedStringArray("SHAPE_RAY", "GRAB_SCRIPT")]
+[node name="BuildController" type="Node" parent="." unique_id=1493140422 node_paths=PackedStringArray("SHAPE_RAY", "GRAB_SCRIPT", "STATE_MACHINE")]
 script = ExtResource("20_4l6g3")
 SHAPE_RAY = NodePath("../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D/BuildShapeCast")
 GRAB_SCRIPT = NodePath("../GrabController")
+STATE_MACHINE = NodePath("../MovementStateMachine")
+INACTIVE_STATES = Array[String](["flystate", "faintstate", "pausestate"])
 ROTATION_SPEED = 3.0
 GHOST_MATERIAL = SubResource("StandardMaterial3D_7c45o")
 ERROR_MATERIAL = SubResource("StandardMaterial3D_4l6g3")
+
+[node name="FishingCollider" type="Area3D" parent="." unique_id=95746984]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FishingCollider" unique_id=137301275]
+shape = SubResource("SphereShape3D_qkran")
+debug_fill = false
 
 [node name="HUD&Stats" type="Control" parent="." unique_id=28684432 node_paths=PackedStringArray("STAMINA_UI")]
 layout_mode = 3
@@ -778,9 +805,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -140.0
-offset_top = -34.0
-offset_right = 140.0
+offset_left = -121.0
+offset_top = -29.0
+offset_right = 121.0
 offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -836,10 +863,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("20_h5t5w")
 
+[node name="FPSCounter" type="Label" parent="HUD&Stats" unique_id=1333771049]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS: "
+script = ExtResource("28_kl3dy")
+
 [node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("28_be8bd")]
 visible = false
 
 [node name="FaintMenu" parent="." unique_id=1307687841 instance=ExtResource("29_kl3dy")]
 visible = false
 
-[connection signal="body_entered" from="FishingArea" to="GrabController" method="_on_grab_area_body_entered"]
+[connection signal="body_entered" from="FishingCollider" to="GrabController" method="_on_grab_area_body_entered"]

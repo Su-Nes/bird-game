@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://civfny3ab4vy0"]
+
+[ext_resource type="Script" uid="uid://mlswckjo8gss" path="res://Entities/Pickups/Placeables/Branches/BranchInteractable.gd" id="1_y3b7g"]
+[ext_resource type="Material" uid="uid://bj6ppfykfqojq" path="res://World/Objects/Trees/Materials/FirBark.tres" id="2_y3b7g"]
+[ext_resource type="Texture2D" uid="uid://bips6hckwp7p" path="res://World/Objects/Trees/Textures/fir_branch.png" id="3_1878i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nd5ly"]
+size = Vector3(0.75, 0.075, 0.075)
+
+[sub_resource type="BoxMesh" id="BoxMesh_60uoq"]
+material = ExtResource("2_y3b7g")
+size = Vector3(0.75, 0.075, 0.075)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6md3q"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("3_1878i")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qkran"]
+material = SubResource("StandardMaterial3D_6md3q")
+size = Vector2(0.075, 0.2)
+
+[node name="FirBranch" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("COLLIDER", "RIGIDBODY") groups=["Interactable"]]
+linear_damp = 3.0
+script = ExtResource("1_y3b7g")
+CHANCE_TO_SPLIT = 0.3
+GRAB_ONLY = true
+COLLIDER = NodePath("CollisionShape3D")
+RIGIDBODY = NodePath(".")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=289348146]
+shape = SubResource("BoxShape3D_nd5ly")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=720998135]
+mesh = SubResource("BoxMesh_60uoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh" unique_id=356714449]
+transform = Transform3D(0.41158918, -0.2017642, 0.63954324, -0.16201171, 0.6765184, 0.27383578, -0.86602795, -0.22244991, 0.25272208, 0.27636456, 0.06033819, -0.03130164)
+mesh = SubResource("PlaneMesh_qkran")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Mesh" unique_id=1132621496]
+transform = Transform3D(0.05476808, -0.11814111, -0.7998984, 0.8201718, 0.5137447, -0.0433432, 0.67513645, -0.61452556, 0.11754352, -0.01739249, 0.0115846805, 0.060743853)
+mesh = SubResource("PlaneMesh_qkran")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Mesh" unique_id=1021102962]
+transform = Transform3D(-0.14617413, 0.19420093, -0.67267174, 0.15576981, 0.67650104, 0.17569566, 0.9065615, -0.0849268, -0.13865063, -0.23940271, 0.052681275, -0.0055094026)
+mesh = SubResource("PlaneMesh_qkran")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Mesh" unique_id=735262930]
+transform = Transform3D(-0.79808027, -0.41087997, -0.6798302, -0.72918516, 0.83180827, -0.0067955283, 0.74660516, 0.37319183, -0.7333381, -0.24155396, -0.058485106, -0.027018018)
+mesh = SubResource("PlaneMesh_qkran")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Mesh" unique_id=1590640760]
+transform = Transform3D(0.81328285, 0.47832027, 0.5912353, -0.6915107, 0.75599355, -0.26963213, -1.0632446, -0.12581122, 0.6276022, 0.18582018, -0.08259511, 0.0051017595)
+mesh = SubResource("PlaneMesh_qkran")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh" unique_id=1576582723]
+transform = Transform3D(0.5047027, -0.30066273, 0.5414185, -0.78078246, -0.35818738, 0.22276291, 0.22886488, -0.55893767, -0.43399343, -0.0627831, -0.003965955, -0.07205963)
+mesh = SubResource("PlaneMesh_qkran")
+
+[node name="StartPivot" type="Marker3D" parent="." unique_id=904074708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37260854, 0, 0)
+gizmo_extents = 0.37
+
+[node name="EndPivot" type="Marker3D" parent="." unique_id=1747983165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3741273, 0, 0)
+gizmo_extents = 0.37

@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://v7vryw314plm"]
 
-[ext_resource type="Texture2D" uid="uid://148q7it3iv8b" path="res://World/Objects/Trees/Textures/Pine_Branches_Tiled_128.png" id="1_umcjl"]
+[ext_resource type="Texture2D" uid="uid://b65fpau2tngug" path="res://World/Objects/Grass/Grass_128.png" id="1_umcjl"]
 
 [resource]
 resource_name = "PineLeaves"

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c5ngrv4p0d1vw"]
+
+[ext_resource type="Script" uid="uid://bqfhqyl2ms1sc" path="res://Common/Scenes/RaycastSpawner/RaycastSpawner.gd" id="1_uujut"]
+[ext_resource type="PackedScene" uid="uid://dipqgg0d0k4h3" path="res://Entities/Spawners/BerryBush/BerryBush.tscn" id="2_dncgj"]
+
+[node name="RaycastSpawner" type="RayCast3D" unique_id=1036183625]
+exclude_parent = false
+target_position = Vector3(0, -100, 0)
+collision_mask = 4
+hit_back_faces = false
+script = ExtResource("1_uujut")
+SPAWNABLE_NODE = ExtResource("2_dncgj")
+RADIUS = 20.0
+CHANCE_TO_TRIGGER = 1.0

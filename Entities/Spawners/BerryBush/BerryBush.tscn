@@ -1,50 +1,110 @@
-[gd_scene format=3 uid="uid://dipqgg0d0k4h3"]
+[gd_scene format=4 uid="uid://dipqgg0d0k4h3"]
 
 [ext_resource type="Script" uid="uid://bvkeke4dy4a43" path="res://Entities/Spawners/BerryBush/BerryBushScript.gd" id="1_6er4m"]
 [ext_resource type="PackedScene" uid="uid://ciwdfugksg6gx" path="res://Entities/Pickups/Edibles/Berry/Berry.tscn" id="2_a00iv"]
+[ext_resource type="PackedScene" uid="uid://c3g67nhl71c6w" path="res://Entities/Spawners/BerryBush/Model/BerryBush.blend" id="3_a00iv"]
+[ext_resource type="Material" uid="uid://cif2fyce7hr2x" path="res://Entities/Spawners/BerryBush/Materials/LeafyBranch.tres" id="4_h581x"]
+[ext_resource type="Material" uid="uid://diyrc5iiyb2mm" path="res://Entities/Spawners/BerryBush/Materials/Bush.tres" id="5_h581x"]
+[ext_resource type="ArrayMesh" uid="uid://bd4cq08kd2tl3" path="res://Entities/Pickups/Edibles/Berry/BerryMesh.tres" id="6_uo0c5"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_qkran"]
-radius = 1.0
+[sub_resource type="ArrayMesh" id="ArrayMesh_3e4f3"]
+_surfaces = [{
+"aabb": AABB(-2.247123, -2.3389246, -1.3033154, 5.5637503, 4.3584156, 4.923538),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("CAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAAAABAAIAAAADAAEAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0ABAAFAAYABAAHAAUA"),
+"lods": [1.4170934, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA")],
+"name": "LeafyBranch",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("Tn+Wu/rbAAAehtZyOC4AADpInHzhXQAAMr3QsVGsAACtRuSXgLQAAEVqAAAAAAAAZxptMJA5AACLlnZn73oAANtrWYUGkgAAzlFRZ2oEAAAClwhN40QAAKcmop+NUQAA8bBOcC2QAACctL/7kOAAAAt4GqQp1AAAgu30x5WcAAD1f+KUfI0AAAoa9/NBsQAAOyWWj7x8AADEdEL5AsIAAKefa6sVxwAA7ysk+GzFAACkU5CjgowAAPJ3/////wAALmOejIx9AAB3zzdcITgAAEm8CobblgAAW3bLYtEeAADbZXajEq8AAAAAQIGxWAAAaVl5Zd5XAAByDD2/5a8AADKQhmD6sQAAqEqSc7ZbAACTS9CC+q0AAEePSFG2XwAAD4ZVPs6CAAC6icbJMNMAAClNIXLJxgAAn8L7lTWPAABEgBd5CbMAAFoaLNjP1gAAiiXMc0miAAAUdXjdj+cAAGmHNnGMhgAA///Sn2SrAAD7rEGpetcAAG3ax2d1WgAA")
+}]
+blend_shape_mode = 0
 
-[sub_resource type="Gradient" id="Gradient_il6x7"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_h7hmg"]
+resource_name = "BerryBush_Plane"
+_surfaces = [{
+"aabb": AABB(-2.247123, -2.3389246, -1.3033154, 5.5637503, 4.3584156, 4.923538),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAAAA/////wAA/////wAAAAAAAP////8AAP////8AAAAAAAD/////AAD/////AAAAAAAA/////wAA/////wAAAAAAAP////8AAP////8AAAAAAAD/////AAD/////AAAAAAAA/////wAA/////wAAAAAAAP////8AAP////8AAAAAAAD/////AAD/////AAAAAAAA/////wAA/////wAAAAAAAP////8AAP////8AAAAA"),
+"format": 34896613399,
+"index_count": 72,
+"index_data": PackedByteArray("CAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAAAABAAIAAAADAAEAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0ABAAFAAYABAAHAAUA"),
+"lods": [1.4170934, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA")],
+"material": ExtResource("4_h581x"),
+"name": "LeafyBranch",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("Tn+Wu/rby9cehtZyOC7L1zpInHzhXcvXMr3QsVGsy9etRuSXgLT40kVqAAAAAPjSZxptMJA5+NKLlnZn73r40ttrWYUGkp/LzlFRZ2oEn8sClwhN40Sfy6cmop+NUZ/L8bBOcC2Qf+actL/7kOB/5gt4GqQp1H/mgu30x5Wcf+b1f+KUfI0i+goa9/NBsSL6OyWWj7x8IvrEdEL5AsIi+qefa6sVx3Tq7ysk+GzFdOqkU5Cjgox06vJ3/////3TqLmOejIx9Bc93zzdcITgFz0m8CobblgXPW3bLYtEeBc/bZXajEq/Z4AAAQIGxWNngaVl5Zd5X2eByDD2/5a/Z4DKQhmD6sbv1qEqSc7Zbu/WTS9CC+q279UePSFG2X7v1D4ZVPs6Cf+a6icbJMNN/5ilNIXLJxn/mn8L7lTWPf+ZEgBd5CbMi+loaLNjP1iL6iiXMc0miIvoUdXjdj+ci+mmHNnGMhpfY///Sn2Srl9j7rEGpeteX2G3ax2d1WpfYgGgfU4BoH1OAaB9TgGgfUwRnkF0EZ5BdBGeQXQRnkF2ky80/pMvNP6TLzT+ky80/E51z0hOdc9ITnXPSE51z0jSfXwQ0n18ENJ9fBDSfXwRYrf0MWK39DFit/QxYrf0MmeochpnqHIaZ6hyGmeochiPGRC0jxkQtI8ZELSPGRC2gyl30oMpd9KDKXfSgyl30E51z0hOdc9ITnXPSE51z0jSfXwQ0n18ENJ9fBDSfXwTuvnms7r55rO6+eazuvnms")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3e4f3")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mlekv"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_21ulo"]
+_surfaces = [{
+"aabb": AABB(-0.63504183, -0.66726947, -0.60804176, 1.4485779, 0.58793044, 1.3149443),
+"format": 34896613377,
+"index_count": 234,
+"index_data": PackedByteArray("AAAVABYAFgAVAAsAAAAXABUAGAAAABYAFwABABUAGQAXAAAAFAAAABgAFAAZAAAAFAAaABkAGAAEABQAFAAEABoAGQAaABsABAAbABoAGQAcABcAGQAbABwAHAAHABcAFwAHAAEAHAAbAB0AHQAbAAQAHAAdABMAHAATAAcAEwAdAAUAHQAEAB4AHQAeAAUAEwAFAAkAEwAJAAcACQAFAB4ABwAJAB8ACQAeAB8ABwAfABIABwASAAEAHwAeABEAHwARABIAIAAeAAQAHgAgABEAGAAgAAQADAAgABgAGAAWAAwAIAAhABEADAAhACAADAAWAAYAFgALAAYADAAGAAIAAgAhAAwABgALAA4AAgAGACIABgAOACIAAgAiACMAIgAPACMAIwAKAAIAAgAKACEAIwAPAAoAIgAkAA8AJAAKAA8ADgAkACIAJQAKACQADgAlACQACgAlACEAJgAlAA4ACwAmAA4AAwAhACUAJgADACUAAwARACEACwANACYAFQANAAsAFQABAA0ADQAnACYAJwADACYAAQAIAA0ADQAIACcAAQASAAgAJwAQAAMACAAQACcAKAADABAACAAoABAAEgAoAAgAEQADACgAEgARACgA"),
+"lods": [0.23131554, PackedByteArray("AAABAAYABgABAAsADAAAAAYAAQANAAsACwANAA4ABgALAA4AAQAIAA0ADQAIAA4AAgAGAA4ADAAGAAIADgAPAAIAAgAKAAwAAgAPAAoADgADAA8ACAADAA4AAwAKAA8ACAAQAAMAAwARAAoAEQADABAAEgAQAAgAEgARABAAAQASAAgABAAKABEADAAKAAQAEgAFABEABQAEABEACQAFABIABwASAAEABwAJABIAAAAHAAEAEwAFAAkAEwAEAAUAEwAJAAcADAAEABQAFAAEABMAFAAAAAwAFAATAAcAFAAHAAAA"), 0.58253205, PackedByteArray("AAABAAYABgABAAIAAgAAAAYAAAAHAAEABwAIAAEAAQAIAAIAAAAJAAcABwAJAAgAAAAEAAkAAgAEAAAACQAFAAgACQAEAAUACAAFAAMABQAEAAMACAADAAIABAAKAAMAAgADAAoAAgAKAAQA"), 1.0285633, PackedByteArray("AAABAAIAAQADAAIAAgAEAAAAAgADAAQAAAAFAAEAAQAFAAMAAAAEAAUABQAEAAMA")],
+"name": "Bush",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 41,
+"vertex_data": PackedByteArray("rTSJuELKAADZn5nNIS8AAOPCh7j//wAAaeU2GV9rAABFPlUGVMEAAIwkVymqKgAA67Cs42nQAABNKu7y3jEAAO7j7pAgFQAAOBUIxFIZAAD+vn0cN9sAAKzRzfcNlgAA1pIjrlP8AACb4P//6z8AAP//VLOpiwAA2NqvI9fgAADg6B0GlEQAANWhRRoWFgAAOqEPswAAAAAeB62WykoAABkf0Jty2gAAo4F1nT6JAABUjoDn99QAALIoNMEigAAAyFZ0ol3xAADNCTx9Fq4AAAsTQAlDpwAAZwkfExV6AAAAAJeI23sAAEMPzx8WTgAAUVtLLbEWAAD0TUnI8AEAAKlhfAqtzQAAMpY0EyDXAABS0SqoGLgAAFDJfp/68wAAcOd+JmfBAAC05o4mG5cAAPv5hZ/zWQAAhtyWldo9AACH1gAAlSgAAA==")
+}]
+blend_shape_mode = 0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y6flb"]
-noise = SubResource("FastNoiseLite_mlekv")
-color_ramp = SubResource("Gradient_il6x7")
+[sub_resource type="ArrayMesh" id="ArrayMesh_8v7xa"]
+resource_name = "BerryBush_Plane_001"
+_surfaces = [{
+"aabb": AABB(-0.63504183, -0.66726947, -0.60804176, 1.4485779, 0.58793044, 1.3149443),
+"attribute_data": PackedByteArray("6Nrg0Pl6B9NovUCpglp6rf//hc9bnv//W57/////hc+CWnqth6norLWja+mFU6TJVqJV9MjKhqDIyoagV4+Rt7/P3rLrblDCCIATrWGuv5rMRbC5P2XT2uxOa97D6kzSyLye8uxOa97MRbC5Ya6/mt2mjcmjv6S7j8Sk38fh48F/5BTgrflY4of1D7x+5abxWeHnq3TTKutux0T8RG9N84+CbOzFPmrJ0VX7vo5oObSuc8Oj7o6QnGOWrqZQq/2lbsdE/ERvTfN+5abxrflY4of1D7xZ4eerxT5qya5zw6PujpCc"),
+"format": 34896613399,
+"index_count": 234,
+"index_data": PackedByteArray("AAAcAB0AHQAcAA8AAAAeABwAHwAAAB0AHgABABwAIAAeAAAAFwAAAB8AFwAgAAAAHwAEABcAFwAEACEAFwAhACAAHwAiAAQAIAAhACMAEAAiAB8AHwAdABAAEAAkACIAIAAjACUAIAAlAB4AJQAjACYAJQAKAB4AJQAmABgAJQAYAAoAGAAmAAUAGAAFAAwAGAAMAAoADAAFACcAHgAKAAEADAAnACgACgAMACgAKAAnABYACgAoABUAKAAWABUACgAVAAEAFQAWACkAFQApAAsAAQAVAAsACwApABQAAQALABEAHAABABEACwAUACoAEQALACoAKgAUAAMAHAARAA8AEQAqACsAKgADACsADwARACsAKwADACwAKwAsABIADwArABIAEgAsAC0ACQAPABIAHQAPAAkAEAAdAAkAEgAtAC4ACQASAC4ALgAtABMAEAAJAAIAAgAJAC4AAgAkABAALgATAC8AAgAuAC8ALwATAA0AAgANACQALwANAAIAMAAHADEAMAAxAAYAMAAyAAcABwAyADMANAAxAAcAMQA0ABkANAA1ABkACAAZADUAGQAIADYANgAIABoACAA1ADcADgA3ADUANwAOADgAOAAOABsA"),
+"lods": [0.23131554, PackedByteArray("AAABAAkACQABAA8AEAAAAAkAAQARAA8ADwARABIACQAPABIAAQALABEAEQALABIAAgAJABIAEAAJAAIACwADABIAEgADABMAEgATAAIACwAUAAMAAgATAA0AAgANABAAEAANAAQAFQAUAAsAAQAVAAsAFQAWABQAFQAFABYAEAAEABcAFwAAABAAAAAKAAEAFwAKAAAACgAVAAEAFwAEABgAFwAYAAoAGAAEAAUACgAMABUAGAAMAAoADAAFABUAGAAFAAwABgAHABkABwAOABkACAAZAA4AGQAIABoACAAOABsA"), 0.58253205, PackedByteArray("AAABAAkACQABAAIAAgAAAAkAAAAKAAEACgALAAEAAQALAAIAAAAMAAoACgAMAAsAAAAEAAwAAgAEAAAADAAEAAUADAAFAAsAAgANAAQACwAFAAMAAgADAA0ACwADAAIABgAHAAgABwAOAAgA"), 1.0285633, PackedByteArray("AAABAAIAAQADAAIAAgADAAQAAgAEAAAAAQAFAAMAAAAEAAUAAAAFAAEABgAHAAgA")],
+"material": ExtResource("5_h581x"),
+"name": "Bush",
+"primitive": 3,
+"uv_scale": Vector4(0.78075695, 1.5250899, 0, 0),
+"vertex_count": 57,
+"vertex_data": PackedByteArray("rTSJuELKgd/Zn5nNIS9K6uPCh7j//+LTaeU2GV9r28dFPlUGVMH2wowkVymqKvXojCRXKaoqzxpFPlUGVMFzI2nlNhlfa40I67Cs42nQjt5NKu7y3jHh3+7j7pAgFSnvOBUIxFIZUeD+vn0cN9s12v6+fRw32wAZrNHN9w2W2O3WkiOuU/wL2pvg///rP//z//9Us6mLk/HY2q8j1+BF+ODoHQaURBPJOqEPswAA0/zVoUUaFha55xkf0Jty2vXKHgetlspKpM/VoUUaFhYdCuDoHQaURP4G2NqvI9fgXwijgXWdPomK5FSOgOf31Hnfsig0wSKAetvIVnSiXfGL0c0JPH0WrlPFCxNACUOn/b+pYXwKrc04zmcJHxMVehTDMpY0EyDXzNMAAJeI23sdykMPzx8WTl/NUVtLLbEWz/X0TUnI8AFn84fWAACVKLHOhtyWldo9Et37+YWf81mF6LTmjiYblyHUcOd+JmfBE+VS0SqoGLin/1DJfp/68z/qQw/PHxZOYydRW0stsRYtD2cJHxMVeqUrCxNACUOniSqpYXwKrc3cGzKWNBMg10gYh9YAAJUomQG05o4mG5ddCHDnfiZnwd8EsI/ztzOYzLgTnEKJeRMeUB5L8mpqU8/3xk547mIvS/NQJ/PZgqKrpxeUiLpHN94w5YUF6QZs6VfyJgzuoJnTqheBaJLMpXOuIRjcKlGb4mOCGopJRqa8yLRPvkm8cTykw3JG0/RGGel3I8zVjhXF3kaWULa3lAazoZJ6t5N5ypZba2Wzazi2ig1d9V9ZOWWuQmWKW71vD8WeQtDRnV6UQNqcsdG9NyZRxCklM1cgGzKSBSzBowolzDwVriVZp0+BPk2f8pdKUermSDr3dD0B/jsr3PLJKFzxFzgT5CEeKtpOGL3X")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_21ulo")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joydu"]
-shading_mode = 2
-diffuse_mode = 3
-albedo_color = Color(0.20617235, 0.33052635, 0.06919791, 0)
-heightmap_scale = 0.19
-heightmap_deep_parallax = true
-heightmap_min_layers = 8
-heightmap_max_layers = 32
-heightmap_texture = SubResource("NoiseTexture2D_y6flb")
-refraction_scale = 1.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
+size = Vector3(0.5839844, 0.06738281, 0.48632813)
 
-[sub_resource type="SphereMesh" id="SphereMesh_qkran"]
-material = SubResource("StandardMaterial3D_joydu")
-radius = 1.0
-height = 2.0
-
-[node name="BerryBush" type="StaticBody3D" unique_id=1109566799 node_paths=PackedStringArray("RAYCAST") groups=["Spawners"]]
+[node name="BerryBush" type="Node3D" unique_id=1781141933 node_paths=PackedStringArray("SPAWN_AREA") groups=["Spawners"]]
 script = ExtResource("1_6er4m")
-RAYCAST = NodePath("BerryPlanter")
+SPAWN_AREA = NodePath("SpawnArea/Collider3D")
 BERRY = ExtResource("2_a00iv")
 SPAWN_TIME = Vector2(60, 120)
-SPAWN_GROUP = Vector2(8, 16)
+SPAWN_GROUP = Vector2(3, 5)
 
-[node name="BerryPlanter" type="RayCast3D" parent="." unique_id=268150865]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047666512, 0)
-exclude_parent = false
-target_position = Vector3(0, 0, -2)
-hit_from_inside = true
+[node name="Mesh" parent="." unique_id=716119731 instance=ExtResource("3_a00iv")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1284599001]
-shape = SubResource("SphereShape3D_qkran")
+[node name="Branches" parent="Mesh" index="0" unique_id=1954439211]
+mesh = SubResource("ArrayMesh_h7hmg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=61418342]
-mesh = SubResource("SphereMesh_qkran")
+[node name="Bush" parent="Mesh" index="1" unique_id=566033596]
+mesh = SubResource("ArrayMesh_8v7xa")
+
+[node name="Berry" parent="Mesh" index="2" unique_id=529157103]
+visible = false
+mesh = ExtResource("6_uo0c5")
+
+[node name="SpawnArea" type="Area3D" parent="." unique_id=1759127785]
+transform = Transform3D(4.42, 0, 0, 0, 4.42, 0, 0, 0, 4.42, 0, 0, 0)
+monitoring = false
+monitorable = false
+
+[node name="Collider3D" type="CollisionShape3D" parent="SpawnArea" unique_id=344860434]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0.17636351, 0)
+shape = SubResource("BoxShape3D_qkran")
+
+[editable path="Mesh"]

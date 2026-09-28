@@ -22,10 +22,6 @@ func enter():
 	WING_STATES.change_state("wingsidle")
 
 func update(delta: float):
-	if Input.is_action_pressed("jump"):
-		state_machine.change_state("HoverState")
-		return
-	
 	if player_controller.velocity.length() > MAX_VELOCITY:
 		player_controller.velocity = player_controller.velocity.normalized() * MAX_VELOCITY
 	

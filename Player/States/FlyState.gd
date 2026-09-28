@@ -188,12 +188,16 @@ func handle_flight_velocity(_delta: float):
 	# Handle collisions
 	var collision_info = player_controller.move_and_collide(player_controller.velocity * _delta)
 	if collision_info:
-		if player_controller.velocity.length() > CRASH_VELOCITY:
+		var collision_angle = rad_to_deg(player_controller.velocity.angle_to(collision_info.get_normal())) - 90
+		var collision_force = player_controller.velocity.length() * collision_angle / 90
+
+		if collision_force > CRASH_VELOCITY:
 			state_machine.stored_vector = player_controller.velocity.bounce(collision_info.get_normal()) * CRASH_SPEED_MOD
 			state_machine.change_state("CrashState")
+		elif collision_info.get_normal().angle_to(Vector3.UP) < deg_to_rad(15): # Detect if collision happened to floor
+			state_machine.change_state("idlestate")
 		else:
 			player_controller.velocity = player_controller.velocity.bounce(collision_info.get_normal()) * CRASH_SPEED_MOD
-			state_machine.change_state("hoverstate")
 			
 func exit():
 	INTERACTION_RAYCAST.enabled = true

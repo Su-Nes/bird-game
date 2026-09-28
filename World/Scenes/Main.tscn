@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://gyv0w2cpssjs"]
 
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
+[ext_resource type="PackedScene" uid="uid://c4pj5jb64e0lx" path="res://Entities/Pickups/Decorations/Key.tscn" id="3_korxk"]
 [ext_resource type="PackedScene" uid="uid://rbf3r26b40pt" path="res://World/Terrain/Terrain.tscn" id="9_004o5"]
 
 [node name="Main" type="Node3D" unique_id=2109053146]
@@ -10,3 +11,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048797607, 0.05398941, -0.0
 
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.36773, 7.7342253, 40.580883)
+
+[node name="Key" parent="." unique_id=1942355811 instance=ExtResource("3_korxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.60645, -3.0556774, 27.128843)

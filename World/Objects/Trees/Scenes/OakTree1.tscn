@@ -1,100 +1,15 @@
 [gd_scene format=4 uid="uid://ct7esywm4lggm"]
 
 [ext_resource type="PackedScene" uid="uid://dnjwlr4tw3pc" path="res://World/Objects/Trees/TestTree.blend" id="1_ammww"]
-[ext_resource type="Script" uid="uid://epa0acfts1uo" path="res://World/Objects/Trees/Scenes/BranchSpawner.gd" id="2_ba45i"]
+[ext_resource type="Script" uid="uid://epa0acfts1uo" path="res://World/Objects/Trees/Scripts/BranchSpawner.gd" id="2_ba45i"]
 [ext_resource type="PackedScene" uid="uid://dpvccn6h5243h" path="res://Entities/Pickups/Placeables/Branches/OakBranch.tscn" id="3_76cwy"]
 [ext_resource type="PackedScene" uid="uid://dcaqmr8n5v177" path="res://Entities/Pickups/Placeables/Branches/OakBranch_small.tscn" id="3_rt2g4"]
+[ext_resource type="Shader" uid="uid://dnbuvg02tpjhi" path="res://Common/Shaders/Leaves_w_sway.gdshader" id="5_76cwy"]
 [ext_resource type="Texture2D" uid="uid://behkro6obcfbm" path="res://World/Objects/Trees/Textures/Leaves_Tiled_Transp.png" id="5_rt2g4"]
-
-[sub_resource type="Shader" id="Shader_76cwy"]
-code = "// NOTE: Shader automatically converted from Godot Engine 4.7.1.stable's StandardMaterial3D.
-
-shader_type spatial;
-render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx, vertex_lighting;
-
-uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
-
-uniform float distance_fade_min : hint_range(0.0, 4096.0, 0.01);
-uniform float distance_fade_max : hint_range(0.0, 4096.0, 0.01);
-uniform ivec2 albedo_texture_size;
-uniform float point_size : hint_range(0.1, 128.0, 0.1);
-
-uniform float roughness : hint_range(0.0, 1.0);
-uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
-uniform vec4 metallic_texture_channel;
-uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
-
-uniform float specular : hint_range(0.0, 1.0, 0.01);
-uniform float metallic : hint_range(0.0, 1.0, 0.01);
-
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
-uniform vec3 uv2_scale;
-uniform vec3 uv2_offset;
-
-// ----------- SWAY PARAMETERS -----------
-uniform float sway_amount : hint_range(0.0, 1.0) = 0.1;
-// Maximum sway offset
-
-uniform float sway_scale : hint_range(0.0, 10.0) = 1.0;
-// Controls how tightly sway oscillates over the mesh's Y axis
-
-uniform float sway_duration : hint_range(0.01, 10.0) = 2.0;
-// Time (in seconds) for one full sway cycle
-
-uniform vec3 sway_direction = vec3(1.0, 0.0, 0.0);
-// Direction of sway movement (X, Y, Z)
-
-void vertex() {
-	// Shading Mode: Per Vertex
-	ROUGHNESS = roughness;
-
-	UV = UV * uv1_scale.xy + uv1_offset.xy;
-	
-	// Calculate a normalized sway angle over time
-    float sway_time = (TIME / sway_duration) * 6.28318; // 2π = full sine wave cycle
-
-    // Calculate sway based on vertex height (Y)
-    float sway = sin(VERTEX.y * sway_scale + sway_time) * sway_amount;
-
-    // Apply sway in specified direction
-    VERTEX.xyz += sway * sway_direction;
-}
-
-void fragment() {
-	vec2 base_uv = UV;
-
-	vec4 albedo_tex = texture(texture_albedo, base_uv);
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
-
-	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
-	METALLIC = metallic_tex * metallic;
-	SPECULAR = specular;
-
-	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
-	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
-	ROUGHNESS = roughness_tex * roughness;
-	ALPHA *= albedo.a * albedo_tex.a;
-
-	{
-		// Distance Fade: Pixel Dither
-		float fade_distance = length(VERTEX);
-
-		// Use interleaved gradient noise, which is fast but still looks good.
-		const vec3 magic = vec3(0.06711056, 0.00583715, 52.9829189);
-		float fade = clamp(smoothstep(distance_fade_min, distance_fade_max, fade_distance), 0.0, 1.0);
-		// Use a hard cap to prevent a few stray pixels from remaining when past the fade-out distance.
-		if (fade < 0.001 || fade < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
-			discard;
-		}
-	}
-}
-"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q72ap"]
 render_priority = 0
-shader = SubResource("Shader_76cwy")
+shader = ExtResource("5_76cwy")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("5_rt2g4")
 shader_parameter/distance_fade_min = 0.0
@@ -156,7 +71,8 @@ transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
 script = ExtResource("2_ba45i")
 BRANCHES = Array[PackedScene]([ExtResource("3_rt2g4"), ExtResource("3_76cwy")])
 SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
-RAND_BRANCHES_PER_METER = Vector2(0, 3)
+RAND_BRANCHES_PER_METER = Vector2(0, 0.5)
+CHANCE_FOR_BRANCH_GROWTH = 0.45
 
 [node name="Mesh" parent="." unique_id=1852665135 instance=ExtResource("1_ammww")]
 

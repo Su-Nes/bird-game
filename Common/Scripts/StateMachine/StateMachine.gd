@@ -3,6 +3,8 @@ extends Node
 class_name StateMachine
 
 
+signal state_changed(state : String)
+
 @export var initial_state : State
 @export var ANIMATOR : AnimationPlayer
 @export var DEBUG = false
@@ -12,6 +14,7 @@ var previous_state : State
 var states : Dictionary = {}
 
 var stored_vector : Vector3
+
 
 func _ready() -> void:
 	Signals.player_change_state.connect(change_state)
@@ -50,6 +53,8 @@ func change_state(new_state_name: String) -> void:
 		current_state.exit()
 		
 	current_state = states.get(new_state_name.to_lower())
+	
+	state_changed.emit(current_state.name)
 	
 	if current_state:
 		current_state.enter()

@@ -11,7 +11,7 @@ var PENALTY_TIME : float = 1.5
 var penalty_timer : float
 
 # Stamina limits
-var STAMINA_LIMIT_DRAIN : float = 3
+var STAMINA_LIMIT_DRAIN : float = 1
 var DRAIN_PERIOD : float = 20
 var drain_timer : float
 
@@ -59,9 +59,9 @@ func spend_max_stamina(value: float) -> bool:
 	stamina_max_limit -= value
 	
 	if stamina_max_limit <= 0:
-		return true
 		fainted = true
 		has_fainted.emit()
+		return true
 	else:
 		return false
 	

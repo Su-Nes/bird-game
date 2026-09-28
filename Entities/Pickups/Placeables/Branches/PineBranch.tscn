@@ -22,8 +22,9 @@ size = Vector3(1.5, 0.125, 0.125)
 [node name="PineBranch" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("COLLIDER", "RIGIDBODY") groups=["Interactable"]]
 linear_damp = 3.0
 script = ExtResource("1_vxamt")
-CHANCE_TO_SPLIT = 0.7
+CHANCE_TO_SPLIT = 0.5
 GRAB_ONLY = true
+BEAK_ANGLE_MOD = 10.0
 COLLIDER = NodePath("CollisionShape3D")
 RIGIDBODY = NodePath(".")
 

@@ -5,11 +5,13 @@ class_name Interactable
 
 @export var IS_GRABBABLE = true
 @export var GRAB_ONLY = false
+@export var GRAB_IS_INTERACT = false
 var is_grabbed = false
+
+@export var BEAK_ANGLE_MOD : float = 0
 
 @export var COLLIDER : CollisionShape3D
 @export var RIGIDBODY : RigidBody3D
-
 
 var interaction_tip_index = 0
 var selection_tip_index = 0

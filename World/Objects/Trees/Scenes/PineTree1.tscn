@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://e5b5x7ln1cyb" path="res://World/Objects/Trees/Textures/Pine_Bark_Tiled_64.png" id="1_6u0id"]
 [ext_resource type="PackedScene" uid="uid://by61s13h7akoy" path="res://World/Objects/Trees/Models/PineTree.blend" id="1_14fww"]
-[ext_resource type="Script" uid="uid://epa0acfts1uo" path="res://World/Objects/Trees/Scenes/BranchSpawner.gd" id="1_y0wtv"]
-[ext_resource type="PackedScene" uid="uid://cf3g34mvtspqt" path="res://Entities/Pickups/Placeables/Branches/PineBranch.tscn" id="3_yfwte"]
+[ext_resource type="Script" uid="uid://epa0acfts1uo" path="res://World/Objects/Trees/Scripts/BranchSpawner.gd" id="1_y0wtv"]
+[ext_resource type="PackedScene" uid="uid://cf3g34mvtspqt" path="res://Entities/Pickups/Placeables/Branches/PineBranch.tscn" id="2_cqex0"]
 [ext_resource type="Texture2D" uid="uid://148q7it3iv8b" path="res://World/Objects/Trees/Textures/Pine_Branches_Tiled_128.png" id="5_y0wtv"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jlus8"]
@@ -193,14 +193,13 @@ shadow_mesh = SubResource("ArrayMesh_ipfwl")
 
 [node name="PineTree1" type="StaticBody3D" unique_id=1563042728 node_paths=PackedStringArray("SPAWN_MARKER_PARENT")]
 script = ExtResource("1_y0wtv")
-BRANCHES = Array[PackedScene]([ExtResource("3_yfwte")])
+BRANCHES = Array[PackedScene]([ExtResource("2_cqex0")])
 SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
-SPAWN_OFFSET = 0.2
-SPAWN_GROUP_PER_BRANCH = Vector2(2, 8)
+SPAWN_OFFSET = 0.5
+RAND_BRANCHES_PER_METER = Vector2(0, 0.3)
 CHANCE_FOR_BRANCH_GROWTH = 0.4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1077600888]
-visible = false
 shape = SubResource("ConcavePolygonShape3D_jlus8")
 
 [node name="Mesh" type="Node3D" parent="." unique_id=1885895316]

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dm41yps65a7s7"]
+
+[ext_resource type="Texture2D" uid="uid://4atdylgibx0m" path="res://World/Objects/Trees/Textures/Fir_Branches_Tiled_128.png" id="1_gngdl"]
+
+[resource]
+resource_name = "PineLeaves"
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(0.7137255, 0.6784314, 0.23137255, 0.98039216)
+albedo_texture = ExtResource("1_gngdl")
+roughness = 0.76
+distance_fade_mode = 2
+distance_fade_max_distance = 5.0
+metadata/_gltf_primary_texture_coord = 0

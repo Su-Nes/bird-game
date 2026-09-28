@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://2ql1yen4toui"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qkran"]
+radius = 1.0
+
+[node name="NestDetectionArea" type="Area3D" unique_id=1150583495]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1957577405]
+shape = SubResource("SphereShape3D_qkran")

@@ -43,8 +43,11 @@ func _process(_delta: float) -> void:
 				current_interactable.on_interact()
 			
 		if Input.is_action_just_pressed("pick") and current_interactable.IS_GRABBABLE:
-			GRAB_SCRIPT.grab_item(current_interactable)
-			current_interactable = null
+			if current_interactable.GRAB_IS_INTERACT:
+				current_interactable.on_interact()
+			else:
+				GRAB_SCRIPT.grab_item(current_interactable)
+				current_interactable = null
 	else:
 		if Input.is_action_just_pressed("interact"):
 			GRAB_SCRIPT.use_item()

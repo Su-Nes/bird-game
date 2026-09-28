@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://djwl4oxhb43yg"]
+
+[ext_resource type="Texture2D" uid="uid://b65fpau2tngug" path="res://World/Objects/Grass/Grass_128.png" id="1_ks8fr"]
+
+[resource]
+resource_name = "PineLeaves"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+depth_draw_mode = 1
+albedo_texture = ExtResource("1_ks8fr")
+roughness = 0.76
+distance_fade_max_distance = 1.0
+metadata/_gltf_primary_texture_coord = 0

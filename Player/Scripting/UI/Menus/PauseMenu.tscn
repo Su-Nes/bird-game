@@ -91,7 +91,7 @@ text = "Interaction -
 	RMB: Use
 	Scroll: Select held item
 	Q & E: Rotate held item
-
+	G: Drop held item
 On ground - 
 	Space: Jump
 	Hold Space: Hover
@@ -104,7 +104,8 @@ While flying -
 	S - Pitch up
 	Space - Strong flap
 	Hold Space - Constant flap
-	Ctrl - Slow down"
+	Ctrl - Slow down
+Tab - Show nest markers"
 label_settings = SubResource("LabelSettings_joydu")
 tab_stops = PackedFloat32Array(60)
 

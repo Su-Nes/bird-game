@@ -2,6 +2,7 @@ extends Node
 
 class_name GrabScript
 
+
 @onready var player_controller: CharacterBody3D = $".."
 
 @export var GRAB_POINT : Marker3D
@@ -11,8 +12,10 @@ class_name GrabScript
 @export var BEAK_TOP : Node3D
 @export var BEAK_BOTTOM : Node3D
 @export_category("Storage settings")
+@export var EYE_LID_R : Node3D
+@export var EYE_LID_L : Node3D
 @export var MAX_ITEMS : int = 5
-@export var BREAK_ROT_PER_ITEM : int = 10
+@export var BEAK_ROT_PER_ITEM : int = 10
 
 var active_index = 0
 
@@ -104,7 +107,12 @@ func remove_selected_item(drop_physically = false):
 	if !drop_physically:
 		return
 	
-	item.global_position = item.global_position - $"../MeshHandle".global_basis.z * DROP_OFFSET.z + Vector3.UP * DROP_OFFSET.y
+	var drop_position = -$"../MeshHandle".global_basis.z * DROP_OFFSET.z + Vector3.UP * DROP_OFFSET.y
+
+	if STATE_MACHINE.current_state.name.to_lower() == "flystate":
+		drop_position *= 10
+	
+	item.global_position = item.global_position + drop_position
 	item.has_physics(true, true)
 	if item.RIGIDBODY:
 		item.RIGIDBODY.linear_velocity = player_controller.velocity * DROP_VELOCITY_MOD
@@ -112,10 +120,26 @@ func remove_selected_item(drop_physically = false):
 func handle_beak_rotation():
 	BEAK_TOP.rotation.x = 0
 	BEAK_BOTTOM.rotation.x = 0
+	
+	var item : Interactable = GRAB_POINT.get_child(active_index)
+	
+	if item.get_child_count() == 0:
+		return
+	
 	#TO-DO: Have seperate rotation values for each item.
-	if GRAB_POINT.get_child(active_index).get_child_count() > 0: # Single out EmptyInteractable
-		BEAK_TOP.rotate_x(deg_to_rad(BREAK_ROT_PER_ITEM) / 2)
-		BEAK_BOTTOM.rotate_x(deg_to_rad(-BREAK_ROT_PER_ITEM) / 2)
+	 # Single out EmptyInteractable
+	BEAK_TOP.rotate_x(deg_to_rad(BEAK_ROT_PER_ITEM + item.BEAK_ANGLE_MOD / 2))
+	BEAK_BOTTOM.rotate_x(deg_to_rad(-BEAK_ROT_PER_ITEM - item.BEAK_ANGLE_MOD / 2))
+		
+	handle_eye_lids()
+
+func handle_eye_lids():
+	if GRAB_POINT.get_child_count() >= MAX_ITEMS + 1:
+		EYE_LID_R.visible = true
+		EYE_LID_L.visible = true
+	else:
+		EYE_LID_R.visible = false
+		EYE_LID_L.visible = false
 
 func _on_grab_area_body_entered(body: Node3D) -> void:
 	if body is Edible and STATE_MACHINE.current_state.name == "SwimState":

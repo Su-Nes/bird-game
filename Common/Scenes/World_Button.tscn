@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cqlwouf4xaqth"]
+
+[ext_resource type="Script" uid="uid://bdj410fvkjg8f" path="res://Common/Scripts/Entity/WorldButton.gd" id="1_kf408"]
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="1_m0flv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
+size = Vector3(0.31347656, 0.19140625, 0.049804688)
+
+[node name="WorldButton" type="StaticBody3D" unique_id=6482881 node_paths=PackedStringArray("COLLIDER")]
+collision_layer = 8
+script = ExtResource("1_kf408")
+GRAB_IS_INTERACT = true
+COLLIDER = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=265274988]
+shape = SubResource("BoxShape3D_qkran")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=626845795]
+text = "Yes"
+font = ExtResource("1_m0flv")
