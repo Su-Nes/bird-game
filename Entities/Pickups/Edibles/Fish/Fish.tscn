@@ -13,7 +13,7 @@ bounce = 1.0
 radius = 0.061523438
 height = 0.51064456
 
-[node name="Fish" type="RigidBody3D" unique_id=2106081441 node_paths=PackedStringArray("STATE_MACHINE", "GRABBED_STATE", "COLLIDER", "RIGIDBODY") groups=["Fish"]]
+[node name="Fish" type="RigidBody3D" unique_id=2106081441 node_paths=PackedStringArray("STATE_MACHINE", "GRABBED_STATE", "MESH", "COLLIDER", "RIGIDBODY") groups=["Fish"]]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_6lrxk")
 script = ExtResource("1_6lrxk")
@@ -21,6 +21,7 @@ STATE_MACHINE = NodePath("StateMachine")
 GRABBED_STATE = NodePath("StateMachine/FishOutOfWater")
 STAMINA_VALUE = 20.0
 BEAK_ANGLE_MOD = 1.0
+MESH = NodePath("Mesh/Armature/Skeleton3D/Fish")
 COLLIDER = NodePath("CollisionShape3D")
 RIGIDBODY = NodePath(".")
 

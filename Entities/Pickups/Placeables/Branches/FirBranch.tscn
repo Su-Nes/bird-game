@@ -20,11 +20,12 @@ albedo_texture = ExtResource("3_1878i")
 material = SubResource("StandardMaterial3D_6md3q")
 size = Vector2(0.075, 0.2)
 
-[node name="FirBranch" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("COLLIDER", "RIGIDBODY") groups=["Interactable"]]
+[node name="FirBranch" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable"]]
 linear_damp = 3.0
 script = ExtResource("1_y3b7g")
 CHANCE_TO_SPLIT = 0.3
 GRAB_ONLY = true
+MESH = NodePath("Mesh")
 COLLIDER = NodePath("CollisionShape3D")
 RIGIDBODY = NodePath(".")
 

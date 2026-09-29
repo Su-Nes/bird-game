@@ -15,6 +15,7 @@ class_name HoverState
 @export var FLIGHT_TRANSITION_VELOCITY : float = 10
 @export var TIME_FOR_DOUBLE_TAP_FLY : float = .1
 var fly_timer : float
+var break_timer : float
 @export_category("Camera")
 @export var CAMERA_MOVEMENT : CameraMovement
 @export var CAMERA_FOLLOW_STRENGTH : float = .05
@@ -58,10 +59,20 @@ func update(_delta: float):
 		
 		fly_timer = TIME_FOR_DOUBLE_TAP_FLY
 		
+	# detecting double tap to enable fall state
+	break_timer -= _delta
+	
+	if Input.is_action_just_released("break"):
+		if break_timer > 0:
+			state_machine.change_state("FallState")
+			return
+		
+		break_timer = TIME_FOR_DOUBLE_TAP_FLY
+		
 	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * _delta * player_controller.velocity.normalized().length(), 0.0)
 
 	
-func handle_velocity(delta):	
+func handle_velocity(delta):
 	player_controller.velocity.x = lerp(player_controller.velocity.x, direction.x * HOVER_SPEED, delta * HOVER_INERTIA)
 	player_controller.velocity.y = lerp(player_controller.velocity.y, direction.y * HOVER_SPEED, delta * HOVER_INERTIA)
 	player_controller.velocity.z = lerp(player_controller.velocity.z, direction.z * HOVER_SPEED, delta * HOVER_INERTIA)
@@ -71,5 +82,8 @@ func handle_velocity(delta):
 	var look_direction_flat = CAMERA_MOVEMENT.get_camera_forward()
 	look_direction_flat.y = 0
 	
-	extension_functions.handle_model_transform(look_direction_flat)
+	extension_functions.handle_model_position(player_controller.global_position)
+	
+	if !Input.is_action_pressed("alt"):
+		extension_functions.handle_model_rotation(look_direction_flat)
 	

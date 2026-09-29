@@ -15,6 +15,11 @@ var MINIMUM_PLACED_OBJECTS_FOR_NEST := 5
 var detection_area : Area3D
 var is_placed = false
 
+
+func _ready() -> void:
+	if RIGIDBODY:
+		RIGIDBODY.freeze = true
+
 func on_placed():
 	is_placed = true
 	
@@ -120,7 +125,6 @@ func propogate_stability(is_root_call : bool, previous_branch: Placeable):
 	#print("backward connections: %s" % backwards_connections)
 	if !is_root_call and backwards_connections.size() < 2:
 		has_physics(true, true)
-		is_placed = false
 		
 	if backwards_connections.size() > 1:
 		backwards_connections.erase(previous_branch)

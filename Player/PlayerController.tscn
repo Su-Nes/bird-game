@@ -600,7 +600,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("4_bacvh")
 MOUSE_SENS = 20.0
 STICK_SENS = 200.0
-CAM_RESET_MOD = 0.05
+CAM_RESET_MOD = 0.001
 SIDE_SWITCH_SENSITIVITY = 30.0
 
 [node name="CameraSpring" type="SpringArm3D" parent="CameraControl/CameraPivotY/CameraPivotX" unique_id=780229940]
@@ -667,7 +667,7 @@ script = ExtResource("10_nwc8f")
 WING_STATES = NodePath("../../WingStateMachine")
 HOVER_SPEED = 4.0
 FLIGHT_TRANSITION_VELOCITY = 6.0
-TIME_FOR_DOUBLE_TAP_FLY = 0.2
+TIME_FOR_DOUBLE_TAP_FLY = 0.25
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAMERA_FOLLOW_STRENGTH = 0.1
 CAMERA_POSITION = Vector3(0.5, 0.6, -0.5)

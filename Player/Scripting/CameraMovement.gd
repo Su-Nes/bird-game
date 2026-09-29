@@ -41,7 +41,7 @@ func _process(delta: float):
 	rotate_x(deg_to_rad(look_movement.y * STICK_SENS))
 	
 	if rot_clamped:
-		rotation.x = clampf(rotation.x, deg_to_rad(-85), deg_to_rad(55))
+		rotation.x = clampf(rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	
 	# Change camera side based on camera and bird angle
 	#var flat_camera_forward = get_camera_forward()

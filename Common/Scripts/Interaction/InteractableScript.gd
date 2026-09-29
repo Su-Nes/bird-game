@@ -10,6 +10,7 @@ var is_grabbed = false
 
 @export var BEAK_ANGLE_MOD : float = 0
 
+@export var MESH : MeshInstance3D
 @export var COLLIDER : CollisionShape3D
 @export var RIGIDBODY : RigidBody3D
 
@@ -20,6 +21,14 @@ var selection_tip_index = 0
 func _ready() -> void:
 	interaction_tip_index = randi()
 	selection_tip_index = randi()
+	
+	if MESH:
+		return
+	
+	for n in get_children():
+		if n is MeshInstance3D:
+			MESH = n
+			break
 
 func on_focus():
 	pass

@@ -15,7 +15,7 @@ func grow_branch_random(chance = .5):
 	scene.pack(self)
 	
 	var new_branch : BranchInteractable = scene.instantiate()
-	var branch_pivot : Marker3D = new_branch.get_child(2)
+	var branch_pivot : Marker3D = new_branch.get_node("StartPivot")
 	get_parent().add_child(new_branch)
 	
 	branch_pivot.global_transform = $EndPivot.global_transform

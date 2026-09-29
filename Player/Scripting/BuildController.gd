@@ -14,7 +14,7 @@ class_name BuildController
 @onready var camera_3d: Camera3D = $"../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D"
 
 var current_buildable : Placeable
-var ghost : Node3D
+var ghost : Placeable
 var ghost_material : MeshInstance3D
 var rotation : Vector3
 var can_place = false
@@ -29,7 +29,7 @@ func check_state(state: String):
 	else:
 		show_ghost()
 
-func initiate_building(block: Placeable): ## Block must have CollisionShape3D as child 0 and MeshInstance3D as child 1
+func initiate_building(block: Placeable):
 	if current_buildable:
 		stop_building()
 	
@@ -42,15 +42,15 @@ func initiate_building(block: Placeable): ## Block must have CollisionShape3D as
 	ghost_scene.pack(block)
 
 	ghost = ghost_scene.instantiate()
-	ghost.get_child(0).queue_free() # Get rid of collider on the placeable block
+	ghost.COLLIDER.queue_free() # Get rid of collider on the placeable block
 	
 	SHAPE_RAY.add_child(ghost)
 	var ray_box : BoxShape3D = SHAPE_RAY.shape
-	var block_collider : CollisionShape3D = block.get_child(0)
+	var block_collider : CollisionShape3D = block.COLLIDER
 	var collider_shape : BoxShape3D = block_collider.shape
 	ray_box.size.x = collider_shape.size.x
 	
-	ghost_material = ghost.get_child(1) # Get mesh
+	ghost_material = ghost.MESH # Get mesh
 	for child : MeshInstance3D in ghost_material.get_children():
 		child.material_override = GHOST_MATERIAL
 	ghost_material.material_override = GHOST_MATERIAL

@@ -14,6 +14,7 @@ class_name NestManager
 var decor_value = 0
 
 var placed_objects : Array[Placeable]
+var nest_active = false
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Placeable:
@@ -21,15 +22,19 @@ func _on_body_entered(body: Node3D) -> void:
 			placed_objects.append(body)
 			decor_value += body.DECOR_VALUE
 			
-			update_decor()
+			if nest_active:
+				update_decor()
 			
 func _on_body_exited(body: Node3D) -> void:
 	if body is Placeable:
 		if body.is_placed and placed_objects.has(body):
+			body.is_placed = false
+			
 			placed_objects.erase(body)
 			decor_value -= body.DECOR_VALUE
 			
-			update_decor()
+			if nest_active:
+				update_decor()
 			
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("toggle"):
@@ -48,6 +53,9 @@ func update_decor():
 	if decor_value >= TARGET_DECOR_VALUE:
 		decor_value_reached()
 		
+	if decor_value < 5:
+		queue_free()
+		
 func decor_value_reached():
 	print("pregnant")
 
@@ -58,6 +66,8 @@ func _on_world_button_yes_on_pressed() -> void:
 	#var marker_material : StandardMaterial3D = NEST_MARKER.get_active_material(0)
 # TO-DO: cycle nest marker colors
 	#print(marker_material.albedo_color)
+	nest_active = true
+	
 	NEST_PROMPT.queue_free()
 
 func _on_world_button_no_on_pressed() -> void:

@@ -31,6 +31,8 @@ func enter():
 	cam_transition_up()
 	
 func exit():
+	CAMERA_MOVEMENT.rot_clamped = true
+	
 	going_up = false
 	cam_transition_down()
 

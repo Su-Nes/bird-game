@@ -105,7 +105,8 @@ While flying -
 	Space - Strong flap
 	Hold Space - Constant flap
 	Ctrl - Slow down
-Tab - Show nest markers"
+Tab - Show nest markers
+Alt - Disable auto camera"
 label_settings = SubResource("LabelSettings_joydu")
 tab_stops = PackedFloat32Array(60)
 

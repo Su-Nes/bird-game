@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3gfukpgose5l"
-path.s3tc="res://.godot/imported/LeafyBranch_64.png-6ee0e4a94b832c16e7bde484d153681a.s3tc.ctex"
+uid="uid://i8tsd0h4ki8t"
+path.s3tc="res://.godot/imported/LeafyBranch_128.png-86e710388d7d7c77772fa0e04c10096a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/Spawners/BerryBush/Textures/LeafyBranch_64.png"
-dest_files=["res://.godot/imported/LeafyBranch_64.png-6ee0e4a94b832c16e7bde484d153681a.s3tc.ctex"]
+source_file="res://Entities/Spawners/BerryBush/Textures/LeafyBranch_128.png"
+dest_files=["res://.godot/imported/LeafyBranch_128.png-86e710388d7d7c77772fa0e04c10096a.s3tc.ctex"]
 
 [params]
 

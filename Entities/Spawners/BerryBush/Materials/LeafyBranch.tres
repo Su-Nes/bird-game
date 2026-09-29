@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cif2fyce7hr2x"]
 
-[ext_resource type="Texture2D" uid="uid://c8cubqhyfb8bl" path="res://Entities/Spawners/BerryBush/Textures/LeafyBranch_64.png" id="1_o3po2"]
+[ext_resource type="Texture2D" uid="uid://b3gfukpgose5l" path="res://Entities/Spawners/BerryBush/Textures/LeafyBranch_64.png" id="1_o3po2"]
 
 [resource]
 resource_name = "LeafyBranch"

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3gfukpgose5l"
-path.s3tc="res://.godot/imported/LeafyBranch_64.png-6ee0e4a94b832c16e7bde484d153681a.s3tc.ctex"
+uid="uid://bxmo7f2wll8e0"
+path.s3tc="res://.godot/imported/Z-Door_128.png-0c0e0ba0130ac8370147fc891b6d172f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/Spawners/BerryBush/Textures/LeafyBranch_64.png"
-dest_files=["res://.godot/imported/LeafyBranch_64.png-6ee0e4a94b832c16e7bde484d153681a.s3tc.ctex"]
+source_file="res://World/Objects/Buildings/Z-Door_128.png"
+dest_files=["res://.godot/imported/Z-Door_128.png-0c0e0ba0130ac8370147fc891b6d172f.s3tc.ctex"]
 
 [params]
 

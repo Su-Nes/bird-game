@@ -4,4 +4,7 @@ class_name FPSCounter
 
 
 func _process(_delta: float) -> void:
-	text = "FPS: %s" % Engine.get_frames_per_second()
+	if Input.is_action_pressed("toggle"):
+		text = "FPS: %s" % Engine.get_frames_per_second()
+	else:
+		text = ""

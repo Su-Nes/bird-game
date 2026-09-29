@@ -19,7 +19,7 @@ class_name GrabScript
 
 var active_index = 0
 
-func grab_item(item: Interactable):
+func grab_item(item: Interactable): ## If item has GrabPivot child it will use that for beak placement
 	if GRAB_POINT.get_child_count() >= MAX_ITEMS + 1:
 		print("Too many items!")
 		return
@@ -28,10 +28,14 @@ func grab_item(item: Interactable):
 	item.is_grabbed = true
 	item.on_grabbed()
 	item.has_physics(false, false)
-	item.reparent(GRAB_POINT)
 
-	item.position = Vector3.ZERO
-	item.rotation = Vector3.ZERO
+	item.transform = Transform3D.IDENTITY
+
+	if item.has_node("GrabPoint"):
+		var grab_pivot : Node3D = item.get_node("GrabPoint")
+		
+		item.position += grab_pivot.position.rotated(Vector3.FORWARD, deg_to_rad(90))
+		item.rotation += grab_pivot.rotation
 	
 	active_index = GRAB_POINT.get_child_count() - 1
 	

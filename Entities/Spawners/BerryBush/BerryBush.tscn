@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c3g67nhl71c6w" path="res://Entities/Spawners/BerryBush/Model/BerryBush.blend" id="3_a00iv"]
 [ext_resource type="Material" uid="uid://cif2fyce7hr2x" path="res://Entities/Spawners/BerryBush/Materials/LeafyBranch.tres" id="4_h581x"]
 [ext_resource type="Material" uid="uid://diyrc5iiyb2mm" path="res://Entities/Spawners/BerryBush/Materials/Bush.tres" id="5_h581x"]
-[ext_resource type="ArrayMesh" uid="uid://bd4cq08kd2tl3" path="res://Entities/Pickups/Edibles/Berry/BerryMesh.tres" id="6_uo0c5"]
+[ext_resource type="ArrayMesh" uid="uid://2flvkfgi01hl" path="res://Common/Meshes/Diamond.mesh" id="6_uo0c5"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3e4f3"]
 _surfaces = [{
@@ -88,13 +88,13 @@ SPAWN_GROUP = Vector2(3, 5)
 [node name="Mesh" parent="." unique_id=716119731 instance=ExtResource("3_a00iv")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
-[node name="Branches" parent="Mesh" index="0" unique_id=1954439211]
+[node name="Branches" parent="Mesh" index="0" unique_id=1064402180]
 mesh = SubResource("ArrayMesh_h7hmg")
 
-[node name="Bush" parent="Mesh" index="1" unique_id=566033596]
+[node name="Bush" parent="Mesh" index="1" unique_id=1063048220]
 mesh = SubResource("ArrayMesh_8v7xa")
 
-[node name="Berry" parent="Mesh" index="2" unique_id=529157103]
+[node name="Berry" parent="Mesh" index="2" unique_id=1200131536]
 visible = false
 mesh = ExtResource("6_uo0c5")
 
