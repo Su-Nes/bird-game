@@ -12,6 +12,7 @@ var enabled = true
 @export var STICK_SENS = 0.05
 @export var LOOK_AHEAD_SMOOTHING = .04
 @export var CAM_RESET_MOD = .33
+@export var SPEED_MOD : float = 1.5
 @export var SIDE_SWITCH_SENSITIVITY : float = 3
 var disable_look_timer: float
 
@@ -99,8 +100,6 @@ func get_camera_forward() -> Vector3:
 	
 func get_camera_right() -> Vector3:
 	return camera_3d.global_basis.x
-	
-# To avoid stacking recursion functions
 
 func move_cam(new_spring_dist: float, new_position : Vector3, lerp_strength : float):
 	target_position = new_position
@@ -111,9 +110,9 @@ func move_cam(new_spring_dist: float, new_position : Vector3, lerp_strength : fl
 	position.y = lerp(position.y, new_position.y, lerp_strength * get_process_delta_time())
 	position.z = lerp(position.z, new_position.z, lerp_strength * get_process_delta_time())
 	
-	# Recursion! (it's kinda pointless because now I can handle this all in _process but it still works
+	# Recursion! (it's kinda pointless because now I can handle this all in _process but this still works
 	if abs(new_spring_dist - $CameraSpring.spring_length) > .05:
-		if !get_tree():
+		if not is_inside_tree():
 			return
 		await get_tree().process_frame
 		move_cam(target_distance, target_position, lerp_value)

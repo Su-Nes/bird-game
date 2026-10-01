@@ -13,7 +13,7 @@ var MINIMUM_PLACED_OBJECTS_FOR_NEST := 5
 @export var NEST_PROMPT : PackedScene = preload("uid://bwmqd5nb80in3")
 
 var detection_area : Area3D
-var is_placed = false
+@export var is_placed = false
 
 
 func _ready() -> void:

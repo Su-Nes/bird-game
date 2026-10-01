@@ -27,6 +27,7 @@ height = 600.0
 radial_segments = 8
 
 [node name="NestArea" type="Area3D" unique_id=666644474 node_paths=PackedStringArray("NEST_PROMPT", "NEST_MARKER", "NEST_STATISTICS") groups=["Nest"]]
+collision_mask = 9
 script = ExtResource("1_c2fg7")
 NEST_PROMPT = NodePath("NestPrompt")
 NEST_MARKER = NodePath("NestMarker")

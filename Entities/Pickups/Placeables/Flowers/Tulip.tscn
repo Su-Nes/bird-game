@@ -148,6 +148,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x36c3")
 
 [node name="Tulip" type="RigidBody3D" unique_id=430097718 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY")]
+collision_layer = 8
 freeze = true
 script = ExtResource("1_lvwdl")
 DECOR_VALUE = 5

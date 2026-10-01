@@ -3,6 +3,7 @@ extends State
 class_name CrashState
 
 @export var ANIMATOR : AnimationPlayer
+@export var AUDIO_PLAYER : AudioStreamPlayer3D
 @export var CRASH_DAMAGE_MULT : float = 2
 @export var CRASH_DURATION : float = 2
 @export var CRASH_VELOCITY : float = 10
@@ -16,6 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func enter():
 	ANIMATOR.play("Crash")
+	AUDIO_PLAYER.play()
 	
 	if !StatController.spend_max_stamina(player_controller.velocity.length() * CRASH_DAMAGE_MULT):
 		HitStopManager.hit_stop_short()

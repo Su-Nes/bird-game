@@ -115,6 +115,8 @@ func remove_selected_item(drop_physically = false):
 
 	if STATE_MACHINE.current_state.name.to_lower() == "flystate":
 		drop_position *= 10
+		
+	item.on_dropped()
 	
 	item.global_position = item.global_position + drop_position
 	item.has_physics(true, true)

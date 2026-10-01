@@ -54,6 +54,9 @@ func on_use() -> bool: ##Returns false if interactable is freed after interactio
 func on_grabbed():
 	pass
 	
+func on_dropped():
+	pass
+	
 func has_physics(collider_active : bool, rb_active : bool):
 	if COLLIDER:
 		COLLIDER.disabled = !collider_active

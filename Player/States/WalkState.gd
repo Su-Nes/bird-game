@@ -18,13 +18,15 @@ class_name WalkState
 var direction
 var velocity
 
+func enter() -> void:
+	WING_STATES.change_state("wingsidle")
 	
 func update(delta: float):
 	# Switch to fall state if player controller is not on ground.
 	if !player_controller.is_on_floor():
 		state_machine.change_state("fallstate")
 	
-	# Switch to jump state	
+	# Switch to jump state
 	if Input.is_action_just_pressed("jump"):
 		state_machine.change_state("jumpstate")
 		return

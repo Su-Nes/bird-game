@@ -1,0 +1,131 @@
+[gd_scene format=4 uid="uid://btfej8wypkufu"]
+
+[ext_resource type="Script" uid="uid://exoyfvb4frkp" path="res://Entities/Pickups/Edibles/Berry/Edible.gd" id="1_6gsor"]
+[ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_nhmcl"]
+[ext_resource type="Script" uid="uid://dxemumwdtgala" path="res://Entities/Pickups/Edibles/Bugs/BugWalk.gd" id="2_6gsor"]
+[ext_resource type="Material" uid="uid://dm6msat12a3lp" path="res://Entities/Pickups/Edibles/Bugs/Bug1.tres" id="2_vqmyq"]
+[ext_resource type="Material" uid="uid://qqyic0q0morj" path="res://Entities/Pickups/Edibles/Bugs/Bug2.tres" id="3_6gsor"]
+[ext_resource type="Texture2D" uid="uid://bk2kdw28bxhq6" path="res://Entities/Pickups/Edibles/Bugs/Bug_32_1.png" id="4_n505c"]
+[ext_resource type="Script" uid="uid://b4aamndmpk0r6" path="res://Entities/Pickups/Edibles/Bugs/BugGrabbed.gd" id="4_phm02"]
+
+[sub_resource type="Animation" id="Animation_phm02"]
+resource_name = "Bug"
+length = 0.26666668
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/Bug:mesh:surface_0/material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_vqmyq"), ExtResource("3_6gsor")]
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfo2t"]
+resource_name = "Bug"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("4_n505c")
+roughness = 0.5
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="Animation" id="Animation_2eor1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/Bug:mesh:surface_0/material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_xfo2t")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m155"]
+_data = {
+&"Bug": SubResource("Animation_phm02"),
+&"RESET": SubResource("Animation_2eor1")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jfedg"]
+size = Vector3(2, 0.38910443, 2.1718214)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bqm18"]
+_surfaces = [{
+"aabb": AABB(-1, -0.16197643, -1.1718214, 2, 0.38910443, 2.1718214),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("DAABAAIADAAAAAEABAAAAAwABAAFAAAABgAEAAwADQAMAAIABgAMAA0ADQACAAMABwAGAA0ADgANAAMABwANAA4ACAAHAA4ADgADAAoACAAOAAkACQAOAAoACQAKAAsA"),
+"lods": [0.45110035, PackedByteArray("AAABAAIAAwAAAAIABAAFAAAABgAEAAAABgAAAAMABwAGAAMACAAHAAMACAADAAkACQADAAoACQAKAAsA")],
+"name": "Bug",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("/39D/wAAAAAL7kP/AAAAAP//RjR8LwAA//9GNAhgAAAAAEY0fC8AAPMRQ/8AAAAAAABGNAhgAAAAAEY0A7AAAAAAAAAn4gAA/386dP//AAD//0Y0A7AAAP//AAAn4gAAgIHFujwqAAD/f///CGAAAP9/7OWLtAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w4y42"]
+resource_name = "Bug_Plane"
+_surfaces = [{
+"aabb": AABB(-1, -0.16197643, -1.1718214, 2, 0.38910443, 2.1718214),
+"attribute_data": PackedByteArray("/38AAP//AAD//5Id//9KUgAAkh0AAAAAAABKUgAAJKkAAJbf/3//////JKn//5bf/39WGv9/SlL/fySp"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("DAABAAIADAAAAAEABAAAAAwABAAFAAAABgAEAAwADQAMAAIABgAMAA0ADQACAAMABwAGAA0ADgANAAMABwANAA4ACAAHAA4ADgADAAoACAAOAAkACQAOAAoACQAKAAsA"),
+"lods": [0.45110035, PackedByteArray("AAABAAIAAwAAAAIABAAFAAAABgAEAAAABgAAAAMABwAGAAMACAAHAAMACAADAAkACQADAAoACQAKAAsA")],
+"material": SubResource("StandardMaterial3D_xfo2t"),
+"name": "Bug",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("/39D/wAAU6wL7kP/AACurP//RjR8Lxy7//9GNAhgcsIAAEY0fC8zu/MRQ/8AAJGsAABGNAhgksIAAEY0A7CQuwAAAAAn4nS3/386dP//hrb//0Y0A7CQu///AAAn4nS3gIHFujwqELj/f///CGDWwf9/7OWLtKy64f8vgMHwfHvZ6R52LeU8cjX25pWJ+xSPRfKtmlvxfJzs8Tyc////f4HjW3HB4+xxa/++f+v/KYD///9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_bqm18")
+
+[node name="Bug" type="CharacterBody3D" unique_id=1711860546 node_paths=PackedStringArray("STATE_MACHINE", "GRABBED_STATE", "MESH", "COLLIDER")]
+motion_mode = 1
+script = ExtResource("1_6gsor")
+STATE_MACHINE = NodePath("StateMachine")
+GRABBED_STATE = NodePath("StateMachine/BugGrabbed")
+STAMINA_VALUE = 8.0
+MESH = NodePath("Mesh/Bug")
+COLLIDER = NodePath("CollisionShape3D")
+
+[node name="StateMachine" type="Node" parent="." unique_id=504063939 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
+script = ExtResource("1_nhmcl")
+initial_state = NodePath("BugWalk")
+ANIMATOR = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
+
+[node name="BugWalk" type="Node" parent="StateMachine" unique_id=1033773022]
+script = ExtResource("2_6gsor")
+MOVE_SPEED = 50.0
+metadata/_custom_type_script = "uid://dxemumwdtgala"
+
+[node name="BugGrabbed" type="Node" parent="StateMachine" unique_id=57804134]
+script = ExtResource("4_phm02")
+ANIM_SPEED = 2.0
+metadata/_custom_type_script = "uid://b4aamndmpk0r6"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1967009922]
+libraries/ = SubResource("AnimationLibrary_7m155")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=442753892]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.008356571, -0.0043273643)
+shape = SubResource("BoxShape3D_jfedg")
+
+[node name="Mesh" type="Node3D" parent="." unique_id=1813718030]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Bug" type="MeshInstance3D" parent="Mesh" unique_id=1159770989]
+transform = Transform3D(0.898458, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_w4y42")

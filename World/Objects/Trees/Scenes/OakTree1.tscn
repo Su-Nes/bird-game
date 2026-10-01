@@ -71,7 +71,7 @@ transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
 script = ExtResource("2_ba45i")
 BRANCHES = Array[PackedScene]([ExtResource("3_rt2g4"), ExtResource("3_76cwy")])
 SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
-RAND_BRANCHES_PER_METER = Vector2(0, 0.5)
+RAND_BRANCHES_PER_METER = Vector2(0, 0.7)
 CHANCE_FOR_BRANCH_GROWTH = 0.45
 
 [node name="Mesh" parent="." unique_id=1852665135 instance=ExtResource("1_ammww")]

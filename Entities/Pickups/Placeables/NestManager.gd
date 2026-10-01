@@ -11,10 +11,12 @@ class_name NestManager
 
 @export_category("Parameters")
 @export var TARGET_DECOR_VALUE : int = 100
+@export var IMMORTAL_NEST = false
 var decor_value = 0
 
 var placed_objects : Array[Placeable]
-var nest_active = false
+
+signal decor_target_reached
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Placeable:
@@ -22,7 +24,7 @@ func _on_body_entered(body: Node3D) -> void:
 			placed_objects.append(body)
 			decor_value += body.DECOR_VALUE
 			
-			if nest_active:
+			if placed_objects.size() > 4:
 				update_decor()
 			
 func _on_body_exited(body: Node3D) -> void:
@@ -33,8 +35,7 @@ func _on_body_exited(body: Node3D) -> void:
 			placed_objects.erase(body)
 			decor_value -= body.DECOR_VALUE
 			
-			if nest_active:
-				update_decor()
+			update_decor()
 			
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("toggle"):
@@ -50,14 +51,12 @@ func update_decor():
 	
 	decor_text.text = "Decor score:\n%s/%s" % [decor_value, TARGET_DECOR_VALUE]
 	
-	if decor_value >= TARGET_DECOR_VALUE:
-		decor_value_reached()
-		
-	if decor_value < 5:
+	if decor_value < 5 and !IMMORTAL_NEST:
 		queue_free()
 		
-func decor_value_reached():
-	print("pregnant")
+	if decor_value >= TARGET_DECOR_VALUE:
+		decor_target_reached.emit()
+		
 
 func _on_world_button_yes_on_pressed() -> void:
 	#var nest_index = get_tree().get_node_count_in_group("Nest") - 1
@@ -66,7 +65,6 @@ func _on_world_button_yes_on_pressed() -> void:
 	#var marker_material : StandardMaterial3D = NEST_MARKER.get_active_material(0)
 # TO-DO: cycle nest marker colors
 	#print(marker_material.albedo_color)
-	nest_active = true
 	
 	NEST_PROMPT.queue_free()
 

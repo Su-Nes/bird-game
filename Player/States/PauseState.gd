@@ -45,6 +45,8 @@ func cam_transition_up():
 	CAMERA_MOVEMENT.rotation.x = lerp(CAMERA_MOVEMENT.rotation.x, deg_to_rad(90), CAM_LERP_UP)
 	
 	if CAMERA_MOVEMENT.pivot.position.y < CAM_HEIGHT - .1:
+		if not is_inside_tree():
+			return
 		await get_tree().process_frame
 		cam_transition_up()
 	

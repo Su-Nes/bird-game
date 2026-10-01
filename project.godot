@@ -88,7 +88,7 @@ StatController="*uid://07x8nkvd02a8"
 Signals="*uid://cb4bncx3ockjk"
 HitStopManager="*uid://bm86r8qw2k72q"
 MenuManager="*uid://ba5kl0c8exb1g"
-SfxManager="*uid://coqd7nkoyltmu"
+SfxPlayer="*uid://dt3psx4gmea8q"
 
 [debug_draw_3d]
 

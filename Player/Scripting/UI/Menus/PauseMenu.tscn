@@ -62,6 +62,11 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Resume"
 
+[node name="Reload" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=530840903]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Reload"
+
 [node name="Quit" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=876093582]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
@@ -111,4 +116,5 @@ label_settings = SubResource("LabelSettings_joydu")
 tab_stops = PackedFloat32Array(60)
 
 [connection signal="pressed" from="MarginContainer/Menu/Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/Menu/Buttons/Reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="MarginContainer/Menu/Buttons/Quit" to="." method="_on_quit_pressed"]

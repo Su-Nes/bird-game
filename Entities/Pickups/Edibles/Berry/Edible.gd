@@ -25,3 +25,6 @@ func on_use():
 		return false
 	else:
 		return true
+		
+func on_dropped():
+	STATE_MACHINE.change_state(STATE_MACHINE.initial_state.name)

@@ -164,10 +164,21 @@ func handle_flap():
 		return
 		
 	if StatController.spend_stamina(FLAP_COST):
-		forward_v += THRUST_CURVE.sample(player_controller.velocity.length()) * THRUST_STRENGTH
+		add_thrust_smooth(THRUST_CURVE.sample(player_controller.velocity.length()) * THRUST_STRENGTH, 30)
 		state_machine.ANIMATOR.play("Flap", .5)
 	else:
 		Input.action_release("jump")
+		
+func add_thrust_smooth(target_force : float, duration : int):
+	var counter = duration
+	
+	while counter > 0:
+		forward_v += target_force / duration
+		counter -= 1
+		
+		if not is_inside_tree():
+			return
+		await get_tree().physics_frame
 	
 func handle_flight_velocity(_delta: float):
 	#TO-DO (optional): Change all the curves to mathematical algorhythms

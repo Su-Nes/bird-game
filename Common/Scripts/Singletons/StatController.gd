@@ -11,6 +11,7 @@ var PENALTY_TIME : float = 1.5
 var penalty_timer : float
 
 # Stamina limits
+var drain_enabled = true
 var STAMINA_LIMIT_DRAIN : float = 1
 var DRAIN_PERIOD : float = 20
 var drain_timer : float
@@ -18,6 +19,7 @@ var drain_timer : float
 
 var fainted
 signal has_fainted
+signal max_stamina_reached
 
 var stamina : float
 
@@ -56,6 +58,9 @@ func spend_stamina(value: float, regen_delay : float = 0.0) -> bool:
 	return true
 	
 func spend_max_stamina(value: float) -> bool:
+	if !drain_enabled:
+		return false
+	
 	stamina_max_limit -= value
 	
 	if stamina_max_limit <= 0:
@@ -72,7 +77,7 @@ func handle_max_stamina_loss():
 	drain_timer += get_process_delta_time()
 	
 	if drain_timer >= DRAIN_PERIOD:
-		stamina_max_limit -= STAMINA_LIMIT_DRAIN
+		spend_max_stamina(STAMINA_LIMIT_DRAIN)
 		drain_timer = 0
 		
 	if stamina_max_limit <= 0:
@@ -85,5 +90,8 @@ func regain_max_stamina(value: float) -> bool:
 	
 	stamina_max_limit += value
 	stamina_max_limit = clamp(stamina_max_limit, 0, MAX_BASE_STAMINA)
+	
+	if stamina_max_limit >= MAX_BASE_STAMINA:
+		max_stamina_reached.emit()
 	
 	return true
