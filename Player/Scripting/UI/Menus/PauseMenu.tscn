@@ -76,7 +76,7 @@ text = "Reload"
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Quit"
+text = "Save & Quit"
 
 [node name="LeftMenu" type="MarginContainer" parent="MarginContainer" unique_id=124270171]
 layout_mode = 2

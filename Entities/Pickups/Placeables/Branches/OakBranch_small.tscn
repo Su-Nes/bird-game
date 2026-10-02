@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://mlswckjo8gss" path="res://Entities/Pickups/Placeables/Branches/BranchInteractable.gd" id="1_wd43s"]
 [ext_resource type="Material" uid="uid://dmr68clh4c438" path="res://World/Objects/Trees/Materials/OakBark.tres" id="2_4hs2j"]
+[ext_resource type="Shader" uid="uid://cpnyel6dxqphc" path="res://World/Shaders/LeavesFalling.gdshader" id="3_0lcar"]
+[ext_resource type="Texture2D" uid="uid://1mrsn80kvdoo" path="res://World/Shaders/Leaf_64.png" id="4_mlje3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nd5ly"]
 size = Vector3(0.5, 0.1, 0.1)
@@ -10,7 +12,38 @@ size = Vector3(0.5, 0.1, 0.1)
 material = ExtResource("2_4hs2j")
 size = Vector3(0.5, 0.1, 0.1)
 
-[node name="Branch_small" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable"]]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qx2tc"]
+shader = ExtResource("3_0lcar")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/box_emit_size = Vector3(50, 1, 300)
+shader_parameter/initial_rotation_xz = 0.5
+shader_parameter/fade_from = 0.9
+shader_parameter/forward_speed_min = 5.0
+shader_parameter/forward_speed_max = 15.0
+shader_parameter/rot_speed_x = Vector2(0, 0.5)
+shader_parameter/rot_speed_y = Vector2(1, 2)
+shader_parameter/rot_speed_z = Vector2(1, 2)
+shader_parameter/vel_damping = 1.0
+shader_parameter/grav = Vector3(0, -19.6, 0)
+shader_parameter/wind_direction = Vector3(0, 0, -1)
+shader_parameter/wind_speed_min = -5.0
+shader_parameter/wind_speed_max = 40.0
+shader_parameter/wind_change = Vector2(0.123, 0.456)
+shader_parameter/vortex_force = Vector2(0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6itbi"]
+transparency = 2
+alpha_scissor_threshold = 0.25
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.9764706, 0.89411765, 0.6901961, 1)
+albedo_texture = ExtResource("4_mlje3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mjtgg"]
+material = SubResource("StandardMaterial3D_6itbi")
+size = Vector2(0.75, 0.75)
+
+[node name="Branch_small" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable", "Persistent"]]
 linear_damp = 3.0
 script = ExtResource("1_wd43s")
 GRAB_ONLY = true
@@ -29,3 +62,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24776602, 0, 0)
 
 [node name="EndPivot" type="Marker3D" parent="." unique_id=1747983165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25223398, 0, 0)
+
+[node name="Particles" type="Node3D" parent="." unique_id=915336005]
+
+[node name="LeafParticles" type="GPUParticles3D" parent="Particles" unique_id=1984274534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.048176, -133.29895)
+amount = 200
+lifetime = 90.0
+preprocess = 10.0
+visibility_aabb = AABB(-51.66463, -44.41345, -71.27218, 102.84628, 45.661373, 96.71625)
+local_coords = true
+process_material = SubResource("ShaderMaterial_qx2tc")
+draw_pass_1 = SubResource("PlaneMesh_mjtgg")

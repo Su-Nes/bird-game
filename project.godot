@@ -90,6 +90,7 @@ HitStopManager="*uid://bm86r8qw2k72q"
 MenuManager="*uid://ba5kl0c8exb1g"
 SfxPlayer="*uid://dt3psx4gmea8q"
 PlayerParameters="*uid://dthidgu5wwqd2"
+SaverLoader="*uid://dqgry52td7nn7"
 
 [debug_draw_3d]
 
@@ -122,6 +123,7 @@ Spawners="Bushes, trees, ant nests, etc."
 Interactable="Anything that can be picked up."
 Fish="Fish"
 Nest=""
+Persistent=""
 
 [input]
 

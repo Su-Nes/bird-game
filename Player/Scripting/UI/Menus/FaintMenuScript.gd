@@ -13,5 +13,6 @@ func _on_resume_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	SaverLoader.save_game()
 	PlayerParameters.save_settings()
 	get_tree().quit()

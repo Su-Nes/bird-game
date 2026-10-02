@@ -25,6 +25,10 @@ func _physics_process(_delta: float) -> void:
 		player = null
 
 func spawn_branches() -> void:
+	for marker in SPAWN_MARKER_PARENT.get_children(): # Don't spawn if tree has branches from a save file 
+		if marker.get_child_count() > 0:
+			return
+	
 	for spawn_marker : Marker3D in SPAWN_MARKER_PARENT.get_children():
 		var branch_count := randf_range(RAND_BRANCHES_PER_METER.x, RAND_BRANCHES_PER_METER.y)
 		var branches_per_meter = roundi(spawn_marker.gizmo_extents * scale.x * branch_count)

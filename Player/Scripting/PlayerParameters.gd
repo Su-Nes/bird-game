@@ -34,7 +34,7 @@ func save_settings():
 	settings_resource.player_pitch_inverted = player_pitch_inverted
 	settings_resource.player_master_volume = player_master_volume
 	settings_resource.player_tutorial_complete = player_tutorial_complete
-	print("saved %s" % settings_resource.player_fullscreen)
+
 	ResourceSaver.save(settings_resource, "user://settings.tres")
 	
 func load_settings():
@@ -42,10 +42,9 @@ func load_settings():
 
 	if !settings_resource:
 		save_settings()
-		print("no save found")
 		_ready()
 		return
-	print("loaded %s" % settings_resource.player_fullscreen)
+
 	player_fullscreen = settings_resource.player_fullscreen
 	player_camera_sensitivity = settings_resource.player_camera_sensitivity
 	player_camera_inverted = settings_resource.player_camera_inverted

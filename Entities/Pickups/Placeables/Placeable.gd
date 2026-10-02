@@ -20,10 +20,32 @@ func _ready() -> void:
 	if RIGIDBODY:
 		RIGIDBODY.freeze = true
 
+func on_save_data(saved_data: Array[SavedData]):
+	var data = SavedData.new()
+	
+	var self_scene = PackedScene.new()
+	self_scene.pack(self)
+	
+	data.scene = self_scene
+	data.tf = global_transform
+	data.parent_path = get_parent().get_path()
+	data.is_grabbed = get_parent().name == "GrabPoint"
+	data.is_placed = is_placed
+	
+	saved_data.append(data)
+	
+func on_loaded(data: SavedData):
+	global_transform = data.tf
+	is_placed = data.is_placed
+	
+	if data.is_grabbed:
+		Signals.grab_item.emit(self)
+	
+	handle_colliders()
+
 func on_placed():
 	is_placed = true
 	
-	await get_colliders()
 	handle_colliders()
 	
 	if !detection_area:
@@ -35,6 +57,8 @@ func on_placed():
 	detect_nest()
 	
 func handle_colliders():
+	await get_colliders()
+	
 	if colliders.size() < 1:
 		has_physics(true, true)
 		return
@@ -57,6 +81,7 @@ func handle_colliders():
 func detect_nest():
 	var placed_object_count = 0
 	for body in detection_area.get_overlapping_bodies():
+		print(body)
 		if body is Placeable:
 			if body.is_placed:
 				placed_object_count += 1
@@ -107,6 +132,8 @@ func get_colliders() -> bool: ## Returns true if this object is in a nest area
 	var new_area : Area3D = area_scene.instantiate()
 	add_child(new_area)
 	
+	if !is_inside_tree():
+		return false
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	

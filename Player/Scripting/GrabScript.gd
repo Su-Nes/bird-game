@@ -19,12 +19,19 @@ class_name GrabScript
 
 var active_index = 0
 
+func _ready() -> void:
+	Signals.grab_item.connect(grab_item)
+	Signals.clear_items.connect(clear_items)
+
 func grab_item(item: Interactable): ## If item has GrabPivot child it will use that for beak placement
 	if GRAB_POINT.get_child_count() >= MAX_ITEMS + 1:
 		print("Too many items!")
 		return
 	
-	item.reparent(GRAB_POINT)
+	if !item.is_inside_tree():
+		GRAB_POINT.add_child(item)
+	else:
+		item.reparent(GRAB_POINT)
 	item.is_grabbed = true
 	item.on_grabbed()
 	item.has_physics(false, false)
@@ -41,7 +48,15 @@ func grab_item(item: Interactable): ## If item has GrabPivot child it will use t
 	
 	display_active_item()
 	
-func _process(_delta: float) -> void:		
+func clear_items():
+	for n in GRAB_POINT.get_children():
+		if n.get_child_count() == 0:
+			continue
+		n.queue_free()
+		
+	display_active_item()
+	
+func _process(_delta: float) -> void:
 	if GRAB_POINT.get_child_count() <= 0:
 		return
 	
