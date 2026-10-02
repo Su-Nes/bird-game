@@ -5,6 +5,7 @@ class_name StateMachine
 
 signal state_changed(state : String)
 
+@export var IS_PLAYER = false
 @export var initial_state : State
 @export var ANIMATOR : AnimationPlayer
 @export var DEBUG = false
@@ -17,7 +18,8 @@ var stored_vector : Vector3
 
 
 func _ready() -> void:
-	Signals.player_change_state.connect(change_state)
+	if IS_PLAYER:
+		Signals.player_change_state.connect(change_state)
 	
 	# Register all states in children
 	for child in get_children():
@@ -55,6 +57,9 @@ func change_state(new_state_name: String) -> void:
 	current_state = states.get(new_state_name.to_lower())
 	
 	state_changed.emit(current_state.name)
+	
+	if IS_PLAYER:
+		Signals.player_changed_state.emit(current_state.name)
 	
 	if current_state:
 		current_state.enter()

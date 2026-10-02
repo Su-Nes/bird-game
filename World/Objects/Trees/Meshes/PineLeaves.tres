@@ -1,0 +1,129 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://j3e1y1piqyxo"]
+
+[ext_resource type="Texture2D" uid="uid://148q7it3iv8b" path="res://World/Objects/Trees/Textures/Pine_Branches_Tiled_128.png" id="1_lxk0r"]
+
+[sub_resource type="Shader" id="Shader_cqex0"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.7.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx, vertex_lighting;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+
+uniform float distance_fade_min : hint_range(0.0, 4096.0, 0.01);
+uniform float distance_fade_max : hint_range(0.0, 4096.0, 0.01);
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+// ----------- SWAY PARAMETERS -----------
+uniform float sway_amount : hint_range(0.0, 1.0) = 0.1;
+// Maximum sway offset
+
+uniform float sway_scale : hint_range(0.0, 10.0) = 1.0;
+// Controls how tightly sway oscillates over the mesh's Y axis
+
+uniform float sway_duration : hint_range(0.01, 10.0) = 2.0;
+// Time (in seconds) for one full sway cycle
+
+uniform vec3 sway_direction = vec3(1.0, 0.0, 0.0);
+// Direction of sway movement (X, Y, Z)
+
+void vertex() {
+	// Shading Mode: Per Vertex
+	ROUGHNESS = roughness;
+
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+	
+	// Calculate a normalized sway angle over time
+    float sway_time = (TIME / sway_duration) * 6.28318; // 2π = full sine wave cycle
+
+    // Calculate sway based on vertex height (Y)
+    float sway = sin(VERTEX.y * sway_scale + sway_time) * sway_amount;
+
+    // Apply sway in specified direction
+    VERTEX.xyz += sway * sway_direction;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	ALPHA *= albedo.a * albedo_tex.a;
+
+	{
+		// Distance Fade: Pixel Dither
+		float fade_distance = length(VERTEX);
+
+		// Use interleaved gradient noise, which is fast but still looks good.
+		const vec3 magic = vec3(0.06711056, 0.00583715, 52.9829189);
+		float fade = clamp(smoothstep(distance_fade_min, distance_fade_max, fade_distance), 0.0, 1.0);
+		// Use a hard cap to prevent a few stray pixels from remaining when past the fade-out distance.
+		if (fade < 0.001 || fade < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
+			discard;
+		}
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yfwte"]
+resource_name = "PineLeaves"
+render_priority = 0
+shader = SubResource("Shader_cqex0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_lxk0r")
+shader_parameter/distance_fade_min = 0.0
+shader_parameter/distance_fade_max = 5.0
+shader_parameter/albedo_texture_size = Vector2i(128, 128)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.76
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/sway_amount = 0.0400000019
+shader_parameter/sway_scale = 1.0
+shader_parameter/sway_duration = 3.94300018659398
+shader_parameter/sway_direction = Vector3(1, -0.025, 0)
+
+[resource]
+resource_name = "PineTree_Plane_001"
+_surfaces = [{
+"aabb": AABB(-2.2587655, -1.1286509, -2.2587645, 4.5175295, 2.5428658, 4.5175304),
+"attribute_data": PackedByteArray("9GZG4+7I//9XnLy8//+Bt0CEY6cVg0Lh9VL+1f9/hqa64R/3IX7nw4r5i9X/f0acuV6Uyf9/A5uxTZOdoorGwSNoQZLo+QOqhX8l2FBZYMwhD/+gXXONiXKwn9nqmCao1PyosHh9h+BdpbWstK/G4Cp52qZIgkXXQ08Vj6+BA4/zT/bUpQd50Z9rack7UVigp3zf5kSyx67/f7+rD6+l5w=="),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADAAPAA0AEAARABIAEwAUABUAFgAXABgAGQAaABsAGQAcABoAHQAeAB8AHQAgAB4AIQAiACMAJAAlACYAJAAnACUA"),
+"material": SubResource("ShaderMaterial_yfwte"),
+"name": "PineLeaves",
+"primitive": 3,
+"uv_scale": Vector4(3.154136, 4.0189986, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("KPMkrEpyxAP//59x///bBLyxqvq8sbkrAACfcQAALwJ/WXqdiJTvAeOEAAAjd1cVisMkrG4+yuj/f////3+h+gAAn3EAAIXcf1l6nYiUrgIAAJ9xAAAAAP9/////f7UZU4IdiNLCcAD/f////39RDryxqvq8seQYf1l6nYiUlAGKwySsbj5p6AAAn3EAAB/d44QAACN3hPigtlQF4ag61f//n3H//+acKPMkrEpyGNKgtlQF4ajbvFOCHYjSwvSa//+fcf//nJvjhAAAI3fIx1OCHYjSwvOaoLZUBeGojMF/WXqdiJQDpuOEAAAjd+XtKPMkrEpyf9KKwySsbj4Y6KC2VAXhqDjj//+fcf//awVTgh2I0sI1ALyxqvq8sbsNisMkrG4+OQe8sar6vLEARv9/////f6I9KPMkrEpy/wfgx9OJSwOe4B2gp6U68+WxzfsoKdthD0/db+0C+XWXuVWL9vs0/FMpwy6pd5nWiiOgX7V+xdBcGmvSdg+R+w8p143KAdWXDfO+blNHOGGtUdd9qye2kt4ITw/Ard550/q8USIWQCVbvfp5wvrnFkm8dYiH7N1kQU0DkbMDl5AjBrNt1Uzcnbp41F/pfYvP0Af93WuFGr7VmJK/x6itzP2C")
+}]
+blend_shape_mode = 0

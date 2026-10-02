@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dan4no0hepxkq"]
+
+[ext_resource type="Script" uid="uid://dbswfams6najq" path="res://World/Objects/Special/FlightRing/FlightRing.gd" id="1_7kg5e"]
+[ext_resource type="AudioStream" uid="uid://cn242cbffo8na" path="res://World/Objects/Special/FlightRing/Complete_02.wav" id="2_7kg5e"]
+[ext_resource type="AudioStream" uid="uid://bk0wwxax0ymnp" path="res://World/Objects/Special/FlightRing/Complete_01.wav" id="3_r4svu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vxd1"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.035
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yur33"]
+next_pass = SubResource("StandardMaterial3D_0vxd1")
+albedo_color = Color(0.7451011, 0.7615665, 0, 1)
+emission_enabled = true
+emission = Color(3.1453922, 3.2395098, 0, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_outline_thickness = 0.035
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qkran"]
+height = 0.21386719
+radius = 0.82910156
+
+[node name="Ring" type="CSGTorus3D" unique_id=23094101]
+transform = Transform3D(2.303884, 0, 0, 0, -1.00705975e-07, -2.303884, 0, 2.303884, -1.00705975e-07, 0, 0, 0)
+calculate_tangents = false
+inner_radius = 0.75
+material = SubResource("StandardMaterial3D_yur33")
+script = ExtResource("1_7kg5e")
+TARGET_STATE = "flystate"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=653532686]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=335133163]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, -7.1054274e-15, 0, 7.1054274e-15, 0.9999999, 0, 0, 0)
+shape = SubResource("CylinderShape3D_qkran")
+
+[node name="RingCorrect" type="AudioStreamPlayer3D" parent="." unique_id=1870195445]
+stream = ExtResource("2_7kg5e")
+attenuation_model = 3
+panning_strength = 0.0
+
+[node name="RingWrong" type="AudioStreamPlayer3D" parent="." unique_id=2075738023]
+stream = ExtResource("3_r4svu")
+attenuation_model = 3
+pitch_scale = 0.9
+panning_strength = 0.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://ctd6yevovrnl1" path="res://World/Objects/Trees/Scenes/PineTree1.tscn" id="4_0vxd1"]
 [ext_resource type="Material" uid="uid://b4k1dekrpaubd" path="res://World/Terrain/Materials/Grass.tres" id="4_2w2hp"]
 [ext_resource type="PackedScene" uid="uid://dipqgg0d0k4h3" path="res://Entities/Spawners/BerryBush/BerryBush.tscn" id="7_cf7hl"]
-[ext_resource type="Script" uid="uid://bvkeke4dy4a43" path="res://Entities/Spawners/BerryBush/BerryBushScript.gd" id="8_4l7km"]
-[ext_resource type="PackedScene" uid="uid://ciwdfugksg6gx" path="res://Entities/Pickups/Edibles/Berry/Berry.tscn" id="9_nrn15"]
+[ext_resource type="PackedScene" uid="uid://dan4no0hepxkq" path="res://World/Objects/Special/FlightRing/FlightRing.tscn" id="7_hsk8h"]
+[ext_resource type="Script" uid="uid://bnrdgpikrs7lt" path="res://Common/Scripts/Entity/FreeOnSignal.gd" id="9_2fwfl"]
+[ext_resource type="PackedScene" uid="uid://cqlwouf4xaqth" path="res://Common/Scenes/World_Button.tscn" id="9_3qw55"]
+[ext_resource type="Shader" uid="uid://cpnyel6dxqphc" path="res://World/Shaders/LeavesFalling.gdshader" id="9_yu4ji"]
+[ext_resource type="Texture2D" uid="uid://1mrsn80kvdoo" path="res://World/Shaders/Leaf_64.png" id="10_2fwfl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yur33"]
 size = Vector3(50, 1, 391.9829)
@@ -24,32 +27,54 @@ size = Vector3(421.36926, 207.25977, 1)
 size = Vector3(408.65613, 201.83911, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkran"]
-transparency = 1
 albedo_color = Color(0.6901961, 1, 1, 0.44705883)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vxd1"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-grow_amount = 0.035
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
+[sub_resource type="BoxShape3D" id="BoxShape3D_3qw55"]
+size = Vector3(0.5119629, 0.19140625, 0.53027344)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yur33"]
-next_pass = SubResource("StandardMaterial3D_0vxd1")
-albedo_color = Color(0.7451011, 0.7615665, 0, 1)
-emission_enabled = true
-emission = Color(3.1453922, 3.2395098, 0, 1)
-stencil_mode = 1
-stencil_flags = 2
-stencil_outline_thickness = 0.035
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6md3q"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qkran"]
+material = SubResource("StandardMaterial3D_6md3q")
+size = Vector3(50, 96.373535, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wop43"]
+size = Vector3(50, 96.373535, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6md3q"]
 size = Vector3(25, 25, 25)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hsk8h"]
+shader = ExtResource("9_yu4ji")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/box_emit_size = Vector3(50, 1, 300)
+shader_parameter/initial_rotation_xz = 0.5
+shader_parameter/fade_from = 0.9
+shader_parameter/forward_speed_min = 5.0
+shader_parameter/forward_speed_max = 15.0
+shader_parameter/rot_speed_x = Vector2(0, 0.5)
+shader_parameter/rot_speed_y = Vector2(1, 2)
+shader_parameter/rot_speed_z = Vector2(1, 2)
+shader_parameter/vel_damping = 1.0
+shader_parameter/grav = Vector3(0, -19.6, 0)
+shader_parameter/wind_direction = Vector3(0, 0, -1)
+shader_parameter/wind_speed_min = -5.0
+shader_parameter/wind_speed_max = 40.0
+shader_parameter/wind_change = Vector2(0.123, 0.456)
+shader_parameter/vortex_force = Vector2(0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3po2"]
+transparency = 2
+alpha_scissor_threshold = 0.25
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.9764706, 0.89411765, 0.6901961, 1)
+albedo_texture = ExtResource("10_2fwfl")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3qw55"]
+material = SubResource("StandardMaterial3D_o3po2")
+size = Vector2(0.75, 0.75)
 
 [node name="Tutorial" type="Node3D" unique_id=341969770]
 script = ExtResource("1_yur33")
@@ -109,36 +134,6 @@ calculate_tangents = false
 radius = 2.5
 height = 0.36621094
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="LevelGeometry/CSGCombiner3D" unique_id=594136104]
-transform = Transform3D(2.303884, 0, 0, 0, -1.00705975e-07, -2.303884, 0, 2.303884, -1.00705975e-07, 0, 7.8302283, -15.363746)
-calculate_tangents = false
-inner_radius = 0.75
-material = SubResource("StandardMaterial3D_yur33")
-
-[node name="CSGTorus3D3" type="CSGTorus3D" parent="LevelGeometry/CSGCombiner3D" unique_id=1729799959]
-transform = Transform3D(2.303884, 0, 0, 0, -1.00705975e-07, -2.303884, 0, 2.303884, -1.00705975e-07, 3.6960328, 9.831486, -49.80897)
-calculate_tangents = false
-inner_radius = 0.75
-material = SubResource("StandardMaterial3D_yur33")
-
-[node name="CSGTorus3D4" type="CSGTorus3D" parent="LevelGeometry/CSGCombiner3D" unique_id=1391242736]
-transform = Transform3D(2.303884, 0, 0, 0, -1.00705975e-07, -2.303884, 0, 2.303884, -1.00705975e-07, -5.626136, 3.768554, -86.58828)
-calculate_tangents = false
-inner_radius = 0.75
-material = SubResource("StandardMaterial3D_yur33")
-
-[node name="CSGTorus3D5" type="CSGTorus3D" parent="LevelGeometry/CSGCombiner3D" unique_id=1495583386]
-transform = Transform3D(2.303884, 0, 0, 0, -1.00705975e-07, -2.303884, 0, 2.303884, -1.00705975e-07, 5.9181323, 23.004147, -147.81868)
-calculate_tangents = false
-inner_radius = 0.75
-material = SubResource("StandardMaterial3D_yur33")
-
-[node name="CSGTorus3D6" type="CSGTorus3D" parent="LevelGeometry/CSGCombiner3D" unique_id=1066637958]
-transform = Transform3D(2.303884, 0, 0, 0, -1.00705975e-07, -2.303884, 0, 2.303884, -1.00705975e-07, -12.988213, 15.711399, -147.81868)
-calculate_tangents = false
-inner_radius = 0.75
-material = SubResource("StandardMaterial3D_yur33")
-
 [node name="CSGBox3D" type="CSGBox3D" parent="LevelGeometry/CSGCombiner3D" unique_id=1571673499]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -250)
 material_override = ExtResource("4_2w2hp")
@@ -150,6 +145,18 @@ material = ExtResource("4_2w2hp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8996258, -29.4109, -139.0941)
 script = null
 
+[node name="Ring" parent="LevelGeometry" unique_id=23094101 instance=ExtResource("7_hsk8h")]
+transform = Transform3D(2.0479395, 0, 0, 0, 2.6855483e-07, 2.0479395, 0, -2.0479395, 2.6855483e-07, 0, 7.8302283, -15.363746)
+
+[node name="Ring2" parent="LevelGeometry" unique_id=2002963557 instance=ExtResource("7_hsk8h")]
+transform = Transform3D(2.0479395, 0, 0, 0, 2.6855483e-07, 2.0479395, 0, -2.0479395, 2.6855483e-07, 6.466317, 6.3073277, -38.784645)
+
+[node name="Ring3" parent="LevelGeometry" unique_id=1597984986 instance=ExtResource("7_hsk8h")]
+transform = Transform3D(2.0479395, 0, 0, 0, 2.6855483e-07, 2.0479395, 0, -2.0479395, 2.6855483e-07, -9.570956, -1.5204558, -77.35837)
+
+[node name="Ring4" parent="LevelGeometry" unique_id=1072876344 instance=ExtResource("7_hsk8h")]
+transform = Transform3D(2.0479395, 0, 0, 0, 2.6855483e-07, 2.0479395, 0, -2.0479395, 2.6855483e-07, 4.2587976, 21.04948, -138.51474)
+
 [node name="Sections" type="Node3D" parent="." unique_id=2057902420]
 
 [node name="HoverSection" type="Node3D" parent="Sections" unique_id=1811332452]
@@ -159,41 +166,67 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6763885, -1.5077231)
 text = "Hello Bird!"
 font = ExtResource("3_p0xwk")
 font_size = 100
+outline_size = 20
 
 [node name="Explanation" type="Label3D" parent="Sections/HoverSection" unique_id=1841643739]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2569022, -1.5077231)
 text = "Press and hold Space to start hovering!
 Hold Shift to descend."
 font = ExtResource("3_p0xwk")
-font_size = 30
-outline_size = 6
+font_size = 35
+outline_size = 20
 vertical_alignment = 0
 
 [node name="FlightSection" type="Node3D" parent="Sections" unique_id=501097461]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 5.836202, -1.5)
+transform = Transform3D(1, 0, 0, 0, 0.9452156, -0.3264467, 0, 0.3264467, 0.9452156, 0, 5.5772552, -0.65006673)
 
 [node name="Title" type="Label3D" parent="Sections/FlightSection" unique_id=989204606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6763885, -1.5077231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9478643, -1.5077231)
 text = "To Fly"
 font = ExtResource("3_p0xwk")
 font_size = 100
+outline_size = 20
 
 [node name="Explanation" type="Label3D" parent="Sections/FlightSection" unique_id=1187206915]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2569022, -1.5077231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.528378, -1.5077231)
 text = "Quickly double tap Space to start flying.
 
 W pitches down, S pitches up.
+(You can change this in the settings)
 Shift slows you down.
 
-Tap Space to accelerate.
-Hold Space to apply constant thrust.
+Mash Space to flap and gain speed quickly.
+Hold Space to apply consistent thrust.
 
 Flying drains your stamina bar at the bottom of the screen."
 font = ExtResource("3_p0xwk")
 font_size = 50
-outline_size = 6
+outline_size = 20
 vertical_alignment = 0
 autowrap_trim_flags = 64
+
+[node name="Blocker" type="StaticBody3D" parent="Sections/FlightSection" unique_id=649373160 node_paths=PackedStringArray("FREEABLE")]
+script = ExtResource("9_2fwfl")
+FREEABLE = [NodePath(".")]
+
+[node name="WorldButton" parent="Sections/FlightSection/Blocker" unique_id=6482881 instance=ExtResource("9_3qw55")]
+transform = Transform3D(1.49, 0, 0, 0, 1.408873, 0.4849507, 0, -0.4849507, 1.408873, 0, -1.7027817, -1.2965398)
+
+[node name="CollisionShape3D" parent="Sections/FlightSection/Blocker/WorldButton" index="0" unique_id=265274988]
+transform = Transform3D(1, 0, 0, 0, 1, 1.1641532e-10, 0, -1.1641532e-10, 1, -0.27984133, -4.7683716e-07, 0.24023438)
+shape = SubResource("BoxShape3D_3qw55")
+
+[node name="Label3D" parent="Sections/FlightSection/Blocker/WorldButton" index="1" unique_id=626845795]
+text = "Click THIS to confirm"
+font_size = 39
+
+[node name="CollisionShape3D" type="MeshInstance3D" parent="Sections/FlightSection/Blocker" unique_id=1698841875]
+transform = Transform3D(1, 0, 0, 0, 0.9659274, 0.25881937, 0, -0.25881937, 0.9659274, 0, 27.235512, -13.473362)
+mesh = SubResource("BoxMesh_qkran")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Sections/FlightSection/Blocker" unique_id=713514511]
+transform = Transform3D(1, 0, 0, 0, 0.9659274, 0.25881937, 0, -0.25881937, 0.9659274, 0, 27.235512, -13.473362)
+shape = SubResource("BoxShape3D_wop43")
 
 [node name="StaminaSection" type="Node3D" parent="Sections" unique_id=1967795979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1899936, -254.40239)
@@ -203,6 +236,7 @@ transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 2.962
 text = "Stamina"
 font = ExtResource("3_p0xwk")
 font_size = 100
+outline_size = 20
 
 [node name="Explanation" type="Label3D" parent="Sections/StaminaSection" unique_id=886101097]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 2.5994332, -1.6125946)
@@ -213,7 +247,7 @@ To regain stamina, eat things like berries, bugs and fish!
 Interaction: Right Mouse Button"
 font = ExtResource("3_p0xwk")
 font_size = 64
-outline_size = 6
+outline_size = 20
 vertical_alignment = 0
 autowrap_trim_flags = 64
 
@@ -223,56 +257,54 @@ text = "Once you have regained all of your stamina,
 we'll move on to nest building!"
 font = ExtResource("3_p0xwk")
 font_size = 64
-outline_size = 6
+outline_size = 20
 vertical_alignment = 0
 autowrap_trim_flags = 64
 
-[node name="BerryBush" type="Node3D" parent="Sections/StaminaSection" unique_id=1781141933 node_paths=PackedStringArray("SPAWN_AREA") groups=["Spawners"] instance=ExtResource("7_cf7hl")]
+[node name="BerryBush" parent="Sections/StaminaSection" unique_id=1781141933 instance=ExtResource("7_cf7hl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.239795, -1.6899889, -3.4426422)
-script = ExtResource("8_4l7km")
-SPAWN_AREA = NodePath("SpawnArea/Collider3D")
-BERRY = ExtResource("9_nrn15")
-SPAWN_TIME = Vector2(60, 120)
-SPAWN_GROUP = Vector2(3, 5)
 metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
-[node name="BerryBush (1)" type="Node3D" parent="Sections/StaminaSection" unique_id=598724902 node_paths=PackedStringArray("SPAWN_AREA") groups=["Spawners"] instance=ExtResource("7_cf7hl")]
+[node name="BerryBush (1)" parent="Sections/StaminaSection" unique_id=598724902 instance=ExtResource("7_cf7hl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.494302, -1.6899889, -2.2602386)
-script = ExtResource("8_4l7km")
-SPAWN_AREA = NodePath("SpawnArea/Collider3D")
-BERRY = ExtResource("9_nrn15")
-SPAWN_TIME = Vector2(60, 120)
-SPAWN_GROUP = Vector2(3, 5)
 metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
-[node name="BerryBush (2)" type="Node3D" parent="Sections/StaminaSection" unique_id=1841632508 node_paths=PackedStringArray("SPAWN_AREA") groups=["Spawners"] instance=ExtResource("7_cf7hl")]
+[node name="BerryBush (2)" parent="Sections/StaminaSection" unique_id=1841632508 instance=ExtResource("7_cf7hl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0376945, -1.6899889, 3.6345062)
-script = ExtResource("8_4l7km")
-SPAWN_AREA = NodePath("SpawnArea/Collider3D")
-BERRY = ExtResource("9_nrn15")
-SPAWN_TIME = Vector2(60, 120)
-SPAWN_GROUP = Vector2(3, 5)
 metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
 [node name="BerryBush (2)2" parent="Sections/StaminaSection" unique_id=95566080 instance=ExtResource("7_cf7hl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.165451, -1.6899889, 11.899719)
 metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
-[node name="BerryBush (3)" type="Node3D" parent="Sections/StaminaSection" unique_id=714371247 node_paths=PackedStringArray("SPAWN_AREA") groups=["Spawners"] instance=ExtResource("7_cf7hl")]
+[node name="BerryBush (3)" parent="Sections/StaminaSection" unique_id=714371247 instance=ExtResource("7_cf7hl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.443412, -1.6899889, 10.715805)
-script = ExtResource("8_4l7km")
-SPAWN_AREA = NodePath("SpawnArea/Collider3D")
-BERRY = ExtResource("9_nrn15")
-SPAWN_TIME = Vector2(60, 120)
-SPAWN_GROUP = Vector2(3, 5)
 metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
-[node name="StaminaDrainArea" type="Area3D" parent="Sections/StaminaSection" unique_id=2108204143]
+[node name="StaminaDrainArea" type="Area3D" parent="Sections/StaminaSection" unique_id=2108204143 node_paths=PackedStringArray("FREEABLE")]
 collision_mask = 3
+script = ExtResource("9_2fwfl")
+FREEABLE = [NodePath(".")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/StaminaSection/StaminaDrainArea" unique_id=1167942894]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
 shape = SubResource("BoxShape3D_6md3q")
 
+[node name="Particles" type="Node3D" parent="." unique_id=1606249569]
+
+[node name="LeafParticles" type="GPUParticles3D" parent="Particles" unique_id=1276967991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.048176, -133.29895)
+amount = 200
+lifetime = 90.0
+preprocess = 10.0
+visibility_aabb = AABB(-51.66463, -44.41345, -71.27218, 102.84628, 45.661373, 96.71625)
+local_coords = true
+process_material = SubResource("ShaderMaterial_hsk8h")
+draw_pass_1 = SubResource("PlaneMesh_3qw55")
+
 [connection signal="body_entered" from="PlayerReset" to="." method="_on_player_reset_body_entered"]
+[connection signal="on_pressed" from="Sections/FlightSection/Blocker/WorldButton" to="Sections/FlightSection/Blocker" method="_on_world_button_on_pressed"]
 [connection signal="body_entered" from="Sections/StaminaSection/StaminaDrainArea" to="." method="_on_stamina_drain_area_body_entered"]
+[connection signal="body_entered" from="Sections/StaminaSection/StaminaDrainArea" to="Sections/StaminaSection/StaminaDrainArea" method="_on_body_entered"]
+
+[editable path="Sections/FlightSection/Blocker/WorldButton"]

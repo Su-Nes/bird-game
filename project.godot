@@ -89,6 +89,7 @@ Signals="*uid://cb4bncx3ockjk"
 HitStopManager="*uid://bm86r8qw2k72q"
 MenuManager="*uid://ba5kl0c8exb1g"
 SfxPlayer="*uid://dt3psx4gmea8q"
+PlayerParameters="*uid://dthidgu5wwqd2"
 
 [debug_draw_3d]
 
@@ -96,14 +97,23 @@ settings/addon_root_folder="res://addons/debug_draw_3d"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=480
+window/size/viewport_width=480
+window/size/viewport_height=360
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Common/": "gray",
+"res://Entities/": "yellow",
+"res://Player/": "red",
+"res://World/": "green"
+}
 
 [global_group]
 

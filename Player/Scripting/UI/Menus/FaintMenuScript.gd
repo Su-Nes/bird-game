@@ -13,4 +13,5 @@ func _on_resume_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	PlayerParameters.save_settings()
 	get_tree().quit()

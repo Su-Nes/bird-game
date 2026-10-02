@@ -59,8 +59,6 @@ func cam_transition_down():
 	CAMERA_MOVEMENT.rotation.x = lerp_angle(CAMERA_MOVEMENT.rotation.x, 0, CAM_LERP_UP)
 	
 	if CAMERA_MOVEMENT.pivot.position.y < .1:
-		CAMERA_MOVEMENT.rot_clamped = false
-
 		CAMERA_MOVEMENT.pivot.position.y = 0
 		return
 		

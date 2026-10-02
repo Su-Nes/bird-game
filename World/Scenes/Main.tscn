@@ -13,7 +13,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048797607, 0.05398941, -0.039505005)
 
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 911.0223, 150.07341, 328.14914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 523.87103, 265.71704, -87.08284)
 
 [node name="Bug" parent="." unique_id=1711860546 instance=ExtResource("4_7pm5o")]
 transform = Transform3D(-0.81275344, 0, 0.5826078, 0, 1, 0, -0.5826078, 0, -0.81275344, 920.1606, 151.47607, 311.63187)

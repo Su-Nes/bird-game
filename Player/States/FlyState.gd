@@ -102,6 +102,9 @@ func update(delta: float):
 	# DIRECTIONAL CONTROLS
 	# Clamp pitch rotation
 	var pitch_input = Input.get_axis("forward", "backward")
+	var inverted = -1.0 if PlayerParameters.player_pitch_inverted else 1.0
+	pitch_input *= inverted
+	
 	if extension_functions.MESH.rotation.x >= deg_to_rad(PITCH_ROT_LIMIT): # limit pitch up 
 		pitch_input = clamp(pitch_input, -1, 0)
 	
@@ -126,8 +129,6 @@ func update(delta: float):
 		roll_input = clamp(roll_input, 0, 1)
 		
 	# Rotate pitch
-	var flat_pitch_vector = extension_functions.MESH.global_basis.x
-	flat_pitch_vector.y = 0
 	player_controller.velocity = player_controller.velocity.rotated(extension_functions.MESH.global_basis.x, pitch_input * PITCH_ROT_SPEED * rotation_mod * delta)
 
 	# Rotate yaw

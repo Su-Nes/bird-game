@@ -628,8 +628,6 @@ script = ExtResource("5_7c45o")
 [node name="CameraPivotX" type="Node3D" parent="CameraControl/CameraPivotY" unique_id=2114444008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("4_bacvh")
-MOUSE_SENS = 20.0
-STICK_SENS = 200.0
 CAM_RESET_MOD = 0.001
 SIDE_SWITCH_SENSITIVITY = 30.0
 
@@ -661,6 +659,7 @@ debug_shape_custom_color = Color(0.78352344, 0.7835234, 0.7835234, 1)
 
 [node name="MovementStateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
 script = ExtResource("1_8rupm")
+IS_PLAYER = true
 initial_state = NodePath("IdleState")
 ANIMATOR = NodePath("../Animator")
 
@@ -810,7 +809,7 @@ SHAPE_RAY = NodePath("../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Ca
 GRAB_SCRIPT = NodePath("../GrabController")
 STATE_MACHINE = NodePath("../MovementStateMachine")
 INACTIVE_STATES = Array[String](["flystate", "faintstate", "pausestate"])
-ROTATION_SPEED = 3.0
+SNAP_ROTATION = 15.0
 GHOST_MATERIAL = SubResource("StandardMaterial3D_7c45o")
 ERROR_MATERIAL = SubResource("StandardMaterial3D_4l6g3")
 
@@ -945,7 +944,7 @@ DISTANCE_PER_FOOTSTEP = 30.0
 [node name="Crash" type="AudioStreamPlayer3D" parent="Audio" unique_id=1235852624]
 stream = ExtResource("17_vui7j")
 attenuation_model = 3
-pitch_scale = 0.8
+pitch_scale = 0.9
 panning_strength = 0.0
 
 [connection signal="body_entered" from="FishingCollider" to="GrabController" method="_on_grab_area_body_entered"]

@@ -12,6 +12,7 @@ data = PackedVector3Array(0.046099998, 9.8310995, 0.3094, -0.41349998, 10.3635, 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17ts5"]
 resource_name = "|FirTrunk"
 cull_mode = 2
+diffuse_mode = 3
 albedo_texture = ExtResource("4_xgkwv")
 metadata/_gltf_primary_texture_coord = 0
 
@@ -135,7 +136,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_17ts5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgkwv"]
 resource_name = "PineLeaves"
 render_priority = 0
 shader = SubResource("Shader_cqex0")
@@ -173,6 +174,27 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rj8iq"]
+resource_name = "FirTree_Plane_006"
+_surfaces = [{
+"aabb": AABB(-1.2171992, -6.534229, -0.34027728, 2.1924043, 8.477657, 6.0833206),
+"attribute_data": PackedByteArray("09QHQUOmpYsgs9JFcMLpmsSlRN0PpreJ//9UMhTZ1XPDyAZieONjXSeusJKGn8l/cMLpmg+mt4kb345Y09QHQSCz0kX+vwAA"),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEA"),
+"material": SubResource("ShaderMaterial_xgkwv"),
+"name": "FirNeedles",
+"primitive": 3,
+"uv_scale": Vector4(2.7437801, 3.234819, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("//+MSVc2obT/hgAA//+htDWHm2plgKG0NYebamWAFbn/hgAA//8VuQAAjEkAORW5/4YAAP//jtX//4xJVzaO1QAAjEkAOY7VVZD//wAAQP0AAIxJADlA/f//jElXNkD9NYebamWAALoAAIxJADkAulWQ//8AAAC6//+MSVc27bM1h5tqZYDts1WQ//8AAO2zEqcwPxKnMD8SpzA/qtG306rRt9Oq0bfT3xsqrN8bKqzfGyqsbFnHL2xZxy9sWccvgNMg1oDTINaA0yDWnaNCQJ2jQkCdo0JA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_pjny4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_17ts5"]
+resource_name = "PineLeaves"
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ec4kv"]
 resource_name = "FirTree_Plane_006"
 _surfaces = [{
 "aabb": AABB(-1.2171992, -6.534229, -0.34027728, 2.1924043, 8.477657, 6.0833206),
@@ -282,6 +304,103 @@ mesh = SubResource("ArrayMesh_rj8iq")
 [node name="Leaves16" type="MeshInstance3D" parent="Mesh" unique_id=1903388820]
 transform = Transform3D(-10.571732, 0.3454427, 1.0449356, 0.4602304, 9.827878, 0.21111491, -1.9789263, 0.44021866, -5.533116, -1.0970329, 64.98449, -6.587388)
 mesh = SubResource("ArrayMesh_rj8iq")
+
+[node name="ShadowsOnly" type="Node3D" parent="Mesh" unique_id=1180151207]
+
+[node name="Leaves20" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=935719613]
+transform = Transform3D(1.2239206, 0.55551654, 2.4793646, 0.23902784, 2.714644, -0.72622657, -2.5295677, 0.5253006, 1.1310066, -1.5398746, 109.85606, -0.9883294)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves21" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=1154745794]
+transform = Transform3D(3.2435303, 0.36856696, 4.4666076, 0.04732593, 7.2804213, -0.30596197, -6.1922317, 0.24870022, 2.3373003, -1.2803773, 89.57257, 0.2651397)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves22" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=1356270117]
+transform = Transform3D(7.674837, 0.42433015, 5.9333363, 0.09406046, 9.056488, -0.4318907, -11.580989, 0.35476413, 3.928576, -1.2803773, 65.14032, -0.8462323)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves23" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=1916088159]
+transform = Transform3D(2.1311471, -0.5014699, -1.5381461, 0.14887872, 2.752137, -0.51724595, 1.841161, 0.3579108, 1.8222324, -1.1433372, 107.84441, -0.33298093)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves24" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=99110581]
+transform = Transform3D(4.7951565, -0.06738484, 0.8839308, 0.2574217, 4.758635, -1.0336993, -0.8482971, 1.0631363, 4.6828966, -0.16920096, 96.98756, -0.5826376)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves25" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=1541907435]
+transform = Transform3D(12.11426, -0.41319823, -0.6839457, 0.64547867, 4.6827197, -1.7664926, 1.529543, 1.2964613, 6.16245, 0.6306725, 74.34799, 1.1998167)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves26" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=635322437]
+transform = Transform3D(11.000038, 0.13073234, -0.8853768, -0.24077648, 4.472422, 0.18460414, 2.2311788, -0.16189072, 4.384959, -2.4474936, 35.19448, 7.4262276)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves27" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=473793568]
+transform = Transform3D(2.4034655, -0.972264, -5.5899916, 0.44608057, 5.8378553, -0.9212932, 8.088927, -0.03305152, 1.7117627, -2.6937315, 75.13632, -0.83083856)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves28" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=417439939]
+transform = Transform3D(3.5359273, -0.24760008, -6.4075727, 0.3944227, 7.2636895, -0.18772963, 14.243252, -0.13967803, 1.5958962, -2.3692274, 51.275757, -1.9736313)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves29" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=601399300]
+transform = Transform3D(-9.414434, -0.89395714, -5.5113187, 0.054042395, 6.1594486, -1.7586977, 8.759292, -0.99882215, -5.9126825, -2.1030004, 61.560234, -2.079651)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves30" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=415166586]
+transform = Transform3D(-7.5546675, -0.16564104, -1.7568858, 0.093239404, 4.408934, -0.93514866, 2.3917203, -0.6950861, -5.512974, -1.2054731, 41.29672, -2.2655702)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves31" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=1051384765]
+transform = Transform3D(-2.6902452, -0.15376818, -0.6238799, 0.0075273705, 2.7688668, -0.40166476, 0.8463761, -0.51338446, -1.9794577, -1.2053638, 109.8617, -0.3189999)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves32" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=1154669984]
+transform = Transform3D(0.10179478, 0.41254598, -1.5471455, 0.29136786, 3.397873, 0.18926448, 4.677099, -0.22065532, 0.021882439, -2.470555, 90.45705, -1.2332687)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves33" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=784492635]
+transform = Transform3D(-3.9609592, 0.30654326, 1.4245697, 0.2764356, 4.1553564, -0.1104678, -4.079057, -0.0160622, -1.3908122, -0.5231685, 99.69775, -0.24736515)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves34" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=1787124310]
+transform = Transform3D(-3.0547621, 0.25975612, 3.8071997, 0.14326675, 6.081683, -0.16077782, -9.018731, 0.008627168, -1.2921033, 1.8417741, 71.784744, -1.9654443)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves35" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=942486390]
+transform = Transform3D(-0.41611066, -0.60481846, 3.8799624, 0.030868517, 5.8756185, 0.4007766, -9.231488, 0.04690896, -0.1735505, 6.5274863, 45.80045, -1.182079)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves36" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=2086683646]
+transform = Transform3D(-8.480026, 0.32564422, 3.5441728, 0.3741022, 7.6243253, -0.1462891, -8.395315, 0.010815483, -3.5864544, 2.9364996, 59.738213, -3.1746593)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves37" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=929962287]
+transform = Transform3D(-7.629107, 0.23540536, -0.8539299, 0.30433637, 6.569407, -0.10214752, 1.2296612, -0.16539252, -5.2726946, -1.5359169, 81.82946, -0.701375)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
+
+[node name="Leaves38" type="MeshInstance3D" parent="Mesh/ShadowsOnly" unique_id=993661779]
+transform = Transform3D(-10.571732, 0.3454427, 1.0449356, 0.4602304, 9.827878, 0.21111491, -1.9789263, 0.44021866, -5.533116, -1.0970329, 64.98449, -6.587388)
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_ec4kv")
 
 [node name="BranchSpawns" type="Node3D" parent="." unique_id=273136542]
 

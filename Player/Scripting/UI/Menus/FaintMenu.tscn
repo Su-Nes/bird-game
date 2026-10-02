@@ -7,5 +7,7 @@
 script = ExtResource("2_8v05s")
 
 [node name="Resume" parent="MarginContainer/Menu/Buttons" parent_id_path=PackedInt32Array(923266316) index="0" unique_id=312023862]
-visible = false
 text = "Revive"
+
+[node name="LeftMenu" parent="MarginContainer" parent_id_path=PackedInt32Array(1956847817) index="1" unique_id=124270171]
+visible = false

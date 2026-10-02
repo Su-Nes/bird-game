@@ -8,8 +8,6 @@ var enabled = true
 @onready var pivot: Node3D = $".."
 @onready var camera_3d: Camera3D = $CameraSpring/Camera3D
 
-@export var MOUSE_SENS = 0.5
-@export var STICK_SENS = 0.05
 @export var LOOK_AHEAD_SMOOTHING = .04
 @export var CAM_RESET_MOD = .33
 @export var SPEED_MOD : float = 1.5
@@ -26,8 +24,9 @@ var camera_side = 1
 func _input(event):
 	# Mouse look
 	if event is InputEventMouseMotion:
-		pivot.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS * get_process_delta_time()))
-		rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENS * get_process_delta_time()))
+		pivot.rotate_y(deg_to_rad(-event.screen_relative.x * PlayerParameters.player_camera_sensitivity * get_process_delta_time()))
+		var inverted = -1.0 if PlayerParameters.player_camera_inverted else 1.0
+		rotate_x(deg_to_rad(-event.screen_relative.y * PlayerParameters.player_camera_sensitivity * get_process_delta_time()) * inverted)
 		
 		disable_look_timer = 0
 		
@@ -38,9 +37,9 @@ func _process(delta: float):
 	if look_movement.length() > 0:
 		disable_look_timer = 0
 	
-	pivot.rotate_y(deg_to_rad(-look_movement.x * STICK_SENS))
-	rotate_x(deg_to_rad(look_movement.y * STICK_SENS))
-	
+	pivot.rotate_y(deg_to_rad(-look_movement.x * PlayerParameters.player_camera_sensitivity / 10))
+	rotate_x(deg_to_rad(look_movement.y * PlayerParameters.player_camera_sensitivity / 10))
+
 	if rot_clamped:
 		rotation.x = clampf(rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	

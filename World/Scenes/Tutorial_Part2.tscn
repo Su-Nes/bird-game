@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://ct7esywm4lggm" path="res://World/Objects/Trees/Scenes/OakTree1.tscn" id="12_gif48"]
 [ext_resource type="PackedScene" uid="uid://dcaqmr8n5v177" path="res://Entities/Pickups/Placeables/Branches/OakBranch_small.tscn" id="13_nau6f"]
 [ext_resource type="PackedScene" uid="uid://c27pkcm4rppiy" path="res://Entities/Pickups/Placeables/Flowers/Tulip.tscn" id="17_lc5ar"]
+[ext_resource type="Shader" uid="uid://cpnyel6dxqphc" path="res://World/Shaders/LeavesFalling.gdshader" id="17_xk7wl"]
+[ext_resource type="Texture2D" uid="uid://1mrsn80kvdoo" path="res://World/Shaders/Leaf_64.png" id="18_lc5ar"]
 [ext_resource type="PackedScene" uid="uid://l3uqhubwsy3t" path="res://Entities/Pickups/Decorations/PrettyRock.tscn" id="19_qlmqb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yur33"]
@@ -30,7 +32,6 @@ albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(0.35897732, 0.8091249, 0.82596076, 1)
 emission_energy_multiplier = 16.0
-distance_fade_mode = 2
 distance_fade_min_distance = 20.0
 distance_fade_max_distance = 50.0
 
@@ -40,6 +41,37 @@ top_radius = 5.0
 bottom_radius = 0.0
 height = 600.0
 radial_segments = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xsd6f"]
+shader = ExtResource("17_xk7wl")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/box_emit_size = Vector3(500, 1, 500)
+shader_parameter/initial_rotation_xz = 0.5
+shader_parameter/fade_from = 0.9
+shader_parameter/forward_speed_min = 5.0
+shader_parameter/forward_speed_max = 15.0
+shader_parameter/rot_speed_x = Vector2(0, 0.5)
+shader_parameter/rot_speed_y = Vector2(1, 2)
+shader_parameter/rot_speed_z = Vector2(1, 2)
+shader_parameter/vel_damping = 1.0
+shader_parameter/grav = Vector3(0, -19.6, 0)
+shader_parameter/wind_direction = Vector3(0, 0, -1)
+shader_parameter/wind_speed_min = -5.0
+shader_parameter/wind_speed_max = 40.0
+shader_parameter/wind_change = Vector2(0.123, 0.456)
+shader_parameter/vortex_force = Vector2(0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3po2"]
+transparency = 2
+alpha_scissor_threshold = 0.25
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.9764706, 0.89411765, 0.6901961, 1)
+albedo_texture = ExtResource("18_lc5ar")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qlmqb"]
+material = SubResource("StandardMaterial3D_o3po2")
+size = Vector2(0.75, 0.75)
 
 [node name="Tutorial" type="Node3D" unique_id=341969770 node_paths=PackedStringArray("NEST")]
 script = ExtResource("1_t4vkm")
@@ -78,6 +110,10 @@ material_override = ExtResource("5_iaaxk")
 calculate_tangents = false
 size = Vector3(50, 149.05243, 50)
 material = ExtResource("5_iaaxk")
+
+[node name="PineTree1" parent="LevelGeometry/CSGCombiner3D/CSGBox3D3" unique_id=1563042728 instance=ExtResource("7_xk7wl")]
+transform = Transform3D(0.94727963, 0, -0.32040834, 0, 1, 0, 0.32040834, 0, 0.94727963, -5.6419907, 74.5262, 6.5025024)
+metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="LevelGeometry/CSGCombiner3D" unique_id=1176415731]
 transform = Transform3D(0.81196946, 0, -0.58369994, 0, 1, 0, 0.58369994, 0, 0.81196946, 133.93385, -178.01506, -511.31796)
@@ -343,69 +379,77 @@ metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 transform = Transform3D(0.9848075, -7.450576e-09, -0.17364804, -0.12278775, 0.7071067, -0.6963642, 0.12278772, 0.7071066, 0.696364, 0.06738281, 0.9223175, -1.325592)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="Tulip" parent="." unique_id=93460144 instance=ExtResource("17_lc5ar")]
+[node name="Tulip2" parent="Sections/NestBuildingSection" unique_id=93460144 instance=ExtResource("17_lc5ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.2599, -145.25989, -501.61014)
 metadata/asset_placer_res_id = "uid://c27pkcm4rppiy"
 
-[node name="Tulip (1)" parent="." unique_id=1654325734 instance=ExtResource("17_lc5ar")]
+[node name="Tulip (1)2" parent="Sections/NestBuildingSection" unique_id=1654325734 instance=ExtResource("17_lc5ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.922325, -145.25989, -507.20663)
 metadata/asset_placer_res_id = "uid://c27pkcm4rppiy"
 
-[node name="Tulip (2)" parent="." unique_id=339426880 instance=ExtResource("17_lc5ar")]
+[node name="Tulip (2)2" parent="Sections/NestBuildingSection" unique_id=339426880 instance=ExtResource("17_lc5ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.36238, -145.25989, -502.082)
 metadata/asset_placer_res_id = "uid://c27pkcm4rppiy"
 
-[node name="Tulip (3)" parent="." unique_id=1464116036 instance=ExtResource("17_lc5ar")]
+[node name="Tulip (3)2" parent="Sections/NestBuildingSection" unique_id=1464116036 instance=ExtResource("17_lc5ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.517845, -145.25989, -505.87982)
 metadata/asset_placer_res_id = "uid://c27pkcm4rppiy"
 
-[node name="Tulip (4)" parent="." unique_id=630098626 instance=ExtResource("17_lc5ar")]
+[node name="Tulip (4)2" parent="Sections/NestBuildingSection" unique_id=630098626 instance=ExtResource("17_lc5ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.7514, -145.25989, -506.18155)
 metadata/asset_placer_res_id = "uid://c27pkcm4rppiy"
 
-[node name="Tulip (5)" parent="." unique_id=79634059 instance=ExtResource("17_lc5ar")]
+[node name="Tulip (5)2" parent="Sections/NestBuildingSection" unique_id=79634059 instance=ExtResource("17_lc5ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.09218, -145.25989, -499.2324)
 metadata/asset_placer_res_id = "uid://c27pkcm4rppiy"
 
-[node name="Tulip (6)" parent="." unique_id=2082669206 instance=ExtResource("17_lc5ar")]
+[node name="Tulip (6)" parent="Sections/NestBuildingSection" unique_id=2082669206 instance=ExtResource("17_lc5ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.98952, -145.25989, -500.24182)
 metadata/asset_placer_res_id = "uid://c27pkcm4rppiy"
 
-[node name="PrettyRock" parent="." unique_id=831421972 instance=ExtResource("19_qlmqb")]
+[node name="PrettyRock" parent="Sections/NestBuildingSection" unique_id=831421972 instance=ExtResource("19_qlmqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.18542, -89.03841, -333.31573)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="PrettyRock (1)" parent="." unique_id=462994142 instance=ExtResource("19_qlmqb")]
+[node name="PrettyRock (1)" parent="Sections/NestBuildingSection" unique_id=462994142 instance=ExtResource("19_qlmqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.87393, -89.03841, -328.05923)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="PrettyRock (2)" parent="." unique_id=734674490 instance=ExtResource("19_qlmqb")]
+[node name="PrettyRock (2)" parent="Sections/NestBuildingSection" unique_id=734674490 instance=ExtResource("19_qlmqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.29117, -89.03841, -314.91403)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="PrettyRock (3)" parent="." unique_id=1639904796 instance=ExtResource("19_qlmqb")]
+[node name="PrettyRock (3)" parent="Sections/NestBuildingSection" unique_id=1639904796 instance=ExtResource("19_qlmqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.60419, -89.03841, -316.758)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="PrettyRock (4)" parent="." unique_id=1805259978 instance=ExtResource("19_qlmqb")]
+[node name="PrettyRock (4)" parent="Sections/NestBuildingSection" unique_id=1805259978 instance=ExtResource("19_qlmqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.71272, -89.03841, -317.4998)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="PrettyRock (5)" parent="." unique_id=1031228605 instance=ExtResource("19_qlmqb")]
+[node name="PrettyRock (5)" parent="Sections/NestBuildingSection" unique_id=1031228605 instance=ExtResource("19_qlmqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.18916, -89.03841, -326.50183)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="PrettyRock (6)" parent="." unique_id=2045626681 instance=ExtResource("19_qlmqb")]
+[node name="PrettyRock (6)" parent="Sections/NestBuildingSection" unique_id=2045626681 instance=ExtResource("19_qlmqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.2495, -89.03841, -312.9252)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="PrettyRock (7)" parent="." unique_id=1798002922 instance=ExtResource("19_qlmqb")]
+[node name="PrettyRock (7)" parent="Sections/NestBuildingSection" unique_id=1798002922 instance=ExtResource("19_qlmqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.46687, -89.03841, -315.93805)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="PineTree1" parent="." unique_id=1563042728 instance=ExtResource("7_xk7wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.88762, -89.03841, -319.36542)
-metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+[node name="Particles" type="Node3D" parent="Sections" unique_id=1289913110]
+
+[node name="LeafParticles" type="GPUParticles3D" parent="Sections/Particles" unique_id=940537980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.46679, -27.571743, -270.52396)
+amount = 1000
+lifetime = 90.0
+preprocess = 10.0
+visibility_aabb = AABB(-249.52885, -68.40655, -307.5638, 497.88922, 69.6361, 550.3256)
+local_coords = true
+process_material = SubResource("ShaderMaterial_xsd6f")
+draw_pass_1 = SubResource("PlaneMesh_qlmqb")
 
 [connection signal="body_entered" from="PlayerBounds" to="." method="_on_player_bounds_body_entered"]
 [connection signal="body_exited" from="PlayerBounds" to="." method="_on_player_bounds_body_exited"]

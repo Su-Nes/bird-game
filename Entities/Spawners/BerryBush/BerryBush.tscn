@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dipqgg0d0k4h3"]
 
-[ext_resource type="Script" uid="uid://bvkeke4dy4a43" path="res://Entities/Spawners/BerryBush/BerryBushScript.gd" id="1_6er4m"]
+[ext_resource type="Script" uid="uid://bvkeke4dy4a43" path="res://Common/Scripts/Entity/AreaSpawner.gd" id="1_6er4m"]
 [ext_resource type="PackedScene" uid="uid://ciwdfugksg6gx" path="res://Entities/Pickups/Edibles/Berry/Berry.tscn" id="2_a00iv"]
 [ext_resource type="PackedScene" uid="uid://c3g67nhl71c6w" path="res://Entities/Spawners/BerryBush/Model/BerryBush.blend" id="3_a00iv"]
 [ext_resource type="Material" uid="uid://cif2fyce7hr2x" path="res://Entities/Spawners/BerryBush/Materials/LeafyBranch.tres" id="4_h581x"]
@@ -78,10 +78,11 @@ shadow_mesh = SubResource("ArrayMesh_21ulo")
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
 size = Vector3(0.5839844, 0.06738281, 0.48632813)
 
-[node name="BerryBush" type="Node3D" unique_id=1781141933 node_paths=PackedStringArray("SPAWN_AREA") groups=["Spawners"]]
+[node name="BerryBush" type="Node3D" unique_id=1781141933 node_paths=PackedStringArray("SPAWN_AREA", "OBJECT_HOLDER") groups=["Spawners"]]
 script = ExtResource("1_6er4m")
 SPAWN_AREA = NodePath("SpawnArea/Collider3D")
-BERRY = ExtResource("2_a00iv")
+SPAWNABLE = ExtResource("2_a00iv")
+OBJECT_HOLDER = NodePath("ObjectHolder")
 SPAWN_TIME = Vector2(60, 120)
 SPAWN_GROUP = Vector2(3, 5)
 
@@ -106,5 +107,7 @@ monitorable = false
 [node name="Collider3D" type="CollisionShape3D" parent="SpawnArea" unique_id=344860434]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0.17636351, 0)
 shape = SubResource("BoxShape3D_qkran")
+
+[node name="ObjectHolder" type="Node3D" parent="." unique_id=1121577835]
 
 [editable path="Mesh"]

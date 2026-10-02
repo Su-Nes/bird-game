@@ -5,23 +5,17 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkran"]
 font = ExtResource("2_5a7l1")
-font_size = 80
-outline_size = 7
-outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_7wc5j"]
-font = ExtResource("2_5a7l1")
-font_size = 43
+font_size = 60
 outline_size = 7
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_joydu"]
-line_spacing = 0.95
+line_spacing = -3.0
 font_size = 12
 outline_size = 4
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
-[node name="PauseMenu" type="Control" unique_id=172216686]
+[node name="PauseMenu" type="Control" unique_id=172216686 node_paths=PackedStringArray("CONTROLS", "SETTINGS", "FS_CHECK", "SENSITIVITY", "CAMERA_CHECK", "PITCH_CHECK", "MASTER_VOLUME")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,13 +23,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5w5j5")
+CONTROLS = NodePath("MarginContainer/LeftMenu/HBoxContainer/Controls")
+SETTINGS = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings")
+FS_CHECK = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS/FSCheck")
+SENSITIVITY = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/CameraSens/HSlider")
+CAMERA_CHECK = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera/CameraCheck")
+PITCH_CHECK = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch/PitchCheck")
+MASTER_VOLUME = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/VolumeSlider/VolumeSlider")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1956847817]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.072916664
+anchor_top = 0.05
 anchor_right = 0.9270833
-anchor_bottom = 1.0
+anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -54,41 +56,51 @@ vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="MarginContainer/Menu" unique_id=923266316]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Resume" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=312023862]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Resume"
 
 [node name="Reload" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=530840903]
-custom_minimum_size = Vector2(200, 50)
+visible = false
+custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Reload"
 
 [node name="Quit" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=876093582]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Quit"
 
-[node name="Controls" type="VBoxContainer" parent="MarginContainer" unique_id=612577386]
+[node name="LeftMenu" type="MarginContainer" parent="MarginContainer" unique_id=124270171]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 4
+size_flags_vertical = 0
 
-[node name="Title" type="Label" parent="MarginContainer/Controls" unique_id=1328784181]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/LeftMenu" unique_id=1617619125]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ToggleControls" type="Button" parent="MarginContainer/LeftMenu/HBoxContainer" unique_id=1210755244]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Controls:"
-label_settings = SubResource("LabelSettings_7wc5j")
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_vertical = 0
+text = "Toggle Controls/Settings"
 
-[node name="Text" type="VBoxContainer" parent="MarginContainer/Controls" unique_id=1491264206]
+[node name="Controls" type="VBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer" unique_id=612577386]
+visible = false
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
-[node name="Control map" type="Label" parent="MarginContainer/Controls/Text" unique_id=498662116]
+[node name="Control map" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Controls" unique_id=498662116]
 custom_minimum_size = Vector2(45.725, 130.52)
 layout_mode = 2
 text = "Interaction - 
@@ -115,6 +127,127 @@ Alt - Disable auto camera"
 label_settings = SubResource("LabelSettings_joydu")
 tab_stops = PackedFloat32Array(60)
 
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer" unique_id=487161626]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ToggleFS" type="HBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=639508848]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS" unique_id=1460708208]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+text = "Fullscreen"
+label_settings = SubResource("LabelSettings_joydu")
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="FSCheck" type="CheckButton" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS" unique_id=1912087785]
+layout_mode = 2
+
+[node name="Spacer1" type="Control" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1981275166]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CameraSens" type="HBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=305541890]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/CameraSens" unique_id=1088879150]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Camera sensitivity "
+label_settings = SubResource("LabelSettings_joydu")
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/CameraSens" unique_id=1654452287]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 30.0
+value = 10.0
+
+[node name="InvertCamera" type="HBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=509489238]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera" unique_id=1904279912]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+text = "Invert Camera"
+label_settings = SubResource("LabelSettings_joydu")
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="CameraCheck" type="CheckButton" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera" unique_id=1837508890]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=669381300]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="InvertPitch" type="HBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=462924490]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch" unique_id=1058079502]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+text = "Invert flight pitch controls"
+label_settings = SubResource("LabelSettings_joydu")
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="PitchCheck" type="CheckButton" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch" unique_id=1712638090]
+layout_mode = 2
+
+[node name="Spacer3" type="Control" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1132351248]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="VolumeSlider" type="HBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1038799240]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/VolumeSlider" unique_id=1293859490]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Master volume       "
+label_settings = SubResource("LabelSettings_joydu")
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/VolumeSlider" unique_id=1989345449]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.5
+
 [connection signal="pressed" from="MarginContainer/Menu/Buttons/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/Menu/Buttons/Reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="MarginContainer/Menu/Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/LeftMenu/HBoxContainer/ToggleControls" to="." method="_on_toggle_controls_pressed"]
+[connection signal="toggled" from="MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS/FSCheck" to="." method="_on_fs_check_toggled"]
+[connection signal="value_changed" from="MarginContainer/LeftMenu/HBoxContainer/Settings/CameraSens/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera/CameraCheck" to="." method="_on_camera_check_toggled"]
+[connection signal="toggled" from="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch/PitchCheck" to="." method="_on_pitch_check_toggled"]
+[connection signal="value_changed" from="MarginContainer/LeftMenu/HBoxContainer/Settings/VolumeSlider/VolumeSlider" to="." method="_on_volume_slider_value_changed"]

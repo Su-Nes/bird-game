@@ -7,7 +7,8 @@ class_name BuildController
 @export var GRAB_SCRIPT : GrabScript
 @export var STATE_MACHINE : StateMachine
 @export var INACTIVE_STATES : Array[String]
-@export var ROTATION_SPEED : float = 10
+@export var SNAP_ROTATION : float = 5
+@export var ROTATION_INTERVAL : float = .1
 @export var GHOST_MATERIAL : StandardMaterial3D
 @export var ERROR_MATERIAL : StandardMaterial3D
 
@@ -16,7 +17,7 @@ class_name BuildController
 var current_buildable : Placeable
 var ghost : Placeable
 var ghost_material : MeshInstance3D
-var rotation : Vector3
+var z_rotation : float
 var can_place = false
 
 func _ready() -> void:
@@ -61,9 +62,10 @@ func initiate_building(block: Placeable):
 func _process(_delta: float) -> void:
 	if !current_buildable:
 		return
-		
+	
 	ghost.global_rotation = SHAPE_RAY.global_rotation
-	SHAPE_RAY.rotate_z(Input.get_axis("rotate_R", "rotate_L") * ROTATION_SPEED * _delta)
+	
+	handle_rotation()
 		
 	can_place = SHAPE_RAY.is_colliding()
 	
@@ -83,6 +85,18 @@ func _process(_delta: float) -> void:
 			child.material_override = GHOST_MATERIAL
 		ghost_material.material_override = GHOST_MATERIAL
 		ghost.global_position = ghost_position
+		
+func handle_rotation():
+	var rot_input = Input.get_axis("rotate_R", "rotate_L")
+	
+	if rot_input == 0:
+		z_rotation = ROTATION_INTERVAL
+		return
+	elif z_rotation >= ROTATION_INTERVAL:
+		SHAPE_RAY.rotate_z(deg_to_rad(SNAP_ROTATION) * rot_input)
+		z_rotation = 0
+	else:
+		z_rotation += abs(rot_input) * get_process_delta_time()
 		
 func hide_ghost():
 	if ghost:
