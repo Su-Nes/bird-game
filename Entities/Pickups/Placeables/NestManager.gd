@@ -57,6 +57,21 @@ func update_decor():
 	if decor_value >= TARGET_DECOR_VALUE:
 		decor_target_reached.emit()
 		
+		
+func on_save_data(saved_data: Array[SavedData]):
+	var data = SavedData.new()
+	
+	var self_scene = PackedScene.new()
+	self_scene.pack(self)
+	
+	data.scene = self_scene
+	data.tf = transform
+	data.parent_path = get_parent().get_path()
+	
+	saved_data.append(data)
+	
+func on_loaded(data: SavedData):
+	transform = data.tf
 
 func _on_world_button_yes_on_pressed() -> void:
 	#var nest_index = get_tree().get_node_count_in_group("Nest") - 1

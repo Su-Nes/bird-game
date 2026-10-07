@@ -2,14 +2,16 @@ extends Node
 
 
 func _ready() -> void:
+	await get_tree().create_timer(.1).timeout
+	
 	load_game()
 
-#func _process(_delta: float) -> void:
-	#if Input.is_action_just_pressed("fullscreen"):
-		#load_game()
-		#
-	#if Input.is_action_just_pressed("rotate_R"):
-		#save_game()
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("fullscreen"):
+		clear_save()
+		
+	if Input.is_action_just_pressed("alt"):
+		save_game()
 
 func save_game():
 	var saved_game = SavedGame.new()
@@ -40,7 +42,17 @@ func load_game():
 	for node : SavedData in saved_game.saved_data:
 		var loaded_scene = node.scene.instantiate()
 		
-		get_node(node.parent_path).add_child.call_deferred(loaded_scene)
+		if !node.parent_path.contains("GrabPoint"):
+			get_node(node.parent_path).add_child.call_deferred(loaded_scene)
+		#get_tree().root.add_child.call_deferred(loaded_scene)
 		
 		if loaded_scene.has_method("on_loaded"):
 			loaded_scene.on_loaded(node)
+			
+func clear_save():
+	var saved_game = SavedGame.new()
+	
+	saved_game.player_max_stamina = StatController.MAX_BASE_STAMINA
+	saved_game.player_position = Vector3(0, 100, 0)
+	
+	ResourceSaver.save(saved_game, "user://save.tres")

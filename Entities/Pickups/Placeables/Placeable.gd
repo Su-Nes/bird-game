@@ -27,7 +27,7 @@ func on_save_data(saved_data: Array[SavedData]):
 	self_scene.pack(self)
 	
 	data.scene = self_scene
-	data.tf = global_transform
+	data.tf = transform
 	data.parent_path = get_parent().get_path()
 	data.is_grabbed = get_parent().name == "GrabPoint"
 	data.is_placed = is_placed
@@ -35,11 +35,14 @@ func on_save_data(saved_data: Array[SavedData]):
 	saved_data.append(data)
 	
 func on_loaded(data: SavedData):
-	global_transform = data.tf
+	transform = data.tf
 	is_placed = data.is_placed
-	
-	if data.is_grabbed:
+
+	if data.is_grabbed && !is_inside_tree():
+		has_physics(false, false)
 		Signals.grab_item.emit(self)
+		
+		return
 	
 	handle_colliders()
 
@@ -47,10 +50,7 @@ func on_placed():
 	is_placed = true
 	
 	handle_colliders()
-	
-	if !detection_area:
-		detection_area = PLACEABLE_DETECTION_AREA.instantiate()
-		add_child(detection_area)
+	create_detection_area()
 	
 	await get_tree().physics_frame
 	
@@ -78,14 +78,22 @@ func handle_colliders():
 				col.forward_connections.append(self)
 				backwards_connections.append(col)
 			
+func create_detection_area():
+	if !detection_area:
+		detection_area = PLACEABLE_DETECTION_AREA.instantiate()
+		add_child(detection_area)
+
+
 func detect_nest():
 	var placed_object_count = 0
+	
+	await get_tree().physics_frame
+	
 	for body in detection_area.get_overlapping_bodies():
-		print(body)
 		if body is Placeable:
 			if body.is_placed:
 				placed_object_count += 1
-	
+				
 	if placed_object_count >= MINIMUM_PLACED_OBJECTS_FOR_NEST:
 		prompt_for_nest()
 	

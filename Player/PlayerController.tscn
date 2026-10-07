@@ -660,7 +660,7 @@ debug_shape_custom_color = Color(0.78352344, 0.7835234, 0.7835234, 1)
 [node name="MovementStateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
 script = ExtResource("1_8rupm")
 IS_PLAYER = true
-initial_state = NodePath("IdleState")
+initial_state = NodePath("HoverState")
 ANIMATOR = NodePath("../Animator")
 
 [node name="IdleState" type="Node" parent="MovementStateMachine" unique_id=984515081 node_paths=PackedStringArray("WING_STATES", "CAMERA_SCRIPT")]

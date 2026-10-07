@@ -27,7 +27,7 @@ bottom_radius = 0.0
 height = 600.0
 radial_segments = 8
 
-[node name="NestArea" type="Area3D" unique_id=666644474 node_paths=PackedStringArray("NEST_PROMPT", "NEST_MARKER", "NEST_STATISTICS") groups=["Nest"]]
+[node name="NestArea" type="Area3D" unique_id=666644474 node_paths=PackedStringArray("NEST_PROMPT", "NEST_MARKER", "NEST_STATISTICS") groups=["Nest", "Persistent"]]
 collision_mask = 9
 script = ExtResource("1_c2fg7")
 NEST_PROMPT = NodePath("NestPrompt")
@@ -40,6 +40,7 @@ shape = SubResource("SphereShape3D_qkran")
 
 [node name="NestMarker" type="MeshInstance3D" parent="." unique_id=1140108855]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)
+visible = false
 mesh = SubResource("CylinderMesh_qkran")
 
 [node name="NestStatistics" type="Node3D" parent="." unique_id=18833860]

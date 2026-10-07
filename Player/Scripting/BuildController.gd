@@ -44,6 +44,7 @@ func initiate_building(block: Placeable):
 
 	ghost = ghost_scene.instantiate()
 	ghost.COLLIDER.queue_free() # Get rid of collider on the placeable block
+	ghost.remove_from_group("Persistent")
 	
 	SHAPE_RAY.add_child(ghost)
 	var ray_box : BoxShape3D = SHAPE_RAY.shape

@@ -28,12 +28,13 @@ func grab_item(item: Interactable): ## If item has GrabPivot child it will use t
 		print("Too many items!")
 		return
 	
-	if !item.is_inside_tree():
+	if !item.get_parent():
 		GRAB_POINT.add_child(item)
 	else:
 		item.reparent(GRAB_POINT)
 	item.is_grabbed = true
 	item.on_grabbed()
+
 	item.has_physics(false, false)
 
 	item.transform = Transform3D.IDENTITY
