@@ -28,7 +28,10 @@ func toggle_pause():
 
 func on_paused():
 	pause_menu.show()
-	Engine.time_scale = 0
+	
+	var time = 1.0 if get_tree().current_scene.name == "StartMenu" else 0.0
+	
+	Engine.time_scale = time
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	has_paused.emit()

@@ -180,31 +180,6 @@ vertical_alignment = 0
 [node name="FlightSection" type="Node3D" parent="Sections" unique_id=501097461]
 transform = Transform3D(1, 0, 0, 0, 0.9452156, -0.3264467, 0, 0.3264467, 0.9452156, 0, 5.5772552, -0.65006673)
 
-[node name="Title" type="Label3D" parent="Sections/FlightSection" unique_id=989204606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9478643, -1.5077231)
-text = "To Fly"
-font = ExtResource("3_p0xwk")
-font_size = 100
-outline_size = 20
-
-[node name="Explanation" type="Label3D" parent="Sections/FlightSection" unique_id=1187206915]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.528378, -1.5077231)
-text = "Quickly double tap Space to start flying.
-
-W pitches down, S pitches up.
-(You can change this in the settings)
-Shift slows you down.
-
-Mash Space to flap and gain speed quickly.
-Hold Space to apply consistent thrust.
-
-Flying drains your stamina bar at the bottom of the screen."
-font = ExtResource("3_p0xwk")
-font_size = 50
-outline_size = 20
-vertical_alignment = 0
-autowrap_trim_flags = 64
-
 [node name="Blocker" type="StaticBody3D" parent="Sections/FlightSection" unique_id=649373160 node_paths=PackedStringArray("FREEABLE")]
 script = ExtResource("9_2fwfl")
 FREEABLE = [NodePath(".")]
@@ -227,6 +202,31 @@ mesh = SubResource("BoxMesh_qkran")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Sections/FlightSection/Blocker" unique_id=713514511]
 transform = Transform3D(1, 0, 0, 0, 0.9659274, 0.25881937, 0, -0.25881937, 0.9659274, 0, 27.235512, -13.473362)
 shape = SubResource("BoxShape3D_wop43")
+
+[node name="Title" type="Label3D" parent="Sections/FlightSection/Blocker" unique_id=989204606]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.947864, -1.5077233)
+text = "To Fly"
+font = ExtResource("3_p0xwk")
+font_size = 100
+outline_size = 20
+
+[node name="Explanation" type="Label3D" parent="Sections/FlightSection/Blocker" unique_id=1187206915]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.528378, -1.5077229)
+text = "Quickly double tap Space to start flying.
+
+W pitches down, S pitches up.
+(You can change this in the settings)
+Shift slows you down.
+
+Mash Space to flap and gain speed quickly.
+Hold Space to apply consistent thrust.
+
+Flying drains your stamina bar at the bottom of the screen."
+font = ExtResource("3_p0xwk")
+font_size = 50
+outline_size = 20
+vertical_alignment = 0
+autowrap_trim_flags = 64
 
 [node name="StaminaSection" type="Node3D" parent="Sections" unique_id=1967795979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1899936, -254.40239)

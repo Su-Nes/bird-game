@@ -15,7 +15,7 @@ font_size = 12
 outline_size = 4
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
-[node name="PauseMenu" type="Control" unique_id=172216686 node_paths=PackedStringArray("CONTROLS", "SETTINGS", "FS_CHECK", "SENSITIVITY", "CAMERA_CHECK", "PITCH_CHECK", "MASTER_VOLUME")]
+[node name="PauseMenu" type="Control" unique_id=172216686 node_paths=PackedStringArray("CONTROLS", "SETTINGS", "LOAD_TUTORIAL_BUTTON", "LEAVE_TUTORIAL_BUTTON", "FS_CHECK", "SENSITIVITY", "CAMERA_CHECK", "PITCH_CHECK", "MASTER_VOLUME")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,6 +25,8 @@ grow_vertical = 2
 script = ExtResource("1_5w5j5")
 CONTROLS = NodePath("MarginContainer/LeftMenu/HBoxContainer/Controls")
 SETTINGS = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings")
+LOAD_TUTORIAL_BUTTON = NodePath("MarginContainer/Menu/Buttons/LoadTutorial")
+LEAVE_TUTORIAL_BUTTON = NodePath("MarginContainer/Menu/Buttons/LeaveTutorial")
 FS_CHECK = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS/FSCheck")
 SENSITIVITY = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/CameraSens/HSlider")
 CAMERA_CHECK = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera/CameraCheck")
@@ -64,6 +66,18 @@ custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Resume"
+
+[node name="LoadTutorial" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=1154238794]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play Tutorial"
+
+[node name="LeaveTutorial" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=68328371]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Leave Tutorial"
 
 [node name="Reload" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=530840903]
 visible = false
@@ -243,6 +257,8 @@ step = 0.05
 value = 0.5
 
 [connection signal="pressed" from="MarginContainer/Menu/Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/Menu/Buttons/LoadTutorial" to="." method="_on_load_tutorial_pressed"]
+[connection signal="pressed" from="MarginContainer/Menu/Buttons/LeaveTutorial" to="." method="_on_leave_tutorial_pressed"]
 [connection signal="pressed" from="MarginContainer/Menu/Buttons/Reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="MarginContainer/Menu/Buttons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/LeftMenu/HBoxContainer/ToggleControls" to="." method="_on_toggle_controls_pressed"]

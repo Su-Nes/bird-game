@@ -1,11 +1,6 @@
 extends Node
 
 
-func _ready() -> void:
-	await get_tree().create_timer(.1).timeout
-	
-	load_game()
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("fullscreen"):
 		clear_save()

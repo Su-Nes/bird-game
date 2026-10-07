@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://gyv0w2cpssjs"]
 
+[ext_resource type="Script" uid="uid://dhu6qvt64ta7g" path="res://World/Scenes/MainManager.gd" id="1_7pm5o"]
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
 [ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="4_7pm5o"]
 [ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="4_p1t8e"]
-[ext_resource type="PackedScene" uid="uid://rbf3r26b40pt" path="res://World/Terrain/Terrain.tscn" id="9_004o5"]
+[ext_resource type="PackedScene" uid="uid://rbf3r26b40pt" path="res://World/Terrain/World.tscn" id="5_7pm5o"]
 
 [node name="Main" type="Node3D" unique_id=2109053146]
+script = ExtResource("1_7pm5o")
 
 [node name="Environment" parent="." unique_id=163002060 instance=ExtResource("4_p1t8e")]
 
-[node name="Terrain" parent="." unique_id=750404762 instance=ExtResource("9_004o5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048797607, 0.05398941, -0.039505005)
-
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 523.87103, 265.71704, -87.08284)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 523.87103, 265.37842, -87.08284)
 
 [node name="Bug" parent="." unique_id=1711860546 instance=ExtResource("4_7pm5o")]
 transform = Transform3D(-0.81275344, 0, 0.5826078, 0, 1, 0, -0.5826078, 0, -0.81275344, 920.1606, 151.47607, 311.63187)
+
+[node name="Terrain" parent="." unique_id=750404762 instance=ExtResource("5_7pm5o")]
