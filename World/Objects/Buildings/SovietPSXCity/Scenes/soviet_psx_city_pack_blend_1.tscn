@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://t0a3q6tmo4fs"]
+
+[ext_resource type="PackedScene" uid="uid://blpsv3fu3fx5m" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1.blend" id="1_svwqe"]
+
+[node name="Soviet PSX City Pack_blend1" unique_id=971392570 instance=ExtResource("1_svwqe")]

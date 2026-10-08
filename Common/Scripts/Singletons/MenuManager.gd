@@ -16,7 +16,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause()
-		
+
 func toggle_pause():
 	if StatController.fainted:
 		return
@@ -55,7 +55,15 @@ func on_faint():
 	faint_menu.show()
 	
 func on_revive():
-	StatController._ready()
-	get_tree().reload_current_scene()
-		
+	StatController.fainted = false
+	StatController.stamina = StatController.stamina_max_limit
+
+	Signals.player_change_state.emit("HoverState")
+	
+	on_unpaused()
+	SaverLoader.load_player(load("user://save.tres"))
+	
+	Engine.time_scale = 1.0
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	faint_menu.hide()

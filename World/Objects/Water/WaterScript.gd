@@ -4,6 +4,7 @@ class_name WaterScript
 
 
 @export var FISH : PackedScene
+@export var SPAWN_POINTS : Node3D
 @export var SPAWN_RATE := Vector2(60, 120)
 @export var SPAWN_GROUP := Vector2(3, 7)
 @export var SPAWN_RADIUS : float = 25
@@ -24,14 +25,20 @@ func spawn_group():
 	var group_size = randf_range(SPAWN_GROUP.x, SPAWN_GROUP.y)
 	
 	for n in group_size:
-		spawn_fish()
+		if !SPAWN_POINTS:
+			spawn_fish()
+		else:
+			spawn_fish(SPAWN_POINTS.get_child(randi() % SPAWN_POINTS.get_child_count()).global_position)
 		
-func spawn_fish():
+func spawn_fish(pos = Vector3.ZERO):
 	if fish_count >= MAX_FISH:
 		return
+		
+	if pos == Vector3.ZERO:
+		pos = global_position
 	
 	var rand_vector = Vector3.FORWARD.rotated(Vector3.UP, 2 * PI * randf())
-	var rand_pos = global_position + rand_vector * SPAWN_RADIUS * randf()
+	var rand_pos = pos + rand_vector * SPAWN_RADIUS * randf()
 	rand_pos.y += SPAWN_DEPTH
 
 	var new_fish : Node3D = FISH.instantiate()

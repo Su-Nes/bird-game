@@ -533,7 +533,7 @@ bg_color = Color(0.7607843, 0.9411765, 0.9843137, 1)
 
 [sub_resource type="Curve" id="Curve_urvmy"]
 _limits = [-80.0, 5.0, 0.0, 100.0]
-_data = [Vector2(0, -80), 0.0, 2.8977284, 0, 0, Vector2(100, 5), 0.101592354, 0.0, 0, 0]
+_data = [Vector2(0, -80), 0.0, 2.292187, 0, 0, Vector2(100, -5), 0.101592354, 0.0, 0, 0]
 point_count = 2
 
 [node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH") groups=["Player"]]
@@ -724,9 +724,9 @@ BREAK_CURVE = SubResource("Curve_ds2wf")
 CRASH_VELOCITY = 4.0
 CRASH_SPEED_MOD = 0.2
 BREAK_TURN_MODIFIER = 2.0
-CONSTANT_FLAP_COST = 5.0
+CONSTANT_FLAP_COST = 6.0
 TIME_FOR_FLAP = 0.2
-FLAP_COST = 8.0
+FLAP_COST = 10.0
 PITCH_ROLL_COMPENSATION = 0.25
 ROLL_ROT_LIMIT = 55.0
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")

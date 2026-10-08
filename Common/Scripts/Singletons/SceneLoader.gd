@@ -12,7 +12,7 @@ var progress : Array = []
 var use_sub_threads : bool = true
 
 func _ready() -> void:
-	set_process(false)
+	set_process(true)
 	
 func load_scene(_scene_path : String):
 	MenuManager.on_unpaused()
@@ -37,7 +37,7 @@ func start_load():
 		
 func _process(_delta: float) -> void:
 	var load_status = ResourceLoader.load_threaded_get_status(scene_path, progress)
-	
+
 	progress_changed.emit(progress[0])
 	match load_status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE, ResourceLoader.THREAD_LOAD_FAILED:

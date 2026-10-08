@@ -3,7 +3,7 @@ extends Node
 
 var settings_resource : PlayerSettings
 
-var player_fullscreen : bool
+var player_fullscreen : bool = true
 var player_camera_sensitivity : float = 10
 var player_camera_inverted : bool = false
 var player_pitch_inverted : bool = false

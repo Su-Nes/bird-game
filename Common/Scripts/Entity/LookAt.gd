@@ -15,6 +15,9 @@ func _process(_delta: float) -> void:
 		TARGET = get_tree().get_nodes_in_group(TARGET_GROUP)[0]
 		return
 		
+	if !TARGET.is_inside_tree():
+		return
+	
 	var target_pos : Transform3D = TARGET.global_transform
 	target_pos.origin.y = global_position.y
 		

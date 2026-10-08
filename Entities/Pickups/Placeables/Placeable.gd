@@ -13,38 +13,14 @@ var MINIMUM_PLACED_OBJECTS_FOR_NEST := 5
 @export var NEST_PROMPT : PackedScene = preload("uid://bwmqd5nb80in3")
 
 var detection_area : Area3D
-@export var is_placed = false
+
 
 
 func _ready() -> void:
 	if RIGIDBODY:
 		RIGIDBODY.freeze = true
 
-func on_save_data(saved_data: Array[SavedData]):
-	var data = SavedData.new()
-	
-	var self_scene = PackedScene.new()
-	self_scene.pack(self)
-	
-	data.scene = self_scene
-	data.tf = transform
-	data.parent_path = get_parent().get_path()
-	data.is_grabbed = get_parent().name == "GrabPoint"
-	data.is_placed = is_placed
-	
-	saved_data.append(data)
-	
-func on_loaded(data: SavedData):
-	transform = data.tf
-	is_placed = data.is_placed
 
-	if data.is_grabbed && !is_inside_tree():
-		has_physics(false, false)
-		Signals.grab_item.emit(self)
-		
-		return
-	
-	handle_colliders()
 
 func on_placed():
 	is_placed = true
@@ -83,7 +59,6 @@ func create_detection_area():
 		detection_area = PLACEABLE_DETECTION_AREA.instantiate()
 		add_child(detection_area)
 
-
 func detect_nest():
 	var placed_object_count = 0
 	
@@ -121,6 +96,11 @@ func on_use():
 	
 func on_grabbed():
 	propogate_stability(true, self)
+	
+func on_loaded(data: SavedData):
+	super.on_loaded(data)
+	
+	handle_colliders()
 	
 func get_colliders() -> bool: ## Returns true if this object is in a nest area
 	if !COLLIDER:

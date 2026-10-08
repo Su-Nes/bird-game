@@ -17,6 +17,8 @@ var is_grabbed = false
 var interaction_tip_index = 0
 var selection_tip_index = 0
 
+@export var is_placed = false
+
 
 func _ready() -> void:
 	interaction_tip_index = randi()
@@ -56,6 +58,30 @@ func on_grabbed():
 	
 func on_dropped():
 	pass
+	
+func on_save_data(saved_data: Array[SavedData]):
+	var data = SavedData.new()
+	
+	var self_scene = PackedScene.new()
+	self_scene.pack(self)
+	
+	data.scene = self_scene
+	data.tf = transform
+	data.parent_path = get_parent().get_path()
+	data.is_grabbed = get_parent().name == "GrabPoint"
+	data.is_placed = is_placed
+	
+	saved_data.append(data)
+	
+func on_loaded(data: SavedData):
+	transform = data.tf
+	is_placed = data.is_placed
+
+	if data.is_grabbed && !is_inside_tree():
+		has_physics(false, false)
+		Signals.grab_item.emit(self)
+		
+		return
 	
 func has_physics(collider_active : bool, rb_active : bool):
 	if COLLIDER:

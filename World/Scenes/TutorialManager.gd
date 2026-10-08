@@ -32,7 +32,7 @@ func _on_stamina_drain_area_body_entered(body: Node3D) -> void:
 		
 
 func load_next_scene():
-	get_tree().change_scene_to_packed(NEXT_SCENE) # TO-DO: Make proper scene load and save system
+	SceneLoader.load_scene(NEXT_SCENE.resource_path) # TO-DO: Make proper scene load and save system
 
 # Tutorial part 2
 func _on_player_bounds_body_entered(_body: Node3D) -> void:

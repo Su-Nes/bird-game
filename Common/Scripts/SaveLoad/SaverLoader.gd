@@ -1,12 +1,12 @@
 extends Node
 
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("fullscreen"):
-		clear_save()
-		
-	if Input.is_action_just_pressed("alt"):
-		save_game()
+#func _process(_delta: float) -> void:
+	#if Input.is_action_just_pressed("fullscreen"):
+		#clear_save()
+		#
+	#if Input.is_action_just_pressed("alt"):
+		#save_game()
 
 func save_game():
 	var saved_game = SavedGame.new()
@@ -25,12 +25,7 @@ func save_game():
 func load_game():
 	var saved_game : SavedGame = load("user://save.tres")
 	
-	StatController.stamina_max_limit = saved_game.player_max_stamina
-	
-	var player = get_tree().get_first_node_in_group("Player") as CharacterBody3D
-	player.global_position = saved_game.player_position
-	player.velocity = Vector3.ZERO
-	Signals.player_change_state.emit("HoverState")
+	load_player(saved_game)
 	
 	get_tree().call_group("Persistent", "queue_free")
 
@@ -39,11 +34,18 @@ func load_game():
 		
 		if !node.parent_path.contains("GrabPoint"):
 			get_node(node.parent_path).add_child.call_deferred(loaded_scene)
-		#get_tree().root.add_child.call_deferred(loaded_scene)
 		
 		if loaded_scene.has_method("on_loaded"):
 			loaded_scene.on_loaded(node)
 			
+func load_player(save: SavedGame):
+	StatController.stamina_max_limit = save.player_max_stamina
+	
+	var player = get_tree().get_first_node_in_group("Player") as CharacterBody3D
+	player.global_position = save.player_position
+	player.velocity = Vector3.ZERO
+	Signals.player_change_state.emit("HoverState")
+	
 func clear_save():
 	var saved_game = SavedGame.new()
 	
