@@ -10,7 +10,7 @@ size = Vector3(0.5, 0.1, 0.1)
 material = ExtResource("2_4hs2j")
 size = Vector3(0.5, 0.1, 0.1)
 
-[node name="Branch_small" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable", "Persistent"]]
+[node name="Branch_small" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable"]]
 linear_damp = 3.0
 script = ExtResource("1_wd43s")
 CHANCE_TO_SPLIT = 0.35

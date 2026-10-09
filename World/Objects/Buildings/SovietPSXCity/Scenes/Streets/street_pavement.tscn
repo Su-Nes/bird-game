@@ -1,0 +1,57 @@
+[gd_scene format=4 uid="uid://xhumpqs0nia3"]
+
+[ext_resource type="Texture2D" uid="uid://brdbhpwh151vd" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Asphalt.png" id="1_0gdgf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtahq"]
+resource_name = "M_Asphalt"
+cull_mode = 2
+albedo_texture = ExtResource("1_0gdgf")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sc04t"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "M_Asphalt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l01pl"]
+resource_name = "Soviet PSX City Pack_blend1_Cube_011"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("AABdjv//oXEAAKFx//9djgAAgIz//35zAAB+c///gIz//12OAAChcf//oXEAAF2O/v+AjAAAfnP+/35zAACAjAAA/////wAA/////wAAAAD/////AAAAAAAA/////wAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_qtahq"),
+"name": "M_Asphalt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAP//AAAAAP+//////////7//////AAD/v///AAD///+///8AAP//AIAAAP////8AgP///////wCAAAAAAP//AIAAAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP8/AAD//////z8AAP//AAD/P/////////8//z//f/8//3//P/9//z//f////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3///wAA/38AAP9/AAD/fwAA/3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_sc04t")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xm1ix"]
+size = Vector3(2, 32.666016, 2)
+
+[node name="StreetPavement" type="StaticBody3D" unique_id=1367026085]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="Parking" type="MeshInstance3D" parent="." unique_id=1147275212]
+transform = Transform3D(-4.371139e-07, 0, -10, 0, 2, 0, 10, 0, -4.371139e-07, 0, -1.9, 0)
+mesh = SubResource("ArrayMesh_l01pl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2062010738]
+transform = Transform3D(-4.3711387e-07, 0, -9.999997, 0, 0.121999994, 0, 9.999997, 0, -4.3711387e-07, 0, -1.9, 0)
+shape = SubResource("BoxShape3D_xm1ix")

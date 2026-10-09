@@ -18,13 +18,6 @@ func _ready() -> void:
 	var window = get_window()
 	window.size = Vector2i(DisplayServer.window_get_size().x * 2, DisplayServer.window_get_size().y * 2)
 	
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("alt"):
-		save_settings()
-	
-	if Input.is_action_just_pressed("toggle"):
-		load_settings()
-	
 func save_settings():
 	settings_resource = PlayerSettings.new()
 	

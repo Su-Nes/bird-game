@@ -519,6 +519,11 @@ albedo_color = Color(0.94509804, 0, 0.13725491, 0.60784316)
 [sub_resource type="SphereShape3D" id="SphereShape3D_qkran"]
 radius = 0.6
 
+[sub_resource type="Curve" id="Curve_urvmy"]
+_limits = [-80.0, 5.0, 0.0, 100.0]
+_data = [Vector2(0, -80), 0.0, 2.292187, 0, 0, Vector2(100, -5), 0.101592354, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n84ad"]
 bg_color = Color(0.3137255, 0.7764706, 0.5137255, 1)
 
@@ -530,11 +535,6 @@ bg_color = Color(0.77254903, 0.39215687, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7pa4"]
 bg_color = Color(0.7607843, 0.9411765, 0.9843137, 1)
-
-[sub_resource type="Curve" id="Curve_urvmy"]
-_limits = [-80.0, 5.0, 0.0, 100.0]
-_data = [Vector2(0, -80), 0.0, 2.292187, 0, 0, Vector2(100, -5), 0.101592354, 0.0, 0, 0]
-point_count = 2
 
 [node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH") groups=["Player"]]
 collision_layer = 2
@@ -637,10 +637,10 @@ margin = 1.0
 [node name="Camera3D" type="Camera3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring" unique_id=1870356551 node_paths=PackedStringArray("CONTROLLER")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 fov = 100.0
-far = 1500.0
+far = 1000.0
 script = ExtResource("7_l7evj")
 CONTROLLER = NodePath("../../../../..")
-MAX_FOV = 160.0
+MAX_FOV = 130.0
 FOV_CURVE = SubResource("Curve_n68f6")
 
 [node name="InteractableRay" type="RayCast3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D" unique_id=1582326067 node_paths=PackedStringArray("GRAB_SCRIPT", "RETICLE_IDLE", "RETICLE_ACTIVE")]
@@ -703,7 +703,7 @@ HOVER_SPEED = 4.0
 FLIGHT_TRANSITION_VELOCITY = 6.0
 TIME_FOR_DOUBLE_TAP_FLY = 0.25
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
-CAMERA_FOLLOW_STRENGTH = 0.1
+CAMERA_FOLLOW_STRENGTH = 0.0
 CAMERA_POSITION = Vector3(0.5, 0.6, -0.5)
 CAMERA_DISTANCE = 1.5
 CAMERA_MOVE_LERP = 2.0
@@ -724,7 +724,7 @@ BREAK_CURVE = SubResource("Curve_ds2wf")
 CRASH_VELOCITY = 4.0
 CRASH_SPEED_MOD = 0.2
 BREAK_TURN_MODIFIER = 2.0
-CONSTANT_FLAP_COST = 6.0
+CONSTANT_FLAP_COST = 4.0
 TIME_FOR_FLAP = 0.2
 FLAP_COST = 10.0
 PITCH_ROLL_COMPENSATION = 0.25
@@ -820,6 +820,42 @@ monitorable = false
 shape = SubResource("SphereShape3D_qkran")
 debug_fill = false
 
+[node name="Audio" type="Node3D" parent="." unique_id=910945727]
+
+[node name="GeneralAmbience" type="AudioStreamPlayer3D" parent="Audio" unique_id=245726153]
+stream = ExtResource("32_n68f6")
+attenuation_model = 3
+autoplay = true
+panning_strength = 0.0
+
+[node name="SpeedWind" type="AudioStreamPlayer3D" parent="Audio" unique_id=317451995]
+stream = ExtResource("34_1c4sq")
+attenuation_model = 3
+volume_db = -80.0
+autoplay = true
+script = ExtResource("32_boddd")
+VOLUME_CURVE = SubResource("Curve_urvmy")
+
+[node name="Flaps" type="AudioStreamPlayer3D" parent="Audio" unique_id=2002895252]
+stream = ExtResource("35_1c4sq")
+attenuation_model = 3
+bus = &"SFX"
+
+[node name="Footsteps" type="AudioStreamPlayer3D" parent="Audio" unique_id=580416382]
+stream = ExtResource("36_d6s72")
+attenuation_model = 3
+volume_db = -5.0
+pitch_scale = 1.5
+bus = &"SFX"
+script = ExtResource("36_urvmy")
+DISTANCE_PER_FOOTSTEP = 30.0
+
+[node name="Crash" type="AudioStreamPlayer3D" parent="Audio" unique_id=1235852624]
+stream = ExtResource("17_vui7j")
+attenuation_model = 3
+pitch_scale = 0.9
+panning_strength = 0.0
+
 [node name="HUD&Stats" type="Control" parent="." unique_id=28684432 node_paths=PackedStringArray("STAMINA_UI")]
 layout_mode = 3
 anchors_preset = 15
@@ -910,41 +946,5 @@ visible = false
 
 [node name="FaintMenu" parent="." unique_id=1307687841 instance=ExtResource("29_kl3dy")]
 visible = false
-
-[node name="Audio" type="Node3D" parent="." unique_id=910945727]
-
-[node name="GeneralAmbience" type="AudioStreamPlayer3D" parent="Audio" unique_id=245726153]
-stream = ExtResource("32_n68f6")
-attenuation_model = 3
-autoplay = true
-panning_strength = 0.0
-
-[node name="SpeedWind" type="AudioStreamPlayer3D" parent="Audio" unique_id=317451995]
-stream = ExtResource("34_1c4sq")
-attenuation_model = 3
-volume_db = -80.0
-autoplay = true
-script = ExtResource("32_boddd")
-VOLUME_CURVE = SubResource("Curve_urvmy")
-
-[node name="Flaps" type="AudioStreamPlayer3D" parent="Audio" unique_id=2002895252]
-stream = ExtResource("35_1c4sq")
-attenuation_model = 3
-bus = &"SFX"
-
-[node name="Footsteps" type="AudioStreamPlayer3D" parent="Audio" unique_id=580416382]
-stream = ExtResource("36_d6s72")
-attenuation_model = 3
-volume_db = -5.0
-pitch_scale = 1.5
-bus = &"SFX"
-script = ExtResource("36_urvmy")
-DISTANCE_PER_FOOTSTEP = 30.0
-
-[node name="Crash" type="AudioStreamPlayer3D" parent="Audio" unique_id=1235852624]
-stream = ExtResource("17_vui7j")
-attenuation_model = 3
-pitch_scale = 0.9
-panning_strength = 0.0
 
 [connection signal="body_entered" from="FishingCollider" to="GrabController" method="_on_grab_area_body_entered"]

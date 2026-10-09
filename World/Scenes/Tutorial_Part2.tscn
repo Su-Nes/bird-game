@@ -14,10 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://dpvccn6h5243h" path="res://Entities/Pickups/Placeables/Branches/OakBranch.tscn" id="11_ucq1f"]
 [ext_resource type="PackedScene" uid="uid://ct7esywm4lggm" path="res://World/Objects/Trees/Scenes/OakTree1.tscn" id="12_gif48"]
 [ext_resource type="PackedScene" uid="uid://dcaqmr8n5v177" path="res://Entities/Pickups/Placeables/Branches/OakBranch_small.tscn" id="13_nau6f"]
-[ext_resource type="PackedScene" uid="uid://c27pkcm4rppiy" path="res://Entities/Pickups/Placeables/Flowers/Tulip.tscn" id="17_lc5ar"]
+[ext_resource type="PackedScene" uid="uid://c27pkcm4rppiy" path="res://Entities/Pickups/Placeables/Decorations/Flowers/Tulip.tscn" id="17_lc5ar"]
 [ext_resource type="Shader" uid="uid://cpnyel6dxqphc" path="res://World/Shaders/LeavesFalling.gdshader" id="17_xk7wl"]
 [ext_resource type="Texture2D" uid="uid://1mrsn80kvdoo" path="res://World/Shaders/Leaf_64.png" id="18_lc5ar"]
-[ext_resource type="PackedScene" uid="uid://l3uqhubwsy3t" path="res://Entities/Pickups/Decorations/PrettyRock.tscn" id="19_qlmqb"]
+[ext_resource type="PackedScene" uid="uid://l3uqhubwsy3t" path="res://Entities/Pickups/Placeables/Decorations/PrettyRock.tscn" id="19_qlmqb"]
+[ext_resource type="Script" uid="uid://hy5s4raydxvk" path="res://Player/Scripting/UI/Menus/WinScreen.gd" id="19_xsd6f"]
+[ext_resource type="AudioStream" uid="uid://gmabrkh3uwh8" path="res://Player/Audio/WinTune.wav" id="20_qlmqb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yur33"]
 size = Vector3(600.02576, 309.8042, 668.91846)
@@ -79,6 +81,12 @@ albedo_texture = ExtResource("18_lc5ar")
 [sub_resource type="PlaneMesh" id="PlaneMesh_qlmqb"]
 material = SubResource("StandardMaterial3D_o3po2")
 size = Vector2(0.75, 0.75)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qkran"]
+font = ExtResource("8_lc5ar")
+font_size = 60
+outline_size = 7
+outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
 [node name="Tutorial" type="Node3D" unique_id=341969770 node_paths=PackedStringArray("NEST")]
 script = ExtResource("1_t4vkm")
@@ -462,7 +470,65 @@ local_coords = true
 process_material = SubResource("ShaderMaterial_xsd6f")
 draw_pass_1 = SubResource("PlaneMesh_qlmqb")
 
+[node name="WinScreen" type="Control" parent="." unique_id=172216686 node_paths=PackedStringArray("WIN_AUDIO")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_xsd6f")
+WIN_AUDIO = NodePath("WinAudio")
+
+[node name="MarginContainer" type="MarginContainer" parent="WinScreen" unique_id=1956847817]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.072916664
+anchor_top = 0.05
+anchor_right = 0.9270833
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu" type="VBoxContainer" parent="WinScreen/MarginContainer" unique_id=662206533]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="WinScreen/MarginContainer/Menu" unique_id=1693371460]
+layout_mode = 2
+text = "Good job, bird!"
+label_settings = SubResource("LabelSettings_qkran")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="WinScreen/MarginContainer/Menu" unique_id=923266316]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Resume" type="Button" parent="WinScreen/MarginContainer/Menu/Buttons" unique_id=312023862]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Finish Tutorial"
+
+[node name="Reload" type="Button" parent="WinScreen/MarginContainer/Menu/Buttons" unique_id=530840903]
+visible = false
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reload"
+
+[node name="WinAudio" type="AudioStreamPlayer3D" parent="WinScreen" unique_id=148150039]
+stream = ExtResource("20_qlmqb")
+attenuation_model = 3
+volume_db = -3.0
+
 [connection signal="body_entered" from="PlayerBounds" to="." method="_on_player_bounds_body_entered"]
 [connection signal="body_exited" from="PlayerBounds" to="." method="_on_player_bounds_body_exited"]
 [connection signal="body_entered" from="Sections/NestBuildingSection/NestArea" to="Sections/NestBuildingSection/NestArea" method="_on_body_entered"]
 [connection signal="body_exited" from="Sections/NestBuildingSection/NestArea" to="Sections/NestBuildingSection/NestArea" method="_on_body_exited"]
+[connection signal="pressed" from="WinScreen/MarginContainer/Menu/Buttons/Resume" to="." method="load_next_scene"]
+[connection signal="pressed" from="WinScreen/MarginContainer/Menu/Buttons/Reload" to="WinScreen" method="_on_reload_pressed"]

@@ -10,9 +10,6 @@ class_name TutorialManager
 func _ready() -> void:
 	StatController.max_stamina_reached.connect(load_next_scene)
 	StatController.drain_enabled = false
-	
-	if NEST:
-		NEST.decor_target_reached.connect(load_next_scene)
 
 func _on_player_reset_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):

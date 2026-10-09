@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="4_7pm5o"]
 [ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="4_p1t8e"]
 [ext_resource type="PackedScene" uid="uid://rbf3r26b40pt" path="res://World/Terrain/World.tscn" id="5_7pm5o"]
+[ext_resource type="PackedScene" uid="uid://jquro10032sp" path="res://Player/Scripting/UI/Menus/WinScreen.tscn" id="6_ber85"]
 
 [node name="Main" type="Node3D" unique_id=2109053146]
 script = ExtResource("1_7pm5o")
@@ -18,3 +19,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 523.87103, 265.37842, -87.082
 transform = Transform3D(-0.81275344, 0, 0.5826078, 0, 1, 0, -0.5826078, 0, -0.81275344, 920.1606, 151.47607, 311.63187)
 
 [node name="Terrain" parent="." unique_id=750404762 instance=ExtResource("5_7pm5o")]
+
+[node name="WinScreen" parent="." unique_id=172216686 instance=ExtResource("6_ber85")]

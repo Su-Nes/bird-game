@@ -66,11 +66,12 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [node name="PineTree1" type="StaticBody3D" unique_id=1563042728 node_paths=PackedStringArray("SPAWN_MARKER_PARENT")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_y0wtv")
 BRANCHES = Array[PackedScene]([ExtResource("2_cqex0")])
 SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
 SPAWN_OFFSET = 0.5
-RAND_BRANCHES_PER_METER = Vector2(0, 0.3)
+RAND_BRANCHES_PER_METER = Vector2(0, 0.2)
 CHANCE_FOR_BRANCH_GROWTH = 0.35
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1077600888]

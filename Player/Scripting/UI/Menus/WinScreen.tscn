@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://jquro10032sp"]
+
+[ext_resource type="Script" uid="uid://hy5s4raydxvk" path="res://Player/Scripting/UI/Menus/WinScreen.gd" id="1_qxqta"]
+[ext_resource type="Texture2D" uid="uid://bs37rbn8l1iym" path="res://Common/UI/Hearts_128.png" id="2_d11kf"]
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="2_qxqta"]
+[ext_resource type="AudioStream" uid="uid://gmabrkh3uwh8" path="res://Player/Audio/WinTune.wav" id="3_d11kf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qkran"]
+font = ExtResource("2_qxqta")
+font_size = 60
+outline_size = 7
+outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ge71y"]
+font = ExtResource("2_qxqta")
+font_size = 21
+outline_size = 7
+outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
+
+[node name="WinScreen" type="Control" unique_id=172216686 node_paths=PackedStringArray("WIN_AUDIO")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qxqta")
+WIN_AUDIO = NodePath("WinAudio")
+
+[node name="Hearts" type="TextureRect" parent="." unique_id=860609758]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 81.999985
+offset_right = 137.0
+offset_bottom = 209.99998
+rotation = -0.27052602
+texture = ExtResource("2_d11kf")
+
+[node name="Hearts2" type="TextureRect" parent="." unique_id=1997898847]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 27.0
+offset_right = 465.0
+offset_bottom = 155.0
+rotation = 0.23544052
+texture = ExtResource("2_d11kf")
+
+[node name="Hearts3" type="TextureRect" parent="." unique_id=1123171793]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 142.0
+offset_right = 273.0
+offset_bottom = 270.0
+rotation = -0.14862189
+scale = Vector2(0.5644394, 0.5644394)
+texture = ExtResource("2_d11kf")
+
+[node name="Hearts4" type="TextureRect" parent="." unique_id=1649621904]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 133.0
+offset_right = 389.0
+offset_bottom = 261.0
+rotation = 0.21304473
+scale = Vector2(0.5644394, 0.5644394)
+texture = ExtResource("2_d11kf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1956847817]
+z_index = 10
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.072916664
+anchor_top = 0.05
+anchor_right = 0.9270833
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu" type="VBoxContainer" parent="MarginContainer" unique_id=662206533]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="MarginContainer/Menu" unique_id=1693371460]
+layout_mode = 2
+text = "Beautiful!"
+label_settings = SubResource("LabelSettings_qkran")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Title2" type="Label" parent="MarginContainer/Menu" unique_id=708693236]
+layout_mode = 2
+text = "Thank you for playing!"
+label_settings = SubResource("LabelSettings_ge71y")
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/Menu" unique_id=923266316]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9.87)
+
+[node name="KeepPlaying" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=312023862]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Keep Playing"
+
+[node name="Quit" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=876093582]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Save & Quit"
+
+[node name="WinAudio" type="AudioStreamPlayer3D" parent="." unique_id=148150039]
+stream = ExtResource("3_d11kf")
+attenuation_model = 3
+volume_db = -3.0
+
+[connection signal="pressed" from="MarginContainer/Menu/Buttons/KeepPlaying" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/Menu/Buttons/Quit" to="." method="on_quit_pressed"]

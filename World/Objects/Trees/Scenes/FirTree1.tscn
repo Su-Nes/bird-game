@@ -140,7 +140,7 @@ void fragment() {
 resource_name = "PineLeaves"
 render_priority = 0
 shader = SubResource("Shader_cqex0")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo = Color(0.5284171, 0.6557222, 0.27656162, 1)
 shader_parameter/texture_albedo = ExtResource("5_xgkwv")
 shader_parameter/distance_fade_min = 0.0
 shader_parameter/distance_fade_max = 5.0
@@ -213,6 +213,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pjny4")
 
 [node name="FirTree1" type="StaticBody3D" unique_id=478531745 node_paths=PackedStringArray("SPAWN_MARKER_PARENT")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
 script = ExtResource("1_rvll5")
 BRANCHES = Array[PackedScene]([ExtResource("2_xgkwv")])
 SPAWN_MARKER_PARENT = NodePath("BranchSpawns")

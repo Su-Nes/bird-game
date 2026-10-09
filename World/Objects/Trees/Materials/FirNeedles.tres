@@ -6,7 +6,7 @@
 resource_name = "PineLeaves"
 transparency = 1
 depth_draw_mode = 1
-albedo_color = Color(0.7137255, 0.6784314, 0.23137255, 0.98039216)
+albedo_color = Color(0.7850459, 0.61102897, 0.62431407, 0.98039216)
 albedo_texture = ExtResource("1_gngdl")
 roughness = 0.76
 distance_fade_mode = 2

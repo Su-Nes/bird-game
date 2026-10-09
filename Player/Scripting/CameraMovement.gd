@@ -20,13 +20,11 @@ var target_position : Vector3 = Vector3(0, .7, 0)
 var lerp_value : float = .1
 var camera_side = 1
 
-
+var mouse_input : Vector2
 func _input(event):
 	# Mouse look
 	if event is InputEventMouseMotion:
-		pivot.rotate_y(deg_to_rad(-event.screen_relative.x * PlayerParameters.player_camera_sensitivity * get_process_delta_time()))
-		var inverted = -1.0 if PlayerParameters.player_camera_inverted else 1.0
-		rotate_x(deg_to_rad(-event.screen_relative.y * PlayerParameters.player_camera_sensitivity * get_process_delta_time()) * inverted)
+		mouse_input = event.screen_relative
 		
 		disable_look_timer = 0
 		
@@ -43,16 +41,6 @@ func _process(delta: float):
 	if rot_clamped:
 		rotation.x = clampf(rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	
-	# Change camera side based on camera and bird angle
-	#var flat_camera_forward = get_camera_forward()
-	#flat_camera_forward.y = 0
-	#var angle = flat_camera_forward.normalized().signed_angle_to(-$"../../Mesh".global_basis.z, Vector3.UP)
-#
-	#if rad_to_deg(angle) > SIDE_SWITCH_SENSITIVITY:
-		#camera_side = -1
-	#elif rad_to_deg(angle) < -SIDE_SWITCH_SENSITIVITY:
-		#camera_side = 1
-	
 	position.x = lerp(position.x, abs(target_position.x) * camera_side, lerp_value * delta)
 	
 	# timer for camera look when moving ze camera
@@ -61,7 +49,14 @@ func _process(delta: float):
 		
 	if Input.is_action_just_released("alt"):
 		disable_look_timer = 999.0
-
+		
+		
+	# MOUSE FUCKERY
+	pivot.rotate_y(deg_to_rad(-mouse_input.x * PlayerParameters.player_camera_sensitivity * delta))
+	var inverted = -1.0 if PlayerParameters.player_camera_inverted else 1.0
+	rotate_x(deg_to_rad(-mouse_input.y * PlayerParameters.player_camera_sensitivity * delta) * inverted)
+	
+	mouse_input = Vector2.ZERO
 	
 var previous_value : float
 var look_mod = .5

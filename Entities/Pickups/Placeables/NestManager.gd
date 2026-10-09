@@ -16,6 +16,8 @@ var decor_value = 0
 
 var placed_objects : Array[Placeable]
 
+var nest_complete = false
+
 signal decor_target_reached
 
 func _on_body_entered(body: Node3D) -> void:
@@ -49,14 +51,19 @@ func _process(_delta: float) -> void:
 func update_decor():
 	var decor_text : Label3D = NEST_STATISTICS.get_child(0)
 	
-	decor_text.text = "Decor score:\n%s/%s" % [decor_value, TARGET_DECOR_VALUE]
+	if nest_complete:
+		decor_text.text = "*Decor score:\n%s/%s*" % [decor_value, TARGET_DECOR_VALUE]
+		return
+	else:
+		decor_text.text = "Decor score:\n%s/%s" % [decor_value, TARGET_DECOR_VALUE]
 	
 	if decor_value < 5 and !IMMORTAL_NEST:
 		queue_free()
 		
 	if decor_value >= TARGET_DECOR_VALUE:
 		decor_target_reached.emit()
-		
+		Signals.win.emit()
+		nest_complete = true
 		
 func on_save_data(saved_data: Array[SavedData]):
 	var data = SavedData.new()

@@ -1,0 +1,119 @@
+[gd_scene format=4 uid="uid://bffrw4d7311l1"]
+
+[ext_resource type="Texture2D" uid="uid://jy0gutg60rmc" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Goverment_Front.png" id="1_2nbq2"]
+[ext_resource type="Texture2D" uid="uid://cgjex0gi3tsgj" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Goverment_Side.jpg" id="2_bitnj"]
+[ext_resource type="Texture2D" uid="uid://dh8el3h5s4uyu" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Sign.png" id="3_sl1oo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq4t7"]
+resource_name = "M_Goverment_Front"
+cull_mode = 2
+albedo_texture = ExtResource("1_2nbq2")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brx8i"]
+resource_name = "M_Goverment_Side"
+cull_mode = 2
+albedo_texture = ExtResource("2_bitnj")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8vr3"]
+resource_name = "M_Sign"
+cull_mode = 2
+albedo_texture = ExtResource("3_sl1oo")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v0qu5"]
+_surfaces = [{
+"aabb": AABB(-11.269988, -0.08067059, -6.5948577, 22.57122, 9.395469, 11.40901),
+"format": 34896613377,
+"index_count": 90,
+"index_data": PackedByteArray("EAAMABEAEgAQABEAEgATABAAEQAPABIAEQAMAA8AEgAOABMAEgAPAA4AEwANABAAEAANAAwAEwAOAA0AAwAPAAwAAQAOAA8AAwABAA8ABQANAA4AAQAFAA4ABgAMAA0ABgADAAwABQAGAA0AAgABAAMAAgADAAQABAADAAYAAAABAAIAAAAFAAEABAAGAAcABwAGAAUABwAFAAAACAAHAAAACAAJAAcACgAJAAgACgAIAAsA"),
+"lods": [0.0036100796, PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABAADAAYABAAGAAcABwAFAAAABwAGAAUACAAHAAAACAAJAAcACgAJAAgACgAIAAsABgADAAwABQAGAA0ABgAMAA0ABQANAA4AAQAFAA4ADwANAAwAAwAPAAwADwAOAA0AAwABAA8AAQAOAA8A")],
+"name": "M_Goverment_Front",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("efRxwGfpAAD//3HAAAAAAHn0ccCXFgAAAABxwAAAAACFC3HAlxYAAP//ccD//wAAAABxwP//AACFC3HAZ+kAAHn0AABn6QAAhQsAAGfpAACFCwAAlxYAAHn0AACXFgAAAAD//wAAAAAAAP////8AAP///////wAA/////wAAAACFC///Z+kAAIUL//+XFgAAefT//5cWAAB59P//Z+kAAA==")
+}, {
+"aabb": AABB(-10.253986, -0.08067059, -5.588087, 20.539219, 7.063027, 9.395469),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAEAAUABgAFAAcA"),
+"name": "M_Goverment_Side",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAAAAAAD///////8AAP////8AAAAA//8AAP//AAAAAAAAAAAAAAAA//8AAAAAAAAAAP//AAAAAP////8AAA==")
+}, {
+"aabb": AABB(-6.428264, 9.314798, 4.4517646, 12.7003, 5.027273, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "M_Sign",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAD/////AAAAAP//AAAAAAAAAAD//wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bmgso"]
+resource_name = "Soviet PSX City Pack_blend1_Cube_006"
+_surfaces = [{
+"aabb": AABB(-11.269988, -0.08067059, -6.5948577, 22.57122, 9.395469, 11.40901),
+"attribute_data": PackedByteArray("K8cshR3IUp0rx/yaELNSnR3I1oICtPyaArQshRCz1oICtPyaK8cshSvH/JoCtCyFm7B7nvPEM4LzxHuem7Azgv////8BZ8af///GnwFn//8Rk8afq9L/fxGT/3+r0safmeHGnwc6/3+Z4f9/BzrGn6vSxp8Rk/9/q9L/fxGTxp/h58afATL/f+Hn/38BMsafCMSyhAjE/JuGsfybhrGyhA=="),
+"format": 34896613399,
+"index_count": 90,
+"index_data": PackedByteArray("JAAOACUAJQAOAAwAJAANAA4AJQAMACYAJgAkACUAJgAMAA8AJwANACQAJgAnACQAJwAPAA0AJgAPACcAAAABAAIAAgABAAMAAAAEAAEAAgADAAUABgAEAAAABQADAAcABgAHAAQABQAHAAYACAAJAAoACAALAAkAEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEA"),
+"lods": [0.0036100796, PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUABgAEAAAABQADAAcABgAHAAQABQAHAAYACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEA")],
+"material": SubResource("StandardMaterial3D_sq4t7"),
+"name": "M_Goverment_Front",
+"primitive": 3,
+"uv_scale": Vector4(2.5161018, 2, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("efRxwGfp/7///3HAAAD/v3n0ccCXFv+/AABxwAAA/7///3HA////v4ULccCXFv+/hQtxwGfp/78AAHHA////v4ULAACXFv+/efQAAGfp/7959AAAlxb/v4ULAABn6f+//////wAA//8AAP///////wAA//8AAP////////////959AAAZ+kAgIULccBn6QCAefRxwGfpAICFCwAAZ+kAgAAAccD//wAAAAD//wAAAAAAAP////8AAAAAccAAAAAAAABxwAAA////////AAD//wAA//8AAP////9xwAAA/////3HAAAD/v/////////+//////wAA/7///3HA////v///ccD//wCAAAD/////AID///////8AgAAAccD//wCAhQv//2fp//+FC///lxb//3n0//+XFv//efT//2fp//8AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+//3////9/////f////3////8//3//P/9//z//f/8//3//f////3////9/////f////38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f/+//3//v/9//7//f/+/")
+}, {
+"aabb": AABB(-10.253986, -0.08067059, -5.588087, 20.539219, 7.063027, 9.395469),
+"attribute_data": PackedByteArray("48H//xs+jT/jwY0/Gz7///////8AAI0///+NPwAA//8bPv//48GNPxs+jT/jwf//"),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"material": SubResource("StandardMaterial3D_brx8i"),
+"name": "M_Goverment_Side",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("//8AAAAA/7//////////v/////8AAP+///8AAP///78AAAAAAAD///////8AAP//AAD//wAA/////wAAAAD//wAAAAD//wAAAAD//wAAAAAAAP////8AAAAAAAAAAAAA/38AAP9/AAD/fwAA/38AAP9/////f////3////9/////P/9//z//f/8//3//P/9/")
+}, {
+"aabb": AABB(-6.428264, 9.314798, 4.4517646, 12.7003, 5.027273, 1e-05),
+"attribute_data": PackedByteArray("JhGL6tjucxXY7ovqJhFzFQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_o8vr3"),
+"name": "M_Sign",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAID/////AAAAgP//AAAAAACAAAD//wAAAID/f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_v0qu5")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tofc8"]
+data = PackedVector3Array(-10.2543, 9.314799, 3.8072, -11.2699995, 9.314799, -6.5948997, -10.2543, 9.314799, -5.5881, -10.2543, 9.314799, -5.5881, -11.2699995, 9.314799, -6.5948997, 11.3012, 9.314799, -6.5948997, -10.2543, 9.314799, 3.8072, -11.2699995, 9.314799, 4.8142, -11.2699995, 9.314799, -6.5948997, -10.2543, 9.314799, -5.5881, 11.3012, 9.314799, -6.5948997, 10.2852, 9.314799, -5.5881, 10.2852, 9.314799, -5.5881, -10.2543, 9.314799, 3.8072, -10.2543, 9.314799, -5.5881, 10.2852, 9.314799, -5.5881, 11.3012, 9.314799, -6.5948997, 11.3012, 9.314799, 4.8142, 10.2852, 9.314799, 3.8072, -11.2699995, 9.314799, 4.8142, -10.2543, 9.314799, 3.8072, 10.2852, 9.314799, -5.5881, 10.2852, 9.314799, 3.8072, -10.2543, 9.314799, 3.8072, 10.2852, 9.314799, 3.8072, 11.3012, 9.314799, 4.8142, -11.2699995, 9.314799, 4.8142, 10.2852, 9.314799, -5.5881, 11.3012, 9.314799, 4.8142, 10.2852, 9.314799, 3.8072, 10.2852, 6.9821997, 3.8072, 11.3012, 6.9821997, -6.5948997, 10.2852, 6.9821997, -5.5881, 10.2852, 6.9821997, -5.5881, 11.3012, 6.9821997, -6.5948997, -11.2699995, 6.9821997, -6.5948997, 10.2852, 6.9821997, 3.8072, 11.3012, 6.9821997, 4.8142, 11.3012, 6.9821997, -6.5948997, 10.2852, 6.9821997, -5.5881, -11.2699995, 6.9821997, -6.5948997, -10.2543, 6.9821997, -5.5881, -10.2543, 6.9821997, 3.8072, 11.3012, 6.9821997, 4.8142, 10.2852, 6.9821997, 3.8072, -10.2543, 6.9821997, -5.5881, -11.2699995, 6.9821997, -6.5948997, -11.2699995, 6.9821997, 4.8142, -10.2543, 6.9821997, 3.8072, -11.2699995, 6.9821997, 4.8142, 11.3012, 6.9821997, 4.8142, -10.2543, 6.9821997, -5.5881, -11.2699995, 6.9821997, 4.8142, -10.2543, 6.9821997, 3.8072, -10.2543, -0.080699995, -5.5881, 10.2852, -0.080699995, 3.8072, 10.2852, -0.080699995, -5.5881, -10.2543, -0.080699995, -5.5881, -10.2543, -0.080699995, 3.8072, 10.2852, -0.080699995, 3.8072, 10.2852, -0.080699995, 3.8072, -10.2543, 6.9821997, 3.8072, 10.2852, 6.9821997, 3.8072, 10.2852, -0.080699995, 3.8072, -10.2543, -0.080699995, 3.8072, -10.2543, 6.9821997, 3.8072, -11.2699995, 6.9821997, 4.8142, -11.2699995, 9.314799, -6.5948997, -11.2699995, 9.314799, 4.8142, -11.2699995, 6.9821997, 4.8142, -11.2699995, 6.9821997, -6.5948997, -11.2699995, 9.314799, -6.5948997, -11.2699995, 6.9821997, -6.5948997, 11.3012, 9.314799, -6.5948997, -11.2699995, 9.314799, -6.5948997, -11.2699995, 6.9821997, -6.5948997, 11.3012, 6.9821997, -6.5948997, 11.3012, 9.314799, -6.5948997, 11.3012, 6.9821997, -6.5948997, 11.3012, 9.314799, 4.8142, 11.3012, 9.314799, -6.5948997, 11.3012, 6.9821997, -6.5948997, 11.3012, 6.9821997, 4.8142, 11.3012, 9.314799, 4.8142, 11.3012, 6.9821997, 4.8142, -11.2699995, 9.314799, 4.8142, 11.3012, 9.314799, 4.8142, 11.3012, 6.9821997, 4.8142, -11.2699995, 6.9821997, 4.8142, -11.2699995, 9.314799, 4.8142, 10.2852, -0.080699995, -5.5881, 10.2852, 6.9824, 3.8074, 10.2852, 6.9824, -5.5881, 10.2852, -0.080699995, -5.5881, 10.2852, -0.080699995, 3.8074, 10.2852, 6.9824, 3.8074, -10.254, -0.080699995, -5.5881, 10.2852, 6.9824, -5.5881, -10.254, 6.9824, -5.5881, -10.254, -0.080699995, -5.5881, 10.2852, -0.080699995, -5.5881, 10.2852, 6.9824, -5.5881, -10.254, -0.080699995, 3.8074, -10.254, 6.9824, -5.5881, -10.254, 6.9824, 3.8074, -10.254, -0.080699995, 3.8074, -10.254, -0.080699995, -5.5881, -10.254, 6.9824, -5.5881, -6.4283, 9.314799, 4.4518, 6.272, 14.342099, 4.4518, 6.272, 9.314799, 4.4518, -6.4283, 9.314799, 4.4518, -6.4283, 14.342099, 4.4518, 6.272, 14.342099, 4.4518)
+
+[node name="TownHall" type="StaticBody3D" unique_id=538762799]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="Goverment" type="MeshInstance3D" parent="." unique_id=1171722104]
+mesh = SubResource("ArrayMesh_bmgso")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=655467297]
+shape = SubResource("ConcavePolygonShape3D_tofc8")

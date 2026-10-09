@@ -271,3 +271,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 occlusion_culling/occlusion_rays_per_thread=256
 occlusion_culling/use_occlusion_culling=true
+mesh_lod/lod_change/threshold_pixels=4.0

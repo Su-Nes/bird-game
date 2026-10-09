@@ -3,6 +3,7 @@ extends Node
 
 var pause_menu : PauseMenuScript
 var faint_menu : FaintMenuScript
+var win_menu : WinScreen
 
 var paused = false
 
@@ -12,6 +13,7 @@ signal has_unpaused
 
 func _ready() -> void:
 	StatController.has_fainted.connect(on_faint)
+	Signals.win.connect(on_win)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -67,3 +69,18 @@ func on_revive():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	faint_menu.hide()
+	
+func on_win():
+	win_menu.show()
+	win_menu.play_win()
+	
+	Engine.time_scale = 0.0
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	has_paused.emit()
+	
+func on_quit():
+	if get_tree().current_scene.name == "Main":
+		SaverLoader.save_game()
+	PlayerParameters.save_settings()
+	get_tree().quit()

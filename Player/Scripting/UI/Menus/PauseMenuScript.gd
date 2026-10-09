@@ -52,10 +52,7 @@ func _on_resume_pressed() -> void:
 	MenuManager.on_unpaused()
 	
 func _on_quit_pressed() -> void:
-	if get_tree().current_scene.name == "Main":
-		SaverLoader.save_game()
-	PlayerParameters.save_settings()
-	get_tree().quit()
+	MenuManager.on_quit()
 
 func _on_reload_pressed() -> void:
 	MenuManager.on_revive()

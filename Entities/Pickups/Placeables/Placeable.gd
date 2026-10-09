@@ -15,15 +15,14 @@ var MINIMUM_PLACED_OBJECTS_FOR_NEST := 5
 var detection_area : Area3D
 
 
-
 func _ready() -> void:
 	if RIGIDBODY:
 		RIGIDBODY.freeze = true
 
-
-
 func on_placed():
 	is_placed = true
+	
+	add_to_group("Persistent", true)
 	
 	handle_colliders()
 	create_detection_area()

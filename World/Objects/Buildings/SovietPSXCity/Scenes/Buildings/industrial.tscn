@@ -1,0 +1,152 @@
+[gd_scene format=4 uid="uid://d1cduv1v5bt7e"]
+
+[ext_resource type="Texture2D" uid="uid://drhrikodqvsyv" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_WerehouseFront.jpg" id="1_6pafs"]
+[ext_resource type="Texture2D" uid="uid://c3gimsgjtd1d6" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_WereHouseSide.jpg" id="2_mgcny"]
+[ext_resource type="Texture2D" uid="uid://xyssytaxsui3" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Asbestos.jpg" id="3_7vpwo"]
+[ext_resource type="Texture2D" uid="uid://wtgv330hn1js" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Chimneys.jpg" id="4_5t0nq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wby41"]
+resource_name = "M_WerehouseFront"
+cull_mode = 2
+albedo_texture = ExtResource("1_6pafs")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0rd8"]
+resource_name = "M_WereHouseSide"
+cull_mode = 2
+albedo_texture = ExtResource("2_mgcny")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sk3mn"]
+resource_name = "T_Asbestos"
+cull_mode = 2
+albedo_texture = ExtResource("3_7vpwo")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wnui"]
+resource_name = "M_Chimneys"
+cull_mode = 2
+albedo_texture = ExtResource("4_5t0nq")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fvwbs"]
+_surfaces = [{
+"aabb": AABB(-5.443702, 0.043609053, -3.7734168, 10.830901, 10.44188, 16.76725),
+"format": 34896613377,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAQAFAAQABgAEAAUABgAHAAQACAAJAAoACQAIAAsACwAIAAwACQALAA0ADgAPABAADwAOABEAEQAOABIADwARABMA"),
+"lods": [0.90409887, PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAQAFAAQABgAEAAUABgAHAAQA")],
+"name": "M_WerehouseFront",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//9zxAAAAAAAA3PEAAAAA//8AAAAAAAAAANzx//8AAP//3PH//wAA//8AAP//AAAAAAAA//8AAEQXFu+mCQAASDwW76YJAADGKRbvvwIAAMYpFu9bHgAARBcW73QXAABIPBbvdBcAADFP//+mCQAANHT//6YJAACzYf//vwIAALNh//9bHgAAMU///3QXAAA0dP//dBcAAA==")
+}, {
+"aabb": AABB(-5.443702, 0.043609053, -3.7734168, 10.830901, 9.865409, 16.76725),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"name": "M_WereHouseSide",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD//wAAAAAAAP///////wAA/////wAAAAD//wAA//8AAA==")
+}, {
+"aabb": AABB(-5.9327087, 0.043609053, -4.282347, 11.882121, 11.865409, 17.785114),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABwAGAAUACAAEAAYABwAIAAYABAAJAAUACQAHAAUACQAEAAgACQAIAAcA"),
+"name": "T_Asbestos",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("iQoAAFMHAADi8wAAq/gAAOLzAABTBwAAiQoAAKv4AAAAANjU//8AAEiA//8AAAAASID///7/AAD//9jUAAAAAP//2NT//wAAAADY1AAAAAA=")
+}, {
+"aabb": AABB(-4.4591956, 9.795895, -3.5933862, 3.932062, 9.29368, 1.8081973),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABQACAAEAAwAGAAUABAACAAcACAAEAAcAAgAJAAcACAAHAAkAAgAFAAkACgAIAAkABgALAAUABgAKAAsACQAFAAsACgAJAAsADAANAA4ADAAPAA0AEAAMAA4ADwARAA0AEQAOAA0ADwASABEAEAAOABMAFAAQABMADgAVABMAFAATABUADgARABUAFgAUABUAEgAXABEAEgAWABcAFQARABcAFgAVABcA"),
+"name": "M_Chimneys",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("+TIAAAAAAADzZQDt/z8AAPkyAO0AAAAA82UAAP8/AAAAAAAA/z8AAPNlAO3/vwAA82UAAP+/AAAAAADt/z8AAAAAAAD/vwAAAAAA7f+/AAD5MgAA//8AAPkyAO3//wAABc3+EgAAAAD//////z8AAAXN//8AAAAA///+Ev8/AAALmv4S/z8AAP//////vwAA///+Ev+/AAALmv///z8AAAua/hL/vwAAC5r///+/AAAFzf4S//8AAAXN/////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_27e8q"]
+resource_name = "Soviet PSX City Pack_blend1_Cube_012"
+_surfaces = [{
+"aabb": AABB(-5.443702, 0.043609053, -3.7734168, 10.830901, 10.44188, 16.76725),
+"attribute_data": PackedByteArray("/////wAAAAD//wAAAAD///////8AAAAA//8AAAAA////n/9//9//P//f/3//n/8/vHtN7UKKTe3/ghzp/4Li+bx7sPVCirD1vHtN7UKKTe3/ghzp/4Li+bx7sPVCirD1"),
+"format": 34896613399,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADQAMAA8ADwAMABAADQAPABEAEgATABQAEwASABUAFQASABYAEwAVABcA"),
+"lods": [0.90409887, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA")],
+"material": SubResource("StandardMaterial3D_wby41"),
+"name": "M_WerehouseFront",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/////9zxAAD//wAA3PEAAP////8AAAAA/////wAA//8AgAAA3PH//wCA///c8f//AIAAAAAA//8AgP//3PEAAP//AADc8f////8AANzxAAD/////3PH/////RBcW76YJ/z9IPBbvpgn/P8YpFu+/Av8/xikW71se/z9EFxbvdBf/P0g8Fu90F/8/MU///6YJ/z80dP//pgn/P7Nh//+/Av8/s2H//1se/z8xT///dBf/PzR0//90F/8//3////9/////f////3////9/////f////3////9/////f/+//3//v/9//7//f/+/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/")
+}, {
+"aabb": AABB(-5.443702, 0.043609053, -3.7734168, 10.830901, 9.865409, 16.76725),
+"attribute_data": PackedByteArray("AAD/////AAAAAAAA//////////8AAAAA//8AAAAA//8="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_t0rd8"),
+"name": "M_WereHouseSide",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD//wAAAAD/v/////////+//////wAA/7///wAA////v/8//3//P/9//z//f/8//3//fwAA/38AAP9/AAD/fwAA")
+}, {
+"aabb": AABB(-5.9327087, 0.043609053, -4.282347, 11.882121, 11.865409, 17.785114),
+"attribute_data": PackedByteArray("/x//f/9f/z//X/9//x//PwAA//9IgAAASID+/wAAAAAAAP//AAAAAE4vtn///wAASID+/0iAAAD/////AAD//wAAAABOL0iAAAD/////AAD/////AAAAAA=="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAMAA0ACwAOAAwADwAQABEAEgATABQAEgAVABMA"),
+"material": SubResource("StandardMaterial3D_sk3mn"),
+"name": "T_Asbestos",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("iQoAAFMH/7/i8wAAq/j/v+LzAABTB/+/iQoAAKv4/78AANjU//8OwUiA//8AAA7BSID///7/DsEAANjUAAAOwQAA2NQAAP/////Y1AAA//9IgP//AAD/////2NQAABDBSID///7/EMFIgP//AAAQwf//2NT//xDB///Y1P///78AANjU////v0iA///+//+/AADY1AAA/7///9jU////v///2NQAAP+/AADY1P///78AAP9/AAD/fwAA/38AAP9/OvCInzrwiJ868IifOvCIn/+//7//v/+//7//v1vgLXBb4C1wW+AtcFvgLXD///////////////8AAP9/AAD/fwAA/38AAP9/")
+}, {
+"aabb": AABB(-4.4591956, 9.795895, -3.5933862, 3.932062, 9.29368, 1.8081973),
+"attribute_data": PackedByteArray("A7tp7auTlRIDu5USq5Np7auTae37RJUSq5OVEvtEae25vr3v/39BELm+QRD/f73v/3+970VBQRD/f0EQRUG97zKHv/VNgYrrMofx7ml7v/VNgSb5aXvx7kW8oe7oa10RRbxdEehroe7oa6HuuUNdEehrXRG5Q6HuA7tp7auTlRIDu5USq5Np7auTae37RJUSq5OVEvtEae25vr3v/39BELm+QRD/f73v/3+970VBQRD/f0EQRUG97zKHv/VNgYrrMofx7ml7v/VNgSb5aXvx7kW8oe7oa10RRbxdEehroe7oa6HuuUNdEehrXRG5Q6Hu"),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEQAQABMAEwAQABQAEQATABUAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHgAhAB8AIgAjACQAIgAlACMAJgAnACgAJgApACcAKgArACwAKgAtACsALgAvADAALwAuADEAMQAuADIALwAxADMANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkA"),
+"material": SubResource("StandardMaterial3D_2wnui"),
+"name": "M_Chimneys",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("+TIAAAAAqerzZQDt/z+p6vkyAO0AAKnq82UAAP8/qerzZQAA/z//v/NlAO3/v/+/82UA7f8//7/zZQAA/7//v/NlAAD/v1SV+TIA7f//VJXzZQDt/79UlfkyAAD//1SV+TIAAP//VJUAAADt/79UlfkyAO3//1SVAAAAAP+/VJXzZQDt/7//v/kyAO0AAP+/82UA7f8//78AAADt/7//v/kyAO3///+/AAAA7f8//78AAAAA/7//vwAAAO3/P/+/AAAA7f+//78AAAAA/z//vwAAAAD/P6nq+TIA7QAAqeoAAADt/z+p6vkyAAAAAKnqBc3+EgAAqer//////z+p6gXN//8AAKnq///+Ev8/qer///4S/z//v///////v/+///////8//7////4S/7//v////hL/v1SVBc3/////VJX//////79UlQXN/hL//1SVBc3+Ev//VJULmv///79UlQXN/////1SVC5r+Ev+/VJX//////7//vwXN//8AAP+///////8//78Lmv///7//vwXN//////+/C5r///8//78Lmv4S/7//vwua////P/+/C5r///+//78Lmv4S/z//vwua/hL/P6nqBc3//wAAqeoLmv///z+p6gXN/hIAAKnq/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f////3////7//3////9//v//f/7//3////9//v//f/9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f////3////7//3////9//v//f/7//3////9//v//f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fvwbs")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ebmic"]
+data = PackedVector3Array(-5.4437, 0.0436, -3.7733998, 5.3872, 9.908899, -3.7733998, -5.4437, 9.908899, -3.7733998, -5.4437, 0.0436, -3.7733998, 5.3872, 0.0436, -3.7733998, 5.3872, 9.908899, -3.7733998, 5.3872, 0.0436, 12.993799, -5.4437, 9.908899, 12.993799, 5.3872, 9.908899, 12.993799, 5.3872, 0.0436, 12.993799, -5.4437, 0.0436, 12.993799, -5.4437, 9.908899, 12.993799, 5.3872, 9.908899, -3.7733998, -5.4437, 9.908899, 12.993799, -5.4437, 9.908899, -3.7733998, 5.3872, 9.908899, -3.7733998, 5.3872, 9.908899, 12.993799, -5.4437, 9.908899, 12.993799, -4.4593997, 9.7957, -3.1415, -2.8932998, 9.7957, -3.1415, -3.6762998, 9.7957, -3.5935998, -2.8932998, 9.7957, -3.1415, -4.4593997, 9.7957, -3.1415, -3.6762998, 9.7957, -1.7852, -3.6762998, 9.7957, -1.7852, -4.4593997, 9.7957, -3.1415, -4.4593997, 9.7957, -2.2373, -2.8932998, 9.7957, -3.1415, -3.6762998, 9.7957, -1.7852, -2.8932998, 9.7957, -2.2373, -2.0932, 10.485499, -3.1415, -0.5273, 10.485499, -3.1415, -1.3102, 10.485499, -3.5935998, -0.5273, 10.485499, -3.1415, -2.0932, 10.485499, -3.1415, -1.3102, 10.485499, -1.7852, -1.3102, 10.485499, -1.7852, -2.0932, 10.485499, -3.1415, -2.0932, 10.485499, -2.2373, -0.5273, 10.485499, -3.1415, -1.3102, 10.485499, -1.7852, -0.5273, 10.485499, -2.2373, -5.4437, 0.0436, 12.993799, -5.4437, 9.908999, -3.7733998, -5.4437, 9.908999, 12.993799, -5.4437, 0.0436, 12.993799, -5.4437, 0.0436, -3.7733998, -5.4437, 9.908999, -3.7733998, 5.3872, 0.0436, -3.7733998, 5.3872, 9.908999, 12.993799, 5.3872, 9.908999, -3.7733998, 5.3872, 0.0436, -3.7733998, 5.3872, 0.0436, 12.993799, 5.3872, 9.908999, 12.993799, -5.4437, 0.0436, -3.7735, 5.3872, 0.0436, 12.9937, 5.3872, 0.0436, -3.7735, -5.4437, 0.0436, -3.7735, -5.4437, 0.0436, 12.9937, 5.3872, 0.0436, 12.9937, -5.9326997, 9.908899, 13.5028, 0.021499999, 11.908999, -4.2823, 0.021499999, 11.908999, 13.5025, -5.9326997, 9.908899, 13.5028, -5.9326997, 9.908899, -4.2823, 0.021499999, 11.908999, -4.2823, -5.9326997, 9.908899, -4.2823, 5.9494, 9.908899, -4.2823, 0.021499999, 11.908999, -4.2823, 5.9494, 9.908899, -4.2823, 0.021499999, 11.908999, 13.5025, 0.021499999, 11.908999, -4.2823, 5.9494, 9.908899, -4.2823, 5.9494, 9.908899, 13.5028, 0.021499999, 11.908999, 13.5025, 5.9494, 9.908899, 13.5028, -5.9326997, 9.908899, 13.5028, 0.021499999, 11.908999, 13.5025, -5.9326997, 9.908899, -4.2823, 5.9494, 9.908899, 13.5028, 5.9494, 9.908899, -4.2823, -5.9326997, 9.908899, -4.2823, -5.9326997, 9.908899, 13.5028, 5.9494, 9.908899, 13.5028, -3.6762998, 9.795899, -3.5934, -2.8932998, 18.3999, -3.1413999, -3.6762998, 18.3999, -3.5934, -3.6762998, 9.795899, -3.5934, -2.8932998, 9.795899, -3.1413999, -2.8932998, 18.3999, -3.1413999, -2.8932998, 9.795899, -3.1413999, -2.8932998, 18.3999, -2.2372, -2.8932998, 18.3999, -3.1413999, -2.8932998, 9.795899, -3.1413999, -2.8932998, 9.795899, -2.2372, -2.8932998, 18.3999, -2.2372, -2.8932998, 9.795899, -2.2372, -3.6762998, 18.3999, -1.7852, -2.8932998, 18.3999, -2.2372, -2.8932998, 9.795899, -2.2372, -3.6762998, 9.795899, -1.7852, -3.6762998, 18.3999, -1.7852, -3.6762998, 9.795899, -1.7852, -4.4592, 18.3999, -2.2372, -3.6762998, 18.3999, -1.7852, -3.6762998, 9.795899, -1.7852, -4.4592, 9.795899, -2.2372, -4.4592, 18.3999, -2.2372, -2.8932998, 18.3999, -2.2372, -3.6762998, 18.3999, -3.5934, -2.8932998, 18.3999, -3.1413999, -3.6762998, 18.3999, -3.5934, -2.8932998, 18.3999, -2.2372, -4.4592, 18.3999, -2.2372, -4.4592, 18.3999, -2.2372, -2.8932998, 18.3999, -2.2372, -3.6762998, 18.3999, -1.7852, -3.6762998, 18.3999, -3.5934, -4.4592, 18.3999, -2.2372, -4.4592, 18.3999, -3.1413999, -4.4592, 9.795899, -2.2372, -4.4592, 18.3999, -3.1413999, -4.4592, 18.3999, -2.2372, -4.4592, 9.795899, -2.2372, -4.4592, 9.795899, -3.1413999, -4.4592, 18.3999, -3.1413999, -4.4592, 9.795899, -3.1413999, -3.6762998, 18.3999, -3.5934, -4.4592, 18.3999, -3.1413999, -4.4592, 9.795899, -3.1413999, -3.6762998, 9.795899, -3.5934, -3.6762998, 18.3999, -3.5934, -1.3101, 10.4854, -3.5934, -0.52709997, 19.0896, -3.1413999, -1.3101, 19.0896, -3.5934, -1.3101, 10.4854, -3.5934, -0.52709997, 10.4854, -3.1413999, -0.52709997, 19.0896, -3.1413999, -0.52709997, 10.4854, -3.1413999, -0.52709997, 19.0896, -2.2372, -0.52709997, 19.0896, -3.1413999, -0.52709997, 10.4854, -3.1413999, -0.52709997, 10.4854, -2.2372, -0.52709997, 19.0896, -2.2372, -0.52709997, 10.4854, -2.2372, -1.3101, 19.0896, -1.7852, -0.52709997, 19.0896, -2.2372, -0.52709997, 10.4854, -2.2372, -1.3101, 10.4854, -1.7852, -1.3101, 19.0896, -1.7852, -1.3101, 10.4854, -1.7852, -2.0930998, 19.0896, -2.2372, -1.3101, 19.0896, -1.7852, -1.3101, 10.4854, -1.7852, -2.0930998, 10.4854, -2.2372, -2.0930998, 19.0896, -2.2372, -0.52709997, 19.0896, -2.2372, -1.3101, 19.0896, -3.5934, -0.52709997, 19.0896, -3.1413999, -1.3101, 19.0896, -3.5934, -0.52709997, 19.0896, -2.2372, -2.0930998, 19.0896, -2.2372, -2.0930998, 19.0896, -2.2372, -0.52709997, 19.0896, -2.2372, -1.3101, 19.0896, -1.7852, -1.3101, 19.0896, -3.5934, -2.0930998, 19.0896, -2.2372, -2.0930998, 19.0896, -3.1413999, -2.0930998, 10.4854, -2.2372, -2.0930998, 19.0896, -3.1413999, -2.0930998, 19.0896, -2.2372, -2.0930998, 10.4854, -2.2372, -2.0930998, 10.4854, -3.1413999, -2.0930998, 19.0896, -3.1413999, -2.0930998, 10.4854, -3.1413999, -1.3101, 19.0896, -3.5934, -2.0930998, 19.0896, -3.1413999, -2.0930998, 10.4854, -3.1413999, -1.3101, 10.4854, -3.5934, -1.3101, 19.0896, -3.5934)
+
+[node name="Industrial" type="StaticBody3D" unique_id=1052427497]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="IndustrialBuilding" type="MeshInstance3D" parent="." unique_id=616515167]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -4.583333)
+mesh = SubResource("ArrayMesh_27e8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1597120331]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -4.583333)
+shape = SubResource("ConcavePolygonShape3D_ebmic")
