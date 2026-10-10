@@ -5,6 +5,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtahq"]
 resource_name = "M_Asphalt"
 cull_mode = 2
+albedo_color = Color(0.84652233, 0.8909652, 0.81757647, 1)
 albedo_texture = ExtResource("1_bq2ch")
 roughness = 0.9
 texture_filter = 2

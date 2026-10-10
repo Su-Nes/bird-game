@@ -1,0 +1,54 @@
+[gd_scene format=4 uid="uid://bnqqeqo01t5lo"]
+
+[ext_resource type="Texture2D" uid="uid://ds8sdgmml24ag" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Dumpster.png" id="1_3knju"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvjvy"]
+resource_name = "M_Dumpster"
+cull_mode = 2
+albedo_texture = ExtResource("1_3knju")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_s0chd"]
+_surfaces = [{
+"aabb": AABB(-1.0971575, 0, -0.47078493, 2.194315, 1.4085699, 0.94156986),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "M_Dumpster",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAAotz//wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA//+i3P//AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tlcbe"]
+resource_name = "Soviet PSX City Pack_blend1_Cube_005"
+_surfaces = [{
+"aabb": AABB(-1.0971575, 0, -0.47078493, 2.194315, 1.4085699, 0.94156986),
+"attribute_data": PackedByteArray("/N/Oeb2c7w7830YgvZzOeafobOHXkZKep+iSnteRbOG2nMJ2h+EqJLacvA+H4cJ213y8ceYPQyHXfEMh5g+8cRYTmdyCeZqcgnmZ3BYTmpy7eRGU1REF5NUREZS7eQXk"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_wvjvy"),
+"name": "M_Dumpster",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP///78AAP//AAACwAAAotz//wDAAAAAAAAA/78AAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAABYB//+i3P//oAH/////AACVAv//AAD//wAA//8AAP//AIAAAKLc//8AgP//otz//wCAAAAAAP//AIAAAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AALG3AACi3P//sbcAAP//AACxt///otz//7G3/3///3WEw/3WgpP+6oEJ//9/////f////3////9///8yAWY/xwEbP88CmD7/v/9//3////9/////f////3///wAA/38AAP9/AAD/fwAA/3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_s0chd")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qci2v"]
+data = PackedVector3Array(-1.0971999, 0, 0.47079998, -1.0971999, 1.4086, -0.47079998, -1.0971999, 1.214, 0.47079998, -1.0971999, 0, 0.47079998, -1.0971999, 0, -0.47079998, -1.0971999, 1.4086, -0.47079998, -1.0971999, 0, -0.47079998, 1.0971999, 1.4086, -0.47079998, -1.0971999, 1.4086, -0.47079998, -1.0971999, 0, -0.47079998, 1.0971999, 0, -0.47079998, 1.0971999, 1.4086, -0.47079998, 1.0971999, 0, -0.47079998, 1.0971999, 1.214, 0.47079998, 1.0971999, 1.4086, -0.47079998, 1.0971999, 0, -0.47079998, 1.0971999, 0, 0.47079998, 1.0971999, 1.214, 0.47079998, 1.0971999, 0, 0.47079998, -1.0971999, 1.214, 0.47079998, 1.0971999, 1.214, 0.47079998, 1.0971999, 0, 0.47079998, -1.0971999, 0, 0.47079998, -1.0971999, 1.214, 0.47079998, -1.0971999, 0, -0.47079998, 1.0971999, 0, 0.47079998, 1.0971999, 0, -0.47079998, -1.0971999, 0, -0.47079998, -1.0971999, 0, 0.47079998, 1.0971999, 0, 0.47079998, 1.0971999, 1.4086, -0.47079998, -1.0971999, 1.214, 0.47079998, -1.0971999, 1.4086, -0.47079998, 1.0971999, 1.4086, -0.47079998, 1.0971999, 1.214, 0.47079998, -1.0971999, 1.214, 0.47079998)
+
+[node name="Bin" type="StaticBody3D" unique_id=2129580379]
+
+[node name="Dumpster" type="MeshInstance3D" parent="." unique_id=573547731]
+mesh = SubResource("ArrayMesh_tlcbe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=505453142]
+shape = SubResource("ConcavePolygonShape3D_qci2v")

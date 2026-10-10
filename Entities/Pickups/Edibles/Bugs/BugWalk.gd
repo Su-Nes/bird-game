@@ -7,6 +7,9 @@ class_name BugWalk
 
 @export var MOVE_SPEED : float = 5
 @export var RAND_DIR_CHANGE := Vector2(1, 3)
+@export var LIFETIME : float = 40
+
+var life_timer = 0.0
 
 var dir_timer : float
 
@@ -18,17 +21,33 @@ func enter():
 	
 
 func physics_update(_delta: float):
-	bug.velocity = -bug.global_basis.z * MOVE_SPEED * _delta
-	bug.velocity.y -= 2
-	DebugDraw3D.draw_sphere(bug.global_position, .5, Color.PEACH_PUFF)
-	var rot = bug.get_floor_normal()
-	rot.y = bug.global_rotation.y
-	bug.global_rotation = rot
+	var dir = -bug.global_basis.z
+	dir.y = 0
+	bug.velocity = dir * MOVE_SPEED * _delta
+	
+	if !bug.is_on_floor(): # add grav
+		bug.velocity.y -= gravity * _delta
+		
+	#DebugDraw3D.draw_sphere(bug.global_position, .5, Color.PEACH_PUFF)
+	#DebugDraw3D.draw_ray(bug.global_position, -bug.global_basis.z, 5, Color.RED)
+	#var rot = bug.get_floor_normal()
+	#rot.y = bug.global_rotation.y
+	#bug.global_rotation = rot
 	
 	if dir_timer > 0:
 		dir_timer -= _delta
 	else:
-		bug.rotate_y(randf_range(deg_to_rad(90), deg_to_rad(180)) * 1.0 if randf() > .5 else -1.0)
-		dir_timer = randf_range(RAND_DIR_CHANGE.x, RAND_DIR_CHANGE.y)
+		change_dir()
+	
+	if !bug.is_on_floor() or bug.is_on_wall():
+		change_dir()
 	
 	bug.move_and_slide()
+	
+	life_timer += _delta
+	if life_timer > LIFETIME:
+		queue_free()
+	
+func change_dir():
+	bug.rotate_y(randf_range(deg_to_rad(90), deg_to_rad(180)) * 1.0 if randf() > .5 else -1.0)
+	dir_timer = randf_range(RAND_DIR_CHANGE.x, RAND_DIR_CHANGE.y)

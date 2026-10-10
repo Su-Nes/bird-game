@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://djduaq5dcrf5n"]
+
+[ext_resource type="Script" uid="uid://bvkeke4dy4a43" path="res://Common/Scripts/Entity/AreaSpawner.gd" id="1_e2v7o"]
+[ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="2_tr0p4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
+size = Vector3(10, 0.1, 10)
+
+[node name="BugSpawner" type="Node3D" unique_id=1601154953 node_paths=PackedStringArray("SPAWN_AREA", "OBJECT_HOLDER")]
+script = ExtResource("1_e2v7o")
+SPAWN_AREA = NodePath("CollisionShape3D")
+SPAWNABLE = ExtResource("2_tr0p4")
+OBJECT_HOLDER = NodePath(".")
+SPAWN_TIME = Vector2(10, 40)
+SPAWN_GROUP = Vector2(2, 5)
+MAX_SPAWNED = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=713874303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14612696, 0)
+shape = SubResource("BoxShape3D_qkran")

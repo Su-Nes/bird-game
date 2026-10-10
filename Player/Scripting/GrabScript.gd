@@ -28,8 +28,7 @@ func grab_item(item: Interactable): ## If item has GrabPivot child it will use t
 		print("Too many items!")
 		return
 		
-	if item is Edible:
-		item.add_to_group("Persistent", true)
+	item.add_to_group("Persistent", true)
 	
 	if !item.get_parent():
 		GRAB_POINT.add_child(item)

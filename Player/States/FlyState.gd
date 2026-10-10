@@ -41,6 +41,7 @@ class_name FlyState
 @export var PITCH_ROT_LIMIT : float = 80.0
 @export var PITCH_ROLL_COMPENSATION : float = .5
 @export var ROLL_ROT_LIMIT : float = 60.0
+@export var MAX_BOUNCE_ANGLE : float = 30
 
 @export_category("Camera")
 @export var CAMERA_MOVEMENT : CameraMovement
@@ -206,7 +207,7 @@ func handle_flight_velocity(_delta: float):
 		if collision_force > CRASH_VELOCITY:
 			state_machine.stored_vector = player_controller.velocity.bounce(collision_info.get_normal()) * CRASH_SPEED_MOD
 			state_machine.change_state("CrashState")
-		elif collision_info.get_normal().angle_to(Vector3.UP) < deg_to_rad(15): # Detect if collision happened to floor
+		elif collision_info.get_normal().angle_to(Vector3.UP) < deg_to_rad(MAX_BOUNCE_ANGLE): # Detect if collision happened to floor
 			state_machine.change_state("idlestate")
 		else:
 			player_controller.velocity = player_controller.velocity.bounce(collision_info.get_normal()) * CRASH_SPEED_MOD

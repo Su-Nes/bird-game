@@ -1,0 +1,160 @@
+[gd_scene format=4 uid="uid://c8wh57a8wpcl4"]
+
+[ext_resource type="Texture2D" uid="uid://drhrikodqvsyv" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_WerehouseFront.jpg" id="1_6a46c"]
+[ext_resource type="Texture2D" uid="uid://bxb5r0ccgxiox" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_RoofTile.png" id="2_1ser0"]
+[ext_resource type="Texture2D" uid="uid://c3gimsgjtd1d6" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_WereHouseSide.jpg" id="3_urygx"]
+[ext_resource type="Texture2D" uid="uid://dh8el3h5s4uyu" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Sign.png" id="4_5r40x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atwld"]
+resource_name = "M_WerehouseFront"
+cull_mode = 2
+albedo_texture = ExtResource("1_6a46c")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlodc"]
+resource_name = "M_Rooftile"
+cull_mode = 2
+albedo_texture = ExtResource("2_1ser0")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wby41"]
+resource_name = "M_WereHouseSide"
+cull_mode = 2
+albedo_texture = ExtResource("3_urygx")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxpqk"]
+resource_name = "M_Sign"
+cull_mode = 2
+albedo_texture = ExtResource("4_5r40x")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w6g5l"]
+_surfaces = [{
+"aabb": AABB(-6.35015, 0, 0, 12.7003, 5.027273, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "M_Sign",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("bjTLwAAAAAAAAACAbjTLQGzfoEAAAACAbjTLQAAAAAAAAACAbjTLwGzfoEAAAACA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ds6ja"]
+resource_name = "Soviet PSX City Pack_blend1_Cube_015"
+_surfaces = [{
+"aabb": AABB(-6.35015, 0, 0, 12.7003, 5.027273, 1e-05),
+"attribute_data": PackedByteArray("YDeJPdKMaj8U2W4/cJmrPRTZbj/SjGo/YDeJPXCZqz0="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_mxpqk"),
+"name": "M_Sign",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("bjTLwAAAAAAAAACAbjTLQGzfoEAAAACAbjTLQAAAAAAAAACAbjTLwGzfoEAAAACA/3//f////7//f/9/////v/9//3////+//3//f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w6g5l")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dukff"]
+resource_name = "Soviet PSX City Pack_blend1_Cube_011"
+_surfaces = [{
+"aabb": AABB(-4.1546955, 0, -5.1353917, 8.2674265, 5.1646442, 10.270783),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEABAABAAUA"),
+"name": "M_WerehouseFront",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("//8AAP//AAAAAP////8AAP///////wAAAAAAAP//AAD/////AAAAAAAA//8AAAAA")
+}, {
+"aabb": AABB(-5.1668835, 0, -5.8565617, 10.3757305, 6.2432523, 11.713123),
+"format": 34896613377,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAGAAUABwAIAAUACQAEAAYABwAEAAkACAAKAAYACQAGAAoABwALAAgABwAJAAsACwAKAAgACwAJAAoA"),
+"name": "M_Rooftile",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("+RgAAMIPAADz5AAAPPAAAPPkAADCDwAA+RgAADzwAAAAAMTT//8AAAAA//8AAAAAAAD/////AAAAAMTTAAAAAP////8AAAAA///E0///AAD///////8AAP//xNMAAAAA")
+}, {
+"aabb": AABB(-4.1546955, 0, -5.1353917, 8.2674265, 5.1646442, 10.270783),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAwAFAAQABQAGAAQABQAHAAYA"),
+"name": "M_WereHouseSide",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAAAAAAA////////AAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ds6ja")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mb3ne"]
+resource_name = "Soviet PSX City Pack_blend1_Cube_024"
+_surfaces = [{
+"aabb": AABB(-4.1546955, 0, -5.1353917, 8.2674265, 5.1646442, 10.270783),
+"attribute_data": PackedByteArray("2e7//1psrLDZ7qywWmz//2zbDsD//weg//8OwGzbB6A="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_atwld"),
+"name": "M_WerehouseFront",
+"primitive": 3,
+"uv_scale": Vector4(1.75, 1.9980892, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAP//AIAAAP////8AgP///////wCAAAAAAP//AID/////AAD//wAA////////AAD//wAA//////////////9/////f////3////9/////f/+//3//v/9//7//f/+/")
+}, {
+"aabb": AABB(-5.1668835, 0, -5.8565617, 10.3757305, 6.2432523, 11.713123),
+"attribute_data": PackedByteArray("87YB0fDKAbHwygHR87YBsa6nkLvZeSa0vafNtNx56br//+e6F9JVtej/JrQc0hi8V9AYvL2nzbRS0FW1rqeQu/9////0z/9/9M////9//3/0z/9//3////9//3/0z///3HnpujFRRLXZeSa0SVEFvA=="),
+"format": 34896613399,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkA"),
+"material": SubResource("StandardMaterial3D_rlodc"),
+"name": "M_Rooftile",
+"primitive": 3,
+"uv_scale": Vector4(3.201681, 2, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("+RgAAMIP/7/z5AAAPPD/v/PkAADCD/+/+RgAADzw/78AAMTT////vwAA//8AAP+/AAD//////78AAMTTAAD/v///xNMAAP+//////////7//////AAD/v///xNP///+////E0///U4AAAP////9VgP///////1WAAADE0///VYAAAMTTAAD/v///xNP///+////E0wAA/78AAMTT////v/////8AAP+/AAD//////78AAP//AAD/v/////////+/AADE0wAA////////AAD//wAA//8AAP/////E0wAA//8AAP9/AAD/fwAA/38AAP9/IIFu/yCBbv8ggW7/IIFu/wOBBwIEgQoCA4EHAgSBCgL/////////////////////AAD/fwAA/38AAP9/AAD/f////3////9/////f////3/ofuf+6X7p/uh+5/7pfun+")
+}, {
+"aabb": AABB(-4.1546955, 0, -5.1353917, 8.2674265, 5.1646442, 10.270783),
+"attribute_data": PackedByteArray("+q///5YBAAD6rwAAlgH//1Y6zv5KjwAAVjoAAEqPzv627f//lgEAALbtAACWAf//"),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"material": SubResource("StandardMaterial3D_wby41"),
+"name": "M_WereHouseSide",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAP///78AAP//AAD/vwAA//////+/AAAAAAAA/78AAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAP//AAAAAP+//////////7//////AAD/v///AAD///+//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dukff")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lyemq"]
+data = PackedVector3Array(4.1127, 0, 5.1354, -4.1547, 5.1646, 5.1354, 4.1127, 5.1646, 5.1354, 4.1127, 0, 5.1354, -4.1547, 0, 5.1354, -4.1547, 5.1646, 5.1354, 4.1127, 5.1646, -5.1354, -4.1547, 5.1646, 5.1354, -4.1547, 5.1646, -5.1354, 4.1127, 5.1646, -5.1354, 4.1127, 5.1646, 5.1354, -4.1547, 5.1646, 5.1354, -4.1547, 0, -5.1356, 4.1126, 0, 5.1354, 4.1126, 0, -5.1356, -4.1547, 0, -5.1356, -4.1547, 0, 5.1354, 4.1126, 0, 5.1354, -5.1668997, 5.1646, 5.8566, -5.1668997, 6.2433, -5.8566, -5.1668997, 6.2433, 5.8566, -5.1668997, 5.1646, 5.8566, -5.1668997, 5.1646, -5.8566, -5.1668997, 6.2433, -5.8566, 5.2088, 5.1646, -5.8566, 5.2088, 6.2433, 5.8566, 5.2088, 6.2433, -5.8566, 5.2088, 5.1646, -5.8566, 5.2088, 5.1646, 5.8566, 5.2088, 6.2433, 5.8566, 5.2088, 5.1646, 5.8566, -5.1668997, 6.2433, 5.8566, 5.2088, 6.2433, 5.8566, 5.2088, 5.1646, 5.8566, -5.1668997, 5.1646, 5.8566, -5.1668997, 6.2433, 5.8566, -5.1668997, 5.1646, -5.8566, 5.2088, 5.1646, 5.8566, 5.2088, 5.1646, -5.8566, -5.1668997, 5.1646, -5.8566, -5.1668997, 5.1646, 5.8566, 5.2088, 5.1646, 5.8566, 5.2088, 6.2433, -5.8566, -5.1668997, 6.2433, 5.8566, -5.1668997, 6.2433, -5.8566, 5.2088, 6.2433, -5.8566, 5.2088, 6.2433, 5.8566, -5.1668997, 6.2433, 5.8566, -5.1668997, 5.1646, -5.8566, 5.2088, 6.2433, -5.8566, -5.1668997, 6.2433, -5.8566, -5.1668997, 5.1646, -5.8566, 5.2088, 5.1646, -5.8566, 5.2088, 6.2433, -5.8566, -4.1547, 0, 5.1354, -4.1547, 5.1646, -5.1354, -4.1547, 5.1646, 5.1354, -4.1547, 0, 5.1354, -4.1547, 0, -5.1354, -4.1547, 5.1646, -5.1354, -4.1547, 0, -5.1354, 4.1127, 5.1646, -5.1354, -4.1547, 5.1646, -5.1354, -4.1547, 0, -5.1354, 4.1127, 0, -5.1354, 4.1127, 5.1646, -5.1354, 4.1127, 0, -5.1354, 4.1127, 5.1646, 5.1354, 4.1127, 5.1646, -5.1354, 4.1127, 0, -5.1354, 4.1127, 0, 5.1354, 4.1127, 5.1646, 5.1354)
+
+[node name="IndustrialHut" type="StaticBody3D" unique_id=590862903]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="IndustrialHut" type="MeshInstance3D" parent="." unique_id=1400103356]
+mesh = SubResource("ArrayMesh_mb3ne")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1702961957]
+shape = SubResource("ConcavePolygonShape3D_lyemq")

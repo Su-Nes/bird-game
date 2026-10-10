@@ -92,7 +92,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bqm18")
 
 [node name="Bug" type="CharacterBody3D" unique_id=1711860546 node_paths=PackedStringArray("STATE_MACHINE", "GRABBED_STATE", "MESH", "COLLIDER")]
-motion_mode = 1
+floor_constant_speed = true
+floor_snap_length = 0.05
 script = ExtResource("1_6gsor")
 STATE_MACHINE = NodePath("StateMachine")
 GRABBED_STATE = NodePath("StateMachine/BugGrabbed")
