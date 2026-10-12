@@ -5,6 +5,7 @@ class_name FishSwim
 
 @onready var fish_rb: RigidBody3D = $"../.."
 @onready var MESH: Node3D = $"../../Mesh"
+@onready var bubbles: GPUParticles3D = $"../../Bubbles"
 
 @export var SWIM_SPEED : float = 10
 
@@ -13,6 +14,7 @@ var life_timer = 0.0
 
 
 func enter():
+	bubbles.emitting = true
 	state_machine.ANIMATOR.play("Swim")
 	
 	MESH.rotation.z = deg_to_rad(90)
@@ -29,4 +31,7 @@ func physics_update(delta: float):
 		
 	life_timer += delta
 	if life_timer > LIFETIME:
-		queue_free()
+		fish_rb.queue_free()
+		
+func exit():
+	bubbles.emitting = false

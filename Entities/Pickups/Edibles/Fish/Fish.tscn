@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://tqnyhu5r1roo" path="res://Entities/Pickups/Edibles/Fish/Scripts/FishSwim.gd" id="3_birth"]
 [ext_resource type="Script" uid="uid://c7unolesehp8s" path="res://Entities/Pickups/Edibles/Fish/Scripts/FishOutOfWater.gd" id="4_5e32g"]
 [ext_resource type="PackedScene" uid="uid://d1kfjy0gg7om7" path="res://Entities/Pickups/Edibles/Fish/Model/Fish.blend" id="5_salkk"]
+[ext_resource type="Texture2D" uid="uid://yrighsjq3yp5" path="res://Entities/Pickups/Edibles/Fish/Textures/bubble_3.png" id="6_w2rb1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6lrxk"]
 bounce = 1.0
@@ -13,6 +14,38 @@ bounce = 1.0
 radius = 0.061523438
 height = 0.51064456
 
+[sub_resource type="Curve" id="Curve_w2rb1"]
+_data = [Vector2(0, 1), 0.0, -2.1290326, 0, 1, Vector2(0.46969694, 0), 0.0, 0.0, 0, 0, Vector2(0.630303, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.704918, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_edykr"]
+texture_mode = 1
+curve = SubResource("Curve_w2rb1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qkran"]
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 1.5
+initial_velocity_max = 3.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_edykr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joydu"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("6_w2rb1")
+texture_filter = 0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_6md3q"]
+material = SubResource("StandardMaterial3D_joydu")
+size = Vector2(0.3, 0.3)
+
 [node name="Fish" type="RigidBody3D" unique_id=2106081441 node_paths=PackedStringArray("STATE_MACHINE", "GRABBED_STATE", "MESH", "COLLIDER", "RIGIDBODY") groups=["Fish"]]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_6lrxk")
@@ -20,6 +53,7 @@ script = ExtResource("1_6lrxk")
 STATE_MACHINE = NodePath("StateMachine")
 GRABBED_STATE = NodePath("StateMachine/FishOutOfWater")
 STAMINA_VALUE = 20.0
+CONST_PATH = "Fish"
 BEAK_ANGLE_MOD = 1.0
 MESH = NodePath("Mesh/Armature/Skeleton3D/Fish")
 COLLIDER = NodePath("CollisionShape3D")
@@ -27,6 +61,7 @@ RIGIDBODY = NodePath(".")
 
 [node name="StateMachine" type="Node" parent="." unique_id=31138759 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
 script = ExtResource("2_w2rb1")
+IS_PLAYER = true
 initial_state = NodePath("FishSwim")
 ANIMATOR = NodePath("../Mesh/AnimationPlayer")
 metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
@@ -51,5 +86,14 @@ bones/0/rotation = Quaternion(-3.2836713e-08, -7.397027e-08, 4.5239013e-08, 1)
 bones/1/position = Vector3(-5.0231777e-15, 1.3844187, -1.6352358e-15)
 bones/1/rotation = Quaternion(-0.08715576, -1.1778506e-08, 1.3026084e-07, 0.9961947)
 bones/1/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
+
+[node name="Bubbles" type="GPUParticles3D" parent="." unique_id=1234578968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+emitting = false
+amount = 4
+lifetime = 0.5
+randomness = 0.8
+process_material = SubResource("ParticleProcessMaterial_qkran")
+draw_pass_1 = SubResource("QuadMesh_6md3q")
 
 [editable path="Mesh"]

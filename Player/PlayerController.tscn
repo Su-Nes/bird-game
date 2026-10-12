@@ -637,7 +637,7 @@ margin = 1.0
 [node name="Camera3D" type="Camera3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring" unique_id=1870356551 node_paths=PackedStringArray("CONTROLLER")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 fov = 100.0
-far = 1000.0
+far = 600.0
 script = ExtResource("7_l7evj")
 CONTROLLER = NodePath("../../../../..")
 MAX_FOV = 130.0

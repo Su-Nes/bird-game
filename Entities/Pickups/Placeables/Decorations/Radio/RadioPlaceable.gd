@@ -11,8 +11,8 @@ var song_index = 0
 func _ready() -> void:
 	for song : AudioStreamPlayer3D in SONG_HOLDER.get_children():
 		song.volume_db = -80
-		
-	song_index = randi() % SONG_HOLDER.get_child_count()
+	
+	song_index = randi() % SONG_HOLDER.get_child_count() if !get_parent().name == "GrabPoint" else SONG_HOLDER.get_child_count()
 	on_use(0)
 	
 func on_interact():

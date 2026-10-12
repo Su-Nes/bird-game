@@ -270,7 +270,6 @@ jolt_physics_3d/limits/max_bodies=20480
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-lights_and_shadows/use_physical_light_units=true
 lights_and_shadows/directional_shadow/size=8192
 occlusion_culling/occlusion_rays_per_thread=256
 occlusion_culling/use_occlusion_culling=true

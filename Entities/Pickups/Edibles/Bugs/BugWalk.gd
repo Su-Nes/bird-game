@@ -35,11 +35,6 @@ func physics_update(_delta: float):
 	dir.y = 0
 	bug.velocity = dir * MOVE_SPEED * _delta
 	
-	
-	#var rot = bug.get_floor_normal()
-	#rot.y = bug.global_rotation.y
-	#bug.global_rotation = rot
-	
 	if dir_timer > 0:
 		dir_timer -= _delta
 	else:
@@ -50,7 +45,7 @@ func physics_update(_delta: float):
 	
 	life_timer += _delta
 	if life_timer > LIFETIME:
-		queue_free()
+		bug.queue_free()
 	
 func change_dir():
 	bug.rotate_y(randf_range(deg_to_rad(90), deg_to_rad(180)) * 1.0 if randf() > .5 else -1.0)

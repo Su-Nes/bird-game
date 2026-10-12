@@ -1,5 +1,36 @@
 [gd_scene format=3 uid="uid://c31xtmjc0hmlb"]
 
 [ext_resource type="PackedScene" uid="uid://c8dawx4ugocni" path="res://Entities/Pickups/Placeables/Decorations/Radio/Radio.tscn" id="1_1w6pe"]
+[ext_resource type="AudioStream" uid="uid://ccxj77oapsveh" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/DuchenneTheme.wav" id="2_0jjeq"]
+[ext_resource type="AudioStream" uid="uid://c3rlym5xh52sw" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Molden.wav" id="3_fbcd1"]
+[ext_resource type="AudioStream" uid="uid://deuw3qrybf5qu" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/MenuMusic.wav" id="4_e4pnw"]
+[ext_resource type="Script" uid="uid://cxdbmmy4dw0hc" path="res://Common/Scripts/Entity/KeepAudioPlayingOnTreeEntered.gd" id="5_xqe1u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jjeq"]
+albedo_color = Color(0.4590599, 0, 0.070690416, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0jjeq"]
+material = SubResource("StandardMaterial3D_0jjeq")
+size = Vector3(0.2770996, 0.009521484, 0.06347656)
 
 [node name="Radio" unique_id=1868481036 instance=ExtResource("1_1w6pe")]
+SONG_VOLUME = -15.0
+
+[node name="Mill" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="0" unique_id=1244112340]
+stream = ExtResource("2_0jjeq")
+
+[node name="Knots" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="1" unique_id=192536707]
+stream = ExtResource("3_fbcd1")
+
+[node name="Menu" type="AudioStreamPlayer3D" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="2" unique_id=408873548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
+stream = ExtResource("4_e4pnw")
+volume_db = -6.0
+autoplay = true
+max_distance = 15.0
+bus = &"Radio"
+emission_angle_filter_attenuation_db = -5.0
+script = ExtResource("5_xqe1u")
+
+[node name="Color" parent="." index="3" unique_id=1775473335]
+mesh = SubResource("BoxMesh_0jjeq")

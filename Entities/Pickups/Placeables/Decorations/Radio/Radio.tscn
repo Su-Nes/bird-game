@@ -48,6 +48,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8ke6i")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcyer"]
+albedo_color = Color(0.20010564, 0.53413546, 0.68072534, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4w8hk"]
+material = SubResource("StandardMaterial3D_lcyer")
+size = Vector3(0.2770996, 0.009521484, 0.06347656)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt27u"]
 size = Vector3(1.0929625, 0.29168078, 0.88806283)
 
@@ -63,6 +70,10 @@ RIGIDBODY = NodePath(".")
 [node name="Radio" type="MeshInstance3D" parent="." unique_id=1088793550]
 transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, 0.3, 0, -0.3, -1.3113417e-08, 0, -0.16027035, -1.3913409e-08)
 mesh = SubResource("ArrayMesh_r2xty")
+
+[node name="Color" type="MeshInstance3D" parent="." unique_id=1775473335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004220426)
+mesh = SubResource("BoxMesh_4w8hk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=309645569]
 transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, 0.3, 0, -0.3, -1.3113417e-08, -0.0056850137, -0.12974405, -0.0029654882)
