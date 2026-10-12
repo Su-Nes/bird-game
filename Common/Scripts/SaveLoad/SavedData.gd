@@ -4,7 +4,7 @@ class_name SavedData
 
 
 @export_category("Shared data")
-@export var scene : PackedScene
+@export var uid : int
 @export var tf : Transform3D
 @export var parent_path : String
 

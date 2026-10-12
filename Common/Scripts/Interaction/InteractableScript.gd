@@ -65,7 +65,9 @@ func on_save_data(saved_data: Array[SavedData]):
 	var self_scene = PackedScene.new()
 	self_scene.pack(self)
 	
-	data.scene = self_scene
+	var id = ResourceLoader.get_resource_uid(scene_file_path)
+	
+	data.uid = id
 	data.tf = transform
 	data.parent_path = get_parent().get_path()
 	data.is_grabbed = get_parent().name == "GrabPoint"

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uv3rygrs4meh" path="res://Entities/Pickups/Placeables/Decorations/Radio/RadioPlaceable.gd" id="1_53pt5"]
 [ext_resource type="Texture2D" uid="uid://blu8bgppuypna" path="res://Entities/Pickups/Placeables/Decorations/Radio/Model/Rdaio.png" id="1_bdy8q"]
+[ext_resource type="Script" uid="uid://be6pkheh5acwc" path="res://Player/Scripting/SmoothCam.gd" id="3_lcyer"]
 [ext_resource type="AudioStream" uid="uid://per2aliwteux" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Mill.wav" id="3_rt27u"]
 [ext_resource type="AudioStream" uid="uid://c7myy7002v1j4" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Knots.wav" id="5_4w8hk"]
 
@@ -53,38 +54,41 @@ size = Vector3(1.0929625, 0.29168078, 0.88806283)
 [node name="Radio" type="RigidBody3D" unique_id=1868481036 node_paths=PackedStringArray("SONG_HOLDER", "MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable", "Persistent"]]
 script = ExtResource("1_53pt5")
 SONG_HOLDER = NodePath("Songs")
-BEAK_ANGLE_MOD = -10.0
+BEAK_ANGLE_MOD = -25.0
 MESH = NodePath("Radio")
 COLLIDER = NodePath("CollisionShape3D")
 RIGIDBODY = NodePath(".")
 
 [node name="Radio" type="MeshInstance3D" parent="." unique_id=1088793550]
-transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, 0.3, 0, -0.3, -1.3113417e-08, 0, -0.13827395, -1.3913409e-08)
+transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, 0.3, 0, -0.3, -1.3113417e-08, 0, -0.16027035, -1.3913409e-08)
 mesh = SubResource("ArrayMesh_r2xty")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=309645569]
-transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, 0.3, 0, -0.3, -1.3113417e-08, -0.0056850137, -0.10774765, -0.0029654882)
+transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, 0.3, 0, -0.3, -1.3113417e-08, -0.0056850137, -0.12974405, -0.0029654882)
 shape = SubResource("BoxShape3D_rt27u")
 
-[node name="Songs" type="Node3D" parent="." unique_id=1899813435]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02393803, -0.15020448, 0.024416864)
+[node name="Songs" type="Node3D" parent="." unique_id=1899813435 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02393803, -0.17220087, 0.024416864)
+script = ExtResource("3_lcyer")
+target = NodePath("..")
 
 [node name="Mill" type="AudioStreamPlayer3D" parent="Songs" unique_id=1244112340]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
 stream = ExtResource("3_rt27u")
-volume_db = -3.0
-unit_size = 3.0
+volume_db = -6.0
+unit_size = 5.0
 autoplay = true
-max_distance = 30.0
+max_distance = 15.0
 emission_angle_enabled = true
+emission_angle_degrees = 60.0
 emission_angle_filter_attenuation_db = -5.0
 
 [node name="Knots" type="AudioStreamPlayer3D" parent="Songs" unique_id=192536707]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
 stream = ExtResource("5_4w8hk")
-volume_db = -3.0
-unit_size = 3.0
+volume_db = -6.0
+unit_size = 5.0
 autoplay = true
-max_distance = 30.0
+max_distance = 15.0
 emission_angle_enabled = true
 emission_angle_filter_attenuation_db = -5.0

@@ -71,7 +71,7 @@ func on_save_data(saved_data: Array[SavedData]):
 	var self_scene = PackedScene.new()
 	self_scene.pack(self)
 	
-	data.scene = self_scene
+	data.uid = ResourceLoader.get_resource_uid(scene_file_path)
 	data.tf = transform
 	data.parent_path = get_parent().get_path()
 	

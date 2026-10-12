@@ -29,14 +29,21 @@ func load_game():
 	
 	get_tree().call_group("Persistent", "queue_free")
 
-	for node : SavedData in saved_game.saved_data:
-		var loaded_scene = node.scene.instantiate()
+	var loaded_scene : PackedScene
+	for data : SavedData in saved_game.saved_data:
+		if ResourceUID.has_id(data.uid):
+			loaded_scene = load(ResourceUID.get_id_path(data.uid))
+		else:
+			print("Failed to find scene with uid: %s" % data.uid)
+			continue
+			
+		var new_scene = loaded_scene.instantiate()
 		
-		if !node.parent_path.contains("GrabPoint"):
-			get_node(node.parent_path).add_child.call_deferred(loaded_scene)
+		if !data.parent_path.contains("GrabPoint"):
+			get_node(data.parent_path).add_child.call_deferred(new_scene)
 		
-		if loaded_scene.has_method("on_loaded"):
-			loaded_scene.on_loaded(node)
+		if new_scene.has_method("on_loaded"):
+			new_scene.on_loaded(data)
 			
 func load_player(save: SavedGame):
 	StatController.stamina_max_limit = save.player_max_stamina
