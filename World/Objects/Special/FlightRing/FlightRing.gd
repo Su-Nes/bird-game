@@ -19,3 +19,4 @@ func ring_collected():
 		$RingCorrect.play()
 	else:
 		$RingWrong.play()
+		Signals.player_change_state.emit("CrashState")

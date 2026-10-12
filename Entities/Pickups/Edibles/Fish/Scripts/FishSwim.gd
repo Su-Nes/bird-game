@@ -8,6 +8,10 @@ class_name FishSwim
 
 @export var SWIM_SPEED : float = 10
 
+@export var LIFETIME : float = 40
+var life_timer = 0.0
+
+
 func enter():
 	state_machine.ANIMATOR.play("Swim")
 	
@@ -22,3 +26,7 @@ func physics_update(delta: float):
 	var collision = fish_rb.move_and_collide(fish_rb.global_basis.z * SWIM_SPEED * delta)
 	if collision:
 		fish_rb.rotate_y(5)
+		
+	life_timer += delta
+	if life_timer > LIFETIME:
+		queue_free()

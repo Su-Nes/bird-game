@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://uv3rygrs4meh" path="res://Entities/Pickups/Placeables/Decorations/Radio/RadioPlaceable.gd" id="1_53pt5"]
 [ext_resource type="Texture2D" uid="uid://blu8bgppuypna" path="res://Entities/Pickups/Placeables/Decorations/Radio/Model/Rdaio.png" id="1_bdy8q"]
 [ext_resource type="AudioStream" uid="uid://per2aliwteux" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Mill.wav" id="3_rt27u"]
-[ext_resource type="AudioStream" uid="uid://ccxj77oapsveh" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/DuchenneTheme.wav" id="4_lcyer"]
 [ext_resource type="AudioStream" uid="uid://c7myy7002v1j4" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Knots.wav" id="5_4w8hk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlk8l"]
@@ -54,6 +53,7 @@ size = Vector3(1.0929625, 0.29168078, 0.88806283)
 [node name="Radio" type="RigidBody3D" unique_id=1868481036 node_paths=PackedStringArray("SONG_HOLDER", "MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable", "Persistent"]]
 script = ExtResource("1_53pt5")
 SONG_HOLDER = NodePath("Songs")
+BEAK_ANGLE_MOD = -10.0
 MESH = NodePath("Radio")
 COLLIDER = NodePath("CollisionShape3D")
 RIGIDBODY = NodePath(".")
@@ -73,22 +73,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02393803, -0.15020448, 0.02
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
 stream = ExtResource("3_rt27u")
 volume_db = -3.0
-unit_size = 5.0
+unit_size = 3.0
 autoplay = true
+max_distance = 30.0
 emission_angle_enabled = true
-
-[node name="Duchenne" type="AudioStreamPlayer3D" parent="Songs" unique_id=553035153]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
-stream = ExtResource("4_lcyer")
-volume_db = -3.0
-unit_size = 5.0
-autoplay = true
-emission_angle_enabled = true
+emission_angle_filter_attenuation_db = -5.0
 
 [node name="Knots" type="AudioStreamPlayer3D" parent="Songs" unique_id=192536707]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
 stream = ExtResource("5_4w8hk")
 volume_db = -3.0
-unit_size = 5.0
+unit_size = 3.0
 autoplay = true
+max_distance = 30.0
 emission_angle_enabled = true
+emission_angle_filter_attenuation_db = -5.0

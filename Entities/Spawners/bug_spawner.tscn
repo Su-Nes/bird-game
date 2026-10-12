@@ -6,7 +6,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
 size = Vector3(10, 0.1, 10)
 
-[node name="BugSpawner" type="Node3D" unique_id=1601154953 node_paths=PackedStringArray("SPAWN_AREA", "OBJECT_HOLDER")]
+[node name="BugSpawner" type="Marker3D" unique_id=1818136732 node_paths=PackedStringArray("SPAWN_AREA", "OBJECT_HOLDER")]
+gizmo_extents = 5.0
 script = ExtResource("1_e2v7o")
 SPAWN_AREA = NodePath("CollisionShape3D")
 SPAWNABLE = ExtResource("2_tr0p4")

@@ -218,7 +218,7 @@ script = ExtResource("1_rvll5")
 BRANCHES = Array[PackedScene]([ExtResource("2_xgkwv")])
 SPAWN_MARKER_PARENT = NodePath("BranchSpawns")
 SPAWN_OFFSET = 0.75
-RAND_BRANCHES_PER_METER = Vector2(0, 0.2)
+RAND_BRANCHES_PER_METER = Vector2(0, 0.35)
 CHANCE_FOR_BRANCH_GROWTH = 0.4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=290887145]
