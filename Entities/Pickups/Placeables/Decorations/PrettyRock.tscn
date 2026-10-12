@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dnyqumsbuxanj" path="res://Entities/Pickups/Placeables/Placeable.gd" id="1_itc3t"]
 
 [sub_resource type="Gradient" id="Gradient_xhaa5"]
-offsets = PackedFloat32Array(0.41035858, 1)
+offsets = PackedFloat32Array(0.5616883, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vrls2"]
 frequency = 0.0064

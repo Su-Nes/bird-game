@@ -369,6 +369,13 @@ data = PackedVector3Array(-0.37469998, -1, -0.8221, -0.0036, 1, -0.8221, -0.3746
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ybe4"]
 size = Vector3(0.31409836, 5.1259823, 2.5347838)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_soegj"]
+material = ExtResource("3_8ltlb")
+size = Vector2(250, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksc4j"]
+size = Vector3(250, 50, 200)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_tmqdb"]
 material = ExtResource("3_8ltlb")
 size = Vector2(1800, 1300)
@@ -4944,10 +4951,6 @@ metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 transform = Transform3D(0.43535364, 0, 0.062104933, 0, 0.43976107, 0, -0.062104933, 0, 0.43535364, -794.84406, 5.798873e-06, 368.3648)
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
-[node name="PineTree1 (346)" parent="Trees" unique_id=531339276 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.6334965, 0, 0.15184563, 0, 0.6514407, 0, -0.15184563, 0, -0.6334965, -569.98944, 0.28517872, 195.81093)
-metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
-
 [node name="PineTree1 (347)" parent="Trees" unique_id=958686241 instance=ExtResource("4_jjvf7")]
 transform = Transform3D(0.16900417, 0, 0.60075223, 0, 0.62407184, 0, -0.60075223, 0, 0.16900417, -606.07983, 0.9189402, 257.25378)
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
@@ -4962,10 +4965,6 @@ metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="PineTree1 (350)" parent="Trees" unique_id=2130251662 instance=ExtResource("4_jjvf7")]
 transform = Transform3D(-0.4965071, 0, 0.24721266, 0, 0.5546471, 0, -0.24721266, 0, -0.4965071, -630.44037, 1.4250953, 237.58447)
-metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
-
-[node name="PineTree1 (351)" parent="Trees" unique_id=550006507 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.19459838, 0, 0.63042927, 0, 0.65977997, 0, -0.63042927, 0, -0.19459838, -652.3324, 0.3644169, 205.51521)
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="PineTree1 (352)" parent="Trees" unique_id=1711334666 instance=ExtResource("4_jjvf7")]
@@ -5014,10 +5013,6 @@ metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="PineTree1 (363)" parent="Trees" unique_id=518341199 instance=ExtResource("4_jjvf7")]
 transform = Transform3D(-0.12387863, 0, 0.77786404, 0, 0.7876663, 0, -0.77786404, 0, -0.12387863, -702.05725, 0.0143269, 262.34277)
-metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
-
-[node name="PineTree1 (364)" parent="Trees" unique_id=719763248 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(-0.33530942, 0, 0.30160305, 0, 0.45099536, 0, -0.30160305, 0, -0.33530942, -774.8055, 0.10401342, 164.34148)
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="PineTree1 (365)" parent="Trees" unique_id=1486147547 instance=ExtResource("4_jjvf7")]
@@ -6384,14 +6379,6 @@ metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (5)2" parent="Bugs" unique_id=636993218 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -445.48016, 99.99917, 27.114132)
-metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
-
-[node name="BugSpawner (6)2" parent="Bugs" unique_id=1335003432 instance=ExtResource("10_vu1al")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -588.4025, 199.99922, -459.6388)
-metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
-
-[node name="BugSpawner (7)2" parent="Bugs" unique_id=918656435 instance=ExtResource("10_vu1al")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -649.64954, 199.99893, -399.87177)
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (8)2" parent="Bugs" unique_id=1390897953 instance=ExtResource("10_vu1al")]
@@ -8641,6 +8628,17 @@ metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 508.62866, 1.1111517, 525.6617)
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
+[node name="Lake" parent="---Zones/Beach" unique_id=1295445108 instance=ExtResource("5_ph8fn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -683.88696, -5.9689255, 115.918625)
+MAX_FISH = 15.0
+
+[node name="Mesh" parent="---Zones/Beach/Lake" index="0" unique_id=2122321559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.551514, 0, 0)
+mesh = SubResource("PlaneMesh_soegj")
+
+[node name="CollisionShape3D" parent="---Zones/Beach/Lake" index="1" unique_id=1742185738]
+shape = SubResource("BoxShape3D_ksc4j")
+
 [node name="ValleyCity" type="Node3D" parent="---Zones" unique_id=1756874267]
 
 [node name="ApartmentHuge" parent="---Zones/ValleyCity" unique_id=1962627960 instance=ExtResource("20_ejm0y")]
@@ -8985,7 +8983,7 @@ transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, -375, 5.3999014e-05,
 metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
 
 [node name="OakTree (4)" parent="---Zones/ValleyCity" unique_id=1717556908 instance=ExtResource("11_1rbd8")]
-transform = Transform3D(-0.5229909, 0, 0.2373802, 0, 0.5743421, 0, -0.2373802, 0, -0.5229909, -482, 0.0031268185, -206)
+transform = Transform3D(-0.5229909, 0, 0.2373802, 0, 0.5743421, 0, -0.2373802, 0, -0.5229909, -482.03375, 0.0031268185, -206)
 metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
 
 [node name="OakTree (5)" parent="---Zones/ValleyCity" unique_id=923467437 instance=ExtResource("11_1rbd8")]
@@ -9171,6 +9169,198 @@ metadata/asset_placer_res_id = "uid://c23b0nsgcbyaj"
 
 [node name="Radio" parent="---Zones/ValleyCity" unique_id=293614651 instance=ExtResource("39_h1wen")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -393.88602, 58.61305, -254.8427)
+
+[node name="LadaGreen (9)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1457221410 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(1.1111044, 0.35587204, 0.2807234, -0.22439536, 1.0776068, -0.47792372, -0.39382428, 0.3900241, 1.0643246, -744.41833, 220.64934, -429.62695)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaGreen (10)2" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1166380800 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(-0.6781064, 0.38930002, -0.91028696, -0.08402792, 1.076723, 0.52307636, 0.98646677, 0.3593244, -0.58118373, -782.126, 255.42975, -477.22723)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaWhite (12)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1596093034 instance=ExtResource("29_c8rra")]
+transform = Transform3D(-0.70373935, 0.55219877, -0.79989356, 0.03412965, 1.0009682, 0.6609832, 0.97138524, 0.36488232, -0.6027226, -746.86316, 229.9181, -454.44974)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaRed (6)2" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=406189770 instance=ExtResource("44_7eny3")]
+transform = Transform3D(0.9967419, 0.32844892, 0.5819177, -0.03731361, 1.0707577, -0.54045, -0.66716915, 0.4308127, 0.8996038, -800.4351, 260.59393, -475.2967)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaRed (7)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=809277010 instance=ExtResource("44_7eny3")]
+transform = Transform3D(1.1419255, 0.36544442, -0.04957348, -0.36108914, 1.0751327, -0.3920517, -0.07497913, 0.38799503, 1.133066, -739.1045, 217.5005, -425.40973)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaWhite (13)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=906083875 instance=ExtResource("29_c8rra")]
+transform = Transform3D(0.7713456, 2.1972657e-05, 0.9192537, 1.2526966e-05, 1.2, -3.919466e-05, -0.9192537, 3.479004e-05, 0.7713456, -666.9448, 199.99998, -403.05475)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaWhite (14)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=615259951 instance=ExtResource("29_c8rra")]
+transform = Transform3D(1.1125244, -0.028183414, -0.44888428, -0.0013638642, 1.1974249, -0.0785612, 0.4497661, 0.07334447, 1.1101048, -654.6609, 199.41321, -366.57025)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaGreen (11)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=302711293 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(1.198751, -0.05461013, -0.0037764602, 0.054740507, 1.1960065, 0.08106815, 7.460677e-05, -0.08115602, 1.1972526, -655.39374, 198.61092, -359.38403)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaRed (8)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=176276816 instance=ExtResource("44_7eny3")]
+transform = Transform3D(1.039229, 0.0037316682, 0.5999919, -0.0023995207, 1.1999931, -0.0033072573, -0.5999988, 0.0016644192, 1.0392305, -653.6415, 199.99858, -327.23868)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaWhite (15)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=453567976 instance=ExtResource("29_c8rra")]
+transform = Transform3D(1.127615, -0.011992247, -0.41029435, 0.0072959126, 1.1998839, -0.015019292, 0.41040474, 0.011618748, 1.1275787, -617.02325, 199.85158, -327.86407)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaGreen (12)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1287005162 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(0.92007196, -0.024549648, 0.7699781, -0.035807967, 1.1967314, 0.0809442, -0.7695367, -0.085038126, 0.9168332, -643.06305, 199.16063, -346.4303)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaGreen (13)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=412720343 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(-0.2136328, 0.006217484, 1.180816, 0.018755298, 1.19985, -0.0029245208, -1.1806836, 0.017934768, -0.21370326, -627.95905, 199.85907, -364.3746)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaRed (9)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=2051069311 instance=ExtResource("44_7eny3")]
+transform = Transform3D(-0.20599972, -0.040064298, 1.1815078, -0.05904522, 1.1981627, 0.030334368, -1.1807115, -0.05292787, -0.20765564, -636.3392, 199.32861, -344.93707)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaRed (10)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1601962581 instance=ExtResource("44_7eny3")]
+transform = Transform3D(-1.1973307, 0.01751518, 0.078074336, 0.017276017, 1.1998683, -0.0042375806, -0.07812762, -0.0031041373, -1.1974511, -605.00385, 199.98203, -416.07275)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaWhite (16)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1979558296 instance=ExtResource("29_c8rra")]
+transform = Transform3D(-0.9676901, 0.031204594, 0.708946, 0.05803889, 1.1983032, 0.026477396, -0.70725495, 0.05564021, -0.9678311, -586.17773, 199.8675, -438.9272)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaWhite (17)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=656923225 instance=ExtResource("29_c8rra")]
+transform = Transform3D(-1.165257, 0.0058629676, -0.2866118, 0.0057448936, 1.1999857, 0.0011905355, 0.2866142, -0.00021606167, -1.165271, -583.0196, 199.99779, -499.0156)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaRed (11)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1819040816 instance=ExtResource("44_7eny3")]
+transform = Transform3D(0.0002963108, 0.004870494, -1.1999918, 0.0065374053, 1.1999724, 0.0048720427, 1.199984, -0.0065385457, 0.00026977033, -584.75934, 199.78555, -525.6662)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaGreen (14)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1994605977 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(0.20844811, -0.012263759, -1.1816937, 0.00331512, 1.1999369, -0.011868315, 1.1817527, -0.0012029397, 0.208471, -577.2514, 199.7219, -526.21533)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaRed" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=2131334366 instance=ExtResource("44_7eny3")]
+transform = Transform3D(1.1817741, 0, 0.20835173, 0, 1.2, 0, -0.20835173, 0, 1.1817741, -618.49713, 200.00002, -468.0133)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="Lamp2" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1377498755 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.003990194, 0, -0.9999923, 0, 0.99999994, 0, 0.9999923, 0, 0.003990194, -601, 199.99445, -435)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (1)2" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=924138818 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.86801434, 0, -0.4965409, 0, 0.99999994, 0, 0.4965409, 0, 0.86801434, -584, 199.6017, -436)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (2)2" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1206503865 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.76347524, 0, -0.64584094, 0, 0.99999994, 0, 0.64584094, 0, -0.76347524, -626, 200.00002, -453)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (3)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1660927417 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.0039903447, 0, -0.9999947, 0, 0.99999994, 0, 0.9999947, 0, 0.0039903447, -644, 200.00002, -455)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (4)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1343982099 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.0039903447, 0, -0.9999947, 0, 0.99999994, 0, 0.9999947, 0, 0.0039903447, -661, 200.00002, -455)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (5)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=311707250 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.99999565, 0, -0.00399058, 0, 0.99999994, 0, 0.00399058, 0, -0.99999565, -625, 200.00002, -479)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (6)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=2128978623 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.9999955, 0, -0.00399046, 0, 0.99999994, 0, 0.00399046, 0, -0.9999955, -625, 199.99998, -499)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (7)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1211601884 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.6458419, 0, 0.7634762, 0, 0.99999994, 0, -0.7634762, 0, -0.6458419, -596, 199.99846, -447)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (8)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=438820867 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.99999624, 0, -0.003990433, 0, 0.99999994, 0, 0.003990433, 0, -0.99999624, -595, 199.99994, -468)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (9)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=772887574 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.99999624, 0, -0.0039903885, 0, 0.99999994, 0, 0.0039903885, 0, -0.99999624, -595, 200, -493)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (10)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1313456384 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.99999624, 0, -0.0039903885, 0, 0.99999994, 0, 0.0039903885, 0, -0.99999624, -595, 199.95988, -518)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (11)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=2130843023 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.0039906516, 0, 0.99999684, 0, 0.99999994, 0, -0.99999684, 0, -0.0039906516, -517, 196.38322, -525)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (12)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=369504635 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.003990651, 0, 0.9999967, 0, 0.99999994, 0, -0.9999967, 0, -0.003990651, -540, 199.59251, -525)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (13)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1519260825 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.003990651, 0, 0.9999967, 0, 0.99999994, 0, -0.9999967, 0, -0.003990651, -562, 199.91812, -525)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (14)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1724639506 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.003990651, 0, 0.9999967, 0, 0.99999994, 0, -0.9999967, 0, -0.003990651, -581, 199.70563, -525)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (15)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1887652733 instance=ExtResource("20_3wocd")]
+transform = Transform3D(1.6391277e-07, 0, 1.0000002, 0, 0.99999994, 0, -1.0000002, 0, 1.6391277e-07, -572, 199.96512, -494)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (16)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1218441796 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-1.0000007, 0, 3.2037497e-07, 0, 0.99999994, 0, -3.2037497e-07, 0, -1.0000007, -645, 198.9867, -355)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (17)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=605472183 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-5.364418e-07, 0, -1.0000019, 0, 0.99999994, 0, 1.0000019, 0, -5.364418e-07, -625, 199.69162, -315)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (18)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1364418734 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-4.6193597e-07, 0, -1.0000024, 0, 0.99999994, 0, 1.0000024, 0, -4.6193597e-07, -646, 199.97296, -315)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (19)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1268586779 instance=ExtResource("20_3wocd")]
+transform = Transform3D(1.0000031, 0, -5.9604645e-07, 0, 0.99999994, 0, 5.9604645e-07, 0, 1.0000031, -655, 199.45137, -347)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (20)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=961270389 instance=ExtResource("20_3wocd")]
+transform = Transform3D(1.0000032, 0, -6.5565104e-07, 0, 0.99999994, 0, 6.5565104e-07, 0, 1.0000032, -655, 199.91469, -375)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (21)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1917577707 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.76604694, 0, 0.64279085, 0, 0.99999994, 0, -0.64279085, 0, -0.76604694, -617, 199.9982, -417)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (22)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1892421938 instance=ExtResource("20_3wocd")]
+transform = Transform3D(7.227063e-07, 0, 1.0000046, 0, 0.99999994, 0, -1.0000046, 0, 7.227063e-07, -675, 199.99995, -415)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (23)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=248540610 instance=ExtResource("20_3wocd")]
+transform = Transform3D(7.897615e-07, 0, 1.0000045, 0, 0.99999994, 0, -1.0000045, 0, 7.897615e-07, -703, 201.13684, -415)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (24)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=93730545 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.86602986, 0, 0.5000018, 0, 0.99999994, 0, -0.5000018, 0, 0.86602986, -733, 218.73383, -436)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (25)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=1989693062 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.76604855, 0, 0.6427902, 0, 0.99999994, 0, -0.6427902, 0, 0.76604855, -754, 234.3236, -457)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (26)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=801273043 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.76604855, 0, 0.64279026, 0, 0.99999994, 0, -0.64279026, 0, 0.76604855, -793, 262.33975, -487)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (27)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=883531027 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.76604855, 0, 0.64279026, 0, 0.99999994, 0, -0.64279026, 0, 0.76604855, -823, 288.70502, -517)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
+
+[node name="Lamp (28)" type="StaticBody3D" parent="---Zones/ValleyCity" unique_id=2129338388 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.7660481, 0, -0.6427914, 0, 0.99999994, 0, 0.6427914, 0, 0.7660481, -834, 300, -562)
+metadata/asset_placer_res_id = "uid://eikmhhxyx5v8"
 
 [node name="LakeIsland" type="Node3D" parent="---Zones" unique_id=553029564]
 
@@ -9611,7 +9801,7 @@ transform = Transform3D(1.4324973, -2.9802322e-08, -0.8270528, 3.8792005e-09, 1.
 metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
 
 [node name="LadaGreen" parent="---Zones/TownVolcano" unique_id=1313284200 instance=ExtResource("28_8mtf7")]
-transform = Transform3D(1.2928476, -2.9802322e-08, -1.0848278, -2.5085399e-08, 1.6876903, 3.9579713e-09, 1.0848278, 0, 1.2928474, -816.0705, 299.9998, -536.626)
+transform = Transform3D(1.1501105, 0.501168, -1.1288853, -0.6667277, 1.5503845, 0.009030849, 1.0397241, 0.43981454, 1.2545285, -827.06067, 291.8418, -523.5041)
 metadata/asset_placer_res_id = "uid://bij1memwudp3t"
 
 [node name="LadaGreen (1)" parent="---Zones/TownVolcano" unique_id=2077151023 instance=ExtResource("28_8mtf7")]
@@ -9640,6 +9830,192 @@ metadata/asset_placer_res_id = "uid://b8eibrg38f2i3"
 
 [node name="Lava" parent="---Zones/TownVolcano" unique_id=94971073 instance=ExtResource("41_xtp7e")]
 
+[node name="UpperTown" type="Node3D" parent="---Zones" unique_id=2050618181]
+
+[node name="ApartmentHuge" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1338792011 instance=ExtResource("20_ejm0y")]
+transform = Transform3D(1.199903, 0, 0.015473323, 0, 1.1999997, 0, -0.015473323, 0, 1.199903, -648.01086, 199.71416, -308.11255)
+metadata/asset_placer_res_id = "uid://ds02mqxy5x0aw"
+
+[node name="ApartmentHuge (1)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=347184877 instance=ExtResource("20_ejm0y")]
+transform = Transform3D(1.1999016, 0, 0.015473034, 0, 1.1999999, 0, -0.015473034, 0, 1.1999016, -622.77783, 199.98428, -308.65656)
+metadata/asset_placer_res_id = "uid://ds02mqxy5x0aw"
+
+[node name="ApartmentTall" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=643503368 instance=ExtResource("15_2ihya")]
+transform = Transform3D(0.025428724, 0, 1.199732, 0, 1.1999997, 0, -1.199732, 0, 0.025428724, -607.4314, 199.68079, -323.66116)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall (1)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1803040593 instance=ExtResource("15_2ihya")]
+transform = Transform3D(0.025428578, 0, 1.1997311, 0, 1.1999997, 0, -1.1997311, 0, 0.025428578, -606.63165, 198.81265, -349.2025)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall (2)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1424971513 instance=ExtResource("15_2ihya")]
+transform = Transform3D(0.037615363, 0, 1.199411, 0, 1.2000002, 0, -1.199411, 0, 0.037615363, -605.8017, 198.204, -374.97733)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall2" parent="---Zones/UpperTown" unique_id=1681962792 instance=ExtResource("15_2ihya")]
+transform = Transform3D(0.0031304844, 0, 1.1999973, 0, 1.1999999, 0, -1.1999973, 0, 0.0031304844, -669.68536, 197.05574, -324.59692)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall (1)2" parent="---Zones/UpperTown" unique_id=1444731834 instance=ExtResource("15_2ihya")]
+transform = Transform3D(0.0031305104, 0, 1.1999966, 0, 1.2, 0, -1.1999966, 0, 0.0031305104, -669.3603, 199.77716, -350.14868)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall (2)2" parent="---Zones/UpperTown" unique_id=872194414 instance=ExtResource("15_2ihya")]
+transform = Transform3D(0.0031305104, 0, 1.1999966, 0, 1.2, 0, -1.1999966, 0, 0.0031305104, -669.27295, 199.7839, -374.85522)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentHuge2" parent="---Zones/UpperTown" unique_id=2014484867 instance=ExtResource("20_ejm0y")]
+transform = Transform3D(-1.2000026, 0, 0.00029616058, 0, 1.1999999, 0, -0.00029616058, 0, -1.2000026, -563.70734, 199.71416, -534.6379)
+metadata/asset_placer_res_id = "uid://ds02mqxy5x0aw"
+
+[node name="ApartmentHuge (1)2" parent="---Zones/UpperTown" unique_id=439829347 instance=ExtResource("20_ejm0y")]
+transform = Transform3D(-1.2000014, 0, 0.0002964139, 0, 1.1999996, 0, -0.0002964139, 0, -1.2000014, -588.94525, 199.98428, -534.42535)
+metadata/asset_placer_res_id = "uid://ds02mqxy5x0aw"
+
+[node name="ApartmentTall3" parent="---Zones/UpperTown" unique_id=258975003 instance=ExtResource("15_2ihya")]
+transform = Transform3D(-0.032914065, 0, -1.1995496, 0, 1.1999996, 0, 1.1995496, 0, -0.032914065, -603.7453, 199.68079, -517.1861)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall (1)3" parent="---Zones/UpperTown" unique_id=2069959530 instance=ExtResource("15_2ihya")]
+transform = Transform3D(-0.032913864, 0, -1.1995493, 0, 1.1999997, 0, 1.1995493, 0, -0.032913864, -605.0328, 198.81265, -492.61368)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall (1)4" parent="---Zones/UpperTown" unique_id=416189797 instance=ExtResource("15_2ihya")]
+transform = Transform3D(-0.032913864, 0, -1.1995493, 0, 1.1999997, 0, 1.1995493, 0, -0.032913864, -605.0328, 198.81265, -467.65433)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall4" parent="---Zones/UpperTown" unique_id=692302857 instance=ExtResource("15_2ihya")]
+transform = Transform3D(-0.07816026, 0, -1.197453, 0, 1.1999997, 0, 1.197453, 0, -0.07816026, -533.9077, 199.36078, -474.20825)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall5" parent="---Zones/UpperTown" unique_id=385769763 instance=ExtResource("15_2ihya")]
+transform = Transform3D(0.015422732, 0, -1.199902, 0, 1.1999998, 0, 1.199902, 0, 0.015422732, -533.37085, 199.36078, -499.99222)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentHuge (4)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1513433487 instance=ExtResource("20_ejm0y")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -573, 199.69373, -418)
+metadata/asset_placer_res_id = "uid://ds02mqxy5x0aw"
+
+[node name="ApartmentHuger" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1257787291 instance=ExtResource("21_5vsaf")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -589, 199.64838, -430)
+metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
+
+[node name="ApartmentHuger (1)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1370488307 instance=ExtResource("21_5vsaf")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -630, 200, -430)
+metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
+
+[node name="ApartmentHuge (5)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=371057021 instance=ExtResource("20_ejm0y")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -648, 200.00002, -443)
+metadata/asset_placer_res_id = "uid://ds02mqxy5x0aw"
+
+[node name="ApartmentTall (11)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1248947081 instance=ExtResource("15_2ihya")]
+transform = Transform3D(1.2000014, 0, 7.450581e-09, 0, 1.2, 0, -7.450581e-09, 0, 1.2000014, -650, 200.00002, -470)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall (12)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1573027362 instance=ExtResource("15_2ihya")]
+transform = Transform3D(2.6077032e-07, 0, 1.2000015, 0, 1.2, 0, -1.2000015, 0, 2.6077032e-07, -635.8105, 200.00002, -485)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="ApartmentTall (13)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=989878655 instance=ExtResource("15_2ihya")]
+transform = Transform3D(2.5928023e-07, 0, 1.2000009, 0, 1.2, 0, -1.2000009, 0, 2.5928023e-07, -635.8105, 200.30464, -511)
+metadata/asset_placer_res_id = "uid://oki8rjshmod3"
+
+[node name="LadaRed" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1199981927 instance=ExtResource("44_7eny3")]
+transform = Transform3D(1.1388954, 0.33786613, -0.16959953, -0.3780363, 1.0213472, -0.5039235, 0.002467767, 0.5316924, 1.0757775, -623.26184, 205.86197, -522.1925)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaGreen" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1842125434 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(0.74163866, 0.4740795, 0.8156115, 0.14819291, 0.96604526, -0.696273, -0.93167186, 0.53104186, 0.538501, -620.2139, 206.5109, -523.08307)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaRed (1)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=368395942 instance=ExtResource("44_7eny3")]
+transform = Transform3D(1.134716, 0.3651331, -0.13819332, -0.39040837, 1.0622666, -0.39896262, 0.00093641283, 0.42221758, 1.1232684, -620.8008, 204.28523, -520.9613)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaGreen (1)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=695479093 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(0.9846789, 0.19192165, -0.65846384, -0.3288122, 1.1431329, -0.15852405, 0.6019062, 0.31050494, 0.9906043, -623.218, 202.71608, -519.0602)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaWhite" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1955417906 instance=ExtResource("29_c8rra")]
+transform = Transform3D(1.1272404, 0.23146193, 0.3402281, -0.12584278, 1.1385384, -0.35762286, -0.39178234, 0.30025962, 1.0937785, -621.8763, 202.63712, -518.43146)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaGreen (2)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1298783534 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(1.1545961, 0.31958055, -0.069111474, -0.32610005, 1.1070429, -0.32880837, -0.023809498, 0.3351484, 1.1520022, -618.0847, 203.16486, -520.50977)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaWhite (1)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1022781424 instance=ExtResource("29_c8rra")]
+transform = Transform3D(0.81282604, 0.16955963, -0.86635125, -0.24418151, 1.1748936, 0.00085133314, 0.84834564, 0.17571235, 0.83032274, -618.4357, 201.49551, -515.322)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaWhite (2)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=274271684 instance=ExtResource("29_c8rra")]
+transform = Transform3D(1.0940306, 0.14823037, 0.47024092, -0.07412975, 1.1809273, -0.19978967, -0.487446, 0.15309745, 1.0857991, -614.3846, 201.2964, -518.5453)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaWhite (3)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1878561218 instance=ExtResource("29_c8rra")]
+transform = Transform3D(1.098812, 0.062428404, 0.4782425, -0.022090685, 1.1951705, -0.105258584, -0.48179367, 0.08757885, 1.095539, -622.39905, 200.73273, -512.3817)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaGreen (3)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=2071530154 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(1.1999999, -9.155274e-06, -0.00048258973, 9.158955e-06, 1.2, 9.151591e-06, 0.00048258968, -9.155274e-06, 1.1999999, -618.82196, 199.99992, -509.3987)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaRed (2)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1306175693 instance=ExtResource("44_7eny3")]
+transform = Transform3D(1.0401943, 0.031727523, 0.5974866, -0.011155402, 1.1991318, -0.044254914, -0.5982245, 0.03280706, 1.0397367, -615.31335, 200.27359, -511.50894)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaRed (3)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=926007872 instance=ExtResource("44_7eny3")]
+transform = Transform3D(-0.95866174, 0.2877807, -0.6619295, -0.07074994, 1.0577271, 0.562324, 0.7183056, 0.488258, -0.828035, -621.7056, 203.32352, -516.40485)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaWhite (4)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=998200836 instance=ExtResource("29_c8rra")]
+transform = Transform3D(1.0392352, 1.0764048e-05, -0.5999923, 0.024716122, 1.1989807, 0.042831838, 0.59948295, -0.049451515, 1.0383523, -619.17053, 201.92323, -510.32925)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaWhite (5)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1820346975 instance=ExtResource("29_c8rra")]
+transform = Transform3D(-1.1777242, 0.20511101, 0.104382575, 0.21551041, 1.1738608, 0.12492496, -0.08075592, 0.14135218, -1.1889066, -618.0701, 203.56125, -516.36774)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaRed (4)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1525176704 instance=ExtResource("44_7eny3")]
+transform = Transform3D(0.7048149, 0.35546267, 0.9038164, 0.2104012, 1.0343312, -0.5708687, -0.9481399, 0.4937667, 0.54518515, -620.25287, 205.95276, -520.1438)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaRed (5)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1908789118 instance=ExtResource("44_7eny3")]
+transform = Transform3D(-1.0443375, 0.042670935, -0.58953065, 0.016296187, 1.1984936, 0.057880465, 0.5908482, 0.042366173, -1.043605, -623.24304, 202.74438, -512.9226)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaRed (6)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=416920543 instance=ExtResource("44_7eny3")]
+transform = Transform3D(-1.1817725, -1.0986343e-05, 0.20837845, -1.27272115e-05, 1.2000016, -8.911688e-06, -0.20837845, -1.0986343e-05, -1.1817725, -617.6761, 199.99991, -509.0145)
+metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="LadaGreen (4)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1691909680 instance=ExtResource("28_8mtf7")]
+transform = Transform3D(0.7713456, -1.6479493e-05, 0.9192537, -6.239219e-06, 1.2, 2.6747788e-05, -0.9192537, -2.1972657e-05, 0.7713456, -623.21466, 199.99982, -508.01138)
+metadata/asset_placer_res_id = "uid://bij1memwudp3t"
+
+[node name="LadaWhite (6)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=737484182 instance=ExtResource("29_c8rra")]
+transform = Transform3D(1.1294792, 0.40087152, 0.05983389, -0.29058436, 0.92439234, -0.70785606, -0.28255773, 0.65176773, 0.96714056, -615.806, 206.13805, -523.6726)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaWhite (7)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=759192097 instance=ExtResource("29_c8rra")]
+transform = Transform3D(-1.1877787, 0, 0.1708463, 0, 1.1999999, 0, -0.1708463, 0, -1.1877787, -620.61194, 200, -494.7009)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaWhite (8)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=821336027 instance=ExtResource("29_c8rra")]
+transform = Transform3D(0.8580729, 0.16668698, -0.8221504, -0.34935653, 1.1402385, -0.13344249, 0.7626703, 0.33477134, 0.86386734, -623.05927, 205.21321, -516.8962)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaWhite (9)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1079673803 instance=ExtResource("29_c8rra")]
+transform = Transform3D(1.036356, 0.073481984, -0.6004738, -0.1017188, 1.1953225, -0.029280376, 0.59634006, 0.076186866, 1.0385451, -619.7111, 200.63736, -511.98145)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="LadaWhite (10)" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=460045689 instance=ExtResource("29_c8rra")]
+transform = Transform3D(1.1825483, 0.025612852, 0.20230305, -0.007623885, 1.1952175, -0.10675757, -0.20377535, 0.10391949, 1.1779978, -626.0585, 200.86937, -513.1936)
+metadata/asset_placer_res_id = "uid://byy5c68isk6hn"
+
+[node name="Store" type="StaticBody3D" parent="---Zones/UpperTown" unique_id=1016033571 instance=ExtResource("37_c8rra")]
+transform = Transform3D(1.1997409, 0.025065215, -0.00015134981, -0.025064692, 1.1997327, 0.0036670938, 0.00022791316, -0.0036631243, 1.1999972, -574.4353, 199.95802, -499.2087)
+metadata/asset_placer_res_id = "uid://g8luggpwq0c1"
+
 [node name="PlayerConfine" type="Area3D" parent="." unique_id=1364153877]
 collision_mask = 3
 monitorable = false
@@ -9654,4 +10030,5 @@ debug_fill = false
 [connection signal="body_exited" from="PlayerConfine" to="PlayerConfine" method="on_exit_confine"]
 
 [editable path="Beach"]
+[editable path="---Zones/Beach/Lake"]
 [editable path="---Zones/LakeIsland/Lake"]
