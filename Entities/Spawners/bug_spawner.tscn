@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="2_tr0p4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
-size = Vector3(10, 0.1, 10)
+size = Vector3(10, 1, 10)
 
 [node name="BugSpawner" type="Marker3D" unique_id=1818136732 node_paths=PackedStringArray("SPAWN_AREA", "OBJECT_HOLDER")]
 gizmo_extents = 5.0
@@ -17,5 +17,5 @@ SPAWN_GROUP = Vector2(2, 5)
 MAX_SPAWNED = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=713874303]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14612696, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 shape = SubResource("BoxShape3D_qkran")

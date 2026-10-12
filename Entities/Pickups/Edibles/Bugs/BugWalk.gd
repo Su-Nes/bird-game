@@ -21,15 +21,21 @@ func enter():
 	
 
 func physics_update(_delta: float):
+	bug.move_and_slide()
+	
+	#DebugDraw3D.draw_sphere(bug.global_position, .5, Color.PEACH_PUFF)
+	#DebugDraw3D.draw_ray(bug.global_position, -bug.global_basis.z, 5, Color.BLUE)
+	#DebugDraw3D.draw_ray(bug.global_position, bug.global_basis.y, 50, Color.GREEN)
+	
+	if !bug.is_on_floor(): # add grav
+		bug.velocity.y -= gravity * _delta
+		return
+	
 	var dir = -bug.global_basis.z
 	dir.y = 0
 	bug.velocity = dir * MOVE_SPEED * _delta
 	
-	if !bug.is_on_floor(): # add grav
-		bug.velocity.y -= gravity * _delta
-		
-	#DebugDraw3D.draw_sphere(bug.global_position, .5, Color.PEACH_PUFF)
-	#DebugDraw3D.draw_ray(bug.global_position, -bug.global_basis.z, 5, Color.RED)
+	
 	#var rot = bug.get_floor_normal()
 	#rot.y = bug.global_rotation.y
 	#bug.global_rotation = rot
@@ -41,8 +47,6 @@ func physics_update(_delta: float):
 	
 	if !bug.is_on_floor() or bug.is_on_wall():
 		change_dir()
-	
-	bug.move_and_slide()
 	
 	life_timer += _delta
 	if life_timer > LIFETIME:

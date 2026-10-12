@@ -803,9 +803,10 @@ EYE_LID_L = NodePath("../MeshParts/EyeL/EyeLid_L")
 MAX_ITEMS = 10
 BEAK_ROT_PER_ITEM = 17
 
-[node name="BuildController" type="Node" parent="." unique_id=1493140422 node_paths=PackedStringArray("SHAPE_RAY", "GRAB_SCRIPT", "STATE_MACHINE")]
+[node name="BuildController" type="Node" parent="." unique_id=1493140422 node_paths=PackedStringArray("SHAPE_RAY", "NORMAL_RAY", "GRAB_SCRIPT", "STATE_MACHINE")]
 script = ExtResource("20_4l6g3")
 SHAPE_RAY = NodePath("../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D/BuildShapeCast")
+NORMAL_RAY = NodePath("../CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D/InteractableRay")
 GRAB_SCRIPT = NodePath("../GrabController")
 STATE_MACHINE = NodePath("../MovementStateMachine")
 INACTIVE_STATES = Array[String](["flystate", "faintstate", "pausestate"])

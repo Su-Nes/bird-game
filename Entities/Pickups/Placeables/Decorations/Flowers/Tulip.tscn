@@ -152,6 +152,7 @@ collision_layer = 8
 freeze = true
 script = ExtResource("1_lvwdl")
 DECOR_VALUE = 5
+ALIGN_NORMALS = true
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = -20.0
 MESH = NodePath("Mesh")

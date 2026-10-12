@@ -31,13 +31,10 @@ func load_game():
 
 	var loaded_scene : PackedScene
 	for data : SavedData in saved_game.saved_data:
-		if ResourceUID.has_id(data.uid):
-			loaded_scene = load(ResourceUID.get_id_path(data.uid))
-		else:
-			print("Failed to find scene with uid: %s" % data.uid)
-			continue
-			
+		loaded_scene = load(data.file_path)
+		
 		var new_scene = loaded_scene.instantiate()
+		new_scene.add_to_group("Persistent")
 		
 		if !data.parent_path.contains("GrabPoint"):
 			get_node(data.parent_path).add_child.call_deferred(new_scene)

@@ -14,11 +14,10 @@ transform = Transform3D(0.86074376, 0.4427451, 0.25119773, 2.9802322e-08, -0.493
 light_color = Color(0.9999996, 0.9287603, 0.8215887, 1)
 shadow_enabled = true
 shadow_normal_bias = 10.0
-shadow_blur = 0.0
-directional_shadow_mode = 1
 directional_shadow_split_1 = 0.5
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 300.0
+directional_shadow_pancake_size = 3.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1703432688]
 environment = ExtResource("1_auryq")

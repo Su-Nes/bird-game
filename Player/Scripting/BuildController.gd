@@ -4,6 +4,7 @@ class_name BuildController
 
 
 @export var SHAPE_RAY : ShapeCast3D
+@export var NORMAL_RAY : RayCast3D
 @export var GRAB_SCRIPT : GrabScript
 @export var STATE_MACHINE : StateMachine
 @export var INACTIVE_STATES : Array[String]
@@ -46,16 +47,18 @@ func initiate_building(block: Placeable):
 	ghost.COLLIDER.queue_free() # Get rid of collider on the placeable block
 	ghost.remove_from_group("Persistent")
 	
-	SHAPE_RAY.add_child(ghost)
+	if current_buildable.ALIGN_NORMALS:
+		add_child(ghost)
+	else: 
+		SHAPE_RAY.add_child(ghost)
+		
 	var ray_box : BoxShape3D = SHAPE_RAY.shape
 	var block_collider : CollisionShape3D = block.COLLIDER
 	var collider_shape : BoxShape3D = block_collider.shape
 	ray_box.size.x = collider_shape.size.x
 	
 	ghost_material = ghost.MESH # Get mesh
-	for child : MeshInstance3D in ghost_material.get_children():
-		child.material_override = GHOST_MATERIAL
-	ghost_material.material_override = GHOST_MATERIAL
+	change_ghost_material(GHOST_MATERIAL)
 	
 	check_state(STATE_MACHINE.current_state.name)
 
@@ -63,30 +66,47 @@ func initiate_building(block: Placeable):
 func _process(_delta: float) -> void:
 	if !current_buildable:
 		return
-	
-	ghost.global_rotation = SHAPE_RAY.global_rotation
-	
-	handle_rotation()
 		
+	handle_rotation()
+	
+	if current_buildable.ALIGN_NORMALS:
+		handle_normal_aligned_placement()
+	else:
+		handle_collision_placement()
+	
+	change_ghost_material(GHOST_MATERIAL if can_place else ERROR_MATERIAL)
+
+func handle_normal_aligned_placement():
+	can_place = NORMAL_RAY.get_collider()
+	
+	ghost.rotation.z = SHAPE_RAY.rotation.z
+	
+	if can_place:
+		ghost.global_position = NORMAL_RAY.get_collision_point()
+		ghost.quaternion = Quaternion(Vector3.UP, NORMAL_RAY.get_collision_normal())
+		change_ghost_material(GHOST_MATERIAL)
+	else:
+		ghost.global_position = NORMAL_RAY.global_position - NORMAL_RAY.global_basis.z * NORMAL_RAY.target_position.length()
+		
+func handle_collision_placement():
 	can_place = SHAPE_RAY.is_colliding()
 	
 	if !can_place:
-		for child : MeshInstance3D in ghost_material.get_children():
-			child.material_override = ERROR_MATERIAL
-		ghost_material.material_override = ERROR_MATERIAL
-		ghost.position = SHAPE_RAY.target_position + Vector3(0, -.5, 0)
 		return
 
 	var collision_distance = SHAPE_RAY.get_collision_point(0).distance_to(camera_3d.global_position)
 	var ghost_position = camera_3d.global_position - camera_3d.global_basis.z * collision_distance
 
+	ghost.global_rotation = SHAPE_RAY.global_rotation
+
 	# Move ghost to ray intersect position
 	if can_place:
-		for child : MeshInstance3D in ghost_material.get_children():
-			child.material_override = GHOST_MATERIAL
-		ghost_material.material_override = GHOST_MATERIAL
+		change_ghost_material(GHOST_MATERIAL)
 		ghost.global_position = ghost_position
-		
+	else:
+		ghost.position = SHAPE_RAY.target_position + Vector3(0, -.5, 0)
+
+
 func handle_rotation():
 	var rot_input = Input.get_axis("rotate_R", "rotate_L")
 	
@@ -98,6 +118,12 @@ func handle_rotation():
 		z_rotation = 0
 	else:
 		z_rotation += abs(rot_input) * get_process_delta_time()
+		
+func change_ghost_material(material: StandardMaterial3D):
+	ghost_material.material_override = material
+
+	for child : MeshInstance3D in ghost_material.get_children():
+		child.material_override = material
 		
 func hide_ghost():
 	if ghost:
@@ -112,14 +138,19 @@ func place() -> bool:
 		return false
 	
 	current_buildable.on_placed()
-	current_buildable.reparent(SHAPE_RAY)
 	
-	var collision_distance = SHAPE_RAY.get_collision_point(0).distance_to(camera_3d.global_position)
-	var placement_position = camera_3d.global_position - camera_3d.global_basis.z * collision_distance
-	
-	current_buildable.global_position = placement_position
+	if current_buildable.ALIGN_NORMALS:
+		current_buildable.global_position = NORMAL_RAY.get_collision_point()
+		current_buildable.quaternion = Quaternion(Vector3.UP, NORMAL_RAY.get_collision_normal())
+	else:
+		current_buildable.reparent(SHAPE_RAY)
+		
+		var collision_distance = SHAPE_RAY.get_collision_point(0).distance_to(camera_3d.global_position)
+		var placement_position = camera_3d.global_position - camera_3d.global_basis.z * collision_distance
+		
+		current_buildable.global_position = placement_position
 
-	current_buildable.rotation = ghost.rotation
+	current_buildable.global_rotation = ghost.global_rotation
 	current_buildable.reparent(get_tree().root)
 	current_buildable.is_grabbed = false
 	current_buildable.has_physics(true, false)

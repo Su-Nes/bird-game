@@ -25,12 +25,32 @@ tracks/0/keys = {
 "values": [ExtResource("2_vqmyq"), ExtResource("3_6gsor")]
 }
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w4y42"]
+frequency = 0.0213
+fractal_lacunarity = 1.905
+fractal_weighted_strength = 1.0
+domain_warp_amplitude = -23.505
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7m155"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_w4y42")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfo2t"]
 resource_name = "Bug"
 transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("4_n505c")
-roughness = 0.5
+roughness = 0.02
+emission_enabled = true
+emission = Color(0.5055086, 0.33528364, 0.31416652, 1)
+emission_energy_multiplier = 4.78
+emission_operator = 1
+emission_texture = SubResource("NoiseTexture2D_7m155")
+uv1_triplanar_sharpness = 0.73204297
+uv1_world_triplanar = true
+texture_filter = 0
+stencil_flags = 2
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="Animation" id="Animation_2eor1"]
@@ -55,7 +75,8 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jfedg"]
-size = Vector3(2, 0.38910443, 2.1718214)
+margin = 0.1
+size = Vector3(0.20214844, 0.1, 0.23632813)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bqm18"]
 _surfaces = [{
@@ -92,12 +113,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bqm18")
 
 [node name="Bug" type="CharacterBody3D" unique_id=1711860546 node_paths=PackedStringArray("STATE_MACHINE", "GRABBED_STATE", "MESH", "COLLIDER") groups=["Interactable"]]
+collision_layer = 0
 floor_constant_speed = true
 floor_snap_length = 0.05
 script = ExtResource("1_6gsor")
 STATE_MACHINE = NodePath("StateMachine")
 GRABBED_STATE = NodePath("StateMachine/BugGrabbed")
-STAMINA_VALUE = 8.0
+STAMINA_VALUE = 11.0
 MESH = NodePath("Mesh/Bug")
 COLLIDER = NodePath("CollisionShape3D")
 
@@ -121,11 +143,11 @@ metadata/_custom_type_script = "uid://b4aamndmpk0r6"
 libraries/ = SubResource("AnimationLibrary_7m155")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=442753892]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.008356571, -0.0043273643)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03444963, -0.0043273643)
 shape = SubResource("BoxShape3D_jfedg")
 
 [node name="Mesh" type="Node3D" parent="." unique_id=1813718030]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.010797783, 0)
 
 [node name="Bug" type="MeshInstance3D" parent="Mesh" unique_id=1159770989]
 transform = Transform3D(0.898458, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

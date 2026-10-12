@@ -3,6 +3,7 @@ extends Node3D
 class_name Interactable
 
 
+@export var CONST_PATH : String
 @export var IS_GRABBABLE = true
 @export var GRAB_ONLY = false
 @export var GRAB_IS_INTERACT = false
@@ -65,9 +66,9 @@ func on_save_data(saved_data: Array[SavedData]):
 	var self_scene = PackedScene.new()
 	self_scene.pack(self)
 	
-	var id = ResourceLoader.get_resource_uid(scene_file_path)
+	var path : String = Constants.SCENE_PATHS[CONST_PATH] if CONST_PATH.length() > 0 else scene_file_path
 	
-	data.uid = id
+	data.file_path = path
 	data.tf = transform
 	data.parent_path = get_parent().get_path()
 	data.is_grabbed = get_parent().name == "GrabPoint"

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c31xtmjc0hmlb"]
+
+[ext_resource type="PackedScene" uid="uid://c8dawx4ugocni" path="res://Entities/Pickups/Placeables/Decorations/Radio/Radio.tscn" id="1_1w6pe"]
+
+[node name="Radio" unique_id=1868481036 instance=ExtResource("1_1w6pe")]

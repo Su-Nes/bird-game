@@ -94,6 +94,7 @@ SfxPlayer="*uid://dt3psx4gmea8q"
 PlayerParameters="*uid://dthidgu5wwqd2"
 SaverLoader="*uid://dqgry52td7nn7"
 SceneLoader="*uid://4sa6fxomsh3h"
+Constants="*uid://dhh4y3lq2wj25"
 
 [debug_draw_3d]
 
@@ -269,6 +270,8 @@ jolt_physics_3d/limits/max_bodies=20480
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+lights_and_shadows/use_physical_light_units=true
+lights_and_shadows/directional_shadow/size=8192
 occlusion_culling/occlusion_rays_per_thread=256
 occlusion_culling/use_occlusion_culling=true
 mesh_lod/lod_change/threshold_pixels=2.0

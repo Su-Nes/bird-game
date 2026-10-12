@@ -66,12 +66,16 @@ func update_decor():
 		nest_complete = true
 		
 func on_save_data(saved_data: Array[SavedData]):
+	if NEST_PROMPT:
+		return
+	
 	var data = SavedData.new()
 	
 	var self_scene = PackedScene.new()
 	self_scene.pack(self)
 	
-	data.uid = ResourceLoader.get_resource_uid(scene_file_path)
+	data.file_path = scene_file_path
+
 	data.tf = transform
 	data.parent_path = get_parent().get_path()
 	
@@ -79,6 +83,7 @@ func on_save_data(saved_data: Array[SavedData]):
 	
 func on_loaded(data: SavedData):
 	transform = data.tf
+	NEST_PROMPT.queue_free()
 
 func _on_world_button_yes_on_pressed() -> void:
 	#var nest_index = get_tree().get_node_count_in_group("Nest") - 1

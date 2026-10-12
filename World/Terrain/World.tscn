@@ -399,8 +399,9 @@ transform = Transform3D(0.86187106, 0, -0.5071274, 0, 1, 0, 0.5071274, 0, 0.8618
 mesh = SubResource("PlaneMesh_hgwml")
 
 [node name="CollisionShape3D" parent="Beach" index="1" unique_id=1742185738]
-transform = Transform3D(0.86187106, 0, -0.5071274, 0, 1, 0, 0.5071274, 0, 0.86187106, -596.311, -25.5, 485.368)
+transform = Transform3D(0.86187106, 0, -0.5071274, 0, 1, 0, 0.5071274, 0, 0.86187106, -596.311, -25.572552, 485.368)
 shape = SubResource("BoxShape3D_8ltlb")
+debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="SpawnPoints" type="Node3D" parent="Beach" unique_id=2044303618]
 
@@ -3198,6 +3199,42 @@ metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 transform = Transform3D(0.17615172, 0, 0.984363, 0, 1, 0, -0.984363, 0, 0.17615172, -128.8656, 1.0356709e-05, 168.66055)
 RAND_BRANCHES_PER_METER = Vector2(0, 0.2)
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
+
+[node name="BugSpawner (18)" parent="Bugs" unique_id=756960112 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -372.30307, 0.00011083158, -236.75302)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (19)" parent="Bugs" unique_id=964333110 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -386.0224, 7.524377e-06, -111.79739)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (20)" parent="Bugs" unique_id=1685099138 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -429.16013, 0.0003749685, -203.79138)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (21)" parent="Bugs" unique_id=674394723 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -340.84436, 9.4735415e-06, -288.43802)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (22)" parent="Bugs" unique_id=2055284598 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -365.33734, 0.0009942274, -342.73547)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (23)" parent="Bugs" unique_id=1561563570 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -298.7753, 0.00088098506, -380.55798)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (24)" parent="Bugs" unique_id=1350886004 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -298.7868, 0.00096149155, -381.00476)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (25)" parent="Bugs" unique_id=538895910 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -279.86472, 7.483063e-06, -466.93286)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (26)" parent="Bugs" unique_id=2016944289 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.66293, 99.801025, -753.81696)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="---Zones" type="Node3D" parent="." unique_id=1884967515]
 

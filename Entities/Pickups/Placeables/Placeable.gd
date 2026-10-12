@@ -8,6 +8,7 @@ var forward_connections : Array[Placeable]
 var backwards_connections : Array[Placeable]
 @export var DECOR_VALUE : int = 1
 @export var COLLISION_SEARCH_MARGIN : float = 1.5
+@export var ALIGN_NORMALS = false
 @export var PLACEABLE_DETECTION_AREA : PackedScene = preload("uid://2ql1yen4toui")
 var MINIMUM_PLACED_OBJECTS_FOR_NEST := 5
 @export var NEST_PROMPT : PackedScene = preload("uid://bwmqd5nb80in3")
