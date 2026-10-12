@@ -7,11 +7,14 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_foam"]
 noise_type = 2
 seed = 3
-frequency = 0.02
-fractal_type = 0
+frequency = 0.034
+offset = Vector3(37.04, 0, 0)
 cellular_return_type = 4
 
 [resource]
+width = 128
+height = 128
+generate_mipmaps = false
 noise = SubResource("FastNoiseLite_foam")
 color_ramp = SubResource("Gradient_foam")
 seamless = true

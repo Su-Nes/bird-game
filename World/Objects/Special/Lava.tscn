@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cmi72v3dlncb5"]
+
+[ext_resource type="Script" uid="uid://db5pyl80g66oc" path="res://World/Objects/Special/DeathZone.gd" id="1_727k0"]
+[ext_resource type="Shader" uid="uid://cekuxppkvycey" path="res://Shaders/EA_CoolWater.gdshader" id="1_vtl5k"]
+[ext_resource type="Texture2D" uid="uid://byd17awl1gpfy" path="res://addons/toon_water/Textures/EA_Foam_Voronoi.tres" id="2_727k0"]
+[ext_resource type="Texture2D" uid="uid://sarajcytxpgx" path="res://addons/toon_water/Textures/EA_Water_Normal.tres" id="3_ho6nw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksc4j"]
+render_priority = 0
+shader = ExtResource("1_vtl5k")
+shader_parameter/shallow_color = Color(0.8372529, 0.35797566, 0.14461121, 0.6509804)
+shader_parameter/deep_color = Color(1.2642666, 0.74603474, 0, 1)
+shader_parameter/water_depth = 2.00000009174012
+shader_parameter/color_bands = 2
+shader_parameter/shore_glow_color = Color(0.6553181, 0.34662658, 0.03759705, 1)
+shader_parameter/shore_glow_width = 0.1090000051775
+shader_parameter/specular_color = Color(0, 0, 0, 1)
+shader_parameter/specular_size = 60.0
+shader_parameter/specular_softness = 0.1630000077425
+shader_parameter/specular_hardness = 0.85
+shader_parameter/specular_intensity = 0.400000019
+shader_parameter/fresnel_power = 0.0
+shader_parameter/refraction_strength = 0.050000002375
+shader_parameter/foam_style = 2
+shader_parameter/foam_color = Color(0.36256984, 0.17363879, 0.094352774, 1)
+shader_parameter/foam_texture = ExtResource("2_727k0")
+shader_parameter/foam_tiling = 0.04400000209
+shader_parameter/foam_cutoff = 0.702000033345
+shader_parameter/foam_depth = 1.27600006061
+shader_parameter/foam_speed = 0.050000002375
+shader_parameter/foam_edge_break = 0.8610000408975
+shader_parameter/shore_edge_break = 0.366000017385
+shader_parameter/foam_hardness = 0.242000011495
+shader_parameter/foam_overlay = 1.0
+shader_parameter/caustics_tint = Color(1, 1, 1, 1)
+shader_parameter/caustics_strength = 0.0
+shader_parameter/caustics_scale = 0.055
+shader_parameter/caustics_speed = 0.80800003838
+shader_parameter/chromatic_aberration = false
+shader_parameter/sparkle_boost = 0.5130000243675
+shader_parameter/sparkle_density = 0.2170000103075
+shader_parameter/sparkle_size = 0.758000036005
+shader_parameter/normal_map = ExtResource("3_ho6nw")
+shader_parameter/normal_tiling = 0.06
+shader_parameter/normal_strength = 0.7610000361475
+shader_parameter/wave_speed = 0.02
+shader_parameter/wave_height = 0.04
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qkran"]
+material = SubResource("ShaderMaterial_ksc4j")
+top_radius = 85.0
+bottom_radius = 85.0
+height = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q4vpn"]
+size = Vector3(170.00002, 9.9533205, 170.00002)
+
+[node name="DeathZone" type="Area3D" unique_id=94971073]
+script = ExtResource("1_727k0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=634524016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1063.2886, 366.7464, -312.05405)
+mesh = SubResource("CylinderMesh_qkran")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1971494268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1063.2886, 361.81973, -312.05405)
+shape = SubResource("BoxShape3D_q4vpn")

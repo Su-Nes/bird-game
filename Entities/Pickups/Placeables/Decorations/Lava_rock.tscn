@@ -1,0 +1,72 @@
+[gd_scene format=4 uid="uid://2uejsubr1tjg"]
+
+[ext_resource type="PackedScene" uid="uid://l3uqhubwsy3t" path="res://Entities/Pickups/Placeables/Decorations/PrettyRock.tscn" id="1_vei4m"]
+
+[sub_resource type="Gradient" id="Gradient_xhaa5"]
+offsets = PackedFloat32Array(0.5616883, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w4wah"]
+seed = 13
+frequency = 0.0142
+offset = Vector3(-329.41, 164.71, 0)
+fractal_type = 0
+fractal_octaves = 4
+fractal_lacunarity = 1.15
+fractal_gain = -0.505
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tuo08"]
+width = 256
+height = 256
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_w4wah")
+color_ramp = SubResource("Gradient_xhaa5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xttvf"]
+shading_mode = 2
+albedo_color = Color(0.73081464, 0.7492379, 0.84199363, 1)
+metallic = 0.62
+metallic_specular = 0.57
+emission_enabled = true
+emission = Color(4.400489, 2.456134, 0, 1)
+emission_energy_multiplier = 7.45
+emission_operator = 1
+emission_texture = SubResource("NoiseTexture2D_tuo08")
+stencil_flags = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tgx4g"]
+_surfaces = [{
+"aabb": AABB(-0.7806838, -1, -0.7806838, 1.5613676, 2, 1.5613676),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAAAAAIAAwAEAAIABQABAAAABQADAAEABQAAAAQABQAEAAMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAD/f///AAAAAP9/AAAAAP9/////fwAA////fwAAAAD///9///8AAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_227os"]
+resource_name = "BerryBush_Cube_002"
+_surfaces = [{
+"aabb": AABB(-0.7806838, -1, -0.7806838, 1.5613676, 2, 1.5613676),
+"attribute_data": PackedByteArray("/3////9//7//n/+//3//v/9//3//n/9//3//f/9//z//n/8//3//P/9/AAD/nwAA/1//P/9/AAD/f/8//1//f/9//z//f/9//1//v/9//3//f/+//1////9//7//f///"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcA"),
+"material": SubResource("StandardMaterial3D_xttvf"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD/f///RsEAAP9/AABGwf9/////f0bBAAD/fwAAAfP///9/AAAB8/9/////fwHz////fwAA/tf///9////+1/9/////f/7X////f///37AAAP9////fsP9/////f9+w/38AAP9/37AAAP9////fsP///3///9+w/38AAP9/RsH///9///9Gwf///38AAEbB/38AAP9/AfP///9/AAAB8wAA/38AAAHz/38AAP9//tcAAP9/AAD+1wAA/3////7XTMr3w0zK98NMyvfDlaVCw5WlQsOVpULDEULkCxFC5AsRQuQLhek4KIXpOCiF6TgoeRbG13kWxtd5FsbXsjUHPLI1BzyyNQc8aVq8PGlavDxpWrw87b0a9O29GvTtvRr0")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tgx4g")
+
+[node name="PrettyRock" unique_id=517437660 instance=ExtResource("1_vei4m")]
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=1436029745]
+mesh = SubResource("ArrayMesh_227os")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1219465039]
+light_color = Color(1, 0.8745098, 0.43529412, 1)

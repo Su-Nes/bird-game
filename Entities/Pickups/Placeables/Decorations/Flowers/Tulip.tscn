@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://br7nibj7m4jrx" path="res://Entities/Pickups/Placeables/Decorations/Flowers/ReparentOnReady.gd" id="4_164gw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
-size = Vector3(0.3, 0.3, 3.683)
+size = Vector3(0.5, 0.5, 3.683)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sa0gj"]
 resource_name = "Stem"
@@ -81,7 +81,7 @@ shadow_mesh = SubResource("ArrayMesh_xlnax")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_164gw"]
 cull_mode = 2
-albedo_color = Color(0.8065719, 0.8810429, 0.84473884, 1)
+albedo_color = Color(0.7793916, 0.6798046, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p2hsh"]
 _surfaces = [{
@@ -115,7 +115,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p2hsh")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_x36c3"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3pivt"]
 _surfaces = [{
 "aabb": AABB(-0.58110464, -0.54347503, -2.5935366, 1.348415, 1.1640582, 2.5828335),
 "format": 34359742465,
@@ -145,7 +145,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("dG5EP5PU4D59OfS/cfsQP3UH57yEfnS97BUXPlpTnT6y6KW9RsMUv4reHj+B/CXAUWsWPbYPtD6dfnS9nZ6RvlQqoL2/6KW9dsnvPS4hC7/5UM6/o/qhvWuNKb48XC+8PJ9/Pt7RqL1eCsa8SK9SvP///z9Ir1K8////P0ivUrz///8/o0GXrf///z+jQZet////P6NBl63///8/C5Z3LP///z8Llncs////PwuWdyz///8/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_x36c3")
+shadow_mesh = SubResource("ArrayMesh_3pivt")
 
 [node name="Tulip" type="RigidBody3D" unique_id=430097718 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY")]
 collision_layer = 8
@@ -175,6 +175,3 @@ mesh = SubResource("ArrayMesh_cm6tt")
 transform = Transform3D(0.06136161, -0.19035429, 8.320648e-09, 0, -8.742276e-09, -0.19999997, 0.19035429, 0.06136161, -2.6822011e-09, 1.4901161e-08, -0.070939645, -3.7252896e-08)
 mesh = SubResource("ArrayMesh_6p1i2")
 script = ExtResource("4_164gw")
-
-[node name="GrabPoint" type="Marker3D" parent="." unique_id=1264903554]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.33800423, 0)
