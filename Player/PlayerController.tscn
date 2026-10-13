@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://babt3u5ap0jca"]
+[gd_scene format=4 uid="uid://babt3u5ap0jca"]
 
 [ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="1_8rupm"]
 [ext_resource type="Script" uid="uid://l7hd3n1tcy23" path="res://Player/Scripting/ControllerFunctions.gd" id="1_vn67c"]
@@ -480,6 +480,40 @@ albedo_color = Color(0, 0.2115745, 0.12495578, 1)
 material = SubResource("StandardMaterial3D_n68f6")
 size = Vector3(0.115, 0.425, 0.155)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp2fy"]
+cull_mode = 2
+albedo_color = Color(1, 0.8, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qjs7e"]
+_surfaces = [{
+"aabb": AABB(-0.19999999, 0, -0.19999999, 0.39999998, 0.15536712, 0.39999998),
+"format": 34359742465,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEABAAFAAEABgAEAAAAAwABAAcABwABAAgACQADAAcABgAKAAQACgALAAQACQAHAAwADAAHAA0ACQAMAA4ADAAPAA4ACQAOABAABgARAAoACgARABIABgATABEAEAAOABQAEwAUABEADgAVABQAEQAUABYAEwAXABQAEAAUABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("wtAQPgAAAADC0BC+AAAAAKLIYj3MzEy+AAAAAAAAAADMzEy+wtAQvgAAAADC0BC+wtAQPqLIYj3C0BC+wtCQPY8YHz7Hzi6+zMxMPgAAAAAAAACAwtAQvqLIYj3C0BC+wtCQvY8YHz7Hzi6+zMxMvgAAAAAAAACAzMxMPqLIYj0AAACAx84uPo8YHz7C0JC9zMxMvqLIYj0AAACAx84uvo8YHz7C0JC9wtAQvqLIYj3C0BA+x84uvo8YHz7C0JA9wtAQvgAAAADC0BA+wtAQPqLIYj3C0BA+x84uPo8YHz7C0JA9wtAQPgAAAADC0BA+AAAAAKLIYj3MzEw+wtCQvY8YHz7Hzi4+wtCQPY8YHz7Hzi4+AAAAAAAAAADMzEw+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vui7j"]
+resource_name = "Crown_Circle_001"
+_surfaces = [{
+"aabb": AABB(-0.19999999, 0, -0.19999999, 0.39999998, 0.15536712, 0.39999998),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEABAAFAAEABgAEAAAAAwABAAcABwABAAgACQADAAcABgAKAAQACgALAAQACQAHAAwADAAHAA0ACQAMAA4ADAAPAA4ACQAOABAABgARAAoACgARABIABgATABEAEAAOABQAEwAUABEADgAVABQAEQAUABYAEwAXABQAEAAUABcA"),
+"material": SubResource("StandardMaterial3D_yp2fy"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("wtAQPgAAAADC0BC+AAAAAKLIYj3MzEy+AAAAAAAAAADMzEy+wtAQvgAAAADC0BC+wtAQPqLIYj3C0BC+wtCQPY8YHz7Hzi6+zMxMPgAAAAAAAACAwtAQvqLIYj3C0BC+wtCQvY8YHz7Hzi6+zMxMvgAAAAAAAACAzMxMPqLIYj0AAACAx84uPo8YHz7C0JC9zMxMvqLIYj0AAACAx84uvo8YHz7C0JC9wtAQvqLIYj3C0BA+x84uvo8YHz7C0JA9wtAQvgAAAADC0BA+wtAQPqLIYj3C0BA+x84uPo8YHz7C0JA9wtAQPgAAAADC0BA+AAAAAKLIYj3MzEw+wtCQvY8YHz7Hzi4+wtCQPY8YHz7Hzi4+AAAAAAAAAADMzEw+////v////z//////////P/////////8/AAD/v////z////+/////P///gdr///8/////f////78AAP+/////PwAAgdr///8/AAD/f////7////9/////v///faX///8/AAD/f////78AAH2l////P/8//3////8/fSX/f////z//P/9/////P/+//3////8/gdr/f////z//v/9/////P/9//3////8/gVr/f////z99pf9/////P/9//3////8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qjs7e")
+
 [sub_resource type="Curve" id="Curve_n68f6"]
 _limits = [0.0, 1.0, 0.0, 100.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(24.615385, 0.36507934), 0.036345597, 0.024672179, 0, 0, Vector2(100, 1), 0.0028036567, 0.0, 0, 0]
@@ -536,13 +570,14 @@ bg_color = Color(0.77254903, 0.39215687, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7pa4"]
 bg_color = Color(0.7607843, 0.9411765, 0.9843137, 1)
 
-[node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH") groups=["Player"]]
+[node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH", "CROWN") groups=["Player"]]
 collision_layer = 2
 floor_max_angle = 1.0471976
 script = ExtResource("1_vn67c")
 MESH_OFFSET = Vector3(0, 0.1, 0)
 LOOK_AT_LERP_Z = 0.05
 MESH = NodePath("MeshHandle")
+CROWN = NodePath("MeshParts/Crown")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -619,6 +654,10 @@ mesh = SubResource("SphereMesh_kl3dy")
 [node name="Tail" type="MeshInstance3D" parent="MeshParts" unique_id=667488055]
 transform = Transform3D(-3.9853784e-08, -3.2507636e-08, -1.0000001, -0.94552225, 0.3255576, 2.7099535e-08, 0.32555756, 0.94552237, -4.3711392e-08, 0, 0.017605467, 0.3401465)
 mesh = SubResource("PrismMesh_joydu")
+
+[node name="Crown" type="MeshInstance3D" parent="MeshParts" unique_id=1009268513]
+transform = Transform3D(0.49100718, 0, 0, 0, 0.49100712, 0, 0, 0, 0.49100715, 0, 0.21314469, -0.13235395)
+mesh = SubResource("ArrayMesh_vui7j")
 
 [node name="CameraControl" type="Node3D" parent="." unique_id=799988347]
 script = ExtResource("5_7c45o")

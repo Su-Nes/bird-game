@@ -3,7 +3,8 @@ extends Node3D
 class_name BranchSpawner
 
 
-@export var SPAWN_DISTANCE : float = 100
+var SPAWN_DISTANCE : float = 100
+var DESPAWN_DISTANCE : float = 500
 @export var BRANCHES : Array[PackedScene]
 @export var SPAWN_MARKER_PARENT : Node
 @export var SPAWN_OFFSET : float = 0
@@ -17,12 +18,11 @@ func _ready() -> void:
 	player = get_tree().get_nodes_in_group("Player")[0]
 	
 func _physics_process(_delta: float) -> void:
-	if !player:
-		return
-		
 	if player.global_position.distance_to(global_position) < SPAWN_DISTANCE:
 		spawn_branches()
-		player = null
+	
+	if player.global_position.distance_to(global_position) > DESPAWN_DISTANCE:
+		free_branches()
 
 func spawn_branches() -> void:
 	for marker in SPAWN_MARKER_PARENT.get_children(): # Don't spawn if tree has branches from a save file 
@@ -54,3 +54,8 @@ func spawn_branches() -> void:
 			elif new_branch is BranchInteractable: # Type-ing
 				new_branch.has_physics(true, false)
 				new_branch.grow_branch_random(CHANCE_FOR_BRANCH_GROWTH)
+
+func free_branches():
+	for spawn_marker : Marker3D in SPAWN_MARKER_PARENT.get_children():
+		for branch in spawn_marker.get_children():
+			branch.queue_free()

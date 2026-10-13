@@ -8,7 +8,6 @@ var player_camera_sensitivity : float = 10
 var player_camera_inverted : bool = false
 var player_pitch_inverted : bool = false
 var player_master_volume : float = 1
-var player_tutorial_complete : bool = false
 
 var mixer : AudioBusLayout = preload("uid://csitp8n76x4ua")
 
@@ -26,7 +25,6 @@ func save_settings():
 	settings_resource.player_camera_inverted = player_camera_inverted
 	settings_resource.player_pitch_inverted = player_pitch_inverted
 	settings_resource.player_master_volume = player_master_volume
-	settings_resource.player_tutorial_complete = player_tutorial_complete
 
 	ResourceSaver.save(settings_resource, "user://settings.tres")
 	
@@ -43,7 +41,6 @@ func load_settings():
 	player_camera_inverted = settings_resource.player_camera_inverted
 	player_pitch_inverted = settings_resource.player_pitch_inverted
 	player_master_volume = settings_resource.player_master_volume
-	player_tutorial_complete = settings_resource.player_tutorial_complete
 	
 	set_fullscreen(player_fullscreen)
 	

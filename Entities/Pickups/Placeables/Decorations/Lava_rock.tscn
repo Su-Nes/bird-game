@@ -63,7 +63,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tgx4g")
 
-[node name="PrettyRock" unique_id=517437660 instance=ExtResource("1_vei4m")]
+[node name="LavaRock" unique_id=517437660 instance=ExtResource("1_vei4m")]
+DECOR_VALUE = 6
 
 [node name="MeshInstance3D" parent="." index="0" unique_id=1436029745]
 mesh = SubResource("ArrayMesh_227os")

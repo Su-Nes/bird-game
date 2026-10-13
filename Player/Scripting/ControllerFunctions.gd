@@ -5,6 +5,7 @@ class_name PlayerExtensionFunctions
 @export var MESH_OFFSET : Vector3
 @export var LOOK_AT_LERP_Z : float
 @export var MESH: Node3D
+@export var CROWN : Node3D
 
 @onready var player_controller: CharacterBody3D = $"."
 

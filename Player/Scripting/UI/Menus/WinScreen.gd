@@ -14,6 +14,7 @@ func play_win():
 
 func _on_resume_pressed() -> void:
 	MenuManager.on_unpaused()
+	SaverLoader.game_complete = true
 	hide()
 	
 func on_quit_pressed():

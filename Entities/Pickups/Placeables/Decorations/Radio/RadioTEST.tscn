@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bqarej14bt0ql"]
+
+[ext_resource type="PackedScene" uid="uid://c8dawx4ugocni" path="res://Entities/Pickups/Placeables/Decorations/Radio/Radio.tscn" id="1_tlw4e"]
+[ext_resource type="AudioStream" uid="uid://dcjeyacivxmgi" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/SmadzRadioVer.wav" id="2_cppan"]
+[ext_resource type="AudioStream" uid="uid://c3rlym5xh52sw" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Molden.wav" id="3_73kad"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjd78"]
+albedo_color = Color(0.46195024, 0.5351362, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ap8vs"]
+material = SubResource("StandardMaterial3D_xjd78")
+size = Vector3(0.2770996, 0.009521484, 0.06347656)
+
+[node name="RadioTEST" unique_id=1868481036 instance=ExtResource("1_tlw4e")]
+
+[node name="Color" parent="." index="1" unique_id=1775473335]
+mesh = SubResource("BoxMesh_ap8vs")
+
+[node name="Song1" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="0" unique_id=1244112340]
+stream = ExtResource("2_cppan")
+
+[node name="Song2" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="1" unique_id=192536707]
+stream = ExtResource("3_73kad")

@@ -22,9 +22,7 @@ func _ready() -> void:
 
 func on_placed():
 	is_placed = true
-	
-	add_to_group("Persistent", true)
-	
+		
 	handle_colliders()
 	create_detection_area()
 	

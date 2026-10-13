@@ -13,13 +13,16 @@ albedo_color = Color(0.4590599, 0, 0.070690416, 1)
 material = SubResource("StandardMaterial3D_0jjeq")
 size = Vector3(0.2770996, 0.009521484, 0.06347656)
 
-[node name="Radio" unique_id=1868481036 instance=ExtResource("1_1w6pe")]
+[node name="RadioOST" unique_id=1868481036 instance=ExtResource("1_1w6pe")]
 SONG_VOLUME = -15.0
 
-[node name="Mill" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="0" unique_id=1244112340]
+[node name="Color" parent="." index="1" unique_id=1775473335]
+mesh = SubResource("BoxMesh_0jjeq")
+
+[node name="Song1" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="0" unique_id=1244112340]
 stream = ExtResource("2_0jjeq")
 
-[node name="Knots" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="1" unique_id=192536707]
+[node name="Song2" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="1" unique_id=192536707]
 stream = ExtResource("3_fbcd1")
 
 [node name="Menu" type="AudioStreamPlayer3D" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="2" unique_id=408873548]
@@ -31,6 +34,3 @@ max_distance = 15.0
 bus = &"Radio"
 emission_angle_filter_attenuation_db = -5.0
 script = ExtResource("5_xqe1u")
-
-[node name="Color" parent="." index="3" unique_id=1775473335]
-mesh = SubResource("BoxMesh_0jjeq")

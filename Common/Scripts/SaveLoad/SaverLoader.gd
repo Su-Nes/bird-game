@@ -1,12 +1,7 @@
 extends Node
 
 
-#func _process(_delta: float) -> void:
-	#if Input.is_action_just_pressed("fullscreen"):
-		#clear_save()
-		#
-	#if Input.is_action_just_pressed("alt"):
-		#save_game()
+var game_complete : bool = false
 
 func save_game():
 	var saved_game = SavedGame.new()
@@ -15,6 +10,7 @@ func save_game():
 	saved_game.player_max_stamina = clamp(saved_game.player_max_stamina, 10, StatController.MAX_BASE_STAMINA)
 	var player = get_tree().get_first_node_in_group("Player") as Node3D
 	saved_game.player_position = player.global_position
+	saved_game.game_complete = game_complete
 	
 	var saved_data : Array[SavedData]
 	
@@ -48,8 +44,12 @@ func load_player(save: SavedGame):
 	
 	var player = get_tree().get_first_node_in_group("Player") as CharacterBody3D
 	player.global_position = save.player_position
+	
 	player.velocity = Vector3.ZERO
 	Signals.player_change_state.emit("HoverState")
+	
+	var player_func : PlayerExtensionFunctions = player
+	player_func.CROWN.visible = save.game_complete
 	
 func clear_save():
 	var saved_game = SavedGame.new()

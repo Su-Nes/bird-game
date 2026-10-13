@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://ceikihhj7tl08" path="res://Entities/Pickups/Placeables/Decorations/Flowers/Textures/NaturalGreen_16.png" id="1_kpsax"]
 [ext_resource type="Script" uid="uid://dnyqumsbuxanj" path="res://Entities/Pickups/Placeables/Placeable.gd" id="1_lvwdl"]
 [ext_resource type="Texture2D" uid="uid://clohyhtj122yd" path="res://Entities/Pickups/Placeables/Decorations/Flowers/Textures/LeafFlower_64.png" id="2_lvwdl"]
-[ext_resource type="Script" uid="uid://br7nibj7m4jrx" path="res://Entities/Pickups/Placeables/Decorations/Flowers/ReparentOnReady.gd" id="4_164gw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
 size = Vector3(0.5, 0.5, 3.683)
@@ -115,38 +114,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p2hsh")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_3pivt"]
-_surfaces = [{
-"aabb": AABB(-0.58110464, -0.54347503, -2.5935366, 1.348415, 1.1640582, 2.5828335),
-"format": 34359742465,
-"index_count": 9,
-"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgA"),
-"name": "Stem",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 9,
-"vertex_data": PackedByteArray("dG5EP5PU4D59OfS/cfsQP3UH57yEfnS97BUXPlpTnT6y6KW9RsMUv4reHj+B/CXAUWsWPbYPtD6dfnS9nZ6RvlQqoL2/6KW9dsnvPS4hC7/5UM6/o/qhvWuNKb48XC+8PJ9/Pt7RqL1eCsa8")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_6p1i2"]
-resource_name = "Flowers_Plane_023"
-_surfaces = [{
-"aabb": AABB(-0.58110464, -0.54347503, -2.5935366, 1.348415, 1.1640582, 2.5828335),
-"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
-"format": 34359742487,
-"index_count": 9,
-"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgA"),
-"material": SubResource("StandardMaterial3D_sa0gj"),
-"name": "Stem",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 9,
-"vertex_data": PackedByteArray("dG5EP5PU4D59OfS/cfsQP3UH57yEfnS97BUXPlpTnT6y6KW9RsMUv4reHj+B/CXAUWsWPbYPtD6dfnS9nZ6RvlQqoL2/6KW9dsnvPS4hC7/5UM6/o/qhvWuNKb48XC+8PJ9/Pt7RqL1eCsa8SK9SvP///z9Ir1K8////P0ivUrz///8/o0GXrf///z+jQZet////P6NBl63///8/C5Z3LP///z8Llncs////PwuWdyz///8/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_3pivt")
-
 [node name="Tulip" type="RigidBody3D" unique_id=430097718 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY")]
 collision_layer = 8
 freeze = true
@@ -171,7 +138,5 @@ mesh = SubResource("ArrayMesh_vamj3")
 transform = Transform3D(-0.4965129, -0.06380501, -0.8656812, -0.073380895, 0.99681014, -0.03138213, 0.86492205, 0.047942817, -0.49961114, -0.022643605, 1.8553661, 0.0009377487)
 mesh = SubResource("ArrayMesh_cm6tt")
 
-[node name="Grass" type="MeshInstance3D" parent="Mesh" unique_id=766175333]
-transform = Transform3D(0.06136161, -0.19035429, 8.320648e-09, 0, -8.742276e-09, -0.19999997, 0.19035429, 0.06136161, -2.6822011e-09, 1.4901161e-08, -0.070939645, -3.7252896e-08)
-mesh = SubResource("ArrayMesh_6p1i2")
-script = ExtResource("4_164gw")
+[node name="GrabPoint" type="Marker3D" parent="." unique_id=43934118]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.33800423, 0)
