@@ -41,6 +41,7 @@ func load_game():
 			
 func load_player(save: SavedGame):
 	StatController.stamina_max_limit = save.player_max_stamina
+	StatController.stamina = StatController.stamina_max_limit
 	
 	var player = get_tree().get_first_node_in_group("Player") as CharacterBody3D
 	player.global_position = save.player_position

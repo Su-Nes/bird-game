@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ctd6yevovrnl1" path="res://World/Objects/Trees/Scenes/PineTree1.tscn" id="4_0vxd1"]
 [ext_resource type="Material" uid="uid://b4k1dekrpaubd" path="res://World/Terrain/Materials/Grass.tres" id="4_2w2hp"]
 [ext_resource type="PackedScene" uid="uid://dipqgg0d0k4h3" path="res://Entities/Spawners/BerryBush/BerryBush.tscn" id="7_cf7hl"]
-[ext_resource type="PackedScene" uid="uid://dan4no0hepxkq" path="res://World/Objects/Special/FlightRing/FlightRing.tscn" id="7_hsk8h"]
+[ext_resource type="PackedScene" uid="uid://dan4no0hepxkq" path="res://World/Objects/Special/Rings/FlightRing.tscn" id="7_hsk8h"]
 [ext_resource type="Script" uid="uid://bnrdgpikrs7lt" path="res://Common/Scripts/Entity/FreeOnSignal.gd" id="9_2fwfl"]
 [ext_resource type="PackedScene" uid="uid://cqlwouf4xaqth" path="res://Common/Scenes/World_Button.tscn" id="9_3qw55"]
 [ext_resource type="Shader" uid="uid://cpnyel6dxqphc" path="res://World/Shaders/LeavesFalling.gdshader" id="9_yu4ji"]

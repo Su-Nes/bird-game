@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bk0wwxax0ymnp"
-path="res://.godot/imported/Complete_01.wav-06f11d5ff52e9a17666554f1dd8ddff0.sample"
+path="res://.godot/imported/Complete_01.wav-d484f755905b2be1708387950e25c579.sample"
 
 [deps]
 
-source_file="res://World/Objects/Special/FlightRing/Complete_01.wav"
-dest_files=["res://.godot/imported/Complete_01.wav-06f11d5ff52e9a17666554f1dd8ddff0.sample"]
+source_file="res://World/Objects/Special/Rings/Complete_01.wav"
+dest_files=["res://.godot/imported/Complete_01.wav-d484f755905b2be1708387950e25c579.sample"]
 
 [params]
 

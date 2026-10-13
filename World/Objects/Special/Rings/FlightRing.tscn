@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dan4no0hepxkq"]
 
-[ext_resource type="Script" uid="uid://dbswfams6najq" path="res://World/Objects/Special/FlightRing/FlightRing.gd" id="1_7kg5e"]
-[ext_resource type="AudioStream" uid="uid://cn242cbffo8na" path="res://World/Objects/Special/FlightRing/Complete_02.wav" id="2_7kg5e"]
-[ext_resource type="AudioStream" uid="uid://bk0wwxax0ymnp" path="res://World/Objects/Special/FlightRing/Complete_01.wav" id="3_r4svu"]
+[ext_resource type="Script" uid="uid://dbswfams6najq" path="res://World/Objects/Special/Rings/FlightRing.gd" id="1_7kg5e"]
+[ext_resource type="AudioStream" uid="uid://cn242cbffo8na" path="res://World/Objects/Special/Rings/Complete_02.wav" id="2_7kg5e"]
+[ext_resource type="AudioStream" uid="uid://bk0wwxax0ymnp" path="res://World/Objects/Special/Rings/Complete_01.wav" id="3_r4svu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vxd1"]
 render_priority = 1

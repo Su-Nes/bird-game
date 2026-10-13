@@ -22,6 +22,8 @@ func _process(_delta: float) -> void:
 	target_pos.origin.y = global_position.y
 		
 	global_transform = global_transform.looking_at(target_pos.origin)
-	global_position.y = TARGET.global_position.y
+	
+	if FOLLOW_Y_POS:
+		global_position.y = TARGET.global_position.y
 	
 	#TO-DO: Make this lerp and shit

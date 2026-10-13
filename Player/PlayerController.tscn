@@ -40,8 +40,8 @@
 [ext_resource type="Script" uid="uid://0f47ykkc3vcj" path="res://Player/Scripting/Footsteps.gd" id="36_urvmy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
-radius = 0.6
-height = 1.2
+radius = 0.4243164
+height = 1.0492188
 
 [sub_resource type="Animation" id="Animation_g7pa4"]
 resource_name = "Break"
@@ -524,7 +524,7 @@ size = Vector3(1, 1, 0.1)
 
 [sub_resource type="Curve" id="Curve_f1frd"]
 _limits = [-1.0, 1.0, -90.0, 90.0]
-_data = [Vector2(-90, -1), 0.0, 0.017543858, 0, 0, Vector2(0, 0), 0.019359145, 0.020072103, 0, 0, Vector2(90, 1), 0.0006074496, 0.0, 0, 0]
+_data = [Vector2(-90, -1), 0.0, 0.017543858, 0, 0, Vector2(0, 0), 0.019359145, 0.01650821, 0, 0, Vector2(90, 1), 0.0010838717, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_n84ad"]
@@ -570,6 +570,10 @@ bg_color = Color(0.77254903, 0.39215687, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7pa4"]
 bg_color = Color(0.7607843, 0.9411765, 0.9843137, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_yp2fy"]
+outline_size = 8
+outline_color = Color(0, 0.39215687, 0, 1)
+
 [node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH", "CROWN") groups=["Player"]]
 collision_layer = 2
 floor_max_angle = 1.0471976
@@ -580,7 +584,7 @@ MESH = NodePath("MeshHandle")
 CROWN = NodePath("MeshParts/Crown")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1116598755]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.03769532, 0)
 shape = SubResource("CapsuleShape3D_6md3q")
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=1816877548]
@@ -675,8 +679,8 @@ margin = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring" unique_id=1870356551 node_paths=PackedStringArray("CONTROLLER")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
-fov = 100.0
-far = 600.0
+fov = 90.0
+far = 700.0
 script = ExtResource("7_l7evj")
 CONTROLLER = NodePath("../../../../..")
 MAX_FOV = 130.0
@@ -976,10 +980,13 @@ texture = ExtResource("20_h5t5w")
 
 [node name="FPSCounter" type="Label" parent="HUD&Stats" unique_id=1333771049]
 layout_mode = 0
+offset_left = 4.0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "FPS: "
+label_settings = SubResource("LabelSettings_yp2fy")
 script = ExtResource("28_kl3dy")
+ALWAYS_ON = true
 
 [node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("28_be8bd")]
 visible = false

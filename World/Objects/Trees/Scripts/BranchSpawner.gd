@@ -4,7 +4,9 @@ class_name BranchSpawner
 
 
 var SPAWN_DISTANCE : float = 100
-var DESPAWN_DISTANCE : float = 500
+var DESPAWN_DISTANCE : float = 120
+var spawned_branches = 0
+
 @export var BRANCHES : Array[PackedScene]
 @export var SPAWN_MARKER_PARENT : Node
 @export var SPAWN_OFFSET : float = 0
@@ -21,14 +23,14 @@ func _physics_process(_delta: float) -> void:
 	if player.global_position.distance_to(global_position) < SPAWN_DISTANCE:
 		spawn_branches()
 	
-	if player.global_position.distance_to(global_position) > DESPAWN_DISTANCE:
+	if player.global_position.distance_to(global_position) > DESPAWN_DISTANCE and spawned_branches > 0:
 		free_branches()
 
 func spawn_branches() -> void:
 	for marker in SPAWN_MARKER_PARENT.get_children(): # Don't spawn if tree has branches from a save file 
 		if marker.get_child_count() > 0:
 			return
-	
+	#print("spawned at %s on %s with %s FPS" % [global_position, name, Engine.get_frames_per_second()])
 	for spawn_marker : Marker3D in SPAWN_MARKER_PARENT.get_children():
 		var branch_count := randf_range(RAND_BRANCHES_PER_METER.x, RAND_BRANCHES_PER_METER.y)
 		var branches_per_meter = roundi(spawn_marker.gizmo_extents * scale.x * branch_count)
@@ -49,6 +51,8 @@ func spawn_branches() -> void:
 			new_branch.global_position = branch_pivot.global_position + branch_pivot.global_basis.x * branch_pivot.gizmo_extents
 			new_branch.global_rotation = branch_pivot.global_rotation
 			
+			spawned_branches += 1
+			
 			if !new_branch is BranchInteractable:
 				return
 			elif new_branch is BranchInteractable: # Type-ing
@@ -56,6 +60,9 @@ func spawn_branches() -> void:
 				new_branch.grow_branch_random(CHANCE_FOR_BRANCH_GROWTH)
 
 func free_branches():
+	#print("freed at %s on %s with %s FPS" % [global_position, name, Engine.get_frames_per_second()])
 	for spawn_marker : Marker3D in SPAWN_MARKER_PARENT.get_children():
 		for branch in spawn_marker.get_children():
 			branch.queue_free()
+			
+	spawned_branches = 0
