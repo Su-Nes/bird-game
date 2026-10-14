@@ -113,7 +113,7 @@ shape = SubResource("BoxShape3D_yur33")
 debug_color = Color(1, 0.7529412, 0.9490196, 1)
 
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_ueddx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15576255, 0)
 
 [node name="LevelGeometry" type="Node3D" parent="." unique_id=965496591]
 

@@ -40,7 +40,7 @@ func grab_item(item: Interactable): ## If item has GrabPivot child it will use t
 	item.has_physics(false, false)
 
 	item.transform = Transform3D.IDENTITY
-
+	print("%s is colliding disabled %s" % [item.name, item.COLLIDER.disabled])
 	if item.has_node("GrabPoint"):
 		var grab_pivot : Node3D = item.get_node("GrabPoint")
 		

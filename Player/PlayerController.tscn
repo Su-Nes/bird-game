@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://dt1bxsua66d8j" path="res://World/Ambience/wind-light-calm-soft-breeze-deep-big-gusty.wav" id="32_n68f6"]
 [ext_resource type="AudioStream" uid="uid://2v2q42glksnu" path="res://Player/Audio/StrongWindLoop.wav" id="34_1c4sq"]
 [ext_resource type="AudioStream" uid="uid://bdleds4kvnnmg" path="res://Player/Audio/WingFlap_Crunchy_2.wav" id="35_1c4sq"]
+[ext_resource type="Texture2D" uid="uid://bjy5kvn6k5b8h" path="res://Common/UI/Border/panel-border-000_24.png" id="35_vui7j"]
 [ext_resource type="AudioStream" uid="uid://dx4q2vt7tni0p" path="res://Player/Audio/Footstep_Crunchy_1.wav" id="36_d6s72"]
 [ext_resource type="Script" uid="uid://0f47ykkc3vcj" path="res://Player/Scripting/Footsteps.gd" id="36_urvmy"]
 
@@ -559,20 +560,19 @@ _data = [Vector2(0, -80), 0.0, 2.292187, 0, 0, Vector2(100, -5), 0.101592354, 0.
 point_count = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n84ad"]
-bg_color = Color(0.3137255, 0.7764706, 0.5137255, 1)
+bg_color = Color(0.37232468, 0.6501966, 0.44592625, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5t5w"]
 bg_color = Color(0.36548287, 0.14428478, 2.4065375e-08, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkran"]
-bg_color = Color(0.77254903, 0.39215687, 0, 1)
+bg_color = Color(0.8146435, 0.5480231, 0.012674367, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7pa4"]
-bg_color = Color(0.7607843, 0.9411765, 0.9843137, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaler"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yp2fy"]
-outline_size = 8
-outline_color = Color(0, 0.39215687, 0, 1)
+font_color = Color(0.5529556, 0.55295557, 0.55295557, 1)
 
 [node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH", "CROWN") groups=["Player"]]
 collision_layer = 2
@@ -661,6 +661,7 @@ mesh = SubResource("PrismMesh_joydu")
 
 [node name="Crown" type="MeshInstance3D" parent="MeshParts" unique_id=1009268513]
 transform = Transform3D(0.49100718, 0, 0, 0, 0.49100712, 0, 0, 0, 0.49100715, 0, 0.21314469, -0.13235395)
+visible = false
 mesh = SubResource("ArrayMesh_vui7j")
 
 [node name="CameraControl" type="Node3D" parent="." unique_id=799988347]
@@ -759,7 +760,7 @@ WING_STATES = NodePath("../../WingStateMachine")
 ANGLE_ACCELERATION_CURVE = SubResource("Curve_f1frd")
 AUTO_ANGLE_MULT = 150.0
 THRUST_CURVE = SubResource("Curve_n84ad")
-THRUST_STRENGTH = 4.0
+THRUST_STRENGTH = 6.0
 THRUST_STRENGTH_PASSIVE = 2.5
 DRAG_CURVE = SubResource("Curve_cqlj3")
 DRAG_STRENGTH = -0.25
@@ -770,7 +771,7 @@ BREAK_TURN_MODIFIER = 2.0
 CONSTANT_FLAP_COST = 4.0
 TIME_FOR_FLAP = 0.2
 FLAP_COST = 10.0
-PITCH_ROLL_COMPENSATION = 0.25
+PITCH_ROLL_COMPENSATION = 0.15
 ROLL_ROT_LIMIT = 55.0
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAMERA_MOVE_LERP = 3.0
@@ -782,7 +783,7 @@ metadata/_custom_type_script = "uid://b42w7u62u1xtg"
 script = ExtResource("14_ds2wf")
 ANIMATOR = NodePath("../../Animator")
 AUDIO_PLAYER = NodePath("../../Audio/Crash")
-CRASH_DAMAGE_MULT = 1.5
+CRASH_DAMAGE_MULT = 1.2
 CRASH_DURATION = 0.5
 CRASH_VELOCITY = 5.0
 metadata/_custom_type_script = "uid://co3t6e564eppe"
@@ -913,7 +914,6 @@ inactive_style = SubResource("StyleBoxFlat_h5t5w")
 STAMINA_UI = NodePath("StaminaBar/ProgressBar")
 
 [node name="StaminaBar" type="Panel" parent="HUD&Stats" unique_id=1118466893]
-show_behind_parent = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -921,24 +921,43 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -121.0
-offset_top = -29.0
+offset_top = -28.0
 offset_right = 121.0
-offset_bottom = -21.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qkran")
 
-[node name="ProgressBar" type="ProgressBar" parent="HUD&Stats/StaminaBar" unique_id=1664762907]
+[node name="ProgressBar" type="ProgressBar" parent="HUD&Stats/StaminaBar" unique_id=1199735247]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_g7pa4")
+theme_override_styles/background = SubResource("StyleBoxFlat_kaler")
 theme_override_styles/fill = SubResource("StyleBoxFlat_n84ad")
-value = 33.0
+value = 77.0
 show_percentage = false
+
+[node name="Border" type="NinePatchRect" parent="HUD&Stats/StaminaBar" unique_id=1675790142]
+modulate = Color(0.33238447, 0.536883, 0.33214837, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("35_vui7j")
+draw_center = false
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
 
 [node name="Reticle" type="Control" parent="HUD&Stats" unique_id=954644438]
 layout_mode = 1
@@ -986,7 +1005,6 @@ offset_bottom = 23.0
 text = "FPS: "
 label_settings = SubResource("LabelSettings_yp2fy")
 script = ExtResource("28_kl3dy")
-ALWAYS_ON = true
 
 [node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("28_be8bd")]
 visible = false

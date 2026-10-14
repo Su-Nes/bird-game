@@ -75,7 +75,8 @@ func look_towards_y(value: float, strength: float, cam_reset_time = .5):
 func look_towards_vector(direction: Vector3, strength: float, cam_reset_time: float = .5, up: Vector3 = Vector3.UP):
 	if disable_look_timer < cam_reset_time:
 		strength *= CAM_RESET_MOD
-	
+	#DebugDraw3D.draw_ray(global_position, direction, 10, Color.YELLOW)
+
 	var look_pos = global_position + direction * 999.9
 
 	var start_rot = pivot.rotation

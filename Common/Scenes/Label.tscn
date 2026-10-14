@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://m1s0hpj4abqw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qkran"]
+outline_size = 6
+outline_color = Color(0.3137255, 0.6901961, 0.6901961, 1)
+
+[node name="Saving___" type="Label" unique_id=463325814]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.825
+offset_top = -30.779999
+offset_right = 71.825
+offset_bottom = -7.779999
+grow_vertical = 0
+text = "Saving..."
+label_settings = SubResource("LabelSettings_qkran")

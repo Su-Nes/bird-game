@@ -1,37 +1,7 @@
 [gd_scene format=4 uid="uid://2uejsubr1tjg"]
 
 [ext_resource type="PackedScene" uid="uid://l3uqhubwsy3t" path="res://Entities/Pickups/Placeables/Decorations/PrettyRock.tscn" id="1_vei4m"]
-
-[sub_resource type="Gradient" id="Gradient_xhaa5"]
-offsets = PackedFloat32Array(0.5616883, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_w4wah"]
-seed = 13
-frequency = 0.0142
-offset = Vector3(-329.41, 164.71, 0)
-fractal_type = 0
-fractal_octaves = 4
-fractal_lacunarity = 1.15
-fractal_gain = -0.505
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tuo08"]
-width = 256
-height = 256
-generate_mipmaps = false
-noise = SubResource("FastNoiseLite_w4wah")
-color_ramp = SubResource("Gradient_xhaa5")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xttvf"]
-shading_mode = 2
-albedo_color = Color(0.73081464, 0.7492379, 0.84199363, 1)
-metallic = 0.62
-metallic_specular = 0.57
-emission_enabled = true
-emission = Color(4.400489, 2.456134, 0, 1)
-emission_energy_multiplier = 7.45
-emission_operator = 1
-emission_texture = SubResource("NoiseTexture2D_tuo08")
-stencil_flags = 2
+[ext_resource type="Material" uid="uid://c7fvr0wlsoa6b" path="res://Common/Materials/Lava.tres" id="2_w4wah"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tgx4g"]
 _surfaces = [{
@@ -54,7 +24,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 24,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcA"),
-"material": SubResource("StandardMaterial3D_xttvf"),
+"material": ExtResource("2_w4wah"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,

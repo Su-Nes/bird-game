@@ -11,11 +11,13 @@ var player_master_volume : float = 1
 
 var mixer : AudioBusLayout = preload("uid://csitp8n76x4ua")
 
+var default_window_size : Vector2i
+
 func _ready() -> void:
-	load_settings()
-	
 	var window = get_window()
-	window.size = Vector2i(DisplayServer.window_get_size().x * 2, DisplayServer.window_get_size().y * 2)
+	default_window_size = window.size
+	
+	load_settings()
 	
 func save_settings():
 	settings_resource = PlayerSettings.new()
@@ -54,6 +56,9 @@ func set_fullscreen(toggle: bool):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		
+		var window = get_window()
+		window.size = Vector2i(default_window_size.x * 2, default_window_size.y * 2)
 		
 func set_master_volume(value: float):
 	player_master_volume = value

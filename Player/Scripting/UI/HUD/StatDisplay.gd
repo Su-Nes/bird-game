@@ -8,7 +8,7 @@ class_name StatDisplay
 @export var inactive_style : StyleBoxFlat 
 
 @export_category("Assigns")
-@export var STAMINA_UI : ProgressBar
+@export var STAMINA_UI : Range
 var bar_start_width : float
 
 

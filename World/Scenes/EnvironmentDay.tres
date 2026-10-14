@@ -27,11 +27,11 @@ shader_parameter/ground_color = Vector3(0.12, 0.11, 0.08)
 shader_parameter/view_samples = 24
 shader_parameter/sun_samples = 8
 shader_parameter/clouds_enabled = true
-shader_parameter/cloud_color = Color(1, 1, 1, 1)
+shader_parameter/cloud_color = Color(0.88269824, 0.92978925, 0.9250933, 1)
 shader_parameter/cloud_color_dark = Color(0, 0, 0, 1)
-shader_parameter/cloud_edge_sharpness = 0.178000008455
-shader_parameter/cloud_scale = 2.02000009269012
-shader_parameter/cloud_speed = 0.02
+shader_parameter/cloud_edge_sharpness = 0.3910000185725
+shader_parameter/cloud_scale = 2.74300012703262
+shader_parameter/cloud_speed = 0.010000000475
 
 [sub_resource type="Sky" id="Sky_y6flb"]
 sky_material = SubResource("ShaderMaterial_eue43")

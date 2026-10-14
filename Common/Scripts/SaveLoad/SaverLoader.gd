@@ -2,8 +2,27 @@ extends Node
 
 
 var game_complete : bool = false
+const LABEL = preload("uid://m1s0hpj4abqw")
+var label : Label
+
+var autosave_interval : float = 60
+var autosave_timer : float
+
+func _ready() -> void:
+	label = LABEL.instantiate()
+	add_child(label)
+	label.hide()
+	
+func _process(delta: float) -> void:
+	autosave_timer += delta
+	
+	if autosave_timer > autosave_interval:
+		save_game()
+		autosave_timer = 0
 
 func save_game():
+	show_text()
+	
 	var saved_game = SavedGame.new()
 	
 	saved_game.player_max_stamina = StatController.stamina_max_limit
@@ -59,3 +78,8 @@ func clear_save():
 	saved_game.player_position = Vector3(0, 100, 0)
 	
 	ResourceSaver.save(saved_game, "user://save.tres")
+	
+func show_text():
+	label.show()
+	await get_tree().create_timer(1).timeout
+	label.hide()
