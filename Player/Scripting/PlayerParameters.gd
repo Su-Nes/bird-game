@@ -31,12 +31,12 @@ func save_settings():
 	ResourceSaver.save(settings_resource, "user://settings.tres")
 	
 func load_settings():
-	settings_resource = load("user://settings.tres")
-
-	if !settings_resource:
+	if !FileAccess.file_exists("user://settings.tres"):
 		save_settings()
 		_ready()
 		return
+		
+	settings_resource = load("user://settings.tres")
 
 	player_fullscreen = settings_resource.player_fullscreen
 	player_camera_sensitivity = settings_resource.player_camera_sensitivity

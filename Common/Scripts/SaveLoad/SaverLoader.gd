@@ -21,6 +21,9 @@ func _process(delta: float) -> void:
 		autosave_timer = 0
 
 func save_game():
+	if get_tree().current_scene.name != "Main":
+		return
+	
 	show_text()
 	
 	var saved_game = SavedGame.new()

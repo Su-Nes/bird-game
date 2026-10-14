@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://op2ayievpwum" path="res://Player/States/PauseState.gd" id="15_p87aw"]
 [ext_resource type="Script" uid="uid://dd4ae5jd5p1aw" path="res://Player/States/FaintState.gd" id="16_4rx01"]
 [ext_resource type="AudioStream" uid="uid://db8uq7246nur6" path="res://Player/Audio/Crash_Crunchy.wav" id="17_vui7j"]
+[ext_resource type="AudioStream" uid="uid://6dpmlyjeqfbl" path="res://Player/Audio/Splash_Crunchy.wav" id="18_cigaw"]
 [ext_resource type="Script" uid="uid://0x68ocgreffp" path="res://Player/Scripting/UI/HUD/StatDisplay.gd" id="19_h5t5w"]
 [ext_resource type="Script" uid="uid://d1853gq10xt6p" path="res://Player/Scripting/GrabScript.gd" id="19_vi1d0"]
 [ext_resource type="Script" uid="uid://c8eoylguwivp" path="res://Player/Scripting/BuildController.gd" id="20_4l6g3"]
@@ -569,7 +570,7 @@ bg_color = Color(0.36548287, 0.14428478, 2.4065375e-08, 1)
 bg_color = Color(0.8146435, 0.5480231, 0.012674367, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaler"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0.7261559, 0.7289545, 0.68919826, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yp2fy"]
 font_color = Color(0.5529556, 0.55295557, 0.55295557, 1)
@@ -771,7 +772,7 @@ BREAK_TURN_MODIFIER = 2.0
 CONSTANT_FLAP_COST = 4.0
 TIME_FOR_FLAP = 0.2
 FLAP_COST = 10.0
-PITCH_ROLL_COMPENSATION = 0.15
+PITCH_ROLL_COMPENSATION = 0.45
 ROLL_ROT_LIMIT = 55.0
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAMERA_MOVE_LERP = 3.0
@@ -791,6 +792,7 @@ metadata/_custom_type_script = "uid://co3t6e564eppe"
 [node name="SwimState" type="Node" parent="MovementStateMachine" unique_id=1134345718 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("15_kl3dy")
 WING_STATES = NodePath("../../WingStateMachine")
+SPLASH_SOUND = ExtResource("18_cigaw")
 UP_FLOAT_STRENGTH = 5.0
 MAX_VELOCITY = 12.0
 SWIM_SPEED = 1.0
@@ -805,7 +807,7 @@ metadata/_custom_type_script = "uid://dd4ae5jd5p1aw"
 [node name="PauseState" type="Node" parent="MovementStateMachine" unique_id=1077234940 node_paths=PackedStringArray("CAMERA_MOVEMENT")]
 script = ExtResource("15_p87aw")
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
-CAM_LERP_UP = 0.02
+CAM_LERP_UP = 0.05
 CAM_LERP_DOWN = 0.1
 CAM_HEIGHT = 25.0
 metadata/_custom_type_script = "uid://op2ayievpwum"

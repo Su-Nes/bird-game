@@ -80,7 +80,6 @@ func on_win():
 	has_paused.emit()
 	
 func on_quit():
-	if get_tree().current_scene.name == "Main":
-		SaverLoader.save_game()
+	SaverLoader.save_game()
 	PlayerParameters.save_settings()
 	get_tree().quit()

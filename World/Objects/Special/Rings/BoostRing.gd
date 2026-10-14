@@ -25,24 +25,18 @@ func _on_body_entered(body: Node3D) -> void:
 		ring_collected()
 		
 func ring_collected():
-	if player_controller.velocity.length() >= MINIMUM_VELOCITY and ring_enabled:
-		var dir = player_controller.velocity.normalized()
+	var dir = player_controller.velocity.normalized()
+	
+	if FACE_PLAYER_FORWARD:
+		dir = -DIR_MARKER.global_basis.z
+		if player_controller.velocity.normalized().angle_to(dir) > PI / 2:
+			dir *= -1
 		
-		if FACE_PLAYER_FORWARD:
-			dir = -DIR_MARKER.global_basis.z
-			if player_controller.velocity.normalized().angle_to(dir) > PI / 2:
-				dir *= -1
-			
-		player_controller.velocity += dir * VELOCIY_ADD
-		
-		Signals.player_change_state.emit("FlyState")
+	player_controller.velocity = dir.normalized() * (player_controller.velocity.length() + VELOCIY_ADD)
+	
+	Signals.player_change_state.emit("FlyState")
 
-		$RingCorrect.play()
-	else:
-		show_text()
-		
-		$RingWrong.play()
-		Signals.player_change_state.emit("CrashState")
+	$RingCorrect.play()
 		
 func show_text():
 	SLOWNESS_TEXT.show()

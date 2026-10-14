@@ -60,7 +60,7 @@ func spend_stamina(value: float, regen_delay : float = 0.0) -> bool:
 func spend_max_stamina(value: float) -> bool:
 	if !drain_enabled:
 		return false
-	
+
 	stamina_max_limit -= value
 	
 	if stamina_max_limit <= 0:

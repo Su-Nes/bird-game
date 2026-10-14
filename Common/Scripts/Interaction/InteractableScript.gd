@@ -89,6 +89,7 @@ func on_loaded(data: SavedData):
 func has_physics(collider_active : bool, rb_active : bool):
 	if is_grabbed: # hack
 		COLLIDER.disabled = true
+		RIGIDBODY.freeze = true
 		return
 	
 	if COLLIDER:

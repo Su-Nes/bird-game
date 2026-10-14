@@ -37,6 +37,7 @@ calculate_tangents = false
 inner_radius = 0.75
 material = SubResource("StandardMaterial3D_yur33")
 script = ExtResource("1_2onit")
+MINIMUM_VELOCITY = 0.0
 DIR_MARKER = NodePath("Area3D/Marker3D")
 SLOWNESS_TEXT = NodePath("TooSlow!")
 

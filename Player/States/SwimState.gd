@@ -8,6 +8,7 @@ class_name SwimState
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 @export var WING_STATES : WingStateMachine
+@export var SPLASH_SOUND : AudioStream
 @export var UP_FLOAT_STRENGTH : float = 10
 @export var MAX_VELOCITY : float = 8
 @export var SWIM_SPEED : float = 4
@@ -20,6 +21,7 @@ var flight_timer
 
 func enter():
 	WING_STATES.change_state("wingsidle")
+	SfxPlayer.play_clip(SPLASH_SOUND)
 
 func update(delta: float):
 	if player_controller.velocity.length() > MAX_VELOCITY:

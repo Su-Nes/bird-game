@@ -66,11 +66,12 @@ func enter():
 	forward_v = player_controller.velocity.length()
 	rotation_mod = 1
 
-func update(delta: float):
+func physics_update(delta: float):
+	handle_flight_velocity(delta)
+	
 	# Return to idle state on ground
 	if player_controller.is_on_floor():
 		state_machine.change_state("idleState")
-
 	# Thrust
 	if Input.is_action_pressed("jump"):
 		flap_timer += delta
@@ -80,7 +81,6 @@ func update(delta: float):
 		if flap_timer < TIME_FOR_FLAP:
 			handle_flap()
 			flap_timer = 0
-			return
 			
 		flap_timer = 0
 		state_machine.ANIMATOR.play("Glide", .5)
@@ -145,12 +145,7 @@ func update(delta: float):
 		
 	extension_functions.handle_model_transform(player_controller.velocity)
 	
-	CAMERA_MOVEMENT.look_towards_vector(player_controller.velocity, CAMERA_FOLLOW_STRENGTH * delta, CAMERA_RESET_TIME, extension_functions.MESH.global_basis.y)	
-	
-	
-func physics_update(_delta: float):
-	handle_flight_velocity(_delta)
-	
+	CAMERA_MOVEMENT.look_towards_vector(player_controller.velocity, CAMERA_FOLLOW_STRENGTH * delta, CAMERA_RESET_TIME, extension_functions.MESH.global_basis.y)		
 	
 func handle_constant_flap(delta: float):
 	if WING_STATES.ANIMATOR.current_animation.get_basename() == "Flap":
@@ -186,7 +181,8 @@ func handle_flight_velocity(_delta: float):
 	#print(player_controller.velocity.length())
 	# Add acceleration due to grav
 	forward_v += ANGLE_ACCELERATION_CURVE.sample(angle_of_attack) * ANGLE_ACCELERATION_STRENGTH
-	
+	print(player_controller.velocity)
+
 	# Add forward velocity
 	player_controller.velocity = player_controller.velocity.normalized() * forward_v
 
