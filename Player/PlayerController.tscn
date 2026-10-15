@@ -40,6 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://bjy5kvn6k5b8h" path="res://Common/UI/Border/panel-border-000_24.png" id="35_vui7j"]
 [ext_resource type="AudioStream" uid="uid://dx4q2vt7tni0p" path="res://Player/Audio/Footstep_Crunchy_1.wav" id="36_d6s72"]
 [ext_resource type="Script" uid="uid://0f47ykkc3vcj" path="res://Player/Scripting/Footsteps.gd" id="36_urvmy"]
+[ext_resource type="Shader" uid="uid://cr4upde56h0ra" path="res://Common/Scripts/Shaders/LensFlare.gdshader" id="41_p3dgh"]
+[ext_resource type="Script" uid="uid://h8iodtllfo1" path="res://Common/Scripts/Shaders/PassSunToLensFlare.gd" id="42_gbrrj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
 radius = 0.4243164
@@ -526,7 +528,7 @@ size = Vector3(1, 1, 0.1)
 
 [sub_resource type="Curve" id="Curve_f1frd"]
 _limits = [-1.0, 1.0, -90.0, 90.0]
-_data = [Vector2(-90, -1), 0.0, 0.017543858, 0, 0, Vector2(0, 0), 0.019359145, 0.01650821, 0, 0, Vector2(90, 1), 0.0010838717, 0.0, 0, 0]
+_data = [Vector2(-90, -1), 0.0, 0.011090791, 0, 0, Vector2(0, 0), 0.017731039, 0.01650821, 0, 0, Vector2(90, 1), 0.0010838717, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_n84ad"]
@@ -559,6 +561,19 @@ radius = 0.6
 _limits = [-80.0, 5.0, 0.0, 100.0]
 _data = [Vector2(0, -80), 0.0, 2.292187, 0, 0, Vector2(100, -5), 0.101592354, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lsecw"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gbrrj"]
+noise = SubResource("FastNoiseLite_lsecw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_joydu"]
+shader = ExtResource("41_p3dgh")
+shader_parameter/sun_position = Vector2(0, 0)
+shader_parameter/tint = Vector3(1.74, 1.195, 1.47)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_gbrrj")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qkran"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n84ad"]
 bg_color = Color(0.37232468, 0.6501966, 0.44592625, 1)
@@ -744,7 +759,8 @@ CAMERA_FOLLOW_STRENGTH = 0.5
 [node name="HoverState" type="Node" parent="MovementStateMachine" unique_id=709554660 node_paths=PackedStringArray("WING_STATES", "CAMERA_MOVEMENT")]
 script = ExtResource("10_nwc8f")
 WING_STATES = NodePath("../../WingStateMachine")
-HOVER_SPEED = 4.0
+HOVER_SPEED = 3.5
+HOVER_INERTIA = 5.0
 FLIGHT_TRANSITION_VELOCITY = 6.0
 TIME_FOR_DOUBLE_TAP_FLY = 0.25
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
@@ -849,7 +865,7 @@ BEAK_TOP = NodePath("../MeshParts/Beak/BeakTop")
 BEAK_BOTTOM = NodePath("../MeshParts/Beak/BeakBottom")
 EYE_LID_R = NodePath("../MeshParts/EyeR/EyeLid_R")
 EYE_LID_L = NodePath("../MeshParts/EyeL/EyeLid_L")
-MAX_ITEMS = 10
+MAX_ITEMS = 99
 BEAK_ROT_PER_ITEM = 17
 
 [node name="BuildController" type="Node" parent="." unique_id=1493140422 node_paths=PackedStringArray("SHAPE_RAY", "NORMAL_RAY", "GRAB_SCRIPT", "STATE_MACHINE")]
@@ -898,13 +914,23 @@ volume_db = -5.0
 pitch_scale = 1.5
 bus = &"SFX"
 script = ExtResource("36_urvmy")
-DISTANCE_PER_FOOTSTEP = 30.0
+DISTANCE_PER_FOOTSTEP = 15.0
 
 [node name="Crash" type="AudioStreamPlayer3D" parent="Audio" unique_id=1235852624]
 stream = ExtResource("17_vui7j")
 attenuation_model = 3
 pitch_scale = 0.9
 panning_strength = 0.0
+
+[node name="LensFlare" type="TextureRect" parent="." unique_id=301861444]
+material = SubResource("ShaderMaterial_joydu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_qkran")
+script = ExtResource("42_gbrrj")
 
 [node name="HUD&Stats" type="Control" parent="." unique_id=28684432 node_paths=PackedStringArray("STAMINA_UI")]
 layout_mode = 3

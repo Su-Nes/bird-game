@@ -9,14 +9,16 @@ compositor_effects = Array[CompositorEffect]([null])
 
 [node name="Environment" type="Node" unique_id=163002060]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=53265174]
-transform = Transform3D(0.86074376, 0.4427451, 0.25119773, 2.9802322e-08, -0.493472, 0.86976194, 0.50904244, -0.74864113, -0.42475197, 0, 0, 0)
-light_color = Color(0.9999996, 0.9287603, 0.8215887, 1)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=53265174 groups=["Sun"]]
+transform = Transform3D(0.85533965, -0.433366, -0.28388044, 4.4703484e-08, -0.54796064, 0.8365042, -0.5180674, -0.71549547, -0.46869266, 0, 0, 0)
+light_color = Color(1, 0.953049, 0.78668225, 1)
 shadow_enabled = true
 shadow_normal_bias = 10.0
+directional_shadow_mode = 0
 directional_shadow_split_1 = 0.5
 directional_shadow_blend_splits = true
-directional_shadow_max_distance = 300.0
+directional_shadow_fade_start = 0.543
+directional_shadow_max_distance = 600.0
 directional_shadow_pancake_size = 3.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1703432688]

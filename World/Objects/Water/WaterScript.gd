@@ -11,10 +11,22 @@ class_name WaterScript
 @export var SPAWN_DEPTH : float = -1.5
 @export var MAX_FISH : float = 30
 
+
+var SPAWN_DISTANCE : float = 100
+
 var fish_count : int
 var spawn_timer : float
 
+var player : Node3D
+
+func _ready() -> void:
+	player = get_tree().get_first_node_in_group("Player")
+
 func _process(delta: float) -> void:
+	if player.global_position.distance_to(global_position) > SPAWN_DISTANCE:
+		free_fish()
+		return
+	
 	if spawn_timer > 0:
 		spawn_timer -= delta
 	else:
@@ -42,10 +54,14 @@ func spawn_fish(pos = Vector3.ZERO):
 	rand_pos.y += SPAWN_DEPTH
 
 	var new_fish : Node3D = FISH.instantiate()
-	add_child(new_fish)
+	$Mesh.add_child(new_fish)
 	
 	new_fish.rotate_y(2 * PI * randf())
 	new_fish.global_position = rand_pos
+	
+func free_fish():
+	for fish in $Mesh.get_children():
+		fish.queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):

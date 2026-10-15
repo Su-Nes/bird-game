@@ -69,6 +69,7 @@ func on_save_data(saved_data: Array[SavedData]):
 	var path : String = Constants.SCENE_PATHS[CONST_PATH] if CONST_PATH.length() > 0 else scene_file_path
 	
 	data.file_path = path
+	data.tree_path = get_path()
 	data.tf = transform
 	data.parent_path = get_parent().get_path()
 	data.is_grabbed = get_parent().name == "GrabPoint"

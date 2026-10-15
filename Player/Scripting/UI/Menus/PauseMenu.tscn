@@ -185,11 +185,11 @@ vertical_alignment = 1
 tab_stops = PackedFloat32Array(60)
 
 [node name="RenderSlider" type="HSlider" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/RenderDistance" unique_id=305117478]
-custom_minimum_size = Vector2(95.795, 0)
+custom_minimum_size = Vector2(109.36, 0)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = 300.0
-max_value = 1500.0
+max_value = 3000.0
 step = 100.0
 value = 700.0
 rounded = true

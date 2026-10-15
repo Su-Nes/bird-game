@@ -20,6 +20,10 @@ var nest_complete = false
 
 signal decor_target_reached
 
+func _ready() -> void:
+	if nest_complete:
+		SaverLoader.activate_crown(true)
+
 func _on_body_entered(body: Node3D) -> void:
 	if body is Placeable:
 		if body.is_placed:
@@ -49,10 +53,13 @@ func _process(_delta: float) -> void:
 		NEST_STATISTICS.visible = false
 		
 func update_decor():
+	if NEST_PROMPT:
+		return
+	
 	var decor_text : Label3D = NEST_STATISTICS.get_child(0)
 	
 	if nest_complete:
-		decor_text.text = "*Decor score:\n%s/%s*" % [decor_value, TARGET_DECOR_VALUE]
+		decor_text.text = "Decor score:\n*%s/%s*" % [decor_value, TARGET_DECOR_VALUE]
 		return
 	else:
 		decor_text.text = "Decor score:\n%s/%s" % [decor_value, TARGET_DECOR_VALUE]
@@ -64,6 +71,7 @@ func update_decor():
 		decor_target_reached.emit()
 		Signals.win.emit()
 		nest_complete = true
+		update_decor()
 		
 func on_save_data(saved_data: Array[SavedData]):
 	if NEST_PROMPT:
@@ -71,18 +79,18 @@ func on_save_data(saved_data: Array[SavedData]):
 	
 	var data = SavedData.new()
 	
-	var self_scene = PackedScene.new()
-	self_scene.pack(self)
-	
-	data.file_path = scene_file_path
-
-	data.tf = transform
+	data.file_path = Constants.SCENE_PATHS.Nest
+	data.tree_path = get_path()
 	data.parent_path = get_parent().get_path()
+	data.tf = transform
+	data.nest_completed = nest_complete
 	
 	saved_data.append(data)
 	
 func on_loaded(data: SavedData):
 	transform = data.tf
+	nest_complete = data.nest_completed
+
 	NEST_PROMPT.queue_free()
 
 func _on_world_button_yes_on_pressed() -> void:

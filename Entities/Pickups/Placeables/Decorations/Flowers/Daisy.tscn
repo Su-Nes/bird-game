@@ -124,7 +124,7 @@ shadow_mesh = SubResource("ArrayMesh_hnppn")
 [node name="Daisy" type="RigidBody3D" unique_id=1631755204 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY")]
 collision_layer = 8
 script = ExtResource("1_oy6qi")
-DECOR_VALUE = 4
+DECOR_VALUE = 3
 ALIGN_NORMALS = true
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = -20.0

@@ -44,8 +44,6 @@ func save_game():
 func load_game():
 	var saved_game : SavedGame = load("user://save.tres")
 	
-	load_player(saved_game)
-	
 	get_tree().call_group("Persistent", "queue_free")
 
 	var loaded_scene : PackedScene
@@ -61,18 +59,21 @@ func load_game():
 		if new_scene.has_method("on_loaded"):
 			new_scene.on_loaded(data)
 			
+	load_player(saved_game)
+			
 func load_player(save: SavedGame):
 	StatController.stamina_max_limit = save.player_max_stamina
 	StatController.stamina = StatController.stamina_max_limit
 	
 	var player = get_tree().get_first_node_in_group("Player") as CharacterBody3D
-	player.global_position = save.player_position
+	player.global_position = save.player_position + Vector3(0, -.1, 0)
 	
 	player.velocity = Vector3.ZERO
 	Signals.player_change_state.emit("HoverState")
 	
-	var player_func : PlayerExtensionFunctions = player
-	player_func.CROWN.visible = save.game_complete
+func activate_crown(state: bool):
+	var player_func : PlayerExtensionFunctions = get_tree().get_first_node_in_group("Player")
+	player_func.CROWN.visible = state
 	
 func clear_save():
 	var saved_game = SavedGame.new()

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d0j4fl5w007ao"]
+
+[ext_resource type="PackedScene" uid="uid://c8dawx4ugocni" path="res://Entities/Pickups/Placeables/Decorations/Radio/Radio.tscn" id="1_bq67w"]
+[ext_resource type="AudioStream" uid="uid://c3rlym5xh52sw" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Molden.wav" id="2_na74i"]
+[ext_resource type="AudioStream" uid="uid://dcjeyacivxmgi" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/SmadzRadioVer.wav" id="3_kkiwo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jjeq"]
+albedo_color = Color(0.4590599, 0, 0.070690416, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bq67w"]
+material = SubResource("StandardMaterial3D_0jjeq")
+size = Vector3(0.2770996, 0.009521484, 0.06347656)
+
+[node name="RadioMOLDEN" unique_id=1868481036 instance=ExtResource("1_bq67w")]
+
+[node name="Color" parent="." index="1" unique_id=1775473335]
+mesh = SubResource("BoxMesh_bq67w")
+
+[node name="Song1" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="0" unique_id=1244112340]
+stream = ExtResource("2_na74i")
+
+[node name="Song2" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="1" unique_id=192536707]
+stream = ExtResource("3_kkiwo")

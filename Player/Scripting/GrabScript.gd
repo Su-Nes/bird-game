@@ -16,6 +16,7 @@ class_name GrabScript
 @export var EYE_LID_L : Node3D
 @export var MAX_ITEMS : int = 5
 @export var BEAK_ROT_PER_ITEM : int = 10
+@export var SELECT_BEAK_ROT : float = 10
 
 var active_index = 0
 
@@ -25,7 +26,6 @@ func _ready() -> void:
 
 func grab_item(item: Interactable): ## If item has GrabPivot child it will use that for beak placement
 	if GRAB_POINT.get_child_count() >= MAX_ITEMS + 1:
-		print("Too many items!")
 		return
 		
 	item.add_to_group("Persistent", true)
@@ -40,7 +40,7 @@ func grab_item(item: Interactable): ## If item has GrabPivot child it will use t
 	item.has_physics(false, false)
 
 	item.transform = Transform3D.IDENTITY
-	print("%s is colliding disabled %s" % [item.name, item.COLLIDER.disabled])
+
 	if item.has_node("GrabPoint"):
 		var grab_pivot : Node3D = item.get_node("GrabPoint")
 		
@@ -149,6 +149,14 @@ func handle_beak_rotation():
 	
 	if item.get_child_count() == 0:
 		return
+	
+	BEAK_TOP.rotate_x(deg_to_rad((BEAK_ROT_PER_ITEM + item.BEAK_ANGLE_MOD / 2)) + deg_to_rad(SELECT_BEAK_ROT))
+	BEAK_BOTTOM.rotate_x(deg_to_rad((-BEAK_ROT_PER_ITEM - item.BEAK_ANGLE_MOD / 2)) - deg_to_rad(SELECT_BEAK_ROT))
+	
+	await get_tree().physics_frame
+	
+	BEAK_TOP.rotation.x = 0
+	BEAK_BOTTOM.rotation.x = 0
 	
 	#TO-DO: Have seperate rotation values for each item.
 	 # Single out EmptyInteractable

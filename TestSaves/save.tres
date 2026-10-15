@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SavedGame" format=3 uid="uid://ccyk7fb3nuwsw"]
+[gd_resource type="Resource" script_class="SavedGame" format=3 uid="uid://bxg8k550otuag"]
 
 [ext_resource type="Script" uid="uid://bukoajoymyjwf" path="res://Common/Scripts/SaveLoad/SavedData.gd" id="1_bc5hj"]
 [ext_resource type="Script" uid="uid://je3om8s0v4bi" path="res://Common/Scripts/SaveLoad/SavedGame.gd" id="2_pwlly"]
@@ -47,8 +47,324 @@ parent_path = "/root/Main/PlayerController/MeshParts/Beak/GrabPoint"
 is_placed = true
 is_grabbed = true
 
+[sub_resource type="Resource" id="Resource_lsu72"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(-0.0010223826, -0.9999995, 5.9604645e-08, 0.99999964, -0.0010223824, -8.943607e-08, 8.946881e-08, 5.9604645e-08, 0.99999994, 463.84946, 126.958885, -1031.4016)
+parent_path = "/root"
+
+[sub_resource type="Resource" id="Resource_54axf"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(1, -5.820766e-11, 0, 0, 1.0000001, 0, -2.9802322e-08, 2.910383e-11, 0.9999999, 463.92407, 127.011345, -1031.3239)
+parent_path = "/root"
+
+[sub_resource type="Resource" id="Resource_to7uo"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(1, 1.4901161e-07, 1.1641532e-10, 0, -4.3713953e-08, -1, -1.7881393e-07, 0.9999998, -4.377216e-08, 463.84146, 127.108795, -1031.4146)
+parent_path = "/root"
+
+[sub_resource type="Resource" id="Resource_2447r"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(-4.3597538e-08, -0.99999976, 1.7881393e-07, 1, -4.3655746e-08, -1.7881393e-07, 1.7881393e-07, 1.7881393e-07, 1, 463.80673, 127.137764, -1031.386)
+parent_path = "/root"
+
+[sub_resource type="Resource" id="Resource_ak7p5"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.9999995, -0.0010223379, 2.9802322e-08, 0.0010223389, 0.9999995, -7.324293e-05, 0, 7.324247e-05, 1.0000001, 463.63422, 126.80296, -1030.5826)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_dhdg3"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://bwmqd5nb80in3"
+tf = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 464.20148, 127.59786, -1029.7439)
+parent_path = "/root"
+nest_completed = true
+
+[sub_resource type="Resource" id="Resource_80rsf"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(1, 1.3872981e-05, -1.4250982e-05, -1.3869721e-05, -0.02711364, -0.9996324, -1.4275312e-05, 0.99963224, -0.027113643, 465.10968, 126.76647, -1028.6005)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_g6fb1"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.9999994, -0.0010223383, 4.4703484e-08, 0.001022338, 0.99999946, -7.324225e-05, 2.9802322e-08, 7.324228e-05, 0.9999999, 465.4201, 126.80492, -1032.2394)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_imyqs"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.9999994, -0.0010223383, 4.4703484e-08, 0.001022338, 0.99999964, -7.324228e-05, 2.9802322e-08, 7.3242285e-05, 1.0000001, 465.11395, 126.80458, -1032.0037)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_c2y3v"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.99999934, -0.001022338, 4.4703484e-08, 0.0010223379, 0.9999994, -7.324226e-05, 2.9802322e-08, 7.324226e-05, 0.99999994, 465.1961, 126.80465, -1031.6965)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_u8um6"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://dpvccn6h5243h"
+tf = Transform3D(-0.99970996, -0.02406478, -0.0010683963, 6.5023767e-07, 0.044326056, -0.9990173, 0.024088481, -0.99872756, -0.04431317, 859.55426, 112.46832, -1140.585)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_cau15"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://dpvccn6h5243h"
+tf = Transform3D(0.996723, 0.079310775, 0.015906317, 5.212013e-07, 0.19663486, -0.98047674, -0.08089008, 0.9772639, 0.19599041, 859.6096, 112.45353, -1140.1969)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_l1mb1"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://dcaqmr8n5v177"
+tf = Transform3D(-0.06806376, 0.9836897, 0.16650133, 5.348714e-07, 0.16688846, -0.98597586, -0.9976812, -0.06710914, -0.011359576, 860.08545, 112.47756, -1140.4215)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_e0nna"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://dpvccn6h5243h"
+tf = Transform3D(0.10965697, -0.981713, -0.15561207, 6.9574384e-07, 0.15655622, -0.9876691, 0.9939695, 0.10830468, 0.017168166, 859.0697, 112.45248, -1140.3855)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_cljyy"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://dpvccn6h5243h"
+tf = Transform3D(0.99834967, 6.8353875e-05, 0.05742502, -1.4769048e-06, 0.99999934, -0.0011646376, -0.057425052, 0.0011626311, 0.9983491, 860.56555, 112.49865, -1140.4122)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_r317i"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://bwmqd5nb80in3"
+tf = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 860.56555, 112.49865, -1140.4122)
+parent_path = "/root"
+nest_completed = true
+
+[sub_resource type="Resource" id="Resource_l563y"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://dpvccn6h5243h"
+tf = Transform3D(0.99745065, 8.456598e-05, 0.071357794, -1.5616861e-06, 0.99999934, -0.0011632673, -0.071357846, 0.0011601907, 0.9974499, 858.5942, 112.46513, -1140.2981)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_prcqd"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.99999994, 8.456604e-05, -2.9802322e-08, -8.4565974e-05, 0.99999934, -0.0011601904, -5.9604645e-08, 0.0011601907, 0.9999993, 858.14874, 112.51517, -1140.2902)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_q1cvf"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.99999994, 8.456598e-05, -5.9604645e-08, -8.4565974e-05, 0.99999934, -0.0011601906, -8.940697e-08, 0.0011601906, 0.9999993, 858.38354, 112.515144, -1140.2875)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_ho0ps"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(1, 8.4565996e-05, -5.2154064e-08, -8.456598e-05, 0.99999946, -0.0011601907, -5.2154064e-08, 0.0011601909, 0.9999994, 858.5991, 112.51515, -1140.311)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_dkgcm"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(1.0000001, 8.4566e-05, -2.9802322e-08, -8.456598e-05, 0.9999994, -0.0011601907, -5.9604645e-08, 0.0011601907, 0.9999994, 858.78876, 112.51516, -1140.3268)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_1ny48"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.99999994, 6.835388e-05, -4.4703484e-08, -6.835385e-05, 0.99999934, -0.0011626312, -4.4703484e-08, 0.0011626314, 0.9999993, 860.4524, 112.54862, -1140.3842)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_cem51"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.9999998, 6.835387e-05, -2.9802322e-08, -6.8353846e-05, 0.99999934, -0.001162631, 0, 0.0011626312, 0.9999991, 860.9988, 112.54864, -1140.4304)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_kxy5g"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(1, 6.835388e-05, -4.0978193e-08, -6.835385e-05, 0.99999946, -0.0011626313, -3.7252903e-08, 0.0011626313, 0.9999995, 860.7138, 112.54865, -1140.4255)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_n5xp3"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.99999994, 6.83539e-05, -5.9604645e-08, -6.835386e-05, 0.9999993, -0.0011626312, 0, 0.001162631, 0.9999993, 860.1897, 112.54867, -1140.4066)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_3c7gm"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.9878172, 0.15561207, 0.0013440549, -0.15561204, 0.987669, 0.017168107, 0.0013440698, -0.017168108, 0.99985164, 859.1203, 112.5023, -1139.9747)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_tkujm"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.98781717, 0.1556121, 0.0013440251, -0.15561204, 0.9876691, 0.017168103, 0.0013440847, -0.017168107, 0.9998516, 859.03345, 112.50147, -1140.8068)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_kuef7"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.98604065, -0.16650125, 0.0009523779, 0.16650122, 0.9859758, -0.011359632, 0.00095237046, 0.011359634, 0.9999349, 860.0743, 112.52862, -1140.6166)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_bqu2u"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.98604053, -0.16650124, 0.0009523779, 0.1665012, 0.9859758, -0.011359629, 0.0009523779, 0.011359632, 0.9999348, 860.0987, 112.52841, -1140.2391)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_dheqk"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.9965352, -0.08317256, -6.657839e-05, 0.08317256, 0.9965339, 0.0015975364, -6.657839e-05, -0.0015975349, 0.9999987, 859.463, 112.49402, -1140.2876)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_8lq4g"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.99653506, -0.08317256, -6.651878e-05, 0.08317254, 0.99653375, 0.0015975363, -6.651878e-05, -0.0015975311, 0.99999875, 859.46124, 112.49357, -1140.4725)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_0tk8t"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.9965352, -0.08317281, -6.6548586e-05, 0.08317281, 0.9965339, 0.0015972846, -6.657839e-05, -0.0015972815, 0.9999988, 859.67194, 112.511185, -1140.4502)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_5hu40"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.99653506, -0.083172545, -6.651878e-05, 0.08317256, 0.9965338, 0.0015975361, -6.657839e-05, -0.0015975274, 0.99999857, 859.62573, 112.507614, -1140.2888)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_j6t22"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://dpvccn6h5243h"
+tf = Transform3D(-0.059257902, 0.8498082, 0.5237506, 4.925043e-07, 0.5246727, -0.85130405, -0.99824274, -0.050446246, -0.03109142, 861.04175, 112.47488, -1140.8225)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_07hnu"]
+script = ExtResource("1_bc5hj")
+file_path = "uid://dpvccn6h5243h"
+tf = Transform3D(-0.059257906, 0.8498075, 0.52375144, 4.850549e-07, 0.5246735, -0.85130334, -0.9982426, -0.050446205, -0.031091465, 861.08374, 112.49894, -1140.062)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_d7b86"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.5263424, 0.8498075, 0.028117225, -0.84980756, 0.5246733, 0.050446227, 0.028117225, -0.050446242, 0.9983307, 861.13324, 112.55664, -1139.6193)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_rfwvm"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.52634245, 0.84980774, 0.02811724, -0.8498076, 0.5246734, 0.050446235, 0.028117225, -0.050446264, 0.9983309, 861.1071, 112.518814, -1140.4506)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_set4g"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.5263416, 0.8498079, 0.02811727, -0.84980804, 0.52467245, 0.050446186, 0.028117225, -0.050446168, 0.99833083, 861.05096, 112.51067, -1141.2877)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_u8p8i"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.5263415, 0.84980816, 0.02811724, -0.84980816, 0.5246725, 0.05044619, 0.02811724, -0.050446186, 0.9983309, 861.0937, 112.48093, -1140.8751)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_rlvk8"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.52634245, 0.8498078, 0.02811724, -0.84980756, 0.5246734, 0.050446223, 0.028117232, -0.05044625, 0.99833083, 861.12787, 112.52997, -1139.9862)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_2wbgn"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(-0.6550641, 0.10373047, -0.7484189, 0.6277275, -0.47659135, -0.61548257, -0.42053425, -0.8729837, 0.24708349, 888.3427, -2242.1821, -1140.6003)
+parent_path = "/root"
+
+[sub_resource type="Resource" id="Resource_6esu0"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Tulip.tscn"
+tf = Transform3D(0.8956598, -0.23721695, -0.37619358, -0.35105127, 0.14223629, -0.9254901, 0.2730503, 0.9609875, 0.044120014, 878.1873, -1844.7628, -1102.4098)
+parent_path = "/root"
+
+[sub_resource type="Resource" id="Resource_1qf1b"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.52634245, 0.8498078, 0.02811724, -0.8498076, 0.52467346, 0.05044624, 0.02811724, -0.050446227, 0.99833095, 861.1148, 112.530624, -1140.1992)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_n6stv"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn"
+tf = Transform3D(0.52634144, 0.84980816, 0.028117225, -0.84980816, 0.52467245, 0.050446182, 0.028117236, -0.050446168, 0.9983308, 861.0828, 112.513145, -1140.7257)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_l6e6a"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn"
+tf = Transform3D(0.5263416, 0.84980816, 0.02811724, -0.84980816, 0.52467245, 0.05044618, 0.02811724, -0.050446194, 0.9983307, 861.08167, 112.48189, -1141.0728)
+parent_path = "/root"
+is_placed = true
+
+[sub_resource type="Resource" id="Resource_1smva"]
+script = ExtResource("1_bc5hj")
+file_path = "res://Entities/Pickups/Placeables/Decorations/Flowers/Tulip.tscn"
+tf = Transform3D(0.5263424, 0.8498077, 0.028117225, -0.84980756, 0.52467334, 0.050446223, 0.028117225, -0.050446227, 0.9983307, 861.1609, 112.49559, -1139.791)
+parent_path = "/root"
+is_placed = true
+
 [resource]
 script = ExtResource("2_pwlly")
-player_position = Vector3(498.41528, 1.410562, 505.5283)
-player_max_stamina = 79.467853307724
-saved_data = Array[ExtResource("1_bc5hj")]([SubResource("Resource_bc5hj"), SubResource("Resource_pwlly"), SubResource("Resource_v2qsi"), SubResource("Resource_q4y1q"), SubResource("Resource_8aaf3"), SubResource("Resource_hl3n4")])
+player_position = Vector3(-327.80682, 0.23577078, -1510.8835)
+player_max_stamina = 57.756397
+saved_data = Array[ExtResource("1_bc5hj")]([SubResource("Resource_bc5hj"), SubResource("Resource_pwlly"), SubResource("Resource_v2qsi"), SubResource("Resource_q4y1q"), SubResource("Resource_8aaf3"), SubResource("Resource_hl3n4"), SubResource("Resource_lsu72"), SubResource("Resource_54axf"), SubResource("Resource_to7uo"), SubResource("Resource_2447r"), SubResource("Resource_ak7p5"), SubResource("Resource_dhdg3"), SubResource("Resource_80rsf"), SubResource("Resource_g6fb1"), SubResource("Resource_imyqs"), SubResource("Resource_c2y3v"), SubResource("Resource_u8um6"), SubResource("Resource_cau15"), SubResource("Resource_l1mb1"), SubResource("Resource_e0nna"), SubResource("Resource_cljyy"), SubResource("Resource_r317i"), SubResource("Resource_l563y"), SubResource("Resource_prcqd"), SubResource("Resource_q1cvf"), SubResource("Resource_ho0ps"), SubResource("Resource_dkgcm"), SubResource("Resource_1ny48"), SubResource("Resource_cem51"), SubResource("Resource_kxy5g"), SubResource("Resource_n5xp3"), SubResource("Resource_3c7gm"), SubResource("Resource_tkujm"), SubResource("Resource_kuef7"), SubResource("Resource_bqu2u"), SubResource("Resource_dheqk"), SubResource("Resource_8lq4g"), SubResource("Resource_0tk8t"), SubResource("Resource_5hu40"), SubResource("Resource_j6t22"), SubResource("Resource_07hnu"), SubResource("Resource_d7b86"), SubResource("Resource_rfwvm"), SubResource("Resource_set4g"), SubResource("Resource_u8p8i"), SubResource("Resource_rlvk8"), SubResource("Resource_2wbgn"), SubResource("Resource_6esu0"), SubResource("Resource_1qf1b"), SubResource("Resource_n6stv"), SubResource("Resource_l6e6a"), SubResource("Resource_1smva")])

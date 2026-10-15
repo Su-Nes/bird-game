@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://d2ta556lcx1jr" path="res://Entities/Pickups/Placeables/Decorations/Sword/Sword.tscn" id="43_0wvge"]
 [ext_resource type="PackedScene" uid="uid://d4fc6nukorwrl" path="res://World/Objects/Special/Rings/BoostRing.tscn" id="43_ludg7"]
 [ext_resource type="PackedScene" uid="uid://dqq5xp2hbemg6" path="res://World/Objects/Buildings/SovietPSXCity/Scenes/Objects/lada_red.tscn" id="44_7eny3"]
+[ext_resource type="PackedScene" uid="uid://d0j4fl5w007ao" path="res://Entities/Pickups/Placeables/Decorations/Radio/RadioMOLDEN.tscn" id="46_q4vpn"]
 [ext_resource type="PackedScene" uid="uid://bosrmq6auk1el" path="res://World/Objects/Buildings/SovietPSXCity/Scenes/Buildings/apartment_short.tscn" id="49_3tmld"]
 
 [sub_resource type="Gradient" id="Gradient_l17ic"]
@@ -346,6 +347,9 @@ size = Vector3(3500, 50, 1650)
 material = ExtResource("3_8ltlb")
 size = Vector2(60, 60)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_q4vpn"]
+size = Vector3(55.61621, 50, 59.904785)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_tmqdb"]
 material = ExtResource("3_8ltlb")
 size = Vector2(1800, 1300)
@@ -386,6 +390,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jfkkv")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qkran"]
+height = 1.3203125
+radius = 0.16601563
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qkran"]
 shader = ExtResource("8_t84eb")
@@ -718,9 +726,341 @@ metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 transform = Transform3D(0.35158005, -0.0051274356, 0.9361438, 0.3278171, 0.9373453, -0.11798164, -0.87688506, 0.34836394, 0.3312328, 370.433, -0.11495236, -1893.2643)
 metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
+[node name="BerryBush (33)2" parent="Bushes" unique_id=247562478 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.98573786, 0.16779435, -0.012884078, -0.16702324, 0.98482627, 0.047122862, 0.020595528, -0.04429885, 0.998806, -744.6869, 149.34021, -140.3554)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (34)" parent="Bushes" unique_id=1842273687 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9995819, 0.009979827, -0.027139347, -0.01069146, 0.99959946, -0.026204025, 0.026866965, 0.026483225, 0.9992882, -760.47107, 149.85599, -80.729614)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (35)" parent="Bushes" unique_id=718468459 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9998066, -0.008062981, -0.017938776, 0.008060067, 0.9999675, -0.00023471238, 0.017940085, 9.007923e-05, 0.99983907, -820.88617, 0.02339932, 170.82341)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (36)" parent="Bushes" unique_id=1877740203 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9998392, 1.7176173e-05, -0.017937854, -1.5015434e-05, 1, 0.00012059165, 0.017937856, -0.000120302895, 0.9998392, -886.2073, 0.0028008544, 158.29008)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (37)" parent="Bushes" unique_id=2074141146 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9998392, -6.25289e-08, -0.017938022, 6.2479344e-08, 1, -3.323268e-09, 0.017938022, 2.2019777e-09, 0.9998392, -891.3208, 7.108891e-06, 238.64629)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (38)" parent="Bushes" unique_id=1506008921 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9998391, -3.0914862e-08, -0.017938042, 3.0430055e-08, 1, -2.7299714e-08, 0.017938042, 2.6749467e-08, 0.9998391, -1017.33466, 6.4596256e-06, 187.91248)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (39)" parent="Bushes" unique_id=878585066 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9998391, 1.6210494e-09, -0.017938042, -2.246923e-09, 1, -3.4870702e-08, 0.017938042, 3.4905398e-08, 0.9998391, -1276.55, 4.5667556e-07, 90.519455)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BugSpawner" parent="Bushes" unique_id=1818136732 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, -1.4776085e-09, -1.880369e-17, 1.4776085e-09, 1, 2.6187579e-09, 1.4934192e-17, -2.6187579e-09, 1, -1192.7196, 6.748103e-10, 149.67001)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (1)" parent="Bushes" unique_id=2132919151 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, -3.211403e-08, 2.2098882e-15, 3.211403e-08, 1, -4.568244e-08, -7.428408e-16, 4.568244e-08, 1, -1094.9266, 4.076511e-06, 149.9899)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (2)" parent="Bushes" unique_id=2084933497 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 7.8365974e-16, 0, 1, 0, -7.8365974e-16, 0, 1, -1383.0715, 0, 204.17726)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BugSpawner (3)" parent="Bushes" unique_id=619556547 instance=ExtResource("10_vu1al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -400.11798, 58.32707, -252.75188)
+metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
+
+[node name="BerryBush (40)" parent="Bushes" unique_id=1982589913 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.99936175, 0.00819911, -0.034768537, -0.0045871567, 0.9946998, 0.10271999, 0.035426464, -0.10249494, 0.99410254, 151.96602, 95.74842, -672.74115)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (41)" parent="Bushes" unique_id=1095799728 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.98322296, 0.1790186, -0.035000216, -0.17469037, 0.97934926, 0.10177563, 0.052497167, -0.09395392, 0.9941915, 158.03806, 95.90059, -674.3896)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (42)" parent="Bushes" unique_id=991835764 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9894999, 0.14034459, -0.034544617, -0.13611467, 0.9852361, 0.103839405, 0.048607904, -0.09804705, 0.993994, 156.71956, 96.32299, -669.0991)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (43)" parent="Bushes" unique_id=1877128032 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9931967, 0.008818966, -0.116113864, -0.0049058152, 0.9994117, 0.033943743, 0.11634489, -0.03314318, 0.99265575, -261.72128, 100.45896, -967.3522)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (44)" parent="Bushes" unique_id=1379678008 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.95457846, 0.26371226, -0.13869314, -0.2724668, 0.9609612, -0.048118256, 0.120589346, 0.08372193, 0.9891658, -213.7999, 98.44305, -1015.08923)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (45)" parent="Bushes" unique_id=623629262 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9994213, 0.022905566, -0.02514897, -0.024528852, 0.99750096, -0.066258416, 0.023568435, 0.066836946, 0.9974855, -133.69954, 99.33307, -988.04614)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (46)" parent="Bushes" unique_id=1919120863 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9997079, 4.577637e-06, -0.024172453, -4.6131836e-06, 1, -1.4147804e-06, 0.024172453, 1.5258789e-06, 0.9997079, -221.46028, 100.00008, -866.50305)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (47)" parent="Bushes" unique_id=1706207683 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.99969935, -0.001020769, -0.024498483, 0.002920915, 0.9969763, 0.07765193, 0.02434514, -0.07770014, 0.99667954, -131.60222, 100.22992, -759.2972)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (48)" parent="Bushes" unique_id=1430699723 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.99331796, 0.09479806, -0.06582364, -0.093243375, 0.9952957, 0.026309391, 0.06800806, -0.019995974, 0.9974844, -521.2218, 98.43216, -1024.3204)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (49)" parent="Bushes" unique_id=74081457 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.993507, 0.113569416, -0.0067674606, -0.1128847, 0.9914329, 0.065711044, 0.014172247, -0.06452044, 0.9978158, -602.12164, 99.381836, -1044.5367)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (50)" parent="Bushes" unique_id=1447844018 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.99451035, 0.095366135, 0.04306378, -0.0998153, 0.9881132, 0.116915196, -0.031402137, -0.1205718, 0.9922078, -719.896, 92.093544, -1173.0237)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (51)" parent="Bushes" unique_id=1174694305 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.97006446, 0.2394162, 0.04068071, -0.24031886, 0.97050995, 0.018902557, -0.034955457, -0.028113037, 0.99899346, -853.25507, 94.93113, -1293.2117)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (52)" parent="Bushes" unique_id=378815961 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9752682, 0.22005613, -0.020671418, -0.21780625, 0.9727563, 0.07940816, 0.037582505, -0.072941884, 0.99662787, -1150.9064, 180.9107, -1307.3373)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (53)" parent="Bushes" unique_id=1210274771 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9998776, 0.013541337, -0.007842423, -0.014965316, 0.97393, -0.22635472, 0.0045728255, 0.22644438, 0.9740134, -1299.7415, 185.78279, -1495.9775)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (54)" parent="Bushes" unique_id=1199196286 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.99947596, -0.010401488, -0.030652432, 0.01101845, 0.99973875, 0.020027999, 0.0304361, -0.020355247, 0.99932945, -1236.8025, 98.30543, -2011.1398)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (55)" parent="Bushes" unique_id=768811902 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.99690306, -0.070080444, -0.035679467, 0.07408384, 0.9891116, 0.1271609, 0.026379483, -0.12941037, 0.9912402, -1190.9202, 96.883484, -2056.233)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (56)" parent="Bushes" unique_id=1769500649 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.96011055, 0.21664162, 0.17678869, -0.20953634, 0.9760705, -0.05814543, -0.18515494, 0.018782385, 0.9825299, -1007.9108, 96.828094, -2083.1758)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (57)" parent="Bushes" unique_id=716425203 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.92482954, -0.28964508, 0.24656853, 0.3050338, 0.9519917, -0.025812589, -0.22725467, 0.099083975, 0.9687816, -588.79913, 2.4464378, -1643.1312)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (58)" parent="Bushes" unique_id=56217461 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.97527134, -0.20629768, 0.079291195, 0.19978526, 0.9763302, 0.08285671, -0.09450752, -0.06496656, 0.9934021, -571.77795, 1.365234, -1758.7925)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (59)" parent="Bushes" unique_id=1270201980 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.96164596, 0.27416876, 0.008281339, -0.2718108, 0.9565596, -0.10541662, -0.036823537, 0.0991225, 0.9943937, -459.8358, 43.69583, -1677.0322)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (60)" parent="Bushes" unique_id=1066492762 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9663227, 0.25645038, -0.02129759, -0.25498044, 0.94303685, -0.21369706, -0.034718283, 0.21193077, 0.9766678, -460.60336, 43.651047, -1672.3462)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (61)" parent="Bushes" unique_id=1082039758 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.79631287, 0.25510257, -0.5484602, -0.23206396, 0.96617776, 0.11245833, 0.55859846, 0.03772583, 0.8285799, 1910.59, -120.558464, -1597.1965)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (62)" parent="Bushes" unique_id=1693640574 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.8143936, 0.033045627, -0.57937133, -0.14094858, 0.97974515, -0.14224267, 0.56293577, 0.19750306, 0.8025559, 1880.8827, -123.820496, -1590.6547)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (63)" parent="Bushes" unique_id=1695231957 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.78153133, 0.38273504, -0.49266896, -0.27037504, 0.9194789, 0.28540504, 0.5622332, -0.08984757, 0.8220835, 1867.886, -121.68632, -1617.092)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (64)" parent="Bushes" unique_id=705188451 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.76842135, -0.04412743, -0.638421, 0.0023014855, 0.99780387, -0.06619771, 0.6399401, 0.04939841, 0.7668354, 1881.4646, -121.06373, -1644.9329)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (65)" parent="Bushes" unique_id=2051514632 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.7950148, 0.40653643, -0.45019928, -0.32944354, 0.9125596, 0.24228439, 0.50933117, -0.04430445, 0.85942924, 1921.6057, -122.103035, -1618.8379)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (66)" parent="Bushes" unique_id=1099388068 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.77426356, 0.012041587, -0.6327487, 0.015040571, 0.9991864, 0.03741952, 0.6326846, -0.038489476, 0.7734525, 880.4837, 248.31099, 122.62442)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (67)" parent="Bushes" unique_id=1038416293 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.77291703, -0.096999325, -0.62704897, 0.08998566, 0.9950143, -0.043001845, 0.62809384, -0.023188561, 0.7777921, 895.5878, 248.2488, 121.08142)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (68)" parent="Bushes" unique_id=169838778 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.7646163, 0.010637774, -0.64439803, -0.0061380886, 0.9999386, 0.0092238635, 0.6444566, -0.0030973437, 0.7646346, 919.0653, 150.00455, 340.54596)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (69)" parent="Bushes" unique_id=676837287 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.756128, 0.10519361, -0.64591396, -0.17799701, 0.9828448, -0.048302904, 0.62975204, 0.1514939, 0.76188064, 931.9075, 149.87415, 337.87408)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (70)" parent="Bushes" unique_id=30087828 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.7709692, 0.030611308, -0.63613635, -0.032970462, 0.99942327, 0.008134167, 0.6360184, 0.0147025185, 0.77153385, 933.27136, 150.01184, 325.36035)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (71)" parent="Bushes" unique_id=1342117454 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.7411207, 0.14741835, -0.65498704, -0.15988865, 0.98628056, 0.041068073, 0.652055, 0.074288584, 0.7545234, 575.7425, 249.31688, -14.725619)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (72)" parent="Bushes" unique_id=169340713 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.7402436, 0.12492316, -0.6606313, -0.1682622, 0.9857401, -0.0021392184, 0.65094346, 0.112742804, 0.7507075, 572.262, 249.6274, -9.846682)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (73)" parent="Bushes" unique_id=87543255 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.84646237, 0.046397995, -0.5304234, -0.023299728, 0.99846965, 0.050157383, 0.5319388, -0.030097611, 0.8462479, 470.2633, 250.10316, -113.52428)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (74)" parent="Bushes" unique_id=1212268744 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.91480166, -0.2379393, -0.32637933, 0.21890351, 0.9711652, -0.09444545, 0.33944046, 0.014953286, 0.9405092, 248.24002, 36.697784, -238.11864)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (75)" parent="Bushes" unique_id=971106693 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9093911, -0.22134508, -0.3521575, 0.24198472, 0.97016287, 0.015101219, 0.33830744, -0.09894964, 0.9358193, 261.4602, 39.61109, -240.88956)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (76)" parent="Bushes" unique_id=1093745218 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.93790466, 0, -0.34689426, 0, 1.0000004, 0, 0.34689426, 0, 0.93790466, 415.63348, 0, -422.585)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush6" parent="Bushes" unique_id=2038498709 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.993919, -0.10636759, -0.028477091, 0.109821945, 0.9763737, 0.1861012, 0.008009148, -0.18809693, 0.98211783, 405.19495, 18.735312, -406.28464)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (1)6" parent="Bushes" unique_id=914800088 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9738626, -0.22649138, -0.017129501, 0.22697712, 0.9675609, 0.110938475, -0.008552772, -0.111926824, 0.9936797, 466.1151, 16.951155, -454.7578)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (2)4" parent="Bushes" unique_id=1866883786 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.99994016, -0.002086544, -0.010739873, 0.0021185968, 0.9999933, 0.0029739363, 0.010733597, -0.0029965118, 0.9999379, 489.13754, 0.0052275006, -572.01306)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (3)4" parent="Bushes" unique_id=943596104 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9961599, 0.085246146, -0.01996338, -0.08677922, 0.99159, -0.096014045, 0.01161066, 0.09737775, 0.99517983, 586.879, 4.035282, -625.8581)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (4)4" parent="Bushes" unique_id=1921857704 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9997773, -3.3720942e-05, -0.021103334, 3.3746233e-05, 1, 8.422622e-07, 0.021103334, -1.5542325e-06, 0.9997773, 525.75824, 4.654917e-05, -687.1516)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (5)3" parent="Bushes" unique_id=2123154821 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9997773, 7.3532645e-11, -0.021103334, -7.496249e-11, 1, -6.696338e-11, 0.021103334, 6.8530424e-11, 0.9997773, 447.65265, 7.4513473e-06, -664.07605)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (83)" parent="Bushes" unique_id=1786789872 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.79667354, 0.21458589, 0.5650347, -0.26292086, 0.9648079, 0.004296988, -0.54422784, -0.15198271, 0.82505596, 645.825, -11.658091, -892.3314)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (84)" parent="Bushes" unique_id=189426988 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.93368423, -0.103653446, 0.34276786, 0.17990816, 0.9634003, -0.19872816, -0.30962384, 0.24721606, 0.9181598, 448.027, 125.55963, -1033.0746)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (85)" parent="Bushes" unique_id=66972438 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9386774, -0.09066673, 0.3326626, 0.020029472, 0.97751695, 0.20990355, -0.34421456, -0.19036865, 0.91938907, 451.9783, 124.1701, -1043.7576)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (86)" parent="Bushes" unique_id=624711918 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.34155658, 0.053906843, 0.93831396, 0.118279345, 0.98795104, -0.09981351, -0.9323889, 0.14507514, 0.33106515, 372.69897, 32.652397, -1903.3752)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (87)" parent="Bushes" unique_id=224266888 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.9999575, 0.009222872, -0.00013969393, 0.009223887, 0.99988425, -0.012100334, 2.8077944e-05, -0.012101107, -0.9999268, 464.85968, 49.402885, -2336.2146)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (88)" parent="Bushes" unique_id=1274953253 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.99992126, 0.0125509575, -6.490569e-05, 0.012550182, 0.9998961, 0.0070929215, 0.0001539219, 0.0070915483, -0.9999749, 505.40582, 49.370083, -2269.6133)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (89)" parent="Bushes" unique_id=289823235 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.9999987, 0.0016457315, 0.00010919661, 0.0016482022, 0.9995799, 0.028937435, -6.1527484e-05, 0.028937576, -0.9995812, 457.9652, 49.224613, -2247.3855)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (90)" parent="Bushes" unique_id=1252623438 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.946435, 0.2967462, -0.12728965, 0.32136506, 0.90399665, -0.2819834, 0.031391915, -0.30778536, -0.95093775, 644.7876, 24.588516, -1925.5743)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (91)" parent="Bushes" unique_id=2084946088 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.97868997, -0.20522445, 0.006984488, -0.19847572, 0.9366882, -0.28848344, 0.05266156, -0.2837221, -0.95745945, 606.75635, 23.630234, -1940.1589)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (92)" parent="Bushes" unique_id=2062729345 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.97397375, -0.20697649, 0.09239021, -0.20648086, 0.97833574, 0.014996896, -0.09349265, -0.0044702264, -0.99560994, -1152.9733, 0.5784664, -857.21564)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (93)" parent="Bushes" unique_id=278059893 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.9944867, 0.045100756, 0.09466876, 0.050982263, 0.9968559, 0.06065602, -0.09163548, 0.06514803, -0.99365926, -1163.4806, 1.2399225, -864.3646)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (94)" parent="Bushes" unique_id=2021976317 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.9864374, -0.13415557, 0.09457037, -0.13196558, 0.9908279, 0.029071504, -0.09760306, 0.016197186, -0.99509364, -1295.1263, 3.1609144, -950.7881)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (95)" parent="Bushes" unique_id=10093872 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.9898589, -0.113986805, 0.08477271, -0.11034997, 0.9928077, 0.046430953, -0.089455515, 0.036605425, -0.99531794, -1295.0239, 2.262281, -932.1285)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (96)" parent="Bushes" unique_id=520425338 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.92028797, 0.18765081, -0.34330332, 0.10007612, 0.96118516, 0.25711465, 0.3782258, 0.20226306, -0.9033465, -1269.6271, 191.56927, -665.068)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (97)" parent="Bushes" unique_id=798516864 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.9276242, 0.10284768, -0.35907626, 0.0499618, 0.98687035, 0.15359287, 0.37015837, 0.124536365, -0.9205832, -1281.9463, 193.1328, -666.9527)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (98)" parent="Bushes" unique_id=991250427 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.95064473, -0.09088566, -0.29667196, -0.13819776, 0.98008704, 0.1425855, 0.27780542, 0.17654759, -0.9442749, -1510.6184, 164.24225, -248.97029)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (99)" parent="Bushes" unique_id=1694233592 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.4981551, 0.065670945, -0.86459756, -0.20375805, 0.9603398, 0.19034235, 0.84280735, 0.2709887, -0.46501717, -1073.0074, 115.56641, 17.31834)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (100)" parent="Bushes" unique_id=778327508 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.500323, -0.0012300025, -0.86583805, -0.26640743, 0.95170534, 0.1525911, 0.8238349, 0.30701047, -0.47648773, -1087.0437, 114.94486, 22.190228)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (101)" parent="Bushes" unique_id=1256722686 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.4826877, -0.22014213, -0.8476733, -0.22226916, 0.9669955, -0.1245643, 0.8471181, 0.12828597, -0.51568764, -1097.0731, 113.16613, -2.0414352)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (102)" parent="Bushes" unique_id=227792166 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.3069121, 0.036109686, -0.9510526, -0.013195887, 0.9990225, 0.04218943, 0.9516464, 0.025498427, -0.30613557, -861.668, 144.09886, 19.451092)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (103)" parent="Bushes" unique_id=310905875 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.29790136, -0.2075755, -0.93175495, -0.17606162, 0.9712743, -0.16008906, 0.9382202, 0.11635552, -0.32589003, -853.94226, 143.62303, 23.585846)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (104)" parent="Bushes" unique_id=2045517039 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.33410817, -0.02153726, -0.9422887, -0.018781777, 0.9996925, -0.01618983, 0.9423476, 0.0122887, -0.33440998, 607.9974, 149.74625, 128.67192)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (105)" parent="Bushes" unique_id=1378608731 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(-0.3340591, -0.026028125, -0.94219273, -0.020887407, 0.9995776, -0.020207655, 0.9423207, 0.012929411, -0.33446166, 609.2258, 149.71, 135.76811)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (106)" parent="Bushes" unique_id=1135060326 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9999997, -0.00085902837, -0.00013169825, 0.00086027675, 0.9999517, 0.009790984, 0.00012328115, -0.009791092, 0.99995214, 779.36896, 150.00085, 80.00805)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (107)" parent="Bushes" unique_id=2103053853 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9991405, -0.041443847, 0.0008181612, 0.041443255, 0.9991406, 0.0007236338, -0.00084744825, -0.00068910455, 0.9999994, 780.8729, 150.04607, 84.60889)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (108)" parent="Bushes" unique_id=1752039168 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.99494725, -0.08779388, -0.048707113, 0.08786615, 0.99613214, -0.0006594132, 0.048576612, -0.0036236255, 0.9988129, 783.7819, 150.00905, 75.93343)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (109)" parent="Bushes" unique_id=1727228957 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9988383, 0, -0.048187718, 0, 1, 0, 0.048187718, 0, 0.9988383, 756.76276, 150.00002, -47.113647)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (110)" parent="Bushes" unique_id=195824767 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.9988383, -0.00011749267, -0.048187714, 0.00011676795, 1, -1.7854554e-05, 0.048187718, 1.2207031e-05, 0.9988383, 824.4325, 149.9986, -143.51859)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
+[node name="BerryBush (111)" parent="Bushes" unique_id=852517455 instance=ExtResource("5_lrfnj")]
+transform = Transform3D(0.99805737, 0.035870593, -0.050939836, -0.033403635, 0.9982654, 0.0484813, 0.052590523, -0.046685543, 0.9975243, 589.62256, 149.21109, -257.8922)
+metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
+
 [node name="Bugs" type="Node3D" parent="." unique_id=1183121255]
 
-[node name="BugSpawner" parent="Bugs" unique_id=1818136732 instance=ExtResource("10_vu1al")]
+[node name="BugSpawner" parent="Bugs" unique_id=1213267788 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.34422, 52.174644, 169.96756)
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
@@ -1794,6 +2134,26 @@ metadata/asset_placer_res_id = "uid://gdjylqfpd733"
 transform = Transform3D(0.99936837, 0.035492755, -0.0017843401, -0.035537206, 0.99832743, -0.045601223, 0.00016284268, 0.045635827, 0.9989582, 463.89487, 126.8002, -1031.9633)
 metadata/asset_placer_res_id = "uid://c27pkcm4rppiy"
 
+[node name="Rose (30)" parent="Flowers" unique_id=356739028 instance=ExtResource("7_h1wen")]
+transform = Transform3D(0.92434037, 0.03173479, 0.38024718, -0.041590642, 0.9989775, 0.017729435, -0.37929568, -0.032202754, 0.92471504, 803.5763, 140.01953, -492.84766)
+DECOR_VALUE = 8
+metadata/asset_placer_res_id = "uid://gdjylqfpd733"
+
+[node name="Tulip (44)2" parent="Flowers" unique_id=1425317627 instance=ExtResource("42_xc2tr")]
+transform = Transform3D(0.33182347, -0.2080885, 0.92010456, 0.19485298, 0.96945244, 0.14897776, -0.92299813, 0.1298508, 0.36223373, 820.0626, 90.07355, -568.8579)
+DECOR_VALUE = 5
+metadata/asset_placer_res_id = "uid://c27pkcm4rppiy"
+
+[node name="Rose (31)" parent="Flowers" unique_id=342214084 instance=ExtResource("7_h1wen")]
+transform = Transform3D(0.9955476, -0.09353906, -0.011643621, 0.09362985, 0.99557877, 0.007511161, 0.010889555, -0.008567908, 0.99990404, 797.629, 137.5602, -496.16827)
+DECOR_VALUE = 8
+metadata/asset_placer_res_id = "uid://gdjylqfpd733"
+
+[node name="Daisy (140)" parent="Flowers" unique_id=1424973907 instance=ExtResource("41_vu1al")]
+transform = Transform3D(0.9214596, -0.38739365, 0.028956076, 0.38847238, 0.9191274, -0.065529615, -0.0012285673, 0.07163152, 0.99743044, 774.42633, 137.16537, -450.06207)
+DECOR_VALUE = 4
+metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
+
 [node name="Rocks" type="Node3D" parent="." unique_id=1629202551]
 
 [node name="PrettyRock" parent="Rocks" unique_id=517437660 instance=ExtResource("9_7iqxj")]
@@ -1888,188 +2248,124 @@ metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 transform = Transform3D(-0.28387952, 0, 0.95886, 0, 1, 0, -0.95886, 0, -0.28387952, -158.58472, 61.5615, -1041.1273)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="PrettyRock2" parent="Rocks" unique_id=1050413069 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1143.7384, 417.60486, -313.96848)
+[node name="LavaRock" parent="Rocks" unique_id=1064459964 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.23906177, -0.8988542, -0.36730176, 0.782283, 0.40237507, -0.47552875, 0.5752241, -0.17365319, 0.79935086, -985.4041, 375.6815, -306.59164)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (1)2" parent="Rocks" unique_id=318756821 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1133.443, 407.20798, -293.37003)
+[node name="LavaRock (1)" parent="Rocks" unique_id=1877517354 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.022497622, -0.7784485, -0.6273052, 0.8551678, 0.3400069, -0.3912587, 0.5178628, -0.5276488, 0.67335343, -985.14307, 384.0646, -281.67975)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (2)2" parent="Rocks" unique_id=895285203 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1121.3754, 331.30344, -344.30362)
+[node name="LavaRock (2)" parent="Rocks" unique_id=880663388 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.013329102, -0.61792606, -0.7861233, 0.8656731, 0.38634008, -0.31835753, 0.5004323, -0.6847692, 0.5297724, -1001.1997, 394.16202, -260.87817)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (3)2" parent="Rocks" unique_id=1497691925 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1129.9824, 409.97263, -349.77673)
+[node name="LavaRock (3)" parent="Rocks" unique_id=1352710756 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.030645883, -0.56816703, -0.82234246, 0.8216591, 0.48280028, -0.3029526, 0.5691548, -0.66640085, 0.48163548, -1022.3304, 399.65802, -250.35625)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (4)2" parent="Rocks" unique_id=915304949 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1123.4579, 413.66397, -363.79663)
+[node name="LavaRock (4)" parent="Rocks" unique_id=1384020470 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.102614835, -0.5283165, -0.84282374, 0.9093689, 0.29356387, -0.29473466, 0.4031358, -0.7966818, 0.45031056, -1012.75574, 386.54843, -255.44678)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (5)2" parent="Rocks" unique_id=916133842 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1101.0397, 410.46054, -376.8348)
+[node name="LavaRock (5)" parent="Rocks" unique_id=1857144576 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.20295602, 0.6204007, -0.7575697, 0.96871436, 0.24006969, -0.06292094, 0.1428333, -0.7466388, -0.6497147, -1087.4783, 384.12546, -240.18518)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (6)2" parent="Rocks" unique_id=1342556529 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1086.7941, 394.026, -371.37344)
+[node name="LavaRock (6)" parent="Rocks" unique_id=1305611708 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.26141885, -0.5231327, -0.81116736, 0.9514491, 0.28114152, 0.1253162, 0.1624958, -0.80454445, 0.57122976, -1051.7493, 386.42267, -239.54674)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (7)2" parent="Rocks" unique_id=1652128595 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1075.0795, 390.5639, -370.88876)
+[node name="LavaRock (7)" parent="Rocks" unique_id=1786659726 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.4001968, 0.1688392, -0.9007419, 0.73586345, 0.52661604, 0.42565313, 0.5462121, -0.83316797, 0.086507455, -1061.4467, 400.81546, -235.75092)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (8)2" parent="Rocks" unique_id=2054855502 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1055.66, 411.0269, -381.3305)
+[node name="LavaRock (8)" parent="Rocks" unique_id=1362330103 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.44691676, -0.56773895, -0.69133055, 0.8767516, 0.4314816, 0.21243969, 0.17768613, -0.701068, 0.6906023, -1048.3923, 398.4291, -235.98044)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (9)2" parent="Rocks" unique_id=920459183 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1048.6404, 412.2949, -383.9719)
+[node name="LavaRock (9)" parent="Rocks" unique_id=1035204269 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.46875754, -0.46350327, -0.7519519, 0.8830814, 0.2258188, 0.4113073, -0.020837417, -0.8568378, 0.51516527, -1070.1143, 378.68085, -237.26947)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (10)2" parent="Rocks" unique_id=549333507 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1035.0215, 414.595, -371.7583)
+[node name="LavaRock (10)" parent="Rocks" unique_id=1158236799 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.1796876, 0.93253565, -0.31319425, 0.64063424, 0.13067901, 0.75664496, 0.746526, -0.33660254, -0.5739326, -1114.7615, 389.63806, -259.48892)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (11)2" parent="Rocks" unique_id=1600954978 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1026.1407, 415.2892, -361.06754)
+[node name="LavaRock (11)" parent="Rocks" unique_id=410001310 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.036576994, 0.9891467, -0.14230993, 0.62122923, 0.08903972, 0.7785547, 0.7827754, -0.1168842, -0.61122966, -1120.8693, 378.4547, -280.71414)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (12)2" parent="Rocks" unique_id=822993901 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -997.7686, 419.49423, -351.42218)
+[node name="LavaRock (12)" parent="Rocks" unique_id=1691637953 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.06706683, 0.9669998, -0.24579343, 0.6036006, 0.23547818, 0.76171994, 0.7944616, -0.09727487, -0.5994742, -1129.6989, 402.00632, -288.80237)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (13)2" parent="Rocks" unique_id=66473230 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1003.0526, 389.5445, -340.35022)
+[node name="LavaRock (13)" parent="Rocks" unique_id=270236629 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.12144416, 0.99118376, -0.05297985, 0.57351476, 0.113633126, 0.8112762, 0.81014377, 0.06814, -0.58225834, -1123.6136, 389.105, -312.8314)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (14)2" parent="Rocks" unique_id=504644022 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -977.2251, 410.9919, -333.0483)
+[node name="LavaRock (14)" parent="Rocks" unique_id=1641967160 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.042252913, 0.9956756, -0.08273754, 0.5662181, 0.092092514, 0.81909496, 0.8231721, -0.012238343, -0.5676605, -1137.8002, 400.3072, -344.95032)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (15)2" parent="Rocks" unique_id=115116999 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -977.2644, 407.72638, -327.09442)
+[node name="LavaRock (15)" parent="Rocks" unique_id=753418518 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.19292659, 0.97862613, 0.07120745, 0.55332685, 0.048577417, 0.83154684, 0.8103143, 0.19982845, -0.5508719, -1132.5608, 398.7834, -356.17065)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (16)2" parent="Rocks" unique_id=350950582 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -978.79944, 401.74863, -288.21332)
+[node name="LavaRock (16)" parent="Rocks" unique_id=1991698981 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.4403378, 0.875214, 0.20025904, 0.53385794, 0.0758985, 0.84216124, 0.72187173, 0.4777452, -0.5006608, -1127.0038, 390.81708, -369.1015)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (17)2" parent="Rocks" unique_id=1986159199 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -998.7029, 300.754, -290.34082)
+[node name="LavaRock (17)" parent="Rocks" unique_id=24028526 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.14677285, 0.9887743, 0.02799046, 0.54865825, 0.057832055, 0.83404434, 0.82306266, 0.13777223, -0.5509873, -1133.7917, 379.20773, -350.59354)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (18)2" parent="Rocks" unique_id=1665600940 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -979.75757, 411.69757, -269.53412)
+[node name="LavaRock (18)" parent="Rocks" unique_id=1410411039 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.8504022, 0.3389019, 0.40244558, 0.44616252, 0.05911617, 0.8929978, 0.2788475, 0.93896306, -0.20147778, -1107.4402, 404.41946, -383.23486)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (19)2" parent="Rocks" unique_id=1176942082 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -999.1825, 397.06888, -261.16452)
+[node name="LavaRock (19)" parent="Rocks" unique_id=846260565 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.87198716, 0.26104006, 0.41412196, 0.44224077, 0.057320744, 0.89506316, 0.20990951, 0.963625, -0.1654255, -1114.3226, 400.59134, -378.8407)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (20)2" parent="Rocks" unique_id=1876398077 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1031.2245, 387.1268, -246.55963)
+[node name="LavaRock (20)" parent="Rocks" unique_id=1635303570 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.93505394, -0.0053332075, 0.35446614, 0.35173774, 0.11076084, 0.9295232, -0.04421829, 0.9938332, -0.10169144, -1079.4741, 400.14813, -388.71832)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (21)2" parent="Rocks" unique_id=2041714092 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1032.975, 183.64462, -258.822)
+[node name="LavaRock (21)" parent="Rocks" unique_id=407766086 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.90874964, -0.23172595, 0.34709963, 0.320742, 0.14433976, 0.93610436, -0.2670198, 0.9620134, -0.056844432, -1065.711, 379.99823, -386.41415)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (22)2" parent="Rocks" unique_id=1744303613 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1069.6414, 351.83286, -240.4413)
+[node name="LavaRock (22)" parent="Rocks" unique_id=2063425234 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.87720084, -0.14446788, 0.45787385, 0.43763164, 0.15166026, 0.88627225, -0.19747905, 0.9778185, -0.06981277, -1040.492, 405.66806, -368.45758)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (23)2" parent="Rocks" unique_id=546393557 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1066.456, 27.201826, -252.1477)
+[node name="LavaRock (23)" parent="Rocks" unique_id=76662228 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.8744468, -0.20143108, 0.4413262, 0.43674, 0.06915943, 0.8969257, -0.21119057, 0.9770585, 0.02749676, -1036.9172, 384.5034, -359.75116)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (24)2" parent="Rocks" unique_id=170352541 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1088.4884, 413.44376, -231.00238)
+[node name="LavaRock (24)" parent="Rocks" unique_id=1180598628 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.86990917, 0.20216423, 0.44987568, 0.4726201, 0.08086974, 0.8775482, 0.1410275, 0.9760073, -0.16589616, -1023.4857, 391.90515, -349.59464)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (25)2" parent="Rocks" unique_id=1437405940 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1094.3584, 418.04376, -224.00337)
+[node name="LavaRock (25)" parent="Rocks" unique_id=2133887665 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.91179496, -0.06300949, 0.40578356, 0.398555, 0.10224046, 0.9114282, -0.09891611, 0.9927625, -0.06810958, -1003.5721, 399.16333, -356.7076)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (26)2" parent="Rocks" unique_id=1286023106 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1115.0974, 403.83633, -254.52037)
+[node name="LavaRock (26)" parent="Rocks" unique_id=2000573724 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.60723585, -0.74075025, 0.28732294, 0.3184715, 0.104379795, 0.94216853, -0.727902, 0.6636223, 0.1725246, -995.092, 341.70837, -344.66608)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (27)2" parent="Rocks" unique_id=700675592 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1112.124, 411.63782, -250.65552)
+[node name="LavaRock (27)" parent="Rocks" unique_id=1631484204 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.5498903, -0.70255154, 0.45171088, 0.26528203, 0.36590737, 0.8920415, -0.79198915, 0.6103555, -0.014834595, -988.8866, 390.7769, -331.15015)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (28)2" parent="Rocks" unique_id=1802297093 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1112.0195, 340.5712, -267.04358)
+[node name="LavaRock (28)" parent="Rocks" unique_id=2057556162 instance=ExtResource("12_soegj")]
+transform = Transform3D(-0.24343939, -0.9230157, 0.29796016, 0.1358563, 0.27172375, 0.9527383, -0.9603548, 0.27241364, 0.05924921, -990.30774, 369.01843, -324.4682)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
-[node name="PrettyRock (29)2" parent="Rocks" unique_id=1817994017 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1131.5104, 412.0343, -273.8531)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (30)" parent="Rocks" unique_id=1029994492 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1125.6677, 386.24753, -320.18756)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (31)" parent="Rocks" unique_id=264918309 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1118.8175, 323.83115, -324.22937)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (32)" parent="Rocks" unique_id=1256135565 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1123.4818, 337.6526, -335.87347)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (33)" parent="Rocks" unique_id=788622556 instance=ExtResource("12_soegj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1143.4814, 420.10577, -343.9536)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock3" parent="Rocks" unique_id=161628407 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.9924308, -0.107923806, 0.058596544, 0.07071556, 0.11212437, -0.9911748, 0.10040125, 0.9878161, 0.11890757, -1011.89197, 407.71057, -348.7067)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (1)3" parent="Rocks" unique_id=1003069461 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.97795963, -0.19613504, 0.07159671, 0.08404557, 0.055890482, -0.9948933, 0.19113186, 0.9789828, 0.07114292, -1040.4253, 375.72586, -361.06732)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (2)3" parent="Rocks" unique_id=2091285519 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.9906514, -0.1176666, 0.06902484, 0.075456634, 0.051107313, -0.9958385, 0.11364927, 0.9917372, 0.059508257, -1051.2684, 381.41284, -368.60013)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (3)3" parent="Rocks" unique_id=2073163587 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.941884, -0.33488125, -0.02663008, 0.004614743, 0.09216107, -0.9957335, 0.33590668, 0.9377425, 0.08835043, -1032.9463, 374.78665, -356.607)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (4)3" parent="Rocks" unique_id=1861246233 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.16370362, 0.98379594, 0.07312176, -0.16750284, 0.10076476, -0.9807086, -0.9721852, 0.14829744, 0.18128416, -1127.9, 389.6505, -346.75858)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (5)3" parent="Rocks" unique_id=738128649 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.09416524, 0.9880246, 0.122231, -0.9841796, 0.1108932, -0.13817845, -0.1500783, -0.10728565, 0.9828359, -1123.9307, 380.9834, -287.47058)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (6)3" parent="Rocks" unique_id=2034123774 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.66884285, 0.71787894, 0.19312984, -0.47286206, 0.21036652, 0.85565615, 0.57362944, -0.6636233, 0.48015982, -1089.1718, 383.29642, -240.51987)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (7)3" parent="Rocks" unique_id=551936155 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.89832366, 0.31151277, 0.30979753, -0.42296526, 0.4225388, 0.80159926, 0.11880694, -0.8511292, 0.5113356, -1060.2043, 396.96335, -238.07811)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (8)3" parent="Rocks" unique_id=525040994 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.76232576, -0.60527253, 0.22913894, -0.114848465, 0.22191407, 0.96827906, -0.6369217, -0.7644602, 0.09965617, -1048.5686, 379.10715, -240.37404)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (9)3" parent="Rocks" unique_id=995040900 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.7679373, -0.4466137, 0.45913887, -0.15176402, 0.56953645, 0.80783415, -0.622286, -0.69004667, 0.36958838, -1015.46796, 401.93094, -251.60214)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (10)3" parent="Rocks" unique_id=340162723 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.46246845, -0.72786975, -0.50628906, 0.8715443, 0.26828685, 0.41040558, -0.16289109, -0.631053, 0.75844496, -989.6416, 380.65292, -275.00903)
-metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
-
-[node name="PrettyRock (11)3" parent="Rocks" unique_id=1996594062 instance=ExtResource("12_soegj")]
-transform = Transform3D(0.38960257, -0.81863874, -0.42194852, 0.7722519, 0.540023, -0.33466735, 0.5018335, -0.19546328, 0.84258956, -980.27954, 390.44632, -306.2683)
+[node name="LavaRock (29)" parent="Rocks" unique_id=803087453 instance=ExtResource("12_soegj")]
+transform = Transform3D(0.30536884, -0.7788209, 0.54789484, -0.1871935, 0.51505286, 0.8364689, -0.9336537, -0.3579937, 0.011490886, -981.20636, 390.0392, -298.18344)
 metadata/asset_placer_res_id = "uid://2uejsubr1tjg"
 
 [node name="Trees" type="Node3D" parent="." unique_id=1891099059]
@@ -5318,7 +5614,7 @@ transform = Transform3D(0.029176798, 0, 0.55209213, 0, 0.55286247, 0, -0.5520921
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="PineTree1 (560)" parent="Trees" unique_id=1555392416 instance=ExtResource("4_jjvf7")]
-transform = Transform3D(0.35878524, 0, 0.3249545, 0, 0.48406848, 0, -0.3249545, 0, 0.35878524, -1003.02325, 97.27939, -2087.4277)
+transform = Transform3D(0.35878524, 0, 0.3249545, 0, 0.48406848, 0, -0.3249545, 0, 0.35878524, -1011.012, 97.27939, -2096.1243)
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="PineTree1 (561)" parent="Trees" unique_id=1441183953 instance=ExtResource("4_jjvf7")]
@@ -5464,6 +5760,7 @@ transform = Transform3D(0.25881907, 0.9659258, -4.222196e-08, 0, -4.371139e-08, 
 
 [node name="Lake" parent="---Zones/Oasis" unique_id=819962188 instance=ExtResource("5_ph8fn")]
 transform = Transform3D(1.2927271, 0, 0, 0, 1.2927271, 0, 0, 0, 1.2927271, 183.06226, -4.5545063, 77.92697)
+SPAWN_RATE = Vector2(10, 15)
 SPAWN_GROUP = Vector2(5, 15)
 MAX_FISH = 20.0
 
@@ -8218,7 +8515,7 @@ metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 558, 1.1464043, 573)
 metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
-[node name="Radio" parent="---Zones/Beach/IndustrialZone" unique_id=1868481036 instance=ExtResource("37_8mtf7")]
+[node name="RadioOriginals" parent="---Zones/Beach/IndustrialZone" unique_id=1868481036 instance=ExtResource("37_8mtf7")]
 transform = Transform3D(0.3921996, 0, -0.9198802, 0, 1, 0, 0.9198802, 0, 0.3921996, 496.67957, 2, 504.84808)
 
 [node name="Bench" parent="---Zones/Beach/IndustrialZone" unique_id=1718667369 instance=ExtResource("19_qipxa")]
@@ -8307,6 +8604,7 @@ metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
 [node name="Lake" parent="---Zones/Beach" unique_id=1295445108 instance=ExtResource("5_ph8fn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215.22879, -5.9689255, -1074.2611)
+SPAWN_RATE = Vector2(10, 15)
 MAX_FISH = 15.0
 
 [node name="Mesh" parent="---Zones/Beach/Lake" index="0" unique_id=2122321559]
@@ -8319,7 +8617,8 @@ shape = SubResource("BoxShape3D_ksc4j")
 [node name="Beach" parent="---Zones/Beach" unique_id=37930726 node_paths=PackedStringArray("SPAWN_POINTS") instance=ExtResource("5_ph8fn")]
 transform = Transform3D(1.2927271, 0, 0, 0, 1.2927271, 0, 0, 0, 1.2927271, 277.39053, -4.5545063, -188.01611)
 SPAWN_POINTS = NodePath("SpawnPoints")
-SPAWN_GROUP = Vector2(20, 30)
+SPAWN_RATE = Vector2(40, 80)
+SPAWN_GROUP = Vector2(40, 60)
 MAX_FISH = 100.0
 
 [node name="Mesh" parent="---Zones/Beach/Beach" index="0" unique_id=2122321559]
@@ -8921,7 +9220,7 @@ metadata/asset_placer_res_id = "uid://c6tdmqumacbsb"
 transform = Transform3D(-1.2919979, 0, -3.5497322, 0, 3.7775443, 0, 3.5497322, 0, -1.2919979, 229.90182, 99.10411, 97.32814)
 metadata/asset_placer_res_id = "uid://c23b0nsgcbyaj"
 
-[node name="Radio" parent="---Zones/ValleyTown" unique_id=293614651 instance=ExtResource("39_h1wen")]
+[node name="RadioOST" parent="---Zones/ValleyTown" unique_id=293614651 instance=ExtResource("39_h1wen")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -28.491577, 58.61305, -16.541916)
 
 [node name="LadaGreen (9)" parent="---Zones/ValleyTown" unique_id=1457221410 instance=ExtResource("28_8mtf7")]
@@ -10381,12 +10680,17 @@ metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
 
 [node name="Lake" parent="---Zones/UpperTown" unique_id=377150103 instance=ExtResource("5_ph8fn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.050964, -5.3927307, 59.098328)
+SPAWN_RATE = Vector2(10, 15)
 SPAWN_GROUP = Vector2(3, 6)
 MAX_FISH = 10.0
 
 [node name="Mesh" parent="---Zones/UpperTown/Lake" index="0" unique_id=2122321559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3929443, 0, -3.619995)
 mesh = SubResource("PlaneMesh_q4vpn")
+
+[node name="CollisionShape3D" parent="---Zones/UpperTown/Lake" index="1" unique_id=1742185738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1918945, -25, -0.047607422)
+shape = SubResource("BoxShape3D_q4vpn")
 
 [node name="Bench" parent="---Zones/UpperTown" unique_id=1569610492 instance=ExtResource("19_qipxa")]
 transform = Transform3D(0.65053695, -0.2098802, 0.72989863, 0.29630384, 0.9550355, 0.010530939, -0.6992894, 0.20942095, 0.6834744, -67.94757, -3.1013336, 36.738434)
@@ -10502,6 +10806,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -401.1395, 87.12305, -1642.95
 [node name="Lake" parent="---Zones/LakeIsland" unique_id=730596425 node_paths=PackedStringArray("SPAWN_POINTS") instance=ExtResource("5_ph8fn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.22389, -100.79312, 143.70898)
 SPAWN_POINTS = NodePath("FishSpawns")
+SPAWN_RATE = Vector2(10, 15)
+SPAWN_GROUP = Vector2(30, 50)
 MAX_FISH = 80.0
 
 [node name="Mesh" parent="---Zones/LakeIsland/Lake" index="0" unique_id=2122321559]
@@ -10828,20 +11134,22 @@ metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 [node name="CampFire" parent="---Zones/LakeIsland" unique_id=87597627 instance=ExtResource("41_bfsat")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 70.880615, -87.12305, 133.07898)
 
-[node name="Log2" type="MeshInstance3D" parent="---Zones/LakeIsland/CampFire" unique_id=1198394273]
-transform = Transform3D(9.596116, 0, -13.764419, 0, 16.779297, 0, 13.764426, 0, 9.596114, -0.9665222, 0.10095387, -1.1452026)
+[node name="Log" parent="---Zones/LakeIsland/CampFire" index="2" unique_id=2134896307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3506641, 0.08228045, 0)
+
+[node name="Log2" type="StaticBody3D" parent="---Zones/LakeIsland/CampFire" unique_id=1530204851]
+transform = Transform3D(0.58737534, 0, -0.80931467, 0, 1, 0, 0.80931467, 0, 0.58737534, -0.9020093, 0.082280256, -0.9936035)
+
+[node name="Log" type="MeshInstance3D" parent="---Zones/LakeIsland/CampFire/Log2" unique_id=1977203391]
+transform = Transform3D(16.779297, 0, 0, 0, 16.779295, 0, 0, 0, 16.779291, 0, 0, 0)
 mesh = SubResource("ArrayMesh_tak05")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="---Zones/LakeIsland/CampFire/Log2" unique_id=618609418]
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -1, 0, 1, -4.3711392e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_qkran")
+
 [node name="Sword2" parent="---Zones/LakeIsland" unique_id=1655529632 instance=ExtResource("43_0wvge")]
-transform = Transform3D(0.9795677, 0.16384292, 0.11662817, -0.10380941, -0.084761776, 0.9909787, 0.17225058, -0.9828384, -0.06602137, 70.992584, -85.91549, 132.99869)
-
-[node name="BoostRing4" parent="---Zones/LakeIsland" unique_id=804467840 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.37897995, 0.9254049, -4.0450733e-08, 0, -4.371139e-08, -1, -0.9254049, 0.37897995, -1.6565739e-08, -168.72989, -63.394707, 288.5891)
-FACE_PLAYER_FORWARD = true
-
-[node name="BoostRing5" parent="---Zones/LakeIsland" unique_id=547279364 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.5457345, 0.8379581, -3.662831e-08, 0, -4.371139e-08, -1, -0.8379581, 0.5457345, -2.3854813e-08, 152.82773, -63.394676, -314.21387)
-FACE_PLAYER_FORWARD = true
+transform = Transform3D(-0.066354506, 0.15469123, 0.9857319, -0.74982274, -0.6595106, 0.05302286, 0.6583028, -0.73560655, 0.15975258, 71.06537, -86.5201, 132.75024)
 
 [node name="TownVolcano" type="Node3D" parent="---Zones" unique_id=1224792795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1046.0544, 422.00516, -304.85785)
@@ -10883,7 +11191,8 @@ transform = Transform3D(-1.9608604, -0.31414762, -2.315651, 0, 3.0228624, -0.410
 metadata/asset_placer_res_id = "uid://dp223ko7ossna"
 
 [node name="BoostRing4" parent="---Zones/TownVolcano" unique_id=928916440 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-0.36626744, -0.9305091, -0.0010159278, 8.0371025e-09, 0.001091794, -0.9999994, 0.9305096, -0.36626723, -0.0003998811, 51.23407, -86.714325, 171.4846)
+transform = Transform3D(-0.36626744, -0.9305091, -0.0010159278, 8.0371025e-09, 0.001091794, -0.9999994, 0.9305096, -0.36626723, -0.0003998811, 51.234924, -85.87446, 171.48494)
+FACE_PLAYER_FORWARD = true
 
 [node name="Container (2)" parent="---Zones/TownVolcano" unique_id=1688676410 instance=ExtResource("14_wowd7")]
 transform = Transform3D(2.3132873, 0.5972779, -1.8968034, 0, 2.909707, 0.9162308, 1.9886189, -0.69479144, 2.2064817, 86.98572, -100.90854, 167.11163)
@@ -10941,10 +11250,6 @@ metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
 transform = Transform3D(0.4775518, 0, 0.17381462, 0, 0.5082, 0, -0.17381462, 0, 0.4775518, 8.385986, -124.45886, -194.02664)
 metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
 
-[node name="OakTree (2)" parent="---Zones/TownVolcano" unique_id=1117478371 instance=ExtResource("11_1rbd8")]
-transform = Transform3D(5.2154064e-08, 0, 0.5082001, 0, 0.5082, 0, -0.5082001, 0, 5.2154064e-08, -20.320435, -131.97012, -219.4826)
-metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
-
 [node name="OakTree (3)" parent="---Zones/TownVolcano" unique_id=1266965110 instance=ExtResource("11_1rbd8")]
 transform = Transform3D(0.44011438, 0, -0.2541002, 0, 0.5082, 0, 0.2541002, 0, 0.44011438, 219.6123, -127.612854, -4.3954163)
 metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
@@ -11000,20 +11305,8 @@ metadata/asset_placer_res_id = "uid://b8eibrg38f2i3"
 [node name="Lava" parent="---Zones/TownVolcano" unique_id=94971073 instance=ExtResource("41_xtp7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1046.0544, -422.00516, 304.85785)
 
-[node name="BoostRing" parent="---Zones/TownVolcano" unique_id=1031525522 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.9735369, 0.22353745, -0.04750761, 1.8173758e-08, -0.20788355, -0.9781536, -0.22853, 0.9522686, -0.20238231, -6.099365, -18.515106, 47.65509)
-FACE_PLAYER_FORWARD = true
-
-[node name="BoostRing2" parent="---Zones/TownVolcano" unique_id=1554583 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.97353697, 0.22675698, -0.028409993, -1.8771239e-08, -0.1243163, -0.99224263, -0.22852977, 0.9659849, -0.1210265, -23.42334, -5.068512, -26.144745)
-FACE_PLAYER_FORWARD = true
-
-[node name="BoostRing3" parent="---Zones/TownVolcano" unique_id=382557416 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.97353697, 0.22675698, -0.028409993, -1.8771239e-08, -0.1243163, -0.99224263, -0.22852977, 0.9659849, -0.1210265, -26.294922, -3.4941711, -38.37787)
-FACE_PLAYER_FORWARD = true
-
 [node name="Sword" parent="---Zones/TownVolcano" unique_id=1542541612 instance=ExtResource("43_0wvge")]
-transform = Transform3D(0.81717277, -0.5763928, 3.126653e-08, -4.315695e-08, -6.9399775e-09, 1, -0.5763928, -0.81717277, -3.0546513e-08, -13.956396, -53.014984, 4.8742266)
+transform = Transform3D(-5.9604645e-08, -0.5763928, 0.81717277, -1, 0, -8.686834e-08, 2.9802322e-08, -0.8171728, -0.5763928, -13.956396, -53.014984, 4.8742266)
 
 [node name="BeachTown" type="Node3D" parent="---Zones" unique_id=140407373]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1968.207, 126.43524, -242.59619)
@@ -11022,12 +11315,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1968.207, 126.43524, -242.59
 transform = Transform3D(4.1694965, -0.00028425144, 0.2425402, 0.0002672647, 4.176544, 0.00030027798, -0.24254021, -0.00028425068, 4.1694965, 105.13806, -126.43573, -149.3335)
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
-[node name="ApartmentHuger (1)" parent="---Zones/BeachTown" unique_id=756512072 instance=ExtResource("21_5vsaf")]
-transform = Transform3D(2.7233126, 0, -2.2962434, 0, 3.5621836, 0, 2.2962434, 0, 2.7233126, 46.170288, -126.43524, -187.39563)
-metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
-
 [node name="ApartmentHuger (2)" parent="---Zones/BeachTown" unique_id=1758449595 instance=ExtResource("21_5vsaf")]
-transform = Transform3D(2.926239, 0, -3.5480878, 0, 4.5991063, 0, 3.5480878, 0, 2.926239, -39.039185, -126.43524, -188.70178)
+transform = Transform3D(2.5303245, 0.24635845, -3.8325672, 0.53549755, 4.5221667, 0.6442307, 3.8029604, -0.80068576, 2.4593089, -6.7923727, -155.94414, -193.25154)
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (3)" parent="---Zones/BeachTown" unique_id=178467888 instance=ExtResource("21_5vsaf")]
@@ -11039,11 +11328,11 @@ transform = Transform3D(-4.299121, 0, 2.2456477, 0, 4.850293, 0, -2.2456477, 0, 
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (6)" parent="---Zones/BeachTown" unique_id=1866611610 instance=ExtResource("21_5vsaf")]
-transform = Transform3D(-1.682605, 0, 4.078332, 0, 4.4117937, 0, -4.078332, 0, -1.682605, -211.93604, -126.43524, -360.50818)
+transform = Transform3D(1.8280979, 0.58273774, 3.9727101, -1.3399081, 4.2034, 0, -3.7850568, -1.2065521, 1.9187301, -191.60948, -176.88568, -346.47833)
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (7)" parent="---Zones/BeachTown" unique_id=35271016 instance=ExtResource("21_5vsaf")]
-transform = Transform3D(-1.3692855, 0, 3.3189015, 0, 3.590269, 0, -3.3189015, 0, -1.3692855, -239.5227, -126.43524, -436.93567)
+transform = Transform3D(-2.4035368, 0.5032848, 2.619115, -2.9802322e-08, 3.525765, -0.67750597, -2.6670318, -0.4535617, -2.3603537, -241.3864, -139.49133, -435.2561)
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (8)" parent="---Zones/BeachTown" unique_id=264207271 instance=ExtResource("21_5vsaf")]
@@ -11051,7 +11340,7 @@ transform = Transform3D(-1.14436, 0, 2.7737222, 0, 3.0005136, 0, -2.7737222, 0, 
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (9)" parent="---Zones/BeachTown" unique_id=346749079 instance=ExtResource("21_5vsaf")]
-transform = Transform3D(-3.8294055, 0, -1.8492385, 0, 4.2525287, 0, 1.8492385, 0, -3.8294055, -428.47266, -126.43524, -609.3473)
+transform = Transform3D(-4.0729046, 0.5054885, 1.113532, 0.69661444, 4.1415753, 0.6678951, -1.005088, 0.8220922, -4.0494437, -394.9522, -159.99669, -608.7328)
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (10)" parent="---Zones/BeachTown" unique_id=1569195234 instance=ExtResource("21_5vsaf")]
@@ -11067,7 +11356,7 @@ transform = Transform3D(-0.0076601515, 0, -4.142404, 0, 4.1424074, 0, 4.142404, 
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (13)" parent="---Zones/BeachTown" unique_id=654597139 instance=ExtResource("21_5vsaf")]
-transform = Transform3D(-3.9573746, 0, 2.4579537, 0, 4.6585746, 0, -2.4579537, 0, -3.9573746, -488.0603, -126.43524, -486.06262)
+transform = Transform3D(-3.9573746, 0, 2.4579537, 0, 4.6585746, 0, -2.4579537, 0, -3.9573746, -464.6733, -126.43524, -471.5368)
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (14)" parent="---Zones/BeachTown" unique_id=324982256 instance=ExtResource("21_5vsaf")]
@@ -11087,7 +11376,7 @@ transform = Transform3D(-1.8407189, 0, 2.9262948, 0, 3.4570837, 0, -2.9262948, 0
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (18)" parent="---Zones/BeachTown" unique_id=2036582550 instance=ExtResource("21_5vsaf")]
-transform = Transform3D(0.05387783, 0, 4.805294, 0, 4.8055925, 0, -4.805294, 0, 0.05387783, -275.64282, -126.43524, -213.17517)
+transform = Transform3D(-2.1381545, 0, 4.303725, 0, 4.8055925, 0, -4.303725, 0, -2.1381545, -284.98535, -126.43521, -198.4851)
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (19)" parent="---Zones/BeachTown" unique_id=847787953 instance=ExtResource("21_5vsaf")]
@@ -11099,7 +11388,7 @@ transform = Transform3D(3.175592, 0, -0.35335362, 0, 3.1951883, 0, 0.35335362, 0
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (21)" parent="---Zones/BeachTown" unique_id=1116668726 instance=ExtResource("21_5vsaf")]
-transform = Transform3D(1.7762585, 0, 3.7848792, 0, 4.180954, 0, -3.7848792, 0, 1.7762585, 1.3598633, -126.43524, -130.80603)
+transform = Transform3D(1.7762585, 0, 3.7848792, 0, 4.180954, 0, -3.7848792, 0, 1.7762585, -10.00891, -126.43524, -88.46283)
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="ApartmentHuger (22)" parent="---Zones/BeachTown" unique_id=618950202 instance=ExtResource("21_5vsaf")]
@@ -11404,16 +11693,8 @@ metadata/asset_placer_res_id = "uid://bij1memwudp3t"
 transform = Transform3D(-1.8946121, 0, 0.8515749, 0, 2.077194, 0, -0.8515749, 0, -1.8946121, -241.84619, -126.43524, 4.320999)
 metadata/asset_placer_res_id = "uid://bij1memwudp3t"
 
-[node name="LadaRed" parent="---Zones/BeachTown" unique_id=1700049354 instance=ExtResource("44_7eny3")]
-transform = Transform3D(-1.0631777, 0, 1.1178561, 0, 1.5427083, 0, -1.1178561, 0, -1.0631777, -332.66968, -126.43524, -57.837006)
-metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
-
 [node name="LadaRed (1)" parent="---Zones/BeachTown" unique_id=1110666702 instance=ExtResource("44_7eny3")]
 transform = Transform3D(-2.2485344, 0, 0.3828472, 0, 2.280894, 0, -0.3828472, 0, -2.2485344, -361.89746, -126.43524, -301.95264)
-metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
-
-[node name="LadaRed (2)" parent="---Zones/BeachTown" unique_id=704194019 instance=ExtResource("44_7eny3")]
-transform = Transform3D(-1.4425194, 0, 1.5580328, 0, 2.1232824, 0, -1.5580328, 0, -1.4425194, -130.01831, -126.43524, -73.13522)
 metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
 
 [node name="LadaRed (3)" parent="---Zones/BeachTown" unique_id=228383220 instance=ExtResource("44_7eny3")]
@@ -11430,10 +11711,6 @@ metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
 
 [node name="LadaRed (6)" parent="---Zones/BeachTown" unique_id=55603773 instance=ExtResource("44_7eny3")]
 transform = Transform3D(2.0328207, 0, 0.15184377, 0, 2.0384839, 0, -0.15184377, 0, 2.0328207, 146.09717, -126.43524, 74.92978)
-metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
-
-[node name="LadaRed (7)" parent="---Zones/BeachTown" unique_id=1904499935 instance=ExtResource("44_7eny3")]
-transform = Transform3D(-0.3909933, 0, 2.1357193, 0, 2.1712146, 0, -2.1357193, 0, -0.3909933, -84.24243, -126.43524, -64.150665)
 metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
 
 [node name="LadaRed (8)" parent="---Zones/BeachTown" unique_id=936657592 instance=ExtResource("44_7eny3")]
@@ -11593,6 +11870,15 @@ metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
 [node name="LadaRed (6)" parent="---Zones/VoidTown" unique_id=1234594218 instance=ExtResource("44_7eny3")]
 transform = Transform3D(-3.999201, 8.149527e-09, 1.774586, -0.10559664, 4.367492, -0.23797227, -1.7714412, -0.2603487, -3.9921143, 190.09863, -18.145569, -37.390503)
 metadata/asset_placer_res_id = "uid://dqq5xp2hbemg6"
+
+[node name="Lamp" parent="---Zones/VoidTown/LadaRed (6)" unique_id=823722367 instance=ExtResource("20_3wocd")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 1.5334871, -2.3283062e-09, -0.1204)
+
+[node name="Lamp2" parent="---Zones/VoidTown/LadaRed (6)" unique_id=1516019327 instance=ExtResource("20_3wocd")]
+transform = Transform3D(-0.95812243, 0, 0.28635865, 0, 0.99999994, 0, -0.28635865, 0, -0.95812243, -1.5719323, 5.122274e-09, -1.0124044)
+
+[node name="RadioMOLDEN" parent="---Zones/VoidTown" unique_id=1731259710 instance=ExtResource("46_q4vpn")]
+transform = Transform3D(0.91405207, -0.39177635, -0.10497618, 0.024135053, 0.31089774, -0.9501369, 0.40487802, 0.86594105, 0.2936323, 190.58777, -10.87706, -38.92798)
 
 [node name="LadaRed (7)" parent="---Zones/VoidTown" unique_id=1716399814 instance=ExtResource("44_7eny3")]
 transform = Transform3D(-2.9015248, -3.266892, 0.39461765, -3.2509558, 2.9273074, 0.33061898, -0.5095015, -0.0737574, -4.356848, 501.1056, 43.76471, -218.85278)

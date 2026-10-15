@@ -105,7 +105,7 @@ blend_shape_mode = 0
 [node name="Rose" type="RigidBody3D" unique_id=340835189 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY")]
 collision_layer = 8
 script = ExtResource("1_0mdd8")
-DECOR_VALUE = 8
+DECOR_VALUE = 4
 ALIGN_NORMALS = true
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = -20.0

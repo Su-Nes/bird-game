@@ -18,7 +18,7 @@ func _ready() -> void:
 	default_window_size = window.size
 	
 	get_tree().scene_changed.connect(set_render_distance.bind(player_render_distance))
-
+	
 	load_settings()
 	
 func save_settings():
@@ -67,11 +67,12 @@ func set_fullscreen(toggle: bool):
 		
 func set_render_distance(value: float):
 	player_render_distance = value
-	
+
 	if get_tree().get_node_count_in_group("PlayerCamera") <= 0:
 		return
 	
 	var player_camera : Camera3D = get_tree().get_first_node_in_group("PlayerCamera")
+	
 	player_camera.far = player_render_distance
 		
 func set_master_volume(value: float):

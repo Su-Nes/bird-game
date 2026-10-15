@@ -38,8 +38,12 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_drjgk")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qkran"]
-radius = 0.27685547
-height = 1.4554596
+radius = 0.095214844
+height = 1.2456055
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_24ctl"]
+radius = 0.32373047
+height = 0.64746094
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jfkkv"]
 _surfaces = [{
@@ -93,8 +97,12 @@ transform = Transform3D(24.34909, -0.19997919, 0.8230619, -0.81776124, 0.6172882
 mesh = SubResource("ArrayMesh_kaler")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fire" unique_id=2076262211]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6828537, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045356013, 0.803215, 0)
 shape = SubResource("CapsuleShape3D_qkran")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Fire" unique_id=2031357605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05408714, 0)
+shape = SubResource("CapsuleShape3D_24ctl")
 
 [node name="Log" type="StaticBody3D" parent="." unique_id=2134896307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3506641, 0, 0)

@@ -29,7 +29,7 @@ stencil_outline_thickness = 0.035
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qkran"]
 height = 0.21386719
-radius = 0.82910156
+radius = 1.2
 
 [node name="BoostRing" type="CSGTorus3D" unique_id=23094101 node_paths=PackedStringArray("DIR_MARKER", "SLOWNESS_TEXT")]
 transform = Transform3D(2.303884, 0, 0, 0, -1.00705975e-07, -2.303884, 0, 2.303884, -1.00705975e-07, 0, 0, 0)
