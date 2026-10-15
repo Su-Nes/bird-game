@@ -164,15 +164,15 @@ mesh = SubResource("BoxMesh_xk7wl")
 
 [node name="Title" type="Label3D" parent="Sections/NestFindingSection/Text" unique_id=1734489001]
 transform = Transform3D(1, 0, 0, 0, 0.99999845, 0, 0, 0, 0.99999845, 0, 0.76667047, 0.7422757)
-text = "Your goal"
+text = "your goal"
 font = ExtResource("8_lc5ar")
 font_size = 100
 
 [node name="Explanation" type="Label3D" parent="Sections/NestFindingSection/Text" unique_id=26329576]
 transform = Transform3D(1, 0, 0, 0, 0.99999845, 0, 0, 0, 0.99999845, 0, 0.3471849, 0.7422757)
-text = "Build a beautiful nest to attract a beautiful mate!
+text = "build a beautiful nest to attract a beautiful mate!
 I've built one for you to start.
-Press and hold Tab to show its location marker.
+press and hold Tab to show its location marker.
 
 "
 font = ExtResource("8_lc5ar")
@@ -185,15 +185,15 @@ autowrap_trim_flags = 64
 
 [node name="Title_Building" type="Label3D" parent="Sections/NestBuildingSection" unique_id=1955484329]
 transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 305.7337, -70.51849, -223.8661)
-text = "Nest building"
+text = "nest building"
 font = ExtResource("8_lc5ar")
 font_size = 100
 
 [node name="Explanation" type="Label3D" parent="Sections/NestBuildingSection/Title_Building" unique_id=1726282844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-text = "Pick up branches with Left Mouse Button.
-Rotate with Q and E.
-Place with Right mouse Button."
+text = "pick up branches with Left Mouse Button.
+rotate with Q and E.
+place with Right mouse Button."
 font = ExtResource("8_lc5ar")
 font_size = 64
 outline_size = 6
@@ -202,17 +202,17 @@ autowrap_trim_flags = 64
 
 [node name="Title_Decor" type="Label3D" parent="Sections/NestBuildingSection" unique_id=1229461705]
 transform = Transform3D(-0.50000006, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, -0.50000006, 315.68408, -70.51849, -214.16388)
-text = "Decor Score"
+text = "decor score"
 font = ExtResource("8_lc5ar")
 font_size = 100
 
 [node name="Explanation" type="Label3D" parent="Sections/NestBuildingSection/Title_Decor" unique_id=223030594]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-text = "Press and hold Tab to view your Decor Score.
-Increase Decor Score by adding branches and other materials
-to your nest. Flowers and pretty rocks give more score!
+text = "press and hold Tab to view your decor score.
+increase decor score by adding branches and other materials
+to your nest. flowers and pretty rocks give more score.
 
-Reach 50 Decor Score to finish this tutorial.
+reach 50 Decor Score to finish this tutorial.
 "
 font = ExtResource("8_lc5ar")
 font_size = 64
@@ -498,7 +498,7 @@ size_flags_vertical = 4
 
 [node name="Title" type="Label" parent="WinScreen/MarginContainer/Menu" unique_id=1693371460]
 layout_mode = 2
-text = "Good job, bird!"
+text = "good job, bird!"
 label_settings = SubResource("LabelSettings_qkran")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -512,7 +512,7 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Finish Tutorial"
+text = "finish tutorial"
 
 [node name="Reload" type="Button" parent="WinScreen/MarginContainer/Menu/Buttons" unique_id=530840903]
 visible = false

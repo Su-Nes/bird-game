@@ -679,7 +679,7 @@ SIDE_SWITCH_SENSITIVITY = 30.0
 [node name="CameraSpring" type="SpringArm3D" parent="CameraControl/CameraPivotY/CameraPivotX" unique_id=780229940]
 margin = 1.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring" unique_id=1870356551 node_paths=PackedStringArray("CONTROLLER")]
+[node name="Camera3D" type="Camera3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring" unique_id=1870356551 node_paths=PackedStringArray("CONTROLLER") groups=["PlayerCamera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 fov = 90.0
 far = 700.0
@@ -768,12 +768,15 @@ DRAG_STRENGTH = -0.25
 BREAK_CURVE = SubResource("Curve_ds2wf")
 CRASH_VELOCITY = 4.0
 CRASH_SPEED_MOD = 0.2
+YAW_ROT_SPEED = 1.5
+ROLL_ROT_SPEED = 4.0
 BREAK_TURN_MODIFIER = 2.0
 CONSTANT_FLAP_COST = 4.0
 TIME_FOR_FLAP = 0.2
 FLAP_COST = 10.0
-PITCH_ROLL_COMPENSATION = 0.45
-ROLL_ROT_LIMIT = 55.0
+PITCH_ROT_LIMIT = 60.0
+PITCH_ROLL_COMPENSATION = 0.3
+ROLL_ROT_LIMIT = 50.0
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAMERA_MOVE_LERP = 3.0
 CAMERA_FOLLOW_STRENGTH = 4.5

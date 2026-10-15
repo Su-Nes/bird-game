@@ -31,7 +31,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if MenuManager.paused:
 		return
-	
+
 	regen_delay_timer -= delta
 	penalty_timer -= delta
 
@@ -43,11 +43,10 @@ func _process(delta: float) -> void:
 func handle_stamina_regen():
 	stamina = stamina + STAMINA_REGEN * get_process_delta_time() if stamina < stamina_max_limit else stamina_max_limit
 
-
 func spend_stamina(value: float, regen_delay : float = 0.0) -> bool:
 	if stamina < value or penalty_timer > 0:
 		return false
-		
+
 	stamina -= value
 	regen_delay_timer = regen_delay
 	

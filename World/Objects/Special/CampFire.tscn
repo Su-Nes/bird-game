@@ -37,6 +37,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_drjgk")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qkran"]
+radius = 0.27685547
+height = 1.4554596
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_jfkkv"]
 _surfaces = [{
 "aabb": AABB(-0.0099452175, -0.009781476, -0.039539255, 0.019890435, 0.019781476, 0.07907851),
@@ -71,18 +75,34 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jfkkv")
 
-[node name="CampFire" type="Node3D" unique_id=87597627]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qkran"]
+height = 1.3203125
+radius = 0.16601563
+
+[node name="CampFire" type="Node3D" unique_id=709398289]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1798798456]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 light_color = Color(1, 0.8745098, 0.43529412, 1)
 omni_range = 6.739343
 
-[node name="Bonfire" type="MeshInstance3D" parent="." unique_id=973437059]
-transform = Transform3D(24.34909, -0.19997919, 0.8230618, -0.81776124, 0.6172882, 24.342266, -0.2206556, -24.355175, 0.6102029, 0, 0, 0)
+[node name="Fire" type="StaticBody3D" parent="." unique_id=2002635318]
+
+[node name="Bonfire" type="MeshInstance3D" parent="Fire" unique_id=973437059]
+transform = Transform3D(24.34909, -0.19997919, 0.8230619, -0.81776124, 0.6172882, 24.342268, -0.2206556, -24.355177, 0.6102029, 0, 0, 0)
 mesh = SubResource("ArrayMesh_kaler")
 
-[node name="Log" type="MeshInstance3D" parent="." unique_id=1666123747]
-transform = Transform3D(16.672804, 0, 1.8874394, 0, 16.779295, 0, -1.8874394, 0, 16.672796, 1.4310608, 0.10095387, -0.15667725)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fire" unique_id=2076262211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6828537, 0)
+shape = SubResource("CapsuleShape3D_qkran")
+
+[node name="Log" type="StaticBody3D" parent="." unique_id=2134896307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3506641, 0, 0)
+
+[node name="Log" type="MeshInstance3D" parent="Log" unique_id=1666123747]
+transform = Transform3D(16.779297, 0, 0, 0, 16.779295, 0, 0, 0, 16.779291, 0, 0, 0)
 mesh = SubResource("ArrayMesh_tak05")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Log" unique_id=1097545234]
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -1, 0, 1, -4.3711392e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_qkran")

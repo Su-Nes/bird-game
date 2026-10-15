@@ -457,7 +457,10 @@ shader_parameter/wind_change = Vector2(0.123, 0.456)
 shader_parameter/vortex_force = Vector2(0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
-size = Vector3(5000, 700, 5000)
+size = Vector3(3791.354, 700, 5000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0wvge"]
+size = Vector3(1265.58, 1568.3989, 5000)
 
 [node name="World" type="Node3D" unique_id=750404762]
 
@@ -3467,7 +3470,7 @@ transform = Transform3D(0.29899916, 0, 0.6492383, 0, 0.7147803, 0, -0.6492383, 0
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="BoostRing" parent="Trees/PineTree1 (159)" unique_id=23094101 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.2436018, 0.48973256, -0.1851414, -0.09207884, -0.43291017, -2.2609708, -0.5153997, 2.2092118, -0.4020108, 5.6065063, 78.35292, -0.98217773)
+transform = Transform3D(0.9738361, 0.21256863, -0.080360666, -0.03996685, -0.18790486, -0.9813737, -0.22370945, 0.958909, -0.17449285, 5.6065063, 78.35292, -0.98217773)
 FACE_PLAYER_FORWARD = true
 
 [node name="PineTree1 (160)" parent="Trees" unique_id=1516439319 instance=ExtResource("4_jjvf7")]
@@ -5119,7 +5122,7 @@ transform = Transform3D(-0.74103236, 0, 0.47576457, 0, 0.8806139, 0, -0.47576457
 metadata/asset_placer_res_id = "uid://ctd6yevovrnl1"
 
 [node name="BoostRing" parent="Trees/PineTree1 (511)" unique_id=1400296621 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.59628916, -2.2253811, -7.1054274e-15, -9.727451e-08, -2.6064626e-08, -2.303884, 2.2253811, 0.59628916, -1.00705975e-07, 0.8053288, 65.12945, 3.814018)
+transform = Transform3D(0.25881907, -0.9659258, 4.222196e-08, 0, -4.371139e-08, -1, 0.9659258, 0.25881907, -1.1313341e-08, 0.8053288, 65.12945, 3.814018)
 FACE_PLAYER_FORWARD = true
 
 [node name="PineTree1 (512)" parent="Trees" unique_id=626704350 instance=ExtResource("4_jjvf7")]
@@ -5455,7 +5458,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 765.21014, 0, 60.899117)
 transform = Transform3D(-3.25, 0, -2.84124e-07, 0, 3.25, 0, 2.84124e-07, 0, -3.25, 20.957153, 149.98256, 19.759254)
 
 [node name="BoostRing" parent="---Zones/StartZone" unique_id=1933770908 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.59628904, 2.225381, -9.72745e-08, -4.878664e-22, -1.00705975e-07, -2.3038838, -2.225381, 0.59628904, -2.6064626e-08, -438.70013, 146.75, -543.2953)
+transform = Transform3D(0.25881907, 0.9659258, -4.222196e-08, 0, -4.371139e-08, -1, -0.9659258, 0.25881907, -1.1313341e-08, -438.70013, 146.75, -543.2953)
 
 [node name="Oasis" type="Node3D" parent="---Zones" unique_id=1435028783]
 
@@ -8105,7 +8108,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 538.2519, 1.111145, 544
 metadata/asset_placer_res_id = "uid://d1cduv1v5bt7e"
 
 [node name="BoostRing" parent="---Zones/Beach/IndustrialZone/Industrial3" unique_id=410684953 instance=ExtResource("43_ludg7")]
-transform = Transform3D(1.664229, 0, 0, 0, -7.274577e-08, -1.664229, 0, 1.664229, -7.274577e-08, -2.4993591, 16.034813, -7.2236633)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.4993591, 16.034813, -7.2236633)
 
 [node name="Bin" parent="---Zones/Beach/IndustrialZone" unique_id=2129580379 instance=ExtResource("30_qxmka")]
 transform = Transform3D(2.1606684e-07, 0, 1.0000004, 0, 1, 0, -1.0000004, 0, 2.1606684e-07, 546, 1.1111526, 552)
@@ -8485,7 +8488,7 @@ transform = Transform3D(-1.200002, 0, 2.9802322e-07, 0, 1.2, 0, -2.9802322e-07, 
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="BoostRing" parent="---Zones/ValleyTown/ApartmentHuger (2)" unique_id=1343114832 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-1.114708e-07, 2.2512803, 0.48950827, 1.0017345e-07, 0.48950836, -2.2512803, -2.303884, -8.764158e-08, -1.215705e-07, 0, 40.97895, 8.004135)
+transform = Transform3D(-8.216152e-08, 0.97716737, 0.21247105, 4.3480277e-08, 0.21247105, -0.97716737, -1, -7.104725e-08, -5.9944455e-08, 0, 40.97895, 8.004135)
 FACE_PLAYER_FORWARD = true
 
 [node name="ApartmentHuger (3)" parent="---Zones/ValleyTown" unique_id=976941807 instance=ExtResource("21_5vsaf")]
@@ -8770,7 +8773,7 @@ transform = Transform3D(-0.24002068, 0, -0.08736033, 0, 0.2554243, 0, 0.08736033
 metadata/asset_placer_res_id = "uid://ct7esywm4lggm"
 
 [node name="BoostRing" parent="---Zones/ValleyTown" unique_id=251601831 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-0.99971646, 0.02380997, -1.0407675e-09, 0, -4.371139e-08, -1, -0.02380997, -0.99971646, 4.3698996e-08, 43.373535, 3.4025521, 81.30078)
+transform = Transform3D(-0.9997165, 0.023809956, -1.0407663e-09, 0, -4.371139e-08, -1, -0.023809956, -0.9997165, 4.3698996e-08, 43.373535, 3.4025521, 81.30078)
 FACE_PLAYER_FORWARD = true
 
 [node name="OakTree (14)" parent="---Zones/ValleyTown" unique_id=808423338 instance=ExtResource("11_1rbd8")]
@@ -9705,11 +9708,11 @@ transform = Transform3D(0.025428578, 0, 1.1997311, 0, 1.1999997, 0, -1.1997311, 
 metadata/asset_placer_res_id = "uid://oki8rjshmod3"
 
 [node name="BoostRing" parent="---Zones/UpperTown" unique_id=646136393 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.058584496, 2.7640414, -1.2082009e-07, 0, -1.2084713e-07, -2.7646601, -2.7640414, 0.058584496, -2.5608098e-09, 15.55603, 7.6297455, 52.574738)
+transform = Transform3D(0.021190444, 0.99977547, -4.3701572e-08, 0, -4.371139e-08, -1, -0.99977547, 0.021190444, -9.2626373e-10, 15.55603, 7.6297455, 52.574738)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing2" parent="---Zones/UpperTown" unique_id=228496374 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.056711476, 2.6091588, -0.91237766, 0.014695339, -0.912842, -2.6095693, -2.7640417, 0.048680417, -0.03259386, -44.65857, 12.092133, 52.217407)
+transform = Transform3D(0.020513097, 0.943753, -0.3300143, 0.005315393, -0.33018202, -0.9439023, -0.9997754, 0.017608205, -0.011789475, -44.65857, 12.092133, 52.217407)
 FACE_PLAYER_FORWARD = true
 
 [node name="ApartmentTall (2)" parent="---Zones/UpperTown" unique_id=1424971513 instance=ExtResource("15_2ihya")]
@@ -9737,7 +9740,7 @@ transform = Transform3D(-1.2000014, 0, 0.0002964139, 0, 1.1999996, 0, -0.0002964
 metadata/asset_placer_res_id = "uid://ds02mqxy5x0aw"
 
 [node name="BoostRing3" parent="---Zones/UpperTown" unique_id=1294631429 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-2.7646642, 0.0006829035, -2.910383e-11, 0.00020325207, 0.8228449, -2.63937, -0.00065195514, -2.6393735, -0.8228461, 45.4906, 27.312057, -120.07913)
+transform = Transform3D(-0.99999994, 0.00024709484, 2.6019563e-08, 7.3517775e-05, 0.2976291, -0.9546816, -0.00023590463, -0.9546815, -0.29762912, 45.4906, 27.312057, -120.07913)
 FACE_PLAYER_FORWARD = true
 
 [node name="ApartmentTall3" parent="---Zones/UpperTown" unique_id=258975003 instance=ExtResource("15_2ihya")]
@@ -10833,11 +10836,11 @@ mesh = SubResource("ArrayMesh_tak05")
 transform = Transform3D(0.9795677, 0.16384292, 0.11662817, -0.10380941, -0.084761776, 0.9909787, 0.17225058, -0.9828384, -0.06602137, 70.992584, -85.91549, 132.99869)
 
 [node name="BoostRing4" parent="---Zones/LakeIsland" unique_id=804467840 instance=ExtResource("43_ludg7")]
-transform = Transform3D(3.8364344, 9.367925, -2.842171e-14, 4.0948495e-07, -1.6769596e-07, -10.123054, -9.367925, 3.8364344, -4.4249265e-07, -168.72989, -63.394707, 288.5891)
+transform = Transform3D(0.37897995, 0.9254049, -4.0450733e-08, 0, -4.371139e-08, -1, -0.9254049, 0.37897995, -1.6565739e-08, -168.72989, -63.394707, 288.5891)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing5" parent="---Zones/LakeIsland" unique_id=547279364 instance=ExtResource("43_ludg7")]
-transform = Transform3D(5.524501, 8.482697, -3.5527137e-14, 3.7079036e-07, -2.414837e-07, -10.123054, -8.482697, 5.524501, -4.4249265e-07, 152.82773, -63.394676, -314.21387)
+transform = Transform3D(0.5457345, 0.8379581, -3.662831e-08, 0, -4.371139e-08, -1, -0.8379581, 0.5457345, -2.3854813e-08, 152.82773, -63.394676, -314.21387)
 FACE_PLAYER_FORWARD = true
 
 [node name="TownVolcano" type="Node3D" parent="---Zones" unique_id=1224792795]
@@ -10880,7 +10883,7 @@ transform = Transform3D(-1.9608604, -0.31414762, -2.315651, 0, 3.0228624, -0.410
 metadata/asset_placer_res_id = "uid://dp223ko7ossna"
 
 [node name="BoostRing4" parent="---Zones/TownVolcano" unique_id=928916440 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-2.574176, -6.5397406, -0.007534273, 5.9604645e-08, 0.008096948, -7.0281157, 6.539745, -2.5741744, -0.0029655844, 51.23407, -86.714325, 171.4846)
+transform = Transform3D(-0.36626744, -0.9305091, -0.0010159278, 8.0371025e-09, 0.001091794, -0.9999994, 0.9305096, -0.36626723, -0.0003998811, 51.23407, -86.714325, 171.4846)
 
 [node name="Container (2)" parent="---Zones/TownVolcano" unique_id=1688676410 instance=ExtResource("14_wowd7")]
 transform = Transform3D(2.3132873, 0.5972779, -1.8968034, 0, 2.909707, 0.9162308, 1.9886189, -0.69479144, 2.2064817, 86.98572, -100.90854, 167.11163)
@@ -10998,15 +11001,15 @@ metadata/asset_placer_res_id = "uid://b8eibrg38f2i3"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1046.0544, -422.00516, 304.85785)
 
 [node name="BoostRing" parent="---Zones/TownVolcano" unique_id=1031525522 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.242916, 0.51500416, -0.10945207, -4.8607864e-09, -0.4789397, -2.2535524, -0.5265064, 2.1939163, -0.46626538, -6.099365, -18.515106, 47.65509)
+transform = Transform3D(0.9735369, 0.22353745, -0.04750761, 1.8173758e-08, -0.20788355, -0.9781536, -0.22853, 0.9522686, -0.20238231, -6.099365, -18.515106, 47.65509)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing2" parent="---Zones/TownVolcano" unique_id=1554583 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.2429159, 0.52242213, -0.06545333, -1.938325e-08, -0.28641042, -2.2860115, -0.5265064, 2.2255168, -0.2788311, -23.42334, -5.068512, -26.144745)
+transform = Transform3D(0.97353697, 0.22675698, -0.028409993, -1.8771239e-08, -0.1243163, -0.99224263, -0.22852977, 0.9659849, -0.1210265, -23.42334, -5.068512, -26.144745)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing3" parent="---Zones/TownVolcano" unique_id=382557416 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.2429159, 0.52242213, -0.06545333, -1.938325e-08, -0.28641042, -2.2860115, -0.5265064, 2.2255168, -0.2788311, -26.294922, -3.4941711, -38.37787)
+transform = Transform3D(0.97353697, 0.22675698, -0.028409993, -1.8771239e-08, -0.1243163, -0.99224263, -0.22852977, 0.9659849, -0.1210265, -26.294922, -3.4941711, -38.37787)
 FACE_PLAYER_FORWARD = true
 
 [node name="Sword" parent="---Zones/TownVolcano" unique_id=1542541612 instance=ExtResource("43_0wvge")]
@@ -11336,30 +11339,30 @@ transform = Transform3D(4.612766, 0, -0.4337187, 0, 4.6331067, 0, 0.4337187, 0, 
 metadata/asset_placer_res_id = "uid://bg4pfiuox31u"
 
 [node name="BoostRing" parent="---Zones/BeachTown" unique_id=1131846417 instance=ExtResource("43_ludg7")]
-transform = Transform3D(1.9745932, 1.1869552, -3.783323e-08, 1.565719e-08, -9.948138e-08, -2.3038838, -1.1869552, 1.9745932, -9.3329206e-08, 58.813965, 24.22461, 163.99335)
+transform = Transform3D(0.85707146, 0.5151975, -2.2519998e-08, 0, -4.371139e-08, -1, -0.5151975, 0.85707146, -3.7463785e-08, 58.813965, 24.22461, 163.99335)
 
 [node name="BoostRing2" parent="---Zones/BeachTown" unique_id=1304888826 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.39486903, 2.2697926, -9.921579e-08, -1.9712235e-16, -1.0070596e-07, -2.3038836, -2.2697926, 0.39486903, -1.7260291e-08, 108.90108, -16.094223, 27.112024)
+transform = Transform3D(0.17139278, 0.9852028, -4.306458e-08, 0, -4.371139e-08, -1, -0.9852028, 0.17139278, -7.491817e-09, 108.90108, -16.094223, 27.112024)
 
 [node name="BoostRing5" parent="---Zones/BeachTown" unique_id=423813733 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.2661593, 0.41521305, -1.8149516e-08, -1.9712235e-16, -1.0070596e-07, -2.3038836, -0.41521305, 2.2661593, -9.9056976e-08, -49.919434, -16.094238, -40.530396)
+transform = Transform3D(0.98362577, 0.1802231, -7.877802e-09, 0, -4.371139e-08, -1, -0.1802231, 0.98362577, -4.2995648e-08, -49.919434, -16.094238, -40.530396)
 
 [node name="BoostRing6" parent="---Zones/BeachTown" unique_id=2122429379 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.16888633, 2.2976851, -1.00435e-07, -2.2098761e-15, -1.0070595e-07, -2.3038833, -2.2976851, 0.16888633, -7.382276e-09, -219.2644, -23.24208, -78.33307)
+transform = Transform3D(0.07330508, 0.99730957, -4.3593786e-08, 0, -4.371139e-08, -1, -0.99730957, 0.07330508, -3.2042666e-09, -219.2644, -23.24208, -78.33307)
 
 [node name="BoostRing7" parent="---Zones/BeachTown" unique_id=1558992079 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.2712514, -0.15886919, 0.35221398, -0.06409113, -2.2259376, -0.59073675, 0.38103357, 0.5725717, -2.1988294, -291.66553, -26.747993, -328.90002)
+transform = Transform3D(0.9858362, -0.06895712, 0.15287842, -0.027818732, -0.96616787, -0.25640926, 0.16538747, 0.24852465, -0.9544016, -291.66553, -26.747993, -328.90002)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing8" parent="---Zones/BeachTown" unique_id=103747376 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.044007, -1.0629739, 4.6464052e-08, -4.592811e-16, -1.0070595e-07, -2.3038828, 1.0629736, 2.0440073, -8.934636e-08, -183.656, -46.824013, -628.66095)
+transform = Transform3D(0.88720083, -0.46138343, 2.0167711e-08, 0, -4.371139e-08, -1, 0.46138343, 0.88720083, -3.878078e-08, -183.656, -46.824013, -628.66095)
 VELOCIY_ADD = 40.0
 
 [node name="BoostRing3" parent="---Zones/BeachTown" unique_id=1069368890 instance=ExtResource("43_ludg7")]
-transform = Transform3D(1.3126185, 1.8933865, -8.2762526e-08, 8.052771e-15, -1.0070595e-07, -2.3038833, -1.8933865, 1.3126185, -5.7376386e-08, 323.47632, -88.78482, 199.10281)
+transform = Transform3D(0.56974167, 0.82182384, -3.5923062e-08, 0, -4.371139e-08, -1, -0.82182384, 0.56974167, -2.49042e-08, 323.47632, -88.78482, 199.10281)
 
 [node name="BoostRing4" parent="---Zones/BeachTown" unique_id=2141683925 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.255632, 0.46904582, -2.0502625e-08, 8.05277e-15, -1.0070594e-07, -2.303883, -0.46904582, 2.255632, -9.859679e-08, 231.60168, -40.45777, 113.36871)
+transform = Transform3D(0.9790564, 0.20358919, -8.899166e-09, 0, -4.371139e-08, -1, -0.20358919, 0.9790564, -4.2795914e-08, 231.60168, -40.45777, 113.36871)
 
 [node name="LadaGreen" parent="---Zones/BeachTown" unique_id=4791793 instance=ExtResource("28_8mtf7")]
 transform = Transform3D(-0.43311992, 0, 0.45539495, 0, 0.6284722, 0, -0.45539495, 0, -0.43311992, -160.59131, -126.43524, 118.89954)
@@ -11498,7 +11501,7 @@ transform = Transform3D(-2.4667134, -2.7969766, -1.1616164, 3.0228186, -2.366243
 transform = Transform3D(5.718318, 0, 9.228633, 0.27422658, -4.1024437, -0.6814004, 4.6003003, 0.24454907, -11.430863, 224.66296, -17.64238, -30.171753)
 
 [node name="BoostRing" parent="---Zones/VoidTown" unique_id=1679220265 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-4.4133276e-07, 10.096517, -2.086632, -10.309882, -4.506593e-07, 0, -9.1209586e-08, 2.086632, 10.096517, 200.84973, 191.6835, -1.2092285)
+transform = Transform3D(-4.2806768e-08, 0.97930473, -0.20239145, -1, -4.371139e-08, 0, -8.846811e-09, 0.20239145, 0.97930473, 200.84973, 191.6835, -1.2092285)
 MINIMUM_VELOCITY = 6.0
 FACE_PLAYER_FORWARD = true
 
@@ -11554,10 +11557,10 @@ transform = Transform3D(-1.882484, -5.5784063, 6.8836956, -6.609759, 5.570648, 2
 transform = Transform3D(-0.8127895, -2.2165685, -3.7057545, -4.12115, -0.7275787, 1.3390943, -1.2891539, 3.723422, -1.944384, 397.58838, -100.08132, -241.30566)
 
 [node name="BoostRing2" parent="---Zones/VoidTown" unique_id=441443003 instance=ExtResource("43_ludg7")]
-transform = Transform3D(8.308533, -5.783124, -3.5527137e-14, -2.527884e-07, -3.631775e-07, -10.123054, 5.783124, 8.308533, -4.424927e-07, 397.93225, -85.929115, -237.09583)
+transform = Transform3D(0.82075346, -0.5712825, 2.4971552e-08, 0, -4.371139e-08, -1, 0.5712825, 0.82075346, -3.5876273e-08, 397.93225, -85.929115, -237.09583)
 
 [node name="BoostRing3" parent="---Zones/VoidTown" unique_id=307409612 instance=ExtResource("43_ludg7")]
-transform = Transform3D(8.308533, -5.783124, -3.5527137e-14, -2.527884e-07, -3.631775e-07, -10.123054, 5.783124, 8.308533, -4.424927e-07, 202.08655, 98.009834, -542.5343)
+transform = Transform3D(0.82075346, -0.5712825, 2.4971552e-08, 0, -4.371139e-08, -1, 0.5712825, 0.82075346, -3.5876273e-08, 202.08655, 98.009834, -542.5343)
 
 [node name="LadaGreen3" parent="---Zones/VoidTown" unique_id=1014815776 instance=ExtResource("28_8mtf7")]
 transform = Transform3D(0.10281469, 2.136297, 0.123996526, 1.4774057, 0.018939547, -1.5513297, -1.548035, 0.15996028, -1.472315, 236.85718, 225.74802, -17.19458)
@@ -11687,7 +11690,7 @@ transform = Transform3D(1.3236835, 0.20981778, 1.6956075, 0.058984768, 2.138054,
 metadata/asset_placer_res_id = "uid://d1cduv1v5bt7e"
 
 [node name="BoostRing" parent="---Zones/IndustrialCrater" unique_id=1536852108 instance=ExtResource("43_ludg7")]
-transform = Transform3D(3.0496132, 3.9064832, -0.48339602, 0.13589406, -0.7156197, -4.9258285, -3.9339314, 3.0036147, -0.5448905, 23.813025, 16.863848, 1.1336406)
+transform = Transform3D(0.612446, 0.78452885, -0.09707939, 0.02729127, -0.14371619, -0.98924255, -0.7900412, 0.6032083, -0.109429196, 23.813025, 16.863848, 1.1336406)
 
 [node name="Industrial (5)" parent="---Zones/IndustrialCrater" unique_id=1328146661 instance=ExtResource("13_1m6ji")]
 transform = Transform3D(-1.2615047, 0.108428955, 1.1670471, 0.13417782, 1.7166609, -0.014455795, -1.1643679, 0.08034754, -1.2660733, 53.85034, -26.81221, -80.75592)
@@ -12241,83 +12244,87 @@ metadata/asset_placer_res_id = "uid://bij1memwudp3t"
 transform = Transform3D(0.013978764, 0, -0.99990225, 0, 1, 0, 0.99990225, 0, 0.013978764, 1402.857, 207.63971, -72.444214)
 
 [node name="BoostRing" parent="---Zones/Spikeys" unique_id=39280933 instance=ExtResource("43_ludg7")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing12" parent="---Zones/Spikeys" unique_id=302533223 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.303884, 0, 5.551115e-16, 0, -1.00705975e-07, -2.303884, 0, 2.303884, -1.00706025e-07, -2208.251, -194.48445, 563.6223)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2208.251, -194.48445, 563.6223)
 VELOCIY_ADD = 30.0
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing3" parent="---Zones/Spikeys" unique_id=233325093 instance=ExtResource("43_ludg7")]
-transform = Transform3D(1.8799982, -1.3317238, -3.5527137e-15, -5.8211505e-08, -8.217734e-08, -2.303884, 1.3317238, 1.8799982, -1.00705975e-07, -516.5919, -277.88824, 118.78518)
+transform = Transform3D(0.8160125, -0.5780342, 2.5266678e-08, 0, -4.371139e-08, -1, 0.5780342, 0.8160125, -3.566904e-08, -516.5919, -277.88824, 118.78518)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing6" parent="---Zones/Spikeys" unique_id=1623474108 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-1.2208499, -1.9538199, 1.0053771e-07, -5.82115e-08, -8.217733e-08, -2.303884, 1.9538199, -1.2208499, -5.8200014e-09, -474.2003, -368.46436, -626.5797)
+transform = Transform3D(-0.52990925, -0.84805435, 3.7069633e-08, 0, -4.371139e-08, -1, 0.84805435, -0.52990925, 2.316307e-08, -474.2003, -368.46436, -626.5797)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing11" parent="---Zones/Spikeys" unique_id=57965112 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-0.042535305, -2.3034935, 8.323815e-08, -5.8211494e-08, -8.2177316e-08, -2.303884, 2.3034935, -0.042535305, -5.6684414e-08, 407.7376, -230.60124, -352.92773)
+transform = Transform3D(-0.018462367, -0.99982953, 4.370394e-08, 0, -4.371139e-08, -1, 0.99982953, -0.018462367, 8.0701573e-10, 407.7376, -230.60124, -352.92773)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing7" parent="---Zones/Spikeys" unique_id=2119787694 instance=ExtResource("43_ludg7")]
-transform = Transform3D(1.4388311, -1.3876007, -1.1455204, -5.9604645e-08, 1.4667256, -1.7766825, 1.7993484, 1.109581, 0.91600406, -1176.1858, -410.97644, -834.4626)
+transform = Transform3D(0.62452364, -0.60228705, -0.49721283, -2.5871357e-08, 0.6366313, -0.77116835, 0.7810059, 0.4816129, 0.3975913, -1176.1858, -410.97644, -834.4626)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing8" parent="---Zones/Spikeys" unique_id=858143984 instance=ExtResource("43_ludg7")]
-transform = Transform3D(1.4388311, -1.3876007, -1.1455204, -5.9604645e-08, 1.4667256, -1.7766825, 1.7993484, 1.109581, 0.91600406, -1184.1646, -402.54276, -828.0825)
+transform = Transform3D(0.62452364, -0.60228705, -0.49721283, -2.5871357e-08, 0.6366313, -0.77116835, 0.7810059, 0.4816129, 0.3975913, -1184.1646, -402.54276, -828.0825)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing9" parent="---Zones/Spikeys" unique_id=2006167636 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.70710677, -0.70710677, 3.0908627e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.0908627e-08, -1574.2953, -227.404, 148.63318)
+transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -1574.2953, -227.404, 148.63318)
 FACE_PLAYER_FORWARD = true
 
-[node name="SpeedRing" parent="---Zones/Spikeys" unique_id=53315476 instance=ExtResource("43_ludg7")]
-transform = Transform3D(1.4142137, 1.4142135, -6.181724e-08, 0, -8.742278e-08, -2, -1.4142135, 1.4142137, -6.181724e-08, -1547.3644, -278.32538, -511.33655)
+[node name="SPEEED" type="Node3D" parent="---Zones/Spikeys" unique_id=1507635174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1555.6871, -171.91447, -504.12552)
+
+[node name="SpeedRing" parent="---Zones/Spikeys/SPEEED" unique_id=53315476 instance=ExtResource("43_ludg7")]
+transform = Transform3D(2.9125292, 4.0642314, -1.5454438e-07, 3.559632e-08, -2.1563869e-07, -5, -4.0642314, 2.9125292, -1.5454462e-07, 8.320923, 3.4717865, -7.196533)
 FACE_PLAYER_FORWARD = true
 
-[node name="BoostRing13" parent="---Zones/Spikeys/SpeedRing" unique_id=341601459 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.70710695, 0.7071066, -3.0908613e-08, -0.7071066, 0.70710695, 1.2802765e-08, 3.0908613e-08, 1.28027615e-08, 1, 0.03778076, -4.7858887, 0)
+[node name="BoostRing13" parent="---Zones/Spikeys/SPEEED" unique_id=341601459 instance=ExtResource("43_ludg7")]
+transform = Transform3D(-0.16286932, 0.98664767, -4.3127738e-08, 0, -4.371139e-08, -1, -0.98664767, -0.16286932, 7.119244e-09, 1.619751, 3.4717865, -14.033569)
 FACE_PLAYER_FORWARD = true
 
-[node name="BoostRing14" parent="---Zones/Spikeys/SpeedRing" unique_id=251645631 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.0861626e-07, 0.99999994, -4.371139e-08, -0.99999994, 2.0861626e-07, 4.371138e-08, 4.3711385e-08, 4.371138e-08, 1, -3.2807617, -8.1311035, 0)
+[node name="BoostRing14" parent="---Zones/Spikeys/SPEEED" unique_id=251645631 instance=ExtResource("43_ludg7")]
+transform = Transform3D(-0.8128332, 0.5824966, -2.5461734e-08, 0, -4.371139e-08, -1, -0.5824966, -0.8128332, 3.5530068e-08, -7.817383, 3.4717865, -14.067993)
 FACE_PLAYER_FORWARD = true
 
-[node name="BoostRing15" parent="---Zones/Spikeys/SpeedRing" unique_id=869303977 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-0.70710695, 0.70710665, -3.0908613e-08, -0.70710665, -0.70710695, 7.462002e-08, 3.0908613e-08, 7.462001e-08, 1, -7.7943726, -8.111572, 0)
+[node name="BoostRing15" parent="---Zones/Spikeys/SPEEED" unique_id=869303977 instance=ExtResource("43_ludg7")]
+transform = Transform3D(-0.9866476, -0.16286966, 7.119259e-09, 0, -4.371139e-08, -1, 0.16286966, -0.9866476, 4.3127738e-08, -14.177246, 3.4717865, -7.654175)
 FACE_PLAYER_FORWARD = true
 
-[node name="BoostRing16" parent="---Zones/Spikeys/SpeedRing" unique_id=353157007 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-0.99999994, 2.0861626e-07, -1.2434498e-14, -2.0861626e-07, -0.99999994, 8.7422784e-08, 1.0658141e-14, 8.742277e-08, 1, -11.231995, -4.699829, 0)
+[node name="BoostRing16" parent="---Zones/Spikeys/SPEEED" unique_id=353157007 instance=ExtResource("43_ludg7")]
+transform = Transform3D(-0.5824966, -0.81283313, 3.5530064e-08, 0, -4.371139e-08, -1, 0.81283313, -0.5824966, 2.5461734e-08, -14.198975, 3.4717865, 2.026123)
 FACE_PLAYER_FORWARD = true
 
-[node name="BoostRing17" parent="---Zones/Spikeys/SpeedRing" unique_id=110230342 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-0.7071066, -0.70710695, 3.0908627e-08, 0.70710695, -0.7071066, 7.4620004e-08, -3.0908627e-08, 7.4620004e-08, 1, -11.269043, 0.08630371, -3.4332275e-05)
+[node name="BoostRing17" parent="---Zones/Spikeys/SPEEED" unique_id=110230342 instance=ExtResource("43_ludg7")]
+transform = Transform3D(0.16286969, -0.9866476, 4.3127738e-08, 0, -4.371139e-08, -1, 0.9866476, 0.16286969, -7.1192603e-09, -7.4832764, 3.4718475, 8.858765)
 FACE_PLAYER_FORWARD = true
 
-[node name="BoostRing18" parent="---Zones/Spikeys/SpeedRing" unique_id=2055818525 instance=ExtResource("43_ludg7")]
-transform = Transform3D(-8.940697e-08, -1, 4.3711392e-08, 1, -8.940697e-08, 4.3711395e-08, -4.371139e-08, 4.3711395e-08, 1, -7.951111, 3.4310303, -3.4332275e-05)
+[node name="BoostRing18" parent="---Zones/Spikeys/SPEEED" unique_id=2055818525 instance=ExtResource("43_ludg7")]
+transform = Transform3D(0.81283313, -0.5824966, 2.5461734e-08, 0, -4.371139e-08, -1, 0.5824966, 0.81283313, -3.5530064e-08, 1.930542, 3.4718475, 8.899292)
 FACE_PLAYER_FORWARD = true
 
-[node name="BoostRing19" parent="---Zones/Spikeys/SpeedRing" unique_id=253635023 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.7071068, -0.7071067, 3.0908616e-08, 0.7071067, 0.7071068, 1.280277e-08, -3.090862e-08, 1.2802767e-08, 1, -3.4372559, 3.4108887, 0)
+[node name="BoostRing19" parent="---Zones/Spikeys/SPEEED" unique_id=253635023 instance=ExtResource("43_ludg7")]
+transform = Transform3D(0.9866476, 0.16286959, -7.119256e-09, 0, -4.371139e-08, -1, -0.16286959, 0.9866476, -4.3127738e-08, 8.280762, 3.4717865, 2.479248)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing4" parent="---Zones/Spikeys" unique_id=2083155197 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.5513969, -1.8852291, 1.2040573, -1.1920929e-07, -1.2400976, -1.9416589, 2.236927, 0.46470416, -0.29679722, -291.9615, -256.00253, 19.416992)
+transform = Transform3D(0.23933363, -0.81828314, 0.52262056, -8.1275594e-08, -0.5382639, -0.84277636, 0.97093743, 0.20170468, -0.12882473, -291.9615, -256.00253, 19.416992)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing10" parent="---Zones/Spikeys" unique_id=973093689 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.82518244, 2.1510358, -9.402478e-08, 1.976535e-15, -1.0070596e-07, -2.303884, -2.1510358, 0.82518244, -3.6069885e-08, -890.23596, -176.29465, -226.53754)
+transform = Transform3D(0.3581701, 0.93365633, -4.0811415e-08, 0, -4.371139e-08, -1, -0.93365633, 0.3581701, -1.5656113e-08, -890.23596, -176.29465, -226.53754)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing5" parent="---Zones/Spikeys" unique_id=947239808 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.5513969, -1.8852291, 1.2040573, -1.1920929e-07, -1.2400976, -1.9416589, 2.236927, 0.46470416, -0.29679722, -291.9615, -256.00253, 19.416992)
+transform = Transform3D(0.23933363, -0.81828314, 0.52262056, -8.1275594e-08, -0.5382639, -0.84277636, 0.97093743, 0.20170468, -0.12882473, -291.9615, -256.00253, 19.416992)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing2" parent="---Zones/Spikeys" unique_id=965299241 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.2820764, 0.3162429, 8.881784e-16, 1.3823418e-08, -9.975273e-08, -2.303884, -0.3162429, 2.2820764, -1.00705975e-07, 2272.532, -185.79648, 100.682106)
+transform = Transform3D(0.99053437, 0.13726512, -6.000049e-09, 0, -4.371139e-08, -1, -0.13726512, 0.99053437, -4.3297632e-08, 2272.532, -185.79648, 100.682106)
 FACE_PLAYER_FORWARD = true
 
 [node name="Particles" type="Node3D" parent="." unique_id=712672863]
@@ -12425,23 +12432,23 @@ draw_pass_1 = SubResource("PlaneMesh_joydu")
 [node name="BoostRings" type="Node3D" parent="." unique_id=441684947]
 
 [node name="BoostRing" parent="BoostRings" unique_id=1098127484 instance=ExtResource("43_ludg7")]
-transform = Transform3D(0.83331245, 2.1478994, -9.388768e-08, -4.878664e-22, -1.00705975e-07, -2.3038838, -2.1478994, 0.83331245, -3.642525e-08, 47.62995, 110.37745, 305.28293)
+transform = Transform3D(0.361699, 0.93229496, -4.0751907e-08, 0, -4.371139e-08, -1, -0.93229496, 0.361699, -1.5810365e-08, 47.62995, 110.37745, 305.28293)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing3" parent="BoostRings" unique_id=153355537 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.3038838, 0, 0, 0, 2.3038843, -2.3841858e-07, 0, 1.1920929e-07, 2.3038838, -53.52725, 41.17522, 360.9528)
+transform = Transform3D(1, 0, 0, 0, 1, -5.174274e-08, 0, 5.174274e-08, 1, -53.52725, 41.17522, 360.9528)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing4" parent="BoostRings" unique_id=774586655 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.3038838, 0, 0, 0, 2.3038843, -2.3841858e-07, 0, 1.1920929e-07, 2.3038838, -53.52725, 46.69746, 360.9528)
+transform = Transform3D(1, 0, 0, 0, 1, -5.174274e-08, 0, 5.174274e-08, 1, -53.52725, 46.69746, 360.9528)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing5" parent="BoostRings" unique_id=956188058 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.3038838, 0, 0, 0, 2.3038843, -2.3841858e-07, 0, 1.1920929e-07, 2.3038838, -53.52725, 52.486755, 360.9528)
+transform = Transform3D(1, 0, 0, 0, 1, -5.174274e-08, 0, 5.174274e-08, 1, -53.52725, 52.486755, 360.9528)
 FACE_PLAYER_FORWARD = true
 
 [node name="BoostRing2" parent="BoostRings" unique_id=1753776743 instance=ExtResource("43_ludg7")]
-transform = Transform3D(2.1478992, -0.739624, 0.38388294, -2.9802322e-08, -1.0613325, -2.0448604, 0.8333126, 1.9064128, -0.98947483, -275.61966, 22.627161, -542.80927)
+transform = Transform3D(0.9322949, -0.32103348, 0.16662425, 4.0273136e-08, -0.46067098, -0.887571, 0.361699, 0.82747793, -0.4294812, -275.61966, 22.627161, -542.80927)
 FACE_PLAYER_FORWARD = true
 
 [node name="PlayerConfine" type="Area3D" parent="." unique_id=1364153877]
@@ -12450,8 +12457,14 @@ monitorable = false
 script = ExtResource("38_c8rra")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerConfine" unique_id=1961472443]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -604.323, 150, 0)
 shape = SubResource("BoxShape3D_qkran")
+debug_color = Color(0.805229, 0, 0.29998, 1)
+debug_fill = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerConfine" unique_id=372789961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1915.0466, -284.19946, 0)
+shape = SubResource("BoxShape3D_0wvge")
 debug_color = Color(0.805229, 0, 0.29998, 1)
 debug_fill = false
 

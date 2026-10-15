@@ -91,20 +91,19 @@ func handle_normal_aligned_placement():
 func handle_collision_placement():
 	can_place = SHAPE_RAY.is_colliding()
 	
+	ghost.global_rotation = SHAPE_RAY.global_rotation
+	
 	if !can_place:
+		ghost.position = SHAPE_RAY.target_position + Vector3(0, -.5, 0)
 		return
 
 	var collision_distance = SHAPE_RAY.get_collision_point(0).distance_to(camera_3d.global_position)
 	var ghost_position = camera_3d.global_position - camera_3d.global_basis.z * collision_distance
 
-	ghost.global_rotation = SHAPE_RAY.global_rotation
-
 	# Move ghost to ray intersect position
 	if can_place:
 		change_ghost_material(GHOST_MATERIAL)
 		ghost.global_position = ghost_position
-	else:
-		ghost.position = SHAPE_RAY.target_position + Vector3(0, -.5, 0)
 
 
 func handle_rotation():

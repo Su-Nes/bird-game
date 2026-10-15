@@ -115,12 +115,12 @@ func physics_update(delta: float):
 	if player_controller.velocity.length() <= 3:
 		pitch_input = clamp(pitch_input, -1, 0)
 		
-		pitch_input -= AUTO_ANGLE_MULT * delta #TO-DO: make this smoother
+		pitch_input -= AUTO_ANGLE_MULT * delta
 
 		if Input.is_action_pressed("break"):
 			state_machine.change_state("HoverState")
 		
-	# Clamp roll input (oooo you could smoothly clamp these with some more math)
+	# Clamp roll input
 	var roll_input = Input.get_axis("right", "left")
 	if extension_functions.MESH.rotation.z >= deg_to_rad(ROLL_ROT_LIMIT):
 		roll_input = clamp(roll_input, -1, 0)
@@ -133,12 +133,11 @@ func physics_update(delta: float):
 
 	# Rotate yaw
 	player_controller.velocity = player_controller.velocity.rotated(Vector3.UP, Input.get_axis("right", "left") * YAW_ROT_SPEED * rotation_mod * delta)
-		# Compensate for roll rotation
+		# Compensate for roll direction
 	player_controller.velocity = player_controller.velocity.rotated(extension_functions.MESH.global_basis.x, PITCH_ROLL_COMPENSATION * abs(Input.get_axis("right", "left")) * delta)
 
 	# Roll
 	player_controller.velocity = player_controller.velocity.rotated(extension_functions.MESH.global_basis.z, roll_input * ROLL_ROT_SPEED * delta)
-	extension_functions.MESH.global_rotate(extension_functions.MESH.global_basis.z, roll_input * ROLL_ROT_SPEED * delta)	
 	
 	#TO_DO rotate camera with roll movevent
 	#CAMERA_MOVEMENT.roll(Input.get_axis("right", "left") * ROLL_ROT_SPEED * delta)
@@ -147,6 +146,14 @@ func physics_update(delta: float):
 	
 	CAMERA_MOVEMENT.look_towards_vector(player_controller.velocity, CAMERA_FOLLOW_STRENGTH * delta, CAMERA_RESET_TIME, extension_functions.MESH.global_basis.y)		
 	
+func update(delta: float):
+	var roll_input = Input.get_axis("right", "left")
+	extension_functions.MESH.global_rotate(extension_functions.MESH.global_basis.z, roll_input * ROLL_ROT_SPEED * delta)
+	extension_functions.MESH.rotation.z = clamp(extension_functions.MESH.rotation.z, -deg_to_rad(ROLL_ROT_LIMIT), deg_to_rad(ROLL_ROT_LIMIT))
+
+	if abs(roll_input) < .1:
+		extension_functions.MESH.rotation.z = lerp(extension_functions.MESH.rotation.z, 0.0, .1)
+
 func handle_constant_flap(delta: float):
 	if WING_STATES.ANIMATOR.current_animation.get_basename() == "Flap":
 		return
@@ -161,7 +168,7 @@ func handle_flap():
 		
 	if StatController.spend_stamina(FLAP_COST):
 		add_thrust_smooth(THRUST_CURVE.sample(player_controller.velocity.length()) * THRUST_STRENGTH, 30)
-		state_machine.ANIMATOR.play("Flap", .5)
+		state_machine.ANIMATOR.play("Flap")
 	else:
 		Input.action_release("jump")
 		
@@ -177,11 +184,8 @@ func add_thrust_smooth(target_force : float, duration : int):
 		await get_tree().physics_frame
 	
 func handle_flight_velocity(_delta: float):
-	#TO-DO (optional): Change all the curves to mathematical algorhythms
-	#print(player_controller.velocity.length())
 	# Add acceleration due to grav
 	forward_v += ANGLE_ACCELERATION_CURVE.sample(angle_of_attack) * ANGLE_ACCELERATION_STRENGTH
-	print(player_controller.velocity)
 
 	# Add forward velocity
 	player_controller.velocity = player_controller.velocity.normalized() * forward_v

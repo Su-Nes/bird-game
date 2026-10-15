@@ -72,9 +72,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rc01l")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ssdtr"]
-size = Vector3(0.76033247, 0.16473266, 6.0655646)
+size = Vector3(0.11816406, 0.030273438, 1.4521484)
 
-[node name="Sword" type="RigidBody3D" unique_id=1655529632 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY")]
+[node name="Sword" type="RigidBody3D" unique_id=1655529632 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable", "Persistent"]]
 script = ExtResource("1_lh5th")
 DECOR_VALUE = 25
 BEAK_ANGLE_MOD = -20.0
@@ -83,13 +83,13 @@ COLLIDER = NodePath("CollisionShape3D")
 RIGIDBODY = NodePath(".")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=371609227]
-transform = Transform3D(0.24363819, 0, 0, 0, 0.24363819, 0, 0, 0, 0.24363819, 0, 0, 0.43055865)
+transform = Transform3D(-1.0649764e-08, 0, -0.24363819, 0, 0.24363819, 0, 0.24363819, 0, -1.0649764e-08, -0.45543855, 0, 0)
 mesh = SubResource("ArrayMesh_dvfbs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=948044717]
-transform = Transform3D(0.24363819, 0, 0, 0, 0.24363819, 0, 0, 0, 0.24363819, -8.045896e-05, -1.1871708e-06, -0.032054603)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0071747005, -1.1871708e-06, 0)
 shape = SubResource("BoxShape3D_ssdtr")
 debug_fill = false
 
 [node name="GrabPoint" type="Marker3D" parent="." unique_id=693444005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.43112907)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.456, 0)

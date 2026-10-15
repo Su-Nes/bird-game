@@ -133,6 +133,7 @@ Interactable="Anything that can be picked up."
 Fish="Fish"
 Nest=""
 Persistent=""
+PlayerCamera=""
 
 [input]
 
@@ -267,6 +268,8 @@ fullscreen={
 
 [physics]
 
+common/physics_ticks_per_second=30
+common/physics_jitter_fix=0.7
 3d/physics_engine="Jolt Physics"
 jolt_physics_3d/limits/max_bodies=20480
 3d/default_gravity=14.700000000000005

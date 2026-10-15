@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4rfrc7nrydat"]
+
+[ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="1_4m8jy"]
+
+[node name="StartMenu" unique_id=172216686 instance=ExtResource("1_4m8jy")]
+
+[node name="Resume" parent="MarginContainer/Menu/Buttons" parent_id_path=PackedInt32Array(923266316) index="0" unique_id=312023862]
+text = "fly"
+
+[node name="LoadTutorial" parent="MarginContainer/Menu/Buttons" parent_id_path=PackedInt32Array(923266316) index="1" unique_id=1154238794]
+visible = false
+
+[node name="LeaveTutorial" parent="MarginContainer/Menu/Buttons" parent_id_path=PackedInt32Array(923266316) index="2" unique_id=68328371]
+visible = false
+
+[connection signal="pressed" from="MarginContainer/Menu/Buttons/Resume" to="." method="_on_start_game_pressed"]

@@ -10,6 +10,8 @@ class_name PauseMenuScript
 @export var LEAVE_TUTORIAL_BUTTON : Control
 @export_category("Settings objects")
 @export var FS_CHECK : CheckButton
+@export var RENDER_DISTANCE : HSlider
+@export var RENDER_NUMBER : Label
 @export var SENSITIVITY : HSlider
 @export var CAMERA_CHECK : CheckButton
 @export var PITCH_CHECK : CheckButton
@@ -20,19 +22,22 @@ class_name PauseMenuScript
 @export var MAIN_SCENE : String = "uid://gyv0w2cpssjs"
 
 func _ready() -> void:
+	MenuManager.pause_menu = self
+	
 	FS_CHECK.button_pressed = PlayerParameters.player_fullscreen
+	RENDER_DISTANCE.value = PlayerParameters.player_render_distance
+	RENDER_NUMBER.text = "%sm" % RENDER_DISTANCE.value
 	SENSITIVITY.value = PlayerParameters.player_camera_sensitivity
 	CAMERA_CHECK.button_pressed = PlayerParameters.player_camera_inverted
 	PITCH_CHECK.button_pressed = PlayerParameters.player_pitch_inverted
 	MASTER_VOLUME.value = PlayerParameters.player_master_volume
 	
-	MenuManager.pause_menu = self
 	if START_PAUSED:
 		MenuManager.on_paused()
 	else:
 		MenuManager.on_unpaused()
 		
-	if !LOAD_TUTORIAL_BUTTON or !LEAVE_TUTORIAL_BUTTON:
+	if get_tree().current_scene.name == "StartMenu":
 		return
 
 	if get_tree().current_scene.name == "Tutorial":
@@ -69,6 +74,10 @@ func _on_toggle_controls_pressed() -> void:
 
 func _on_fs_check_toggled(toggled_on: bool) -> void:
 	PlayerParameters.set_fullscreen(toggled_on)
+	
+func _on_render_slider_value_changed(value: float) -> void:
+	PlayerParameters.set_render_distance(value)
+	RENDER_NUMBER.text = "%sm" % value
 
 func _on_h_slider_value_changed(value: float) -> void:
 	PlayerParameters.player_camera_sensitivity = value
