@@ -59,10 +59,10 @@ func update_decor():
 	var decor_text : Label3D = NEST_STATISTICS.get_child(0)
 	
 	if nest_complete:
-		decor_text.text = "Decor score:\n*%s/%s*" % [decor_value, TARGET_DECOR_VALUE]
+		decor_text.text = "decor score:\n*%s/%s*" % [decor_value, TARGET_DECOR_VALUE]
 		return
 	else:
-		decor_text.text = "Decor score:\n%s/%s" % [decor_value, TARGET_DECOR_VALUE]
+		decor_text.text = "decor score:\n%s/%s" % [decor_value, TARGET_DECOR_VALUE]
 	
 	if decor_value < 5 and !IMMORTAL_NEST:
 		queue_free()

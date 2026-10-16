@@ -107,6 +107,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ToggleControls" type="Button" parent="MarginContainer/LeftMenu/HBoxContainer" unique_id=1210755244]
+custom_maximum_size = Vector2(-1, 26)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -140,8 +141,9 @@ while flying -
 	Space - strong flap
 	hold Space - constant flap
 	Ctrl - slow down
-Tab - show nest markers
-Alt - disable auto camera"
+hold Alt  -  disable auto camera
+hold Tab -  show nest markers
+F     -  toggle HUD"
 label_settings = SubResource("LabelSettings_joydu")
 tab_stops = PackedFloat32Array(60)
 
@@ -189,9 +191,9 @@ custom_minimum_size = Vector2(109.36, 0)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = 300.0
-max_value = 3000.0
+max_value = 1000.0
 step = 100.0
-value = 700.0
+value = 1000.0
 rounded = true
 
 [node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/RenderDistance" unique_id=1459326244]

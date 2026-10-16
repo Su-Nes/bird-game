@@ -2,7 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="1_c4fdm"]
 [ext_resource type="PackedScene" uid="uid://b4rfrc7nrydat" path="res://Player/Scripting/UI/Menus/StartUI.tscn" id="3_asxll"]
+[ext_resource type="Shader" uid="uid://cr4upde56h0ra" path="res://Common/Scripts/Shaders/LensFlare.gdshader" id="4_ek445"]
 [ext_resource type="AudioStream" uid="uid://dt1bxsua66d8j" path="res://World/Ambience/wind-light-calm-soft-breeze-deep-big-gusty.wav" id="4_s8ns8"]
+[ext_resource type="Script" uid="uid://h8iodtllfo1" path="res://Common/Scripts/Shaders/PassSunToLensFlare.gd" id="5_8gjfs"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nd5ly"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_60uoq"]
+noise = SubResource("FastNoiseLite_nd5ly")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6md3q"]
+shader = ExtResource("4_ek445")
+shader_parameter/sun_position = Vector2(0, 0)
+shader_parameter/tint = Vector3(1.945, 1.82, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_60uoq")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qkran"]
 
 [node name="StartMenu" type="Node3D" unique_id=72681683]
 
@@ -16,6 +31,17 @@ stream = ExtResource("4_s8ns8")
 attenuation_model = 3
 autoplay = true
 panning_strength = 0.0
+
+[node name="LensFlareScript" type="TextureRect" parent="." unique_id=829493594]
+material = SubResource("ShaderMaterial_6md3q")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_qkran")
+script = ExtResource("5_8gjfs")
+metadata/_custom_type_script = "uid://h8iodtllfo1"
 
 [node name="StartMenu" parent="." unique_id=172216686 instance=ExtResource("3_asxll")]
 START_PAUSED = true

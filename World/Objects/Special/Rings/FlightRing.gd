@@ -20,3 +20,7 @@ func ring_collected():
 	else:
 		$RingWrong.play()
 		Signals.player_change_state.emit("CrashState")
+		
+		$"not flying!!!".show()
+		await get_tree().create_timer(5).timeout
+		$"not flying!!!".hide()

@@ -51,3 +51,7 @@ func _process(_delta: float) -> void:
 	else:
 		if Input.is_action_just_pressed("interact"):
 			GRAB_SCRIPT.use_item()
+			
+		if Input.is_action_just_pressed("pick") and !MenuManager.paused:
+			GRAB_SCRIPT.handle_beak_rotation()
+			$Chirps.play()

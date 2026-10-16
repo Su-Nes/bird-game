@@ -28,7 +28,7 @@ func eat():
 		super.on_unselected()
 		queue_free()
 		
-		SfxPlayer.play_clip(EAT_CRUNCHY, -3)
+		SfxPlayer.play_clip(EAT_CRUNCHY, -15)
 
 		return false
 	else:

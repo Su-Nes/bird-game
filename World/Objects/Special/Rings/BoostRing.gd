@@ -6,14 +6,11 @@ extends Node3D
 @export var VELOCIY_ADD : float = 25
 @export var FACE_PLAYER_FORWARD = false
 @export var DIR_MARKER : Marker3D
-@export var SLOWNESS_TEXT : Node3D
 var ring_enabled = false
 
 var player_controller : CharacterBody3D
 
-func _ready() -> void:
-	SLOWNESS_TEXT.hide()
-	
+func _ready() -> void:	
 	Signals.player_changed_state.connect(enable_ring)
 	
 func enable_ring(state: String):
@@ -37,10 +34,3 @@ func ring_collected():
 	Signals.player_change_state.emit("FlyState")
 
 	$RingCorrect.play()
-		
-func show_text():
-	SLOWNESS_TEXT.show()
-	
-	await get_tree().create_timer(1).timeout
-	
-	SLOWNESS_TEXT.hide()

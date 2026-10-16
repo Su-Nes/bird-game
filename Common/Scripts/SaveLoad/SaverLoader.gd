@@ -66,7 +66,7 @@ func load_player(save: SavedGame):
 	StatController.stamina = StatController.stamina_max_limit
 	
 	var player = get_tree().get_first_node_in_group("Player") as CharacterBody3D
-	player.global_position = save.player_position + Vector3(0, -.1, 0)
+	player.global_position = save.player_position
 	
 	player.velocity = Vector3.ZERO
 	Signals.player_change_state.emit("HoverState")

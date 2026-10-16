@@ -12,7 +12,7 @@ class_name WaterScript
 @export var MAX_FISH : float = 30
 
 
-var SPAWN_DISTANCE : float = 100
+@export var SPAWN_DISTANCE : float = 100
 
 var fish_count : int
 var spawn_timer : float

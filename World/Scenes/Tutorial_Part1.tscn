@@ -218,14 +218,14 @@ outline_size = 20
 vertical_alignment = 0
 autowrap_trim_flags = 64
 
-[node name="WorldButton" parent="Sections/FlightSection" unique_id=6482881 instance=ExtResource("9_3qw55")]
-transform = Transform3D(1.49, 0, 0, 0, 1.408873, 0.4849507, 0, -0.4849507, 1.408873, 0, -1.7027822, -1.2965398)
+[node name="WorldButton" parent="Sections/FlightSection/Blocker" unique_id=6482881 instance=ExtResource("9_3qw55")]
+transform = Transform3D(1.49, 0, 0, 0, 1.408873, 0.4849507, 0, -0.4849507, 1.408873, 0, -1.7027826, -1.2965403)
 
-[node name="CollisionShape3D" parent="Sections/FlightSection/WorldButton" index="0" unique_id=265274988]
+[node name="CollisionShape3D" parent="Sections/FlightSection/Blocker/WorldButton" index="0" unique_id=265274988]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1641532e-10, 0, -1.1641532e-10, 1, -0.27984133, -4.7683716e-07, 0.24023438)
 shape = SubResource("BoxShape3D_3qw55")
 
-[node name="Label3D" parent="Sections/FlightSection/WorldButton" index="1" unique_id=626845795]
+[node name="Label3D" parent="Sections/FlightSection/Blocker/WorldButton" index="1" unique_id=626845795]
 text = "click THIS to confirm"
 font_size = 39
 
@@ -307,8 +307,8 @@ process_material = SubResource("ShaderMaterial_hsk8h")
 draw_pass_1 = SubResource("PlaneMesh_3qw55")
 
 [connection signal="body_entered" from="PlayerReset" to="." method="_on_player_reset_body_entered"]
-[connection signal="on_pressed" from="Sections/FlightSection/WorldButton" to="Sections/FlightSection/Blocker" method="_on_world_button_on_pressed"]
+[connection signal="on_pressed" from="Sections/FlightSection/Blocker/WorldButton" to="Sections/FlightSection/Blocker" method="_on_world_button_on_pressed"]
 [connection signal="body_entered" from="Sections/StaminaSection/StaminaDrainArea" to="." method="_on_stamina_drain_area_body_entered"]
 [connection signal="body_entered" from="Sections/StaminaSection/StaminaDrainArea" to="Sections/StaminaSection/StaminaDrainArea" method="_on_body_entered"]
 
-[editable path="Sections/FlightSection/WorldButton"]
+[editable path="Sections/FlightSection/Blocker/WorldButton"]

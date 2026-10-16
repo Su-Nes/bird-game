@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dbswfams6najq" path="res://World/Objects/Special/Rings/FlightRing.gd" id="1_7kg5e"]
 [ext_resource type="AudioStream" uid="uid://cn242cbffo8na" path="res://World/Objects/Special/Rings/Complete_02.wav" id="2_7kg5e"]
 [ext_resource type="AudioStream" uid="uid://bk0wwxax0ymnp" path="res://World/Objects/Special/Rings/Complete_01.wav" id="3_r4svu"]
+[ext_resource type="Script" uid="uid://cct1ewjwoucil" path="res://Common/Scripts/Entity/LookAt.gd" id="4_n7tja"]
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="5_w7fo0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vxd1"]
 render_priority = 1
@@ -54,5 +56,19 @@ stream = ExtResource("3_r4svu")
 attenuation_model = 3
 pitch_scale = 0.9
 panning_strength = 0.0
+
+[node name="not flying!!!" type="Node3D" parent="." unique_id=1647034224]
+visible = false
+script = ExtResource("4_n7tja")
+TARGET_GROUP = "Player"
+FOLLOW_Y_POS = false
+
+[node name="Title" type="Label3D" parent="not flying!!!" unique_id=1443072462]
+transform = Transform3D(-1.5, 1.3113414e-07, -5.7320553e-15, 1.3113414e-07, 1.5, 7.1054274e-15, 2.505561e-22, 0, -1.5, 0, 0, 0)
+pixel_size = 0.001
+text = "not flying!!!"
+font = ExtResource("5_w7fo0")
+font_size = 151
+outline_size = 10
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

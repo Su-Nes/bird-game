@@ -1,5 +1,7 @@
 extends TextureRect
 
+class_name LensFlareScript
+
 ## How far to ray cast to check if the sun is visible
 const SUN_RAYCAST_LENGTH: float = 750.0
 

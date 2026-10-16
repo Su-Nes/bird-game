@@ -85,11 +85,18 @@ func use_item():
 	var count_before = GRAB_POINT.get_child_count()
 		
 	var item : Interactable = GRAB_POINT.get_child(active_index)
+	
+	if item.get_child_count() < 1:
+		return # Ignore EmptyInteractable
+	
 	item.on_use()
 	
 	await get_tree().process_frame
 	
 	if count_before != GRAB_POINT.get_child_count():
+		active_index -= 1
+	
+	if active_index < 1:
 		active_index = GRAB_POINT.get_child_count() - 1
 	
 	display_active_item()
@@ -122,7 +129,10 @@ func remove_selected_item(drop_physically = false):
 	item.is_grabbed = false
 	item.on_unselected()
 	
-	active_index = GRAB_POINT.get_child_count() - 1
+	active_index -= 1
+	
+	if active_index < 1:
+		active_index = GRAB_POINT.get_child_count() - 1
 
 	display_active_item()
 	
@@ -147,9 +157,6 @@ func handle_beak_rotation():
 	
 	var item : Interactable = GRAB_POINT.get_child(active_index)
 	
-	if item.get_child_count() == 0:
-		return
-	
 	BEAK_TOP.rotate_x(deg_to_rad((BEAK_ROT_PER_ITEM + item.BEAK_ANGLE_MOD / 2)) + deg_to_rad(SELECT_BEAK_ROT))
 	BEAK_BOTTOM.rotate_x(deg_to_rad((-BEAK_ROT_PER_ITEM - item.BEAK_ANGLE_MOD / 2)) - deg_to_rad(SELECT_BEAK_ROT))
 	
@@ -157,6 +164,9 @@ func handle_beak_rotation():
 	
 	BEAK_TOP.rotation.x = 0
 	BEAK_BOTTOM.rotation.x = 0
+	
+	if item.get_child_count() == 0:
+		return
 	
 	#TO-DO: Have seperate rotation values for each item.
 	 # Single out EmptyInteractable

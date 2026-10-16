@@ -124,7 +124,7 @@ shadow_mesh = SubResource("ArrayMesh_hnppn")
 [node name="Daisy" type="RigidBody3D" unique_id=1631755204 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY")]
 collision_layer = 8
 script = ExtResource("1_oy6qi")
-DECOR_VALUE = 3
+DECOR_VALUE = 2
 ALIGN_NORMALS = true
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = -20.0
@@ -141,7 +141,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 mesh = SubResource("ArrayMesh_txe42")
 
 [node name="Daisy" type="MeshInstance3D" parent="Stem" unique_id=541324626]
-transform = Transform3D(0.30803704, 0, 0, 0, 0.28792015, -0.10949341, 0, 0.10949341, 0.28792015, -0.021413853, 1.8607641, 0.007070679)
+transform = Transform3D(0.30803704, 0, 0, 0, 0.30803707, 0, 0, 0, 0.30803707, -0.021413853, 1.8706331, 0.007070679)
 mesh = SubResource("ArrayMesh_3ek5o")
 
 [node name="GrabPoint" type="Marker3D" parent="." unique_id=2030947003]

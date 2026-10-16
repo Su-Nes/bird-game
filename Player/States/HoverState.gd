@@ -59,16 +59,6 @@ func update(_delta: float):
 		
 		fly_timer = TIME_FOR_DOUBLE_TAP_FLY
 		
-	# detecting double tap to enable fall state
-	break_timer -= _delta
-	
-	if Input.is_action_just_released("break"):
-		if break_timer > 0:
-			state_machine.change_state("FallState")
-			return
-		
-		break_timer = TIME_FOR_DOUBLE_TAP_FLY
-		
 	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * _delta * player_controller.velocity.normalized().length(), 0.0)
 
 	

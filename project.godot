@@ -74,8 +74,8 @@ Shortcuts/Brush/Cycle_Swatch_Color=Object(Shortcut,"resource_local_to_scene":fal
 
 [application]
 
-config/name="Bird Game"
-config/version="0.0.1"
+config/name="bird game"
+config/version="1.0"
 run/main_scene="uid://4k6vyxj4k8ij"
 config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60

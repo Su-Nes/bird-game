@@ -26,5 +26,8 @@ func _process(_delta: float) -> void:
 	else:
 		STAMINA_UI.add_theme_stylebox_override("fill", active_style)
 		
+	if Input.is_action_just_pressed("fullscreen"):
+		STAMINA_UI.get_parent_control().visible = !STAMINA_UI.get_parent_control().visible
+		
 	STAMINA_UI.max_value = StatController.stamina_max_limit
 	STAMINA_UI.size.x = bar_start_width * StatController.stamina_max_limit / StatController.MAX_BASE_STAMINA
