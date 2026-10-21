@@ -31,7 +31,11 @@ func save_game():
 	saved_game.player_max_stamina = StatController.stamina_max_limit
 	saved_game.player_max_stamina = clamp(saved_game.player_max_stamina, StatController.MAX_BASE_STAMINA / 2, StatController.MAX_BASE_STAMINA)
 	var player = get_tree().get_first_node_in_group("Player") as Node3D
+	
 	saved_game.player_position = player.global_position
+	if StatController.fainted:
+		saved_game.player_position = Vector3(523.871, 265.411, -87.083)
+	
 	saved_game.game_complete = game_complete
 	
 	var saved_data : Array[SavedData]

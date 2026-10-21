@@ -20,6 +20,7 @@ var velocity
 
 func enter() -> void:
 	WING_STATES.change_state("wingsidle")
+	state_machine.ANIMATOR.play("Walk")
 	
 func update(delta: float):
 	# Switch to fall state if player controller is not on ground.

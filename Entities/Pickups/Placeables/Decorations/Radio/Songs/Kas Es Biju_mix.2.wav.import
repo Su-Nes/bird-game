@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://csxqnesgppcoe"
+path="res://.godot/imported/Kas Es Biju_mix.2.wav-c8a01f1494d8f10d6e03714508a50be9.sample"
+
+[deps]
+
+source_file="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Kas Es Biju_mix.2.wav"
+dest_files=["res://.godot/imported/Kas Es Biju_mix.2.wav-c8a01f1494d8f10d6e03714508a50be9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

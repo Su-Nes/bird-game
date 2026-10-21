@@ -36,15 +36,17 @@
 [ext_resource type="PackedScene" uid="uid://b354qj64qfoio" path="res://Player/Scripting/UI/Menus/PauseMenu.tscn" id="28_be8bd"]
 [ext_resource type="Script" uid="uid://ethltlxdnmgb" path="res://Common/Scripts/FPSCounter.gd" id="28_kl3dy"]
 [ext_resource type="PackedScene" uid="uid://cvknri82ocq2e" path="res://Player/Scripting/UI/Menus/FaintMenu.tscn" id="29_kl3dy"]
+[ext_resource type="Script" uid="uid://le8124ijql34" path="res://Player/Scripting/UI/HUD/NestArrows.gd" id="31_t4i8i"]
 [ext_resource type="Script" uid="uid://dakctn6vdoqtv" path="res://Player/Scripting/SpeedSFX.gd" id="32_boddd"]
 [ext_resource type="AudioStream" uid="uid://dt1bxsua66d8j" path="res://World/Ambience/wind-light-calm-soft-breeze-deep-big-gusty.wav" id="32_n68f6"]
 [ext_resource type="AudioStream" uid="uid://2v2q42glksnu" path="res://Player/Audio/StrongWindLoop.wav" id="34_1c4sq"]
 [ext_resource type="AudioStream" uid="uid://bdleds4kvnnmg" path="res://Player/Audio/WingFlap_Crunchy_2.wav" id="35_1c4sq"]
 [ext_resource type="Texture2D" uid="uid://bjy5kvn6k5b8h" path="res://Common/UI/Border/panel-border-000_24.png" id="35_vui7j"]
 [ext_resource type="AudioStream" uid="uid://dx4q2vt7tni0p" path="res://Player/Audio/Footstep_Crunchy_1.wav" id="36_d6s72"]
-[ext_resource type="Script" uid="uid://0f47ykkc3vcj" path="res://Player/Scripting/Footsteps.gd" id="36_urvmy"]
 [ext_resource type="Shader" uid="uid://cr4upde56h0ra" path="res://Common/Scripts/Shaders/LensFlare.gdshader" id="41_p3dgh"]
 [ext_resource type="Script" uid="uid://h8iodtllfo1" path="res://Common/Scripts/Shaders/PassSunToLensFlare.gd" id="42_gbrrj"]
+[ext_resource type="Theme" uid="uid://c40fev0exkwqr" path="res://Common/UI/MainTheme.tres" id="44_t4i8i"]
+[ext_resource type="Script" uid="uid://c84nt3rc0jgp0" path="res://Player/Scripting/Shitting.gd" id="47_t4i8i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
 radius = 0.4243164
@@ -82,6 +84,30 @@ tracks/3/path = NodePath("Meshes/WingMeshR")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, 0.706138, 0.706138, 0.037007, -0.037007, 0.13333334, 1, 0.66560036, 0.6370037, 0.30696312, 0.23869675)
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Legs/Leg_R:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5235988, 1.352431e-08, -5.0473524e-08)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Legs/Leg_L:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5235988, 1.3524336e-08, -5.047356e-08)]
+}
 
 [sub_resource type="Animation" id="Animation_f1frd"]
 resource_name = "Crash"
@@ -321,6 +347,78 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(0, -0.054083243, 0.3401465)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Legs/Leg_R:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0471973, 8.742269e-08, 1.5142062e-07)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Legs/Leg_L:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0471976, 8.742276e-08, 1.5142068e-07)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Legs/Leg_R/FrontToes_R:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0471976, 8.742274e-08, 1.5142064e-07)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Legs/Leg_R/BackToe_R:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.0471975, 8.7422755e-08, -1.5142065e-07)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../Legs/Leg_L/FrontToes_L:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0471976, 8.742278e-08, 1.5142068e-07)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Legs/Leg_L/BackToe_L:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.0471976, 8.742276e-08, -1.5142066e-07)]
+}
 
 [sub_resource type="Animation" id="Animation_s3wpl"]
 resource_name = "Hovering"
@@ -368,6 +466,30 @@ tracks/5/path = NodePath("Meshes/WingMeshR")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0, 1, 0.9999999, 1, 0.9999999)
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Legs/Leg_R:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5235988, 1.352431e-08, -5.0473524e-08)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Legs/Leg_L:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5235988, 1.3524336e-08, -5.047356e-08)]
+}
 
 [sub_resource type="Animation" id="Animation_0vcn1"]
 length = 0.001
@@ -437,6 +559,126 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(0, 0.017605467, 0.3401465)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Legs/Leg_R:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.1578815e-22, -2.842171e-14, 1.0565704e-14)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Legs/Leg_L:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -7.1054274e-15, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Legs/Leg_R/FrontToes_R:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Legs/Leg_R/BackToe_R:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../Legs/Leg_L/FrontToes_L:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Legs/Leg_L/BackToe_L:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_57wh6"]
+resource_name = "Walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Legs/Leg_L:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector3(0.78539824, 3.6211695e-08, 8.74228e-08), Vector3(-0.7853982, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Legs/Leg_R:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector3(-0.78539824, 3.621165e-08, -8.7422734e-08), Vector3(0.7853982, 0, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Audio/Footsteps")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("36_d6s72")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("36_d6s72")
+}],
+"times": PackedFloat32Array(0, 0.13333334)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0vcn1"]
 _data = {
@@ -446,7 +688,8 @@ _data = {
 &"Flapping": SubResource("Animation_n84ad"),
 &"Glide": SubResource("Animation_cqlj3"),
 &"Hovering": SubResource("Animation_s3wpl"),
-&"RESET": SubResource("Animation_0vcn1")
+&"RESET": SubResource("Animation_0vcn1"),
+&"Walk": SubResource("Animation_57wh6")
 }
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
@@ -521,6 +764,204 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qjs7e")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqlae"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_71nbo"]
+_surfaces = [{
+"aabb": AABB(-0.0022182856, -0.016628986, -7.450581e-09, 0.0044365716, 0.016628986, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qmARO4M5iLwAAACyqGARuwAAAAAAAAAyqmAROwAAAAAAAAAyqGARu4M5iLwAAACy")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6v536"]
+resource_name = "Legs_Plane"
+_surfaces = [{
+"aabb": AABB(-0.0022182856, -0.016628986, -7.450581e-09, 0.0044365716, 0.016628986, 1e-05),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_mqlae"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qmARO4M5iLwAAACyqGARuwAAAAAAAAAyqmAROwAAAAAAAAAyqGARu4M5iLwAAACy/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z8=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_71nbo")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qi0wv"]
+_surfaces = [{
+"aabb": AABB(-0.003115322, -0.00011620298, -0.00022067712, 0.0064628357, 0.00013073161, 0.0075500673),
+"format": 34896613377,
+"index_count": 9,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("0tL//7oAAADCif//LwUAAP//AAA+xgAA2aH//4QHAABiS///ewcAADSJ9f///wAA2mT//80EAAC5Hv//AAAAAAAA9f+QvQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_of6cd"]
+resource_name = "Legs_Plane_004"
+_surfaces = [{
+"aabb": AABB(-0.003115322, -0.00011620298, -0.00022067712, 0.0064628357, 0.00013073161, 0.0075500673),
+"attribute_data": PackedByteArray("AAD///////8AAAAAAAD///////8AAAAAAAD///////8AAAAA"),
+"format": 34896613399,
+"index_count": 9,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgA"),
+"material": SubResource("StandardMaterial3D_mqlae"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("0tL//7oAEQLCif//LwURAv//AAA+xhEC2aH//4QHAwBiS///ewcDADSJ9f///wMA2mT//80ETAK5Hv//AABMAgAA9f+QvUwCmj/J/Zo/yf2aP8n9+38BQPt/AUD7fwFAfn1AQX59QEF+fUBB")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qi0wv")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4rn4o"]
+_surfaces = [{
+"aabb": AABB(-0.0010360316, -1.2906268e-05, -0.006214155, 0.001845587, 3.8716942e-05, 0.006214155),
+"format": 34896613377,
+"index_count": 3,
+"index_data": PackedByteArray("AAABAAIA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAHPwAAB6v//8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_noull"]
+resource_name = "Legs_Plane_005"
+_surfaces = [{
+"aabb": AABB(-0.0010360316, -1.2906268e-05, -0.006214155, 0.001845587, 3.8716942e-05, 0.006214155),
+"attribute_data": PackedByteArray("AAD///////8AAAAA"),
+"format": 34896613399,
+"index_count": 3,
+"index_data": PackedByteArray("AAABAAIA"),
+"material": SubResource("StandardMaterial3D_mqlae"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray("AAAAAP//tz///wAAHPy3Px6v//8AALc/MgbofDIG6HwyBuh8")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4rn4o")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dtbbo"]
+_surfaces = [{
+"aabb": AABB(-0.002218286, -0.016628986, -7.450581e-09, 0.0044365716, 0.016628986, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qmARu4M5iLwAAACyqGAROwAAAAAAAAAyqGARO4M5iLwAAACyqmARuwAAAAAAAAAy")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uknkd"]
+resource_name = "Legs_Plane_001"
+_surfaces = [{
+"aabb": AABB(-0.002218286, -0.016628986, -7.450581e-09, 0.0044365716, 0.016628986, 1e-05),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAA="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_mqlae"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qmARu4M5iLwAAACyqGAROwAAAAAAAAAyqGARO4M5iLwAAACyqmARuwAAAAAAAAAy/3//f////7//f/9/////v/9//3////+//3//f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dtbbo")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_atga1"]
+_surfaces = [{
+"aabb": AABB(-0.0033475137, -0.00011620298, -0.00022067712, 0.0064628357, 0.00013073161, 0.0075500673),
+"format": 34896613377,
+"index_count": 9,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("LC3//7oAAAAAAAAAPsYAADx2//8vBQAAJV7//4QHAADKdvX///8AAJy0//97BwAAJJv//80EAAD///X/kL0AAEXh//8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sr534"]
+resource_name = "Legs_Plane_002"
+_surfaces = [{
+"aabb": AABB(-0.0033475137, -0.00011620298, -0.00022067712, 0.0064628357, 0.00013073161, 0.0075500673),
+"attribute_data": PackedByteArray("AAD//wAAAAD/////AAD//wAAAAD/////AAD//wAAAAD/////"),
+"format": 34896613399,
+"index_count": 9,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgA"),
+"material": SubResource("StandardMaterial3D_mqlae"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("LC3//7oA88AAAAAAPsbzwDx2//8vBfPAJV7//4QH/7/KdvX/////v5y0//97B/+/JJv//80ED8D///X/kL0PwEXh//8AAA/AJwRniCcEZ4gnBGeIEAD3fxAA938QAPd/dglEe3YJRHt2CUR7")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_atga1")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r8c2l"]
+_surfaces = [{
+"aabb": AABB(-0.0008095554, -1.2906268e-05, -0.006260113, 0.001845587, 3.8716942e-05, 0.006214155),
+"format": 34896613377,
+"index_count": 3,
+"index_data": PackedByteArray("AAABAAIA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray("//8AAP//AADgUP//AAAAAAAAAAAc/AAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nfqni"]
+resource_name = "Legs_Plane_003"
+_surfaces = [{
+"aabb": AABB(-0.0008095554, -1.2906268e-05, -0.006260113, 0.001845587, 3.8716942e-05, 0.006214155),
+"attribute_data": PackedByteArray("AAD//wAAAAD/////"),
+"format": 34896613399,
+"index_count": 3,
+"index_data": PackedByteArray("AAABAAIA"),
+"material": SubResource("StandardMaterial3D_mqlae"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray("//8AAP//hf7gUP//AACF/gAAAAAc/IX+Y36dQGN+nUBjfp1A")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_r8c2l")
+
 [sub_resource type="Curve" id="Curve_n68f6"]
 _limits = [0.0, 1.0, 0.0, 100.0]
 _data = [Vector2(0, 0), 0.0, 0.005026308, 0, 0, Vector2(38.21989, 0.48684204), 0.015522452, 0.00797828, 0, 0, Vector2(80.366486, 1), 0.03168766, 0.0, 0, 0]
@@ -536,6 +977,18 @@ stream_2/stream = ExtResource("11_t4i8i")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4l6g3"]
 size = Vector3(1, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joydu"]
+transparency = 1
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0.30547586, 0.6658887, 0.5254902)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6md3q"]
+material = SubResource("StandardMaterial3D_joydu")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6md3q"]
+radius = 0.1
 
 [sub_resource type="Curve" id="Curve_f1frd"]
 _limits = [-1.0, 1.0, -90.0, 90.0]
@@ -691,6 +1144,37 @@ transform = Transform3D(0.49100718, 0, 0, 0, 0.49100712, 0, 0, 0, 0.49100715, 0,
 visible = false
 mesh = SubResource("ArrayMesh_vui7j")
 
+[node name="NestArrows" type="Node3D" parent="MeshParts" unique_id=1571558081]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000002, 0, -0.010000004, 0)
+script = ExtResource("31_t4i8i")
+
+[node name="Legs" type="Node3D" parent="MeshParts" unique_id=1892015899]
+transform = Transform3D(-8.07, 0, -7.055018e-07, 0, 8.069995, 0, 7.055015e-07, 0, -8.069995, 0, -0.20591123, 0.06456629)
+
+[node name="Leg_R" type="MeshInstance3D" parent="MeshParts/Legs" unique_id=1336973920]
+transform = Transform3D(1, -1.0565701e-14, -2.8421703e-14, 1.0565704e-14, 0.9999997, -6.15788e-22, 2.842171e-14, 6.1578765e-22, 0.99999976, -0.0069999998, 0, -0.007795005)
+mesh = SubResource("ArrayMesh_6v536")
+
+[node name="FrontToes_R" type="MeshInstance3D" parent="MeshParts/Legs/Leg_R" unique_id=232491891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00011054613, -0.016643515, 9.313226e-10)
+mesh = SubResource("ArrayMesh_of6cd")
+
+[node name="BackToe_R" type="MeshInstance3D" parent="MeshParts/Legs/Leg_R" unique_id=1019826049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.816443e-05, -0.016616082, -4.596729e-05)
+mesh = SubResource("ArrayMesh_noull")
+
+[node name="Leg_L" type="MeshInstance3D" parent="MeshParts/Legs" unique_id=1246409703]
+transform = Transform3D(1, 0, -7.105427e-15, 0, 0.99999994, 0, 7.1054274e-15, 0, 0.99999994, 0.0070000007, 0, -0.0077950163)
+mesh = SubResource("ArrayMesh_uknkd")
+
+[node name="FrontToes_L" type="MeshInstance3D" parent="MeshParts/Legs/Leg_L" unique_id=1312344410]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.000110545196, -0.016643513, -9.313226e-10)
+mesh = SubResource("ArrayMesh_sr534")
+
+[node name="BackToe_L" type="MeshInstance3D" parent="MeshParts/Legs/Leg_L" unique_id=116538662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -6.81635e-05, -0.01661608, 0)
+mesh = SubResource("ArrayMesh_nfqni")
+
 [node name="CameraControl" type="Node3D" parent="." unique_id=799988347]
 script = ExtResource("5_7c45o")
 
@@ -733,6 +1217,17 @@ shape = SubResource("BoxShape3D_4l6g3")
 target_position = Vector3(0, -2.5, 0)
 debug_shape_custom_color = Color(0.78352344, 0.7835234, 0.7835234, 1)
 
+[node name="CamCollider" type="StaticBody3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D" unique_id=233418770 groups=["PlayerCamera"]]
+collision_layer = 16
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D/CamCollider" unique_id=600109468]
+visible = false
+mesh = SubResource("SphereMesh_6md3q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraControl/CameraPivotY/CameraPivotX/CameraSpring/Camera3D/CamCollider" unique_id=220923268]
+shape = SubResource("SphereShape3D_6md3q")
+
 [node name="MovementStateMachine" type="Node" parent="." unique_id=1931093873 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
 script = ExtResource("1_8rupm")
 IS_PLAYER = true
@@ -767,7 +1262,7 @@ CAMERA_FOLLOW_STRENGTH = 0.5
 script = ExtResource("5_mdtj2")
 WING_STATES = NodePath("../../WingStateMachine")
 FALL_ANGLE_MOD = 0.1
-MINIMUM_FLIGHT_VELOCITY = 5.0
+MINIMUM_FLIGHT_VELOCITY = 8.0
 FLIGHT_V_MULTIPLIER = 2.0
 CAMERA_MOVEMENT = NodePath("../../CameraControl/CameraPivotY/CameraPivotX")
 CAMERA_FOLLOW_STRENGTH = 0.5
@@ -804,7 +1299,6 @@ YAW_ROT_SPEED = 1.5
 ROLL_ROT_SPEED = 4.0
 BREAK_TURN_MODIFIER = 2.0
 CONSTANT_FLAP_COST = 4.0
-TIME_FOR_FLAP = 0.2
 FLAP_COST = 10.0
 PITCH_ROT_LIMIT = 72.0
 PITCH_ROLL_COMPENSATION = 0.3
@@ -819,7 +1313,7 @@ metadata/_custom_type_script = "uid://b42w7u62u1xtg"
 script = ExtResource("14_ds2wf")
 ANIMATOR = NodePath("../../Animator")
 AUDIO_PLAYER = NodePath("../../Audio/Crash")
-CRASH_DAMAGE_MULT = 1.2
+CRASH_DAMAGE_MULT = 0.75
 CRASH_DURATION = 0.5
 CRASH_VELOCITY = 5.0
 metadata/_custom_type_script = "uid://co3t6e564eppe"
@@ -924,13 +1418,10 @@ attenuation_model = 3
 bus = &"SFX"
 
 [node name="Footsteps" type="AudioStreamPlayer3D" parent="Audio" unique_id=580416382]
-stream = ExtResource("36_d6s72")
 attenuation_model = 3
 volume_db = -5.0
 pitch_scale = 1.5
 bus = &"SFX"
-script = ExtResource("36_urvmy")
-DISTANCE_PER_FOOTSTEP = 15.0
 
 [node name="Crash" type="AudioStreamPlayer3D" parent="Audio" unique_id=1235852624]
 stream = ExtResource("17_vui7j")
@@ -1053,10 +1544,30 @@ text = "FPS: "
 label_settings = SubResource("LabelSettings_yp2fy")
 script = ExtResource("28_kl3dy")
 
+[node name="ItemList" type="ItemList" parent="HUD&Stats/FPSCounter" unique_id=402967346]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = 68.5
+offset_right = 121.0
+offset_bottom = 268.5
+grow_vertical = 2
+theme = ExtResource("44_t4i8i")
+item_count = 2
+item_0/text = "Testing"
+item_1/text = "Test2"
+
 [node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("28_be8bd")]
 visible = false
 
 [node name="FaintMenu" parent="." unique_id=1307687841 instance=ExtResource("29_kl3dy")]
 visible = false
+
+[node name="Cloaca" type="Marker3D" parent="." unique_id=1282586808]
+transform = Transform3D(1, 0, 0, 0, -0.7163548, 0.6977362, 0, -0.6977362, -0.7163548, 0.077475786, -0.25321344, 0.51687336)
+script = ExtResource("47_t4i8i")
+SHIT_INTERVAL = Vector2(80, 180)
 
 [connection signal="body_entered" from="FishingCollider" to="GrabController" method="_on_grab_area_body_entered"]

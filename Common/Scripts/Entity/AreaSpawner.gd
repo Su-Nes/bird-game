@@ -4,11 +4,12 @@ class_name AreaSpawner
 
 @export var SPAWN_AREA : CollisionShape3D
 var spawn_box : BoxShape3D
-@export var SPAWNABLE : PackedScene
+@export var SPAWNABLE : Array[PackedScene]
 @export var OBJECT_HOLDER : Node3D
 @export var SPAWN_TIME : Vector2
 @export var SPAWN_GROUP : Vector2
 @export var MAX_SPAWNED : int = 15
+@export var SPAWN_RIGIDBODY_ENABLED = false
 
 var spawn_time : float
 var spawn_timer : float
@@ -20,9 +21,11 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	
 	spawn_box = SPAWN_AREA.shape
-	spawn_nodes()
 	
 func reset_timer():
+	if SPAWN_TIME.length() <= 0:
+		return
+	
 	spawn_timer = 0
 	spawn_time = randf_range(SPAWN_TIME.x, SPAWN_TIME.y)
 
@@ -46,10 +49,13 @@ func spawn_nodes():
 			return
 		
 		var rand_pos = Vector3(randf_range(-spawn_box.size.x, spawn_box.size.x), randf_range(-spawn_box.size.x, spawn_box.size.y), randf_range(-spawn_box.size.x, spawn_box.size.z))
-		
-		var new_node : Node3D = SPAWNABLE.instantiate()
+
+		var new_node : Node3D = SPAWNABLE[randi() % SPAWNABLE.size()].instantiate()
 		OBJECT_HOLDER.add_child(new_node)
 		new_node.global_position = SPAWN_AREA.global_position + rand_pos
+		
+		if new_node is Placeable:
+			new_node.RIGIDBODY.freeze = !SPAWN_RIGIDBODY_ENABLED
 		
 func free_nodes():
 	for node in OBJECT_HOLDER.get_children():

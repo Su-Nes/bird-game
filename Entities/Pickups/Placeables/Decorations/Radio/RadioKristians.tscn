@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c7sti8amrcbit"]
+
+[ext_resource type="PackedScene" uid="uid://c8dawx4ugocni" path="res://Entities/Pickups/Placeables/Decorations/Radio/Radio.tscn" id="1_4kask"]
+[ext_resource type="AudioStream" uid="uid://ct838bxl665ja" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Velas_Laiksmix2.wav" id="2_l6ws4"]
+[ext_resource type="AudioStream" uid="uid://csxqnesgppcoe" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/Kas Es Biju_mix.2.wav" id="3_wy6yl"]
+[ext_resource type="AudioStream" uid="uid://bagvma58uavds" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/mby ill do it mix4.wav" id="4_qat46"]
+[ext_resource type="Script" uid="uid://cxdbmmy4dw0hc" path="res://Common/Scripts/Entity/KeepAudioPlayingOnTreeEntered.gd" id="5_3yuc1"]
+[ext_resource type="AudioStream" uid="uid://2361oqxw03jm" path="res://Entities/Pickups/Placeables/Decorations/Radio/Songs/symphony_001mix3.wav" id="6_f2sgf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kask"]
+albedo_color = Color(0.82873577, 0.43112466, 0.72187984, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l6ws4"]
+material = SubResource("StandardMaterial3D_4kask")
+size = Vector3(0.2770996, 0.009521484, 0.06347656)
+
+[node name="RadioKristians" unique_id=1868481036 instance=ExtResource("1_4kask")]
+
+[node name="Color" parent="." index="1" unique_id=1775473335]
+mesh = SubResource("BoxMesh_l6ws4")
+
+[node name="Song1" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="0" unique_id=1244112340]
+stream = ExtResource("2_l6ws4")
+
+[node name="Song2" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="1" unique_id=192536707]
+stream = ExtResource("3_wy6yl")
+
+[node name="Song3" type="AudioStreamPlayer3D" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="2" unique_id=744701900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
+stream = ExtResource("4_qat46")
+volume_db = -6.0
+autoplay = true
+max_distance = 25.0
+bus = &"Radio"
+emission_angle_degrees = 60.0
+emission_angle_filter_attenuation_db = -5.0
+script = ExtResource("5_3yuc1")
+
+[node name="Song4" type="AudioStreamPlayer3D" parent="Songs" parent_id_path=PackedInt32Array(1899813435) index="3" unique_id=1575542130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
+stream = ExtResource("6_f2sgf")
+volume_db = -6.0
+autoplay = true
+max_distance = 25.0
+bus = &"Radio"
+emission_angle_filter_attenuation_db = -5.0
+script = ExtResource("5_3yuc1")

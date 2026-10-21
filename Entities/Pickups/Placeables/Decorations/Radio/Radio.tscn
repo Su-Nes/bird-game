@@ -56,7 +56,7 @@ material = SubResource("StandardMaterial3D_lcyer")
 size = Vector3(0.2770996, 0.009521484, 0.06347656)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt27u"]
-size = Vector3(1.0929625, 0.29168078, 0.88806283)
+size = Vector3(0.32836914, 0.10644531, 0.28222656)
 
 [node name="Radio" type="RigidBody3D" unique_id=1868481036 node_paths=PackedStringArray("SONG_HOLDER", "MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable", "Persistent"]]
 script = ExtResource("1_53pt5")
@@ -76,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004220426)
 mesh = SubResource("BoxMesh_4w8hk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=309645569]
-transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, 0.3, 0, -0.3, -1.3113417e-08, -0.0056850137, -0.12974405, -0.0029654882)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0056850137, -0.12974405, -0.0029654882)
 shape = SubResource("BoxShape3D_rt27u")
 
 [node name="Songs" type="Node3D" parent="." unique_id=1899813435]
@@ -87,7 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
 stream = ExtResource("3_rt27u")
 volume_db = -6.0
 autoplay = true
-max_distance = 15.0
+max_distance = 25.0
 bus = &"Radio"
 emission_angle_degrees = 60.0
 emission_angle_filter_attenuation_db = -5.0
@@ -98,7 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01677097, 0)
 stream = ExtResource("5_4w8hk")
 volume_db = -6.0
 autoplay = true
-max_distance = 15.0
+max_distance = 25.0
 bus = &"Radio"
 emission_angle_filter_attenuation_db = -5.0
 script = ExtResource("5_g3qs4")

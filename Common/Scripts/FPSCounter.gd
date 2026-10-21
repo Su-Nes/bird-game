@@ -6,11 +6,13 @@ class_name FPSCounter
 @export var ALWAYS_ON = false
 
 func _physics_process(_delta: float) -> void:
-	if ALWAYS_ON:
-		text = "FPS: %s" % Engine.get_frames_per_second()
-		return
+	text = "FPS: %s" % Engine.get_frames_per_second()
 	
+	if ALWAYS_ON:
+		show()
+		return
+		
 	if Input.is_action_pressed("toggle"):
-		text = "FPS: %s" % Engine.get_frames_per_second()
+		show()
 	else:
-		text = ""
+		hide()

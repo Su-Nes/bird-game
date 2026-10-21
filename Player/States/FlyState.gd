@@ -34,7 +34,7 @@ class_name FlyState
 
 @export_category("Stamina")
 @export var CONSTANT_FLAP_COST : float = 12
-@export var TIME_FOR_FLAP : float = .1
+var TIME_FOR_FLAP : float = .2
 @export var FLAP_COST : float = 15
 
 @export_category("Clamps")
@@ -56,6 +56,9 @@ var forward_v : float
 var angle_of_attack : float
 var rotation_mod : float
 
+var flap_cooldown : float
+var cooldown_timer : float
+
 func enter():
 	INTERACTION_RAYCAST.enabled = false
 	#WING_STATES.change_state("wingsIdle")
@@ -65,6 +68,8 @@ func enter():
 	
 	forward_v = player_controller.velocity.length()
 	rotation_mod = 1
+	
+	flap_cooldown = WING_STATES.ANIMATOR.get_animation("Flap").length
 
 func physics_update(delta: float):
 	handle_flight_velocity(delta)
@@ -153,6 +158,8 @@ func update(delta: float):
 
 	if abs(roll_input) < .1:
 		extension_functions.MESH.rotation.z = lerp(extension_functions.MESH.rotation.z, 0.0, .1)
+		
+	cooldown_timer += delta
 
 func handle_constant_flap(delta: float):
 	if WING_STATES.ANIMATOR.current_animation.get_basename() == "Flap":
@@ -163,14 +170,16 @@ func handle_constant_flap(delta: float):
 		state_machine.ANIMATOR.play("Flapping", .2)
 		
 func handle_flap():
-	if WING_STATES.ANIMATOR.current_animation.get_basename() == "Flap":
+	if cooldown_timer < flap_cooldown:
 		return
 		
 	if StatController.spend_stamina(FLAP_COST):
-		add_thrust_smooth(THRUST_CURVE.sample(player_controller.velocity.length()) * THRUST_STRENGTH, 30)
+		add_thrust_smooth(THRUST_CURVE.sample(player_controller.velocity.length()) * THRUST_STRENGTH, 20)
 		state_machine.ANIMATOR.play("Flap")
 	else:
 		Input.action_release("jump")
+		
+	cooldown_timer = 0
 		
 func add_thrust_smooth(target_force : float, duration : int):
 	var counter = duration
@@ -191,7 +200,10 @@ func handle_flight_velocity(_delta: float):
 	player_controller.velocity = player_controller.velocity.normalized() * forward_v
 
 	# Add drag
-	forward_v += DRAG_CURVE.sample(player_controller.velocity.length()) * DRAG_STRENGTH
+	if state_machine.ANIMATOR.current_animation != "Flapping":
+		forward_v += DRAG_CURVE.sample(player_controller.velocity.length()) * DRAG_STRENGTH
+	else:
+		forward_v += DRAG_CURVE.sample(player_controller.velocity.length()) * DRAG_STRENGTH * .2
 	
 	# Force minumum velocity
 	if player_controller.velocity.length() < MINUMUM_VELOCITY:

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://clohyhtj122yd"
 path.s3tc="res://.godot/imported/LeafFlower_64.png-2edf0b8690b7b36ea19c2f6ef614432b.s3tc.ctex"
+path.etc2="res://.godot/imported/LeafFlower_64.png-2edf0b8690b7b36ea19c2f6ef614432b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Entities/Pickups/Placeables/Decorations/Flowers/Textures/LeafFlower_64.png"
-dest_files=["res://.godot/imported/LeafFlower_64.png-2edf0b8690b7b36ea19c2f6ef614432b.s3tc.ctex"]
+dest_files=["res://.godot/imported/LeafFlower_64.png-2edf0b8690b7b36ea19c2f6ef614432b.s3tc.ctex", "res://.godot/imported/LeafFlower_64.png-2edf0b8690b7b36ea19c2f6ef614432b.etc2.ctex"]
 
 [params]
 

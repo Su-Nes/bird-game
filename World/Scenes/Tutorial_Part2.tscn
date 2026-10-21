@@ -17,12 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://gdjylqfpd733" path="res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn" id="17_gif48"]
 [ext_resource type="PackedScene" uid="uid://c27pkcm4rppiy" path="res://Entities/Pickups/Placeables/Decorations/Flowers/Tulip.tscn" id="17_lc5ar"]
 [ext_resource type="Shader" uid="uid://cpnyel6dxqphc" path="res://World/Shaders/LeavesFalling.gdshader" id="17_xk7wl"]
-[ext_resource type="Script" uid="uid://dnyqumsbuxanj" path="res://Entities/Pickups/Placeables/Placeable.gd" id="18_684tx"]
 [ext_resource type="Texture2D" uid="uid://1mrsn80kvdoo" path="res://World/Shaders/Leaf_64.png" id="18_lc5ar"]
 [ext_resource type="PackedScene" uid="uid://ry3ly8ydpqky" path="res://Entities/Pickups/Placeables/Decorations/Flowers/Daisy.tscn" id="19_m8nl1"]
 [ext_resource type="PackedScene" uid="uid://l3uqhubwsy3t" path="res://Entities/Pickups/Placeables/Decorations/PrettyRock.tscn" id="19_qlmqb"]
 [ext_resource type="Script" uid="uid://hy5s4raydxvk" path="res://Player/Scripting/UI/Menus/WinScreen.gd" id="19_xsd6f"]
 [ext_resource type="AudioStream" uid="uid://gmabrkh3uwh8" path="res://Player/Audio/WinTune.wav" id="20_qlmqb"]
+[ext_resource type="Theme" uid="uid://c40fev0exkwqr" path="res://Common/UI/MainTheme.tres" id="22_gif48"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yur33"]
 size = Vector3(600.02576, 309.8042, 668.91846)
@@ -196,7 +196,9 @@ font_size = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 text = "pick up branches with Left Mouse Button.
 rotate with Q and E.
-place with Right mouse Button."
+place with Right mouse Button.
+
+cycle grabbed items with scroll wheel."
 font = ExtResource("8_lc5ar")
 font_size = 64
 outline_size = 6
@@ -461,173 +463,66 @@ metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.46687, -89.03841, -315.93805)
 metadata/asset_placer_res_id = "uid://l3uqhubwsy3t"
 
-[node name="Rose" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=340835189 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("17_gif48")]
+[node name="Rose" parent="Sections/NestBuildingSection" unique_id=340835189 instance=ExtResource("17_gif48")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 308.09573, -80.52133, -225.85219)
-collision_layer = 8
-script = ExtResource("18_684tx")
-DECOR_VALUE = 4
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://gdjylqfpd733"
 
-[node name="Rose (1)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=763087063 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("17_gif48")]
+[node name="Rose (1)" parent="Sections/NestBuildingSection" unique_id=763087063 instance=ExtResource("17_gif48")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 308.63535, -80.52133, -225.87273)
-collision_layer = 8
-script = ExtResource("18_684tx")
-DECOR_VALUE = 4
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://gdjylqfpd733"
 
-[node name="Rose (2)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=176399929 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("17_gif48")]
+[node name="Rose (2)" parent="Sections/NestBuildingSection" unique_id=176399929 instance=ExtResource("17_gif48")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 309.191, -80.52133, -226.45186)
-collision_layer = 8
-script = ExtResource("18_684tx")
-DECOR_VALUE = 4
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://gdjylqfpd733"
 
-[node name="Daisy" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=1631755204 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy" parent="Sections/NestBuildingSection" unique_id=1631755204 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 305.508, -80.52133, -239.22246)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
-[node name="Daisy (1)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=346869023 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy (1)" parent="Sections/NestBuildingSection" unique_id=346869023 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 297.52213, -80.52133, -233.17282)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
-[node name="Daisy (2)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=1215928147 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy (2)" parent="Sections/NestBuildingSection" unique_id=1215928147 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 312.937, -80.52133, -215.87015)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
-[node name="Daisy (3)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=1318602392 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy (3)" parent="Sections/NestBuildingSection" unique_id=1318602392 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 306.5448, -80.52133, -209.0521)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
-[node name="Daisy (4)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=1442029618 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy (4)" parent="Sections/NestBuildingSection" unique_id=1442029618 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 300.7865, -80.52133, -224.36145)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
-[node name="Daisy (5)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=895401954 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy (5)" parent="Sections/NestBuildingSection" unique_id=895401954 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 301.77267, -80.52133, -233.85406)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
-[node name="Daisy (6)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=1836423929 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy (6)" parent="Sections/NestBuildingSection" unique_id=1836423929 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 317.04758, -80.52133, -226.74544)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
-[node name="Daisy (7)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=2082910280 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy (7)" parent="Sections/NestBuildingSection" unique_id=2082910280 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 314.49945, -80.52133, -220.92354)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
-[node name="Daisy (8)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=1194754428 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy (8)" parent="Sections/NestBuildingSection" unique_id=1194754428 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(-0.5932497, 0, -0.8050185, 0, 1, 0, 0.8050185, 0, -0.5932497, 309.94058, -80.52133, -237.52702)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
-[node name="Daisy (9)" type="RigidBody3D" parent="Sections/NestBuildingSection" unique_id=1182288383 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") instance=ExtResource("19_m8nl1")]
+[node name="Daisy (9)" parent="Sections/NestBuildingSection" unique_id=1182288383 instance=ExtResource("19_m8nl1")]
 transform = Transform3D(-0.5932497, 0, -0.8050185, 0, 1, 0, 0.8050185, 0, -0.5932497, 304.8573, -80.52133, -218.27475)
-collision_layer = 8
-script = ExtResource("18_684tx")
 DECOR_VALUE = 3
-ALIGN_NORMALS = true
-GRAB_ONLY = true
-BEAK_ANGLE_MOD = -20.0
-MESH = NodePath("Stem")
-COLLIDER = NodePath("CollisionShape3D")
-RIGIDBODY = NodePath(".")
 metadata/asset_placer_res_id = "uid://ry3ly8ydpqky"
 
 [node name="Particles" type="Node3D" parent="Sections" unique_id=1289913110]
@@ -681,9 +576,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Resume" type="Button" parent="WinScreen/MarginContainer/Menu/Buttons" unique_id=312023862]
-custom_minimum_size = Vector2(120, 40)
+custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("22_gif48")
 text = "finish tutorial"
 
 [node name="Reload" type="Button" parent="WinScreen/MarginContainer/Menu/Buttons" unique_id=530840903]

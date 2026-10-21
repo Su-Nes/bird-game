@@ -74,7 +74,7 @@ Shortcuts/Brush/Cycle_Swatch_Color=Object(Shortcut,"resource_local_to_scene":fal
 
 [application]
 
-config/name="bird game"
+config/name="being bird"
 config/version="1.0"
 run/main_scene="uid://4k6vyxj4k8ij"
 config/features=PackedStringArray("4.7", "Forward Plus")
@@ -265,10 +265,10 @@ fullscreen={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Terrain"
 3d_physics/layer_4="WorldUI"
+3d_physics/layer_5="Camera"
 
 [physics]
 
-common/physics_ticks_per_second=30
 common/physics_jitter_fix=0.7
 3d/physics_engine="Jolt Physics"
 jolt_physics_3d/limits/max_bodies=20480
@@ -279,6 +279,7 @@ common/physics_interpolation=true
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/directional_shadow/size=8192
 occlusion_culling/occlusion_rays_per_thread=256
 occlusion_culling/use_occlusion_culling=true

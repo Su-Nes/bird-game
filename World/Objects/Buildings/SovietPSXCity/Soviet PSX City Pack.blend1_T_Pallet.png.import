@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba5f85xggmehy"
 path.s3tc="res://.godot/imported/Soviet PSX City Pack.blend1_T_Pallet.png-262bc60b3e46e50d75c18fcf9d479966.s3tc.ctex"
+path.etc2="res://.godot/imported/Soviet PSX City Pack.blend1_T_Pallet.png-262bc60b3e46e50d75c18fcf9d479966.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Pallet.png"
-dest_files=["res://.godot/imported/Soviet PSX City Pack.blend1_T_Pallet.png-262bc60b3e46e50d75c18fcf9d479966.s3tc.ctex"]
+dest_files=["res://.godot/imported/Soviet PSX City Pack.blend1_T_Pallet.png-262bc60b3e46e50d75c18fcf9d479966.s3tc.ctex", "res://.godot/imported/Soviet PSX City Pack.blend1_T_Pallet.png-262bc60b3e46e50d75c18fcf9d479966.etc2.ctex"]
 
 [params]
 

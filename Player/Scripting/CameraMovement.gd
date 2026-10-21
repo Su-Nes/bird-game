@@ -35,8 +35,8 @@ func _process(delta: float):
 	if look_movement.length() > 0:
 		disable_look_timer = 0
 	
-	pivot.rotate_y(deg_to_rad(-look_movement.x * PlayerParameters.player_camera_sensitivity / 10))
-	rotate_x(deg_to_rad(look_movement.y * PlayerParameters.player_camera_sensitivity / 10))
+	pivot.rotate_y(deg_to_rad(-look_movement.x * PlayerParameters.player_camera_sensitivity * 5))
+	rotate_x(deg_to_rad(look_movement.y * PlayerParameters.player_camera_sensitivity * 5))
 
 	if rot_clamped:
 		rotation.x = clampf(rotation.x, deg_to_rad(-90), deg_to_rad(90))

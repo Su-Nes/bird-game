@@ -12,7 +12,8 @@ class_name LookAt
 
 func _process(_delta: float) -> void:
 	if !TARGET:
-		TARGET = get_tree().get_nodes_in_group(TARGET_GROUP)[0]
+		if get_tree().get_node_count_in_group(TARGET_GROUP) > 0:
+			TARGET = get_tree().get_nodes_in_group(TARGET_GROUP)[0]
 		return
 		
 	if !TARGET.is_inside_tree():

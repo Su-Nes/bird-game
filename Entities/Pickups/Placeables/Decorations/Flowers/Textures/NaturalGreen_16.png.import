@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ceikihhj7tl08"
 path.s3tc="res://.godot/imported/NaturalGreen_16.png-e97e40a6676e61bf4d581e4108739708.s3tc.ctex"
+path.etc2="res://.godot/imported/NaturalGreen_16.png-e97e40a6676e61bf4d581e4108739708.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Entities/Pickups/Placeables/Decorations/Flowers/Textures/NaturalGreen_16.png"
-dest_files=["res://.godot/imported/NaturalGreen_16.png-e97e40a6676e61bf4d581e4108739708.s3tc.ctex"]
+dest_files=["res://.godot/imported/NaturalGreen_16.png-e97e40a6676e61bf4d581e4108739708.s3tc.ctex", "res://.godot/imported/NaturalGreen_16.png-e97e40a6676e61bf4d581e4108739708.etc2.ctex"]
 
 [params]
 

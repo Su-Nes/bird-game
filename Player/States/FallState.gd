@@ -55,7 +55,7 @@ func update(delta: float):
 	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length(), 0.0)
 	
 	
-func handle_velocity(delta):	
+func handle_velocity(delta):
 	player_controller.velocity.x = lerp(player_controller.velocity.x, direction.x * HOVER_SPEED, delta * AIR_INERTIA)
 	player_controller.velocity.z = lerp(player_controller.velocity.z, direction.z * HOVER_SPEED, delta * AIR_INERTIA)
 	

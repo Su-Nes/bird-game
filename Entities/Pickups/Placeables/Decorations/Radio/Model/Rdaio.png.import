@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://blu8bgppuypna"
 path.s3tc="res://.godot/imported/Rdaio.png-8b4bcffae281ca73c96c46be5c7ce072.s3tc.ctex"
+path.etc2="res://.godot/imported/Rdaio.png-8b4bcffae281ca73c96c46be5c7ce072.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Entities/Pickups/Placeables/Decorations/Radio/Model/Rdaio.png"
-dest_files=["res://.godot/imported/Rdaio.png-8b4bcffae281ca73c96c46be5c7ce072.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rdaio.png-8b4bcffae281ca73c96c46be5c7ce072.s3tc.ctex", "res://.godot/imported/Rdaio.png-8b4bcffae281ca73c96c46be5c7ce072.etc2.ctex"]
 
 [params]
 

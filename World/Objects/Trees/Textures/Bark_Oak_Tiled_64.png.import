@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu066io63pkni"
 path.s3tc="res://.godot/imported/Bark_Oak_Tiled_64.png-583838dd325e447d773b95857804e170.s3tc.ctex"
+path.etc2="res://.godot/imported/Bark_Oak_Tiled_64.png-583838dd325e447d773b95857804e170.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://World/Objects/Trees/Textures/Bark_Oak_Tiled_64.png"
-dest_files=["res://.godot/imported/Bark_Oak_Tiled_64.png-583838dd325e447d773b95857804e170.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bark_Oak_Tiled_64.png-583838dd325e447d773b95857804e170.s3tc.ctex", "res://.godot/imported/Bark_Oak_Tiled_64.png-583838dd325e447d773b95857804e170.etc2.ctex"]
 
 [params]
 

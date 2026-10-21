@@ -71,6 +71,9 @@ func _on_body_entered(body: Node3D) -> void:
 		var fish_machine : StateMachine = body.get_child(0)
 		fish_machine.change_state("FishSwim")
 		fish_count += 1
+		
+	if body.is_in_group("PlayerCamera"):
+		body.get_child(0).visible = true
 
 func _on_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
@@ -78,3 +81,6 @@ func _on_body_exited(body: Node3D) -> void:
 		
 	if body.is_in_group("Fish"):
 		fish_count -= 1
+		
+	if body.is_in_group("PlayerCamera"):
+		body.get_child(0).visible = false

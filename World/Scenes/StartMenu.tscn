@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://4k6vyxj4k8ij"]
 
 [ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="1_c4fdm"]
-[ext_resource type="PackedScene" uid="uid://b4rfrc7nrydat" path="res://Player/Scripting/UI/Menus/StartUI.tscn" id="3_asxll"]
 [ext_resource type="Shader" uid="uid://cr4upde56h0ra" path="res://Common/Scripts/Shaders/LensFlare.gdshader" id="4_ek445"]
 [ext_resource type="AudioStream" uid="uid://dt1bxsua66d8j" path="res://World/Ambience/wind-light-calm-soft-breeze-deep-big-gusty.wav" id="4_s8ns8"]
 [ext_resource type="Script" uid="uid://h8iodtllfo1" path="res://Common/Scripts/Shaders/PassSunToLensFlare.gd" id="5_8gjfs"]
+[ext_resource type="Script" uid="uid://b3eowb18per1b" path="res://Player/Scripting/UI/Menus/PauseMenuScript.gd" id="5_amidx"]
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="6_c8ejf"]
+[ext_resource type="Theme" uid="uid://c40fev0exkwqr" path="res://Common/UI/MainTheme.tres" id="7_kh32d"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_nd5ly"]
 
@@ -18,6 +20,20 @@ shader_parameter/tint = Vector3(1.945, 1.82, 1)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_60uoq")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qkran"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6rg8m"]
+line_spacing = -35.0
+font = ExtResource("6_c8ejf")
+font_size = 55
+outline_size = 5
+outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cm7jh"]
+line_spacing = -35.0
+font = ExtResource("6_c8ejf")
+font_size = 55
+outline_size = 5
+outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
 [node name="StartMenu" type="Node3D" unique_id=72681683]
 
@@ -43,5 +59,317 @@ texture = SubResource("PlaceholderTexture2D_qkran")
 script = ExtResource("5_8gjfs")
 metadata/_custom_type_script = "uid://h8iodtllfo1"
 
-[node name="StartMenu" parent="." unique_id=172216686 instance=ExtResource("3_asxll")]
+[node name="StartMenu" type="Control" parent="." unique_id=172216686 node_paths=PackedStringArray("CONTROLS", "SETTINGS", "LOAD_TUTORIAL_BUTTON", "LEAVE_TUTORIAL_BUTTON", "FS_CHECK", "RENDER_DISTANCE", "RENDER_NUMBER", "SENSITIVITY", "CAMERA_CHECK", "PITCH_CHECK", "MASTER_VOLUME")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_amidx")
+CONTROLS = NodePath("MarginContainer/LeftMenu/HBoxContainer/Controls")
+SETTINGS = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings")
+LOAD_TUTORIAL_BUTTON = NodePath("MarginContainer/Menu/Buttons/LoadTutorial")
+LEAVE_TUTORIAL_BUTTON = NodePath("MarginContainer/Menu/Buttons/LeaveTutorial")
+FS_CHECK = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS/FSCheck")
+RENDER_DISTANCE = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/RenderDistance/RenderSlider")
+RENDER_NUMBER = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/RenderDistance/Label2")
+SENSITIVITY = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/CameraSens/HSlider")
+CAMERA_CHECK = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera/CameraCheck")
+PITCH_CHECK = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch/PitchCheck")
+MASTER_VOLUME = NodePath("MarginContainer/LeftMenu/HBoxContainer/Settings/VolumeSlider/VolumeSlider")
 START_PAUSED = true
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenu" unique_id=1956847817]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.072916664
+anchor_top = 0.05
+anchor_right = 0.9270833
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu" type="VBoxContainer" parent="StartMenu/MarginContainer" unique_id=662206533]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Title2" type="Label" parent="StartMenu/MarginContainer/Menu" unique_id=910644668]
+layout_mode = 2
+offset_transform_position = Vector2(0, 13.725)
+text = "being
+bird"
+label_settings = SubResource("LabelSettings_6rg8m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="StartMenu/MarginContainer/Menu/Title2" unique_id=2120875092]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 146.0
+offset_bottom = 90.0
+offset_transform_position = Vector2(0, 13.725)
+text = "being
+bird"
+label_settings = SubResource("LabelSettings_cm7jh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="StartMenu/MarginContainer/Menu" unique_id=923266316]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Resume" type="Button" parent="StartMenu/MarginContainer/Menu/Buttons" unique_id=312023862]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_kh32d")
+text = "fly"
+
+[node name="LoadTutorial" type="Button" parent="StartMenu/MarginContainer/Menu/Buttons" unique_id=1154238794]
+visible = false
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_kh32d")
+text = "play tutorial"
+
+[node name="LeaveTutorial" type="Button" parent="StartMenu/MarginContainer/Menu/Buttons" unique_id=68328371]
+visible = false
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_kh32d")
+text = "leave tutorial"
+
+[node name="Reload" type="Button" parent="StartMenu/MarginContainer/Menu/Buttons" unique_id=530840903]
+visible = false
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reload"
+
+[node name="Quit" type="Button" parent="StartMenu/MarginContainer/Menu/Buttons" unique_id=876093582]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_kh32d")
+text = "quit"
+
+[node name="LeftMenu" type="MarginContainer" parent="StartMenu/MarginContainer" unique_id=124270171]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="VBoxContainer" parent="StartMenu/MarginContainer/LeftMenu" unique_id=1617619125]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ToggleControls" type="Button" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer" unique_id=1210755244]
+custom_maximum_size = Vector2(-1, 26)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("7_kh32d")
+text = "toggle controls/settings"
+alignment = 0
+
+[node name="Controls" type="VBoxContainer" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer" unique_id=612577386]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Control map" type="Label" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Controls" unique_id=498662116]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+theme = ExtResource("7_kh32d")
+text = "interaction - 
+	LMB: pick up
+	RMB: use
+	Scroll: select held item
+	Q & E: rotate held item
+	G: drop held item
+on ground - 
+	Space: jump
+	hold Space: hover
+while hovering - 
+	Space: increase height
+	Ctrl: decrease height
+	double tap Space: begin flight
+while flying - 
+	W - pitch down
+	S - pitch up
+	Space - strong flap
+	hold Space - constant flap
+	Ctrl - slow down
+hold Alt  -  disable auto camera
+hold Tab -  show nest markers
+F     -  toggle HUD"
+tab_stops = PackedFloat32Array(60)
+
+[node name="Settings" type="VBoxContainer" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer" unique_id=487161626]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ToggleFS" type="HBoxContainer" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=639508848]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="FSCheck" type="CheckButton" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS" unique_id=1912087785]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS" unique_id=1460708208]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+theme = ExtResource("7_kh32d")
+text = "fullscreen"
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="Spacer2" type="Control" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1817532947]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="render distance" type="Label" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1459326244]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("7_kh32d")
+text = "render distance "
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="RenderDistance" type="HBoxContainer" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1405358693]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/RenderDistance" unique_id=1941741673]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("7_kh32d")
+text = "500m"
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="RenderSlider" type="HSlider" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/RenderDistance" unique_id=305117478]
+custom_minimum_size = Vector2(109.36, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 300.0
+max_value = 1000.0
+step = 100.0
+value = 1000.0
+rounded = true
+
+[node name="Spacer1" type="Control" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1981275166]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CameraSens" type="HBoxContainer" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=305541890]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="HSlider" type="HSlider" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/CameraSens" unique_id=1654452287]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 30.0
+value = 10.0
+
+[node name="Label" type="Label" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/CameraSens" unique_id=1088879150]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("7_kh32d")
+text = "look sensitivity "
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="InvertCamera" type="HBoxContainer" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=509489238]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="CameraCheck" type="CheckButton" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera" unique_id=1837508890]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera" unique_id=1904279912]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+theme = ExtResource("7_kh32d")
+text = "invert camera"
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="InvertPitch" type="HBoxContainer" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=462924490]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PitchCheck" type="CheckButton" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch" unique_id=1712638090]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch" unique_id=1058079502]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+theme = ExtResource("7_kh32d")
+text = "invert flight pitch controls"
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="VolumeSlider" type="HBoxContainer" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1038799240]
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="VolumeSlider" type="HSlider" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/VolumeSlider" unique_id=1989345449]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="Label" type="Label" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/VolumeSlider" unique_id=1293859490]
+custom_minimum_size = Vector2(45.725, 130.52)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("7_kh32d")
+text = "volume       "
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[connection signal="pressed" from="StartMenu/MarginContainer/Menu/Buttons/Resume" to="StartMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="StartMenu/MarginContainer/Menu/Buttons/Resume" to="StartMenu" method="_on_start_game_pressed"]
+[connection signal="pressed" from="StartMenu/MarginContainer/Menu/Buttons/LoadTutorial" to="StartMenu" method="_on_load_tutorial_pressed"]
+[connection signal="pressed" from="StartMenu/MarginContainer/Menu/Buttons/LeaveTutorial" to="StartMenu" method="_on_leave_tutorial_pressed"]
+[connection signal="pressed" from="StartMenu/MarginContainer/Menu/Buttons/Reload" to="StartMenu" method="_on_reload_pressed"]
+[connection signal="pressed" from="StartMenu/MarginContainer/Menu/Buttons/Quit" to="StartMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="StartMenu/MarginContainer/LeftMenu/HBoxContainer/ToggleControls" to="StartMenu" method="_on_toggle_controls_pressed"]
+[connection signal="toggled" from="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS/FSCheck" to="StartMenu" method="_on_fs_check_toggled"]
+[connection signal="value_changed" from="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/RenderDistance/RenderSlider" to="StartMenu" method="_on_render_slider_value_changed"]
+[connection signal="value_changed" from="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/CameraSens/HSlider" to="StartMenu" method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera/CameraCheck" to="StartMenu" method="_on_camera_check_toggled"]
+[connection signal="toggled" from="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch/PitchCheck" to="StartMenu" method="_on_pitch_check_toggled"]
+[connection signal="value_changed" from="StartMenu/MarginContainer/LeftMenu/HBoxContainer/Settings/VolumeSlider/VolumeSlider" to="StartMenu" method="_on_volume_slider_value_changed"]

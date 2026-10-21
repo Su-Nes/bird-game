@@ -8,6 +8,7 @@ class_name SwimState
 @onready var extension_functions: PlayerExtensionFunctions = $"../.."
 
 @export var WING_STATES : WingStateMachine
+@export var WATER_OVERLAY : CanvasItem
 @export var SPLASH_SOUND : AudioStream
 @export var UP_FLOAT_STRENGTH : float = 10
 @export var MAX_VELOCITY : float = 8
@@ -39,7 +40,7 @@ func update(delta: float):
 	CAMERA_MOVEMENT.look_towards_y(input_dir.x, CAMERA_FOLLOW_STRENGTH * delta * player_controller.velocity.normalized().length(), 0.0)
 	
 	
-func handle_velocity(delta):	
+func handle_velocity(delta):
 	player_controller.velocity.x = lerp(player_controller.velocity.x, direction.x * SWIM_SPEED, delta * SWIM_INERTIA)
 	player_controller.velocity.y = lerp(player_controller.velocity.y, direction.y * SWIM_SPEED, delta * SWIM_INERTIA)
 	player_controller.velocity.z = lerp(player_controller.velocity.z, direction.z * SWIM_SPEED, delta * SWIM_INERTIA)
@@ -48,4 +49,5 @@ func handle_velocity(delta):
 	
 	var look_at_flat = player_controller.velocity
 	look_at_flat.y = 0
-	extension_functions.handle_model_transform(look_at_flat, Vector3.UP, .05)	
+	extension_functions.handle_model_transform(look_at_flat, Vector3.UP, .05)
+	

@@ -12,7 +12,7 @@ size = Vector2(125, 125)
 size = Vector3(125, 50, 125)
 
 [node name="Lake" type="Area3D" unique_id=819962188]
-collision_mask = 3
+collision_mask = 19
 gravity_space_override = 3
 gravity_point_center = Vector3(0, 1, 0)
 gravity_direction = Vector3(0, 1, 0)

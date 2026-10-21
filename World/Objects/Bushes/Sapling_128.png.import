@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1f8xiqgqbcil"
 path.s3tc="res://.godot/imported/Sapling_128.png-40d8661023cdd096987da6c2b3ac1c8b.s3tc.ctex"
+path.etc2="res://.godot/imported/Sapling_128.png-40d8661023cdd096987da6c2b3ac1c8b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://World/Objects/Bushes/Sapling_128.png"
-dest_files=["res://.godot/imported/Sapling_128.png-40d8661023cdd096987da6c2b3ac1c8b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sapling_128.png-40d8661023cdd096987da6c2b3ac1c8b.s3tc.ctex", "res://.godot/imported/Sapling_128.png-40d8661023cdd096987da6c2b3ac1c8b.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://v01h352e83ff"
 path.s3tc="res://.godot/imported/Rustic_Roofing_Tiled_64.png-ebe0ff062b08cf9631f899a935a57ce0.s3tc.ctex"
+path.etc2="res://.godot/imported/Rustic_Roofing_Tiled_64.png-ebe0ff062b08cf9631f899a935a57ce0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://World/Objects/Buildings/Rustic_Roofing_Tiled_64.png"
-dest_files=["res://.godot/imported/Rustic_Roofing_Tiled_64.png-ebe0ff062b08cf9631f899a935a57ce0.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rustic_Roofing_Tiled_64.png-ebe0ff062b08cf9631f899a935a57ce0.s3tc.ctex", "res://.godot/imported/Rustic_Roofing_Tiled_64.png-ebe0ff062b08cf9631f899a935a57ce0.etc2.ctex"]
 
 [params]
 

@@ -1,0 +1,66 @@
+[gd_scene format=4 uid="uid://c3a7cujp85yrl"]
+
+[ext_resource type="Script" uid="uid://dnyqumsbuxanj" path="res://Entities/Pickups/Placeables/Placeable.gd" id="1_38xwq"]
+[ext_resource type="Texture2D" uid="uid://bbojj3vs6k5y3" path="res://Entities/Pickups/Placeables/Decorations/Seashells/shell1.png" id="2_ixlo5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qy66w"]
+resource_name = "Shell1"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_ixlo5")
+roughness = 0.5
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j4l6l"]
+_surfaces = [{
+"aabb": AABB(-0.100000024, -0.044825897, -0.100000024, 0.20000005, 0.08369338, 0.20000005),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("DAACAAAADAABAAIADQAMAAAADQAAAAkACgANAAkACgAJAAsABgANAAoABgAOAA0ADgAMAA0ACAAOAAYACAAHAA4ADgAPAAwABwAPAA4ADwABAAwABwADAA8ADwAEAAEAAwAEAA8AAwAFAAQA"),
+"lods": [0.060510118, PackedByteArray("AAABAAIAAwABAAAAAwAEAAEAAwAFAAQABgADAAAABwADAAYACAAHAAYABgAAAAkACgAGAAkACgAJAAsA")],
+"name": "Shell1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("//8ciVVVAACpqhyJAAAAAP//AAAAAAAAAAAciVVVAABVVRyJAAAAAAAAAAAAAAAAVVUcif//AAAAAByJqaoAAAAAAAD//wAA//8ciamqAACpqhyJ//8AAP//AAD//wAAqar//1VVAACpqv//qaoAAFVV//+pqgAAVVX//1VVAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1ojqx"]
+resource_name = "Seashells_Plane"
+_surfaces = [{
+"aabb": AABB(-0.100000024, -0.044825897, -0.100000024, 0.20000005, 0.08369338, 0.20000005),
+"attribute_data": PackedByteArray("p6r4//j/p6r4//j/p6oGAPj/V1X4/wYABgBXVVdVBgAGAAYAV1X4/wYAp6oGAPj/p6qnqldVp6pXVVdVp6pXVQ=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("DAACAAAADAABAAIADQAMAAAADQAAAAkACgANAAkACgAJAAsABgANAAoABgAOAA0ADgAMAA0ACAAOAAYACAAHAA4ADgAPAAwABwAPAA4ADwABAAwABwADAA8ADwAEAAEAAwAEAA8AAwAFAAQA"),
+"lods": [0.060510118, PackedByteArray("AAABAAIAAwABAAAAAwAEAAEAAwAFAAQABgADAAAABwADAAYACAAHAAYABgAAAAkACgAGAAkACgAJAAsA")],
+"material": SubResource("StandardMaterial3D_qy66w"),
+"name": "Shell1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("//8ciVVVd9CpqhyJAAAt3P//AAAAAOrWAAAciVVV4epVVRyJAABX6gAAAAAAAFnxVVUcif//Fc8AAByJqaqk2gAAAAD//y7T//8ciamqSsWpqhyJ//+lxf//AAD//yLDqar//1VVkNWpqv//qapqylVV//+pqjHVVVX//1VVPuLWwbIpX8e5MAXBcjC63RUzF9QFM0vYmjP/5oIooukQMO7uGS6Txz8ahtTTGszLURPEyqwrCdG0IdDgcSsh2JYw")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_j4l6l")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f0iot"]
+size = Vector3(0.20000005, 0.08369338, 0.20000005)
+
+[node name="Seashell1" type="RigidBody3D" unique_id=2067656161 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable", "Persistent"]]
+script = ExtResource("1_38xwq")
+DECOR_VALUE = 2
+ALIGN_NORMALS = true
+GRAB_ONLY = true
+BEAK_ANGLE_MOD = -5.0
+MESH = NodePath("Shell1")
+COLLIDER = NodePath("CollisionShape3D")
+RIGIDBODY = NodePath(".")
+
+[node name="Shell1" type="MeshInstance3D" parent="." unique_id=1704113809]
+mesh = SubResource("ArrayMesh_1ojqx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=733295815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0029792078, 0)
+shape = SubResource("BoxShape3D_f0iot")

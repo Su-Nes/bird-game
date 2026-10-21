@@ -65,3 +65,5 @@ mesh = SubResource("CylinderMesh_qkran")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1971494268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1063.2886, 361.81973, -312.05405)
 shape = SubResource("BoxShape3D_q4vpn")
+
+[connection signal="body_entered" from="." to="." method="on_enter_death_zone"]

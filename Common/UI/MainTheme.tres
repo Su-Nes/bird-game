@@ -1,0 +1,24 @@
+[gd_resource type="Theme" format=3 uid="uid://c40fev0exkwqr"]
+
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="1_30uoi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0iot"]
+border_width_right = 123
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl5ww"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_right = 80.0
+
+[resource]
+default_font = ExtResource("1_30uoi")
+default_font_size = 14
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 4
+CheckButton/styles/disabled = SubResource("StyleBoxFlat_f0iot")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_sl5ww")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
+Label/constants/line_spacing = -3
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 1

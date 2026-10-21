@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://4lptbkqqb3og"
 path.s3tc="res://.godot/imported/Bug_32_2.png-5ffce4ce77324ddbe788765d37b5640c.s3tc.ctex"
+path.etc2="res://.godot/imported/Bug_32_2.png-5ffce4ce77324ddbe788765d37b5640c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Entities/Pickups/Edibles/Bugs/Bug_32_2.png"
-dest_files=["res://.godot/imported/Bug_32_2.png-5ffce4ce77324ddbe788765d37b5640c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bug_32_2.png-5ffce4ce77324ddbe788765d37b5640c.s3tc.ctex", "res://.godot/imported/Bug_32_2.png-5ffce4ce77324ddbe788765d37b5640c.etc2.ctex"]
 
 [params]
 

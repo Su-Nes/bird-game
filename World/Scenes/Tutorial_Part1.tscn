@@ -14,6 +14,7 @@
 [ext_resource type="Shader" uid="uid://cpnyel6dxqphc" path="res://World/Shaders/LeavesFalling.gdshader" id="9_yu4ji"]
 [ext_resource type="Texture2D" uid="uid://1mrsn80kvdoo" path="res://World/Shaders/Leaf_64.png" id="10_2fwfl"]
 [ext_resource type="PackedScene" uid="uid://djduaq5dcrf5n" path="res://Entities/Spawners/bug_spawner.tscn" id="12_wop43"]
+[ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="13_p26ef"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yur33"]
 size = Vector3(50, 1, 391.9829)
@@ -293,6 +294,7 @@ shape = SubResource("BoxShape3D_6md3q")
 
 [node name="BugSpawner" parent="Sections/StaminaSection" unique_id=1601154953 instance=ExtResource("12_wop43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.077135324, 1.4964194, 4.8783417)
+SPAWNABLE = Array[PackedScene]([ExtResource("13_p26ef")])
 
 [node name="Particles" type="Node3D" parent="." unique_id=1606249569]
 

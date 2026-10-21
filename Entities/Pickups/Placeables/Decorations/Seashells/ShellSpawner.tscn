@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://drde7ekytjp0t"]
+
+[ext_resource type="Script" uid="uid://bvkeke4dy4a43" path="res://Common/Scripts/Entity/AreaSpawner.gd" id="1_7ffu5"]
+[ext_resource type="PackedScene" uid="uid://c3a7cujp85yrl" path="res://Entities/Pickups/Placeables/Decorations/Seashells/Seashell1.tscn" id="2_rkdny"]
+[ext_resource type="PackedScene" uid="uid://cpm2ofeuhrf8v" path="res://Entities/Pickups/Placeables/Decorations/Seashells/Seashell2.tscn" id="3_lb3qt"]
+[ext_resource type="PackedScene" uid="uid://2jb0jrbttvrn" path="res://Entities/Pickups/Placeables/Decorations/Seashells/Seashell3.tscn" id="4_yryrr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
+size = Vector3(10, 1, 10)
+
+[node name="ShellSpawner" type="Marker3D" unique_id=1818136732 node_paths=PackedStringArray("SPAWN_AREA", "OBJECT_HOLDER")]
+gizmo_extents = 5.0
+script = ExtResource("1_7ffu5")
+SPAWN_AREA = NodePath("CollisionShape3D")
+SPAWNABLE = Array[PackedScene]([ExtResource("2_rkdny"), ExtResource("3_lb3qt"), ExtResource("4_yryrr")])
+OBJECT_HOLDER = NodePath(".")
+SPAWN_GROUP = Vector2(3, 10)
+MAX_SPAWNED = 10
+SPAWN_RIGIDBODY_ENABLED = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=713874303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+shape = SubResource("BoxShape3D_qkran")

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dscm02g07p5d3"
 path.s3tc="res://.godot/imported/LogWall_64.png-623baa572044d796c26b1cc40017befd.s3tc.ctex"
+path.etc2="res://.godot/imported/LogWall_64.png-623baa572044d796c26b1cc40017befd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://World/Objects/Buildings/LogWall_64.png"
-dest_files=["res://.godot/imported/LogWall_64.png-623baa572044d796c26b1cc40017befd.s3tc.ctex"]
+dest_files=["res://.godot/imported/LogWall_64.png-623baa572044d796c26b1cc40017befd.s3tc.ctex", "res://.godot/imported/LogWall_64.png-623baa572044d796c26b1cc40017befd.etc2.ctex"]
 
 [params]
 

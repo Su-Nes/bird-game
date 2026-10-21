@@ -2,17 +2,20 @@
 
 [ext_resource type="Script" uid="uid://b3eowb18per1b" path="res://Player/Scripting/UI/Menus/PauseMenuScript.gd" id="1_5w5j5"]
 [ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="2_5a7l1"]
+[ext_resource type="Theme" uid="uid://c40fev0exkwqr" path="res://Common/UI/MainTheme.tres" id="3_6rg8m"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_qkran"]
+[sub_resource type="LabelSettings" id="LabelSettings_6rg8m"]
+line_spacing = -35.0
 font = ExtResource("2_5a7l1")
-font_size = 60
-outline_size = 7
+font_size = 55
+outline_size = 5
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_joydu"]
-line_spacing = -3.0
-font_size = 12
-outline_size = 4
+[sub_resource type="LabelSettings" id="LabelSettings_cm7jh"]
+line_spacing = -35.0
+font = ExtResource("2_5a7l1")
+font_size = 55
+outline_size = 5
 outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
 [node name="PauseMenu" type="Control" unique_id=172216686 node_paths=PackedStringArray("CONTROLS", "SETTINGS", "LOAD_TUTORIAL_BUTTON", "LEAVE_TUTORIAL_BUTTON", "FS_CHECK", "RENDER_DISTANCE", "RENDER_NUMBER", "SENSITIVITY", "CAMERA_CHECK", "PITCH_CHECK", "MASTER_VOLUME")]
@@ -51,12 +54,25 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
-[node name="Title" type="Label" parent="MarginContainer/Menu" unique_id=1693371460]
+[node name="Title2" type="Label" parent="MarginContainer/Menu" unique_id=910644668]
 layout_mode = 2
-offset_transform_enabled = true
 offset_transform_position = Vector2(0, 13.725)
-text = "bird"
-label_settings = SubResource("LabelSettings_qkran")
+text = "being
+bird"
+label_settings = SubResource("LabelSettings_6rg8m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="MarginContainer/Menu/Title2" unique_id=2120875092]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 146.0
+offset_bottom = 90.0
+offset_transform_position = Vector2(0, 13.725)
+text = "being
+bird"
+label_settings = SubResource("LabelSettings_cm7jh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -66,21 +82,24 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Resume" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=312023862]
-custom_minimum_size = Vector2(120, 40)
+custom_minimum_size = Vector2(116.81, 10)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_6rg8m")
 text = "resume"
 
 [node name="LoadTutorial" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=1154238794]
-custom_minimum_size = Vector2(100, 10)
+custom_minimum_size = Vector2(116.81, 10)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_6rg8m")
 text = "play tutorial"
 
 [node name="LeaveTutorial" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=68328371]
-custom_minimum_size = Vector2(100, 10)
+custom_minimum_size = Vector2(116.81, 10)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_6rg8m")
 text = "leave tutorial"
 
 [node name="Reload" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=530840903]
@@ -91,9 +110,10 @@ size_flags_horizontal = 4
 text = "Reload"
 
 [node name="Quit" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=876093582]
-custom_minimum_size = Vector2(120, 40)
+custom_minimum_size = Vector2(116.81, 10)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_6rg8m")
 text = "save & quit"
 
 [node name="LeftMenu" type="MarginContainer" parent="MarginContainer" unique_id=124270171]
@@ -107,11 +127,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ToggleControls" type="Button" parent="MarginContainer/LeftMenu/HBoxContainer" unique_id=1210755244]
+custom_minimum_size = Vector2(116.81, 0)
 custom_maximum_size = Vector2(-1, 26)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("3_6rg8m")
 text = "toggle controls/settings"
+alignment = 0
 
 [node name="Controls" type="VBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer" unique_id=612577386]
 visible = false
@@ -122,6 +145,7 @@ size_flags_vertical = 0
 [node name="Control map" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Controls" unique_id=498662116]
 custom_minimum_size = Vector2(45.725, 130.52)
 layout_mode = 2
+theme = ExtResource("3_6rg8m")
 text = "interaction - 
 	LMB: pick up
 	RMB: use
@@ -144,7 +168,6 @@ while flying -
 hold Alt  -  disable auto camera
 hold Tab -  show nest markers
 F     -  toggle HUD"
-label_settings = SubResource("LabelSettings_joydu")
 tab_stops = PackedFloat32Array(60)
 
 [node name="Settings" type="VBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer" unique_id=487161626]
@@ -162,12 +185,26 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("3_6rg8m")
 
 [node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/ToggleFS" unique_id=1460708208]
 custom_minimum_size = Vector2(45.725, 130.52)
 layout_mode = 2
+theme = ExtResource("3_6rg8m")
 text = "fullscreen"
-label_settings = SubResource("LabelSettings_joydu")
+vertical_alignment = 1
+tab_stops = PackedFloat32Array(60)
+
+[node name="Spacer2" type="Control" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1817532947]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="render distance" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1459326244]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_6rg8m")
+text = "render distance "
 vertical_alignment = 1
 tab_stops = PackedFloat32Array(60)
 
@@ -181,8 +218,8 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+theme = ExtResource("3_6rg8m")
 text = "500m"
-label_settings = SubResource("LabelSettings_joydu")
 vertical_alignment = 1
 tab_stops = PackedFloat32Array(60)
 
@@ -190,21 +227,11 @@ tab_stops = PackedFloat32Array(60)
 custom_minimum_size = Vector2(109.36, 0)
 layout_mode = 2
 size_flags_vertical = 4
-min_value = 300.0
+min_value = 200.0
 max_value = 1000.0
 step = 100.0
 value = 1000.0
 rounded = true
-
-[node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/RenderDistance" unique_id=1459326244]
-custom_minimum_size = Vector2(45.725, 130.52)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "render distance "
-label_settings = SubResource("LabelSettings_joydu")
-vertical_alignment = 1
-tab_stops = PackedFloat32Array(60)
 
 [node name="Spacer1" type="Control" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1981275166]
 custom_minimum_size = Vector2(0, 20)
@@ -228,8 +255,8 @@ custom_minimum_size = Vector2(45.725, 130.52)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "camera sensitivity "
-label_settings = SubResource("LabelSettings_joydu")
+theme = ExtResource("3_6rg8m")
+text = "look sensitivity "
 vertical_alignment = 1
 tab_stops = PackedFloat32Array(60)
 
@@ -241,12 +268,13 @@ size_flags_vertical = 0
 
 [node name="CameraCheck" type="CheckButton" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera" unique_id=1837508890]
 layout_mode = 2
+theme = ExtResource("3_6rg8m")
 
 [node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertCamera" unique_id=1904279912]
 custom_minimum_size = Vector2(45.725, 130.52)
 layout_mode = 2
+theme = ExtResource("3_6rg8m")
 text = "invert camera"
-label_settings = SubResource("LabelSettings_joydu")
 vertical_alignment = 1
 tab_stops = PackedFloat32Array(60)
 
@@ -258,18 +286,15 @@ size_flags_vertical = 0
 
 [node name="PitchCheck" type="CheckButton" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch" unique_id=1712638090]
 layout_mode = 2
+theme = ExtResource("3_6rg8m")
 
 [node name="Label" type="Label" parent="MarginContainer/LeftMenu/HBoxContainer/Settings/InvertPitch" unique_id=1058079502]
 custom_minimum_size = Vector2(45.725, 130.52)
 layout_mode = 2
+theme = ExtResource("3_6rg8m")
 text = "invert flight pitch controls"
-label_settings = SubResource("LabelSettings_joydu")
 vertical_alignment = 1
 tab_stops = PackedFloat32Array(60)
-
-[node name="Spacer3" type="Control" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1132351248]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
 
 [node name="VolumeSlider" type="HBoxContainer" parent="MarginContainer/LeftMenu/HBoxContainer/Settings" unique_id=1038799240]
 custom_maximum_size = Vector2(-1, 25)
@@ -290,8 +315,8 @@ custom_minimum_size = Vector2(45.725, 130.52)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "master volume       "
-label_settings = SubResource("LabelSettings_joydu")
+theme = ExtResource("3_6rg8m")
+text = "volume       "
 vertical_alignment = 1
 tab_stops = PackedFloat32Array(60)
 

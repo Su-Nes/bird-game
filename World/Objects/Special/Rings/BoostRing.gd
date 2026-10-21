@@ -5,6 +5,7 @@ extends Node3D
 @export var MINIMUM_VELOCITY : float = 12
 @export var VELOCIY_ADD : float = 25
 @export var FACE_PLAYER_FORWARD = false
+@export var FACE_ONLY_MINUS_Z = false
 @export var DIR_MARKER : Marker3D
 var ring_enabled = false
 
@@ -26,7 +27,7 @@ func ring_collected():
 	
 	if FACE_PLAYER_FORWARD:
 		dir = -DIR_MARKER.global_basis.z
-		if player_controller.velocity.normalized().angle_to(dir) > PI / 2:
+		if player_controller.velocity.normalized().angle_to(dir) > PI / 2 and !FACE_ONLY_MINUS_Z:
 			dir *= -1
 		
 	player_controller.velocity = dir.normalized() * (player_controller.velocity.length() + VELOCIY_ADD)

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://wt0i5ann1opj"
 path.s3tc="res://.godot/imported/Sand (2)_128.png-a4adeef86346018b7133fc0cc0838d43.s3tc.ctex"
+path.etc2="res://.godot/imported/Sand (2)_128.png-a4adeef86346018b7133fc0cc0838d43.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://World/Terrain/Sand (2)_128.png"
-dest_files=["res://.godot/imported/Sand (2)_128.png-a4adeef86346018b7133fc0cc0838d43.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sand (2)_128.png-a4adeef86346018b7133fc0cc0838d43.s3tc.ctex", "res://.godot/imported/Sand (2)_128.png-a4adeef86346018b7133fc0cc0838d43.etc2.ctex"]
 
 [params]
 

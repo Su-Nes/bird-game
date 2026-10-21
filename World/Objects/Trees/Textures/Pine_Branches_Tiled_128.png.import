@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://148q7it3iv8b"
 path.s3tc="res://.godot/imported/Pine_Branches_Tiled_128.png-df8bce87f1dff7edac842b9e60e51ddf.s3tc.ctex"
+path.etc2="res://.godot/imported/Pine_Branches_Tiled_128.png-df8bce87f1dff7edac842b9e60e51ddf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://World/Objects/Trees/Textures/Pine_Branches_Tiled_128.png"
-dest_files=["res://.godot/imported/Pine_Branches_Tiled_128.png-df8bce87f1dff7edac842b9e60e51ddf.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pine_Branches_Tiled_128.png-df8bce87f1dff7edac842b9e60e51ddf.s3tc.ctex", "res://.godot/imported/Pine_Branches_Tiled_128.png-df8bce87f1dff7edac842b9e60e51ddf.etc2.ctex"]
 
 [params]
 

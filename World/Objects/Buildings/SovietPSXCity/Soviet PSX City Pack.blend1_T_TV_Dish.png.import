@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbllq7gq0veno"
 path.s3tc="res://.godot/imported/Soviet PSX City Pack.blend1_T_TV_Dish.png-605e1298d0962457be05f43057e3e082.s3tc.ctex"
+path.etc2="res://.godot/imported/Soviet PSX City Pack.blend1_T_TV_Dish.png-605e1298d0962457be05f43057e3e082.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_TV_Dish.png"
-dest_files=["res://.godot/imported/Soviet PSX City Pack.blend1_T_TV_Dish.png-605e1298d0962457be05f43057e3e082.s3tc.ctex"]
+dest_files=["res://.godot/imported/Soviet PSX City Pack.blend1_T_TV_Dish.png-605e1298d0962457be05f43057e3e082.s3tc.ctex", "res://.godot/imported/Soviet PSX City Pack.blend1_T_TV_Dish.png-605e1298d0962457be05f43057e3e082.etc2.ctex"]
 
 [params]
 

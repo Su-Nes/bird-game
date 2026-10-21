@@ -3,8 +3,8 @@ extends Node3D
 class_name BranchSpawner
 
 
-var SPAWN_DISTANCE : float = 100
-var DESPAWN_DISTANCE : float = 120
+var SPAWN_DISTANCE : float = 500
+var DESPAWN_DISTANCE : float = 510
 var spawned_branches = 0
 
 @export var BRANCHES : Array[PackedScene]
@@ -20,7 +20,7 @@ func _ready() -> void:
 	player = get_tree().get_nodes_in_group("Player")[0]
 	
 func _physics_process(_delta: float) -> void:
-	if player.global_position.distance_to(global_position) < SPAWN_DISTANCE:
+	if player.global_position.distance_to(global_position) < SPAWN_DISTANCE and spawned_branches == 0:
 		spawn_branches()
 	
 	if player.global_position.distance_to(global_position) > DESPAWN_DISTANCE and spawned_branches > 0:

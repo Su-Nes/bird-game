@@ -80,6 +80,8 @@ func on_save_data(saved_data: Array[SavedData]):
 func on_loaded(data: SavedData):
 	transform = data.tf
 	is_placed = data.is_placed
+	
+	has_physics(true, false)
 
 	if data.is_grabbed && !is_inside_tree():
 		has_physics(false, false)

@@ -81,7 +81,7 @@ size = Vector3(0.5839844, 0.06738281, 0.48632813)
 [node name="BerryBush" type="Node3D" unique_id=1781141933 node_paths=PackedStringArray("SPAWN_AREA", "OBJECT_HOLDER") groups=["Spawners"]]
 script = ExtResource("1_6er4m")
 SPAWN_AREA = NodePath("SpawnArea/Collider3D")
-SPAWNABLE = ExtResource("2_a00iv")
+SPAWNABLE = Array[PackedScene]([ExtResource("2_a00iv")])
 OBJECT_HOLDER = NodePath("ObjectHolder")
 SPAWN_TIME = Vector2(60, 120)
 SPAWN_GROUP = Vector2(3, 5)
