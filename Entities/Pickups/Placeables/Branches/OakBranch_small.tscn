@@ -14,6 +14,7 @@ size = Vector3(0.5, 0.1, 0.1)
 linear_damp = 3.0
 script = ExtResource("1_wd43s")
 CHANCE_TO_SPLIT = 0.35
+ITEM_NAME = "small oak branch"
 CONST_PATH = "OakBranch_small"
 GRAB_ONLY = true
 MESH = NodePath("MeshInstance3D")

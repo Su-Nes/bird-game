@@ -52,6 +52,7 @@ size = Vector3(0.20000005, 0.08369338, 0.20000005)
 script = ExtResource("1_dlsfq")
 DECOR_VALUE = 2
 ALIGN_NORMALS = true
+ITEM_NAME = "cloudy seashell"
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = -7.5
 MESH = NodePath("Shell1_002")

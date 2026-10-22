@@ -13,6 +13,7 @@ size = Vector3(0.2770996, 0.009521484, 0.06347656)
 
 [node name="RadioDuchenne" unique_id=1868481036 instance=ExtResource("1_1w6pe")]
 SONG_VOLUME = -15.0
+ITEM_NAME = "radio duchenne"
 
 [node name="Color" parent="." index="1" unique_id=1775473335]
 mesh = SubResource("BoxMesh_0jjeq")

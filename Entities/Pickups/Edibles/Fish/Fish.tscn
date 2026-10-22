@@ -53,6 +53,7 @@ script = ExtResource("1_6lrxk")
 STATE_MACHINE = NodePath("StateMachine")
 GRABBED_STATE = NodePath("StateMachine/FishOutOfWater")
 STAMINA_VALUE = 20.0
+ITEM_NAME = "fish"
 CONST_PATH = "Fish"
 BEAK_ANGLE_MOD = 1.0
 MESH = NodePath("Mesh/Armature/Skeleton3D/Fish")

@@ -61,6 +61,7 @@ size = Vector3(1.0527344, 1.2119141, 1.140625)
 [node name="PrettyRock" type="RigidBody3D" unique_id=517437660 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable", "Persistent"]]
 script = ExtResource("1_itc3t")
 DECOR_VALUE = 3
+ITEM_NAME = "pretty rock"
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = 75.0
 MESH = NodePath("MeshInstance3D")

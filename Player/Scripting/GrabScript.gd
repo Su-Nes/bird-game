@@ -14,6 +14,7 @@ class_name GrabScript
 @export_category("Storage settings")
 @export var EYE_LID_R : Node3D
 @export var EYE_LID_L : Node3D
+@export var ITEM_LIST : ItemList
 @export var MAX_ITEMS : int = 5
 @export var BEAK_ROT_PER_ITEM : int = 10
 @export var SELECT_BEAK_ROT : float = 10
@@ -66,6 +67,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("drop"):
 		remove_selected_item(true)
 		
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+		
 	if Input.is_action_just_pressed("scroll_plus"):
 		active_index += 1
 		if active_index >= GRAB_POINT.get_child_count():
@@ -81,23 +85,18 @@ func _process(_delta: float) -> void:
 func use_item():
 	if GRAB_POINT.get_child_count() <= 0:
 		return
-		
-	var count_before = GRAB_POINT.get_child_count()
-		
+				
 	var item : Interactable = GRAB_POINT.get_child(active_index)
 	
 	if item.get_child_count() < 1:
 		return # Ignore EmptyInteractable
 	
 	item.on_use()
-	
+
 	await get_tree().process_frame
-	
-	if count_before != GRAB_POINT.get_child_count():
-		active_index -= 1
-	
-	if active_index < 1:
-		active_index = GRAB_POINT.get_child_count() - 1
+
+	if active_index > GRAB_POINT.get_child_count() - 1:
+		active_index = 1 if GRAB_POINT.get_child_count() > 1 else 0
 	
 	display_active_item()
 
@@ -114,7 +113,20 @@ func display_active_item():
 		active_child.visible = true
 		active_child.on_selected()
 		
+	refresh_item_list()
 	handle_beak_rotation()
+	
+func refresh_item_list():
+	ITEM_LIST.clear()
+	
+	for n : Interactable in GRAB_POINT.get_children():
+		ITEM_LIST.add_item(n.ITEM_NAME)
+		
+	ITEM_LIST.select(active_index)
+		
+func select_item(index: int):
+	active_index = index
+	display_active_item()
 
 func unselect_all():
 	for n : Interactable in GRAB_POINT.get_children():
@@ -129,10 +141,8 @@ func remove_selected_item(drop_physically = false):
 	item.is_grabbed = false
 	item.on_unselected()
 	
-	active_index -= 1
-	
-	if active_index < 1:
-		active_index = GRAB_POINT.get_child_count() - 1
+	if active_index > GRAB_POINT.get_child_count() - 1:
+		active_index = 1 if GRAB_POINT.get_child_count() > 1 else 0
 
 	display_active_item()
 	
@@ -154,7 +164,7 @@ func remove_selected_item(drop_physically = false):
 func handle_beak_rotation():
 	BEAK_TOP.rotation.x = 0
 	BEAK_BOTTOM.rotation.x = 0
-	
+
 	var item : Interactable = GRAB_POINT.get_child(active_index)
 	
 	BEAK_TOP.rotate_x(deg_to_rad((BEAK_ROT_PER_ITEM + item.BEAK_ANGLE_MOD / 2)) + deg_to_rad(SELECT_BEAK_ROT))
@@ -164,7 +174,7 @@ func handle_beak_rotation():
 	
 	BEAK_TOP.rotation.x = 0
 	BEAK_BOTTOM.rotation.x = 0
-	
+
 	if item.get_child_count() == 0:
 		return
 	

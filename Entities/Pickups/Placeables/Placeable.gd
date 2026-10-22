@@ -137,10 +137,7 @@ func get_colliders() -> bool: ## Returns true if this object is in a nest area
 func propogate_stability(is_root_call : bool, previous_branch: Placeable):
 	#print("backward connections: %s" % backwards_connections)
 	if !is_root_call and backwards_connections.size() < 2:
-		await get_colliders()
-	
-		if colliders.size() == 0:
-			has_physics(true, true)
+		has_physics(true, true)
 		
 	if backwards_connections.size() > 1:
 		backwards_connections.erase(previous_branch)

@@ -107,6 +107,7 @@ collision_layer = 8
 script = ExtResource("1_0mdd8")
 DECOR_VALUE = 4
 ALIGN_NORMALS = true
+ITEM_NAME = "rose"
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = -20.0
 MESH = NodePath("Stem")

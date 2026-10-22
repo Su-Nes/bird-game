@@ -120,6 +120,7 @@ script = ExtResource("1_6gsor")
 STATE_MACHINE = NodePath("StateMachine")
 GRABBED_STATE = NodePath("StateMachine/BugGrabbed")
 STAMINA_VALUE = 11.0
+ITEM_NAME = "bug"
 CONST_PATH = "Bug"
 MESH = NodePath("Mesh/Bug")
 COLLIDER = NodePath("CollisionShape3D")

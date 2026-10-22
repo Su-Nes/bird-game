@@ -12,6 +12,7 @@ material = SubResource("StandardMaterial3D_0jjeq")
 size = Vector3(0.2770996, 0.009521484, 0.06347656)
 
 [node name="RadioMOLDEN" unique_id=1868481036 instance=ExtResource("1_bq67w")]
+ITEM_NAME = "radio MOLDEN"
 
 [node name="Color" parent="." index="1" unique_id=1775473335]
 mesh = SubResource("BoxMesh_bq67w")

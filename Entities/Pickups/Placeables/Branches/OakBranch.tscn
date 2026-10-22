@@ -13,6 +13,7 @@ size = Vector3(1, 0.1, 0.1)
 [node name="OakBranch" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable"]]
 linear_damp = 3.0
 script = ExtResource("1_qx3o2")
+ITEM_NAME = "oak branch"
 CONST_PATH = "OakBranch"
 GRAB_ONLY = true
 MESH = NodePath("MeshInstance3D")

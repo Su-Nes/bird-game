@@ -62,6 +62,7 @@ size = Vector3(0.32836914, 0.10644531, 0.28222656)
 script = ExtResource("1_53pt5")
 SONG_HOLDER = NodePath("Songs")
 SONG_VOLUME = -20.0
+ITEM_NAME = "radio nes nes"
 BEAK_ANGLE_MOD = -28.0
 MESH = NodePath("Radio")
 COLLIDER = NodePath("CollisionShape3D")

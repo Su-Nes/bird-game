@@ -35,7 +35,7 @@ shadow_mesh = SubResource("ArrayMesh_tgx4g")
 
 [node name="LavaRock" unique_id=517437660 instance=ExtResource("1_vei4m")]
 DECOR_VALUE = 6
-GRAB_ONLY = true
+ITEM_NAME = "lava rock"
 
 [node name="MeshInstance3D" parent="." index="0" unique_id=1436029745]
 mesh = SubResource("ArrayMesh_227os")

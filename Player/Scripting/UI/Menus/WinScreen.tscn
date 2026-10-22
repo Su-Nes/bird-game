@@ -100,7 +100,6 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-offset_transform_enabled = true
 offset_transform_position = Vector2(0, 9.87)
 
 [node name="KeepPlaying" type="Button" parent="MarginContainer/Menu/Buttons" unique_id=312023862]

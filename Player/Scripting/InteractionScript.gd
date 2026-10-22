@@ -11,6 +11,9 @@ class_name InteractionScript
 var current_interactable : Interactable
 
 func _process(_delta: float) -> void:
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+	
 	var collider : Interactable = get_collider() if get_collider() is Interactable else null
 	
 	if collider: # TO-DO: Clean up this code

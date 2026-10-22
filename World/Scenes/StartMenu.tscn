@@ -124,7 +124,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Resume" type="Button" parent="StartMenu/MarginContainer/Menu/Buttons" unique_id=312023862]
-custom_minimum_size = Vector2(100, 10)
+custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("7_kh32d")
@@ -154,7 +154,7 @@ size_flags_horizontal = 4
 text = "Reload"
 
 [node name="Quit" type="Button" parent="StartMenu/MarginContainer/Menu/Buttons" unique_id=876093582]
-custom_minimum_size = Vector2(100, 10)
+custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("7_kh32d")
@@ -171,6 +171,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ToggleControls" type="Button" parent="StartMenu/MarginContainer/LeftMenu/HBoxContainer" unique_id=1210755244]
+custom_minimum_size = Vector2(0, 20)
 custom_maximum_size = Vector2(-1, 26)
 layout_mode = 2
 size_flags_horizontal = 0

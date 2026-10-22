@@ -3,6 +3,7 @@ extends Node3D
 class_name Interactable
 
 
+@export var ITEM_NAME : String
 @export var CONST_PATH : String
 @export var IS_GRABBABLE = true
 @export var GRAB_ONLY = false

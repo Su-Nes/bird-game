@@ -29,6 +29,13 @@ func _input(event):
 		disable_look_timer = 0
 		
 func _process(delta: float):
+	if Engine.time_scale == 1:
+		if Input.is_action_pressed("toggle"):
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			return
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	# Stick look
 	var look_movement = Input.get_vector("lookLeft", "lookRight", "lookDown", "lookUp") * delta
 	
@@ -49,7 +56,6 @@ func _process(delta: float):
 		
 	if Input.is_action_just_released("alt"):
 		disable_look_timer = 999.0
-		
 		
 	# MOUSE FUCKERY
 	pivot.rotate_y(deg_to_rad(-mouse_input.x * PlayerParameters.player_camera_sensitivity * delta))

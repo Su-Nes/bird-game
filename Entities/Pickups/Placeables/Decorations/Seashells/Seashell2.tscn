@@ -52,6 +52,7 @@ size = Vector3(0.20000005, 0.08369338, 0.20000005)
 script = ExtResource("1_tw0df")
 DECOR_VALUE = 2
 ALIGN_NORMALS = true
+ITEM_NAME = "brownish seashell"
 GRAB_ONLY = true
 MESH = NodePath("Shell1_001")
 COLLIDER = NodePath("CollisionShape3D")

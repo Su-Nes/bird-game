@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://dx4q2vt7tni0p" path="res://Player/Audio/Footstep_Crunchy_1.wav" id="36_d6s72"]
 [ext_resource type="Shader" uid="uid://cr4upde56h0ra" path="res://Common/Scripts/Shaders/LensFlare.gdshader" id="41_p3dgh"]
 [ext_resource type="Script" uid="uid://h8iodtllfo1" path="res://Common/Scripts/Shaders/PassSunToLensFlare.gd" id="42_gbrrj"]
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="43_ppr8l"]
 [ext_resource type="Theme" uid="uid://c40fev0exkwqr" path="res://Common/UI/MainTheme.tres" id="44_t4i8i"]
 [ext_resource type="Script" uid="uid://c84nt3rc0jgp0" path="res://Player/Scripting/Shitting.gd" id="47_t4i8i"]
 
@@ -357,7 +358,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.0471973, 8.742269e-08, 1.5142062e-07)]
+"values": [Vector3(1.3089969, 0, 0)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -369,7 +370,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.0471976, 8.742276e-08, 1.5142068e-07)]
+"values": [Vector3(1.3089969, 0, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1052,6 +1053,8 @@ bg_color = Color(0.8146435, 0.5480231, 0.012674367, 1)
 bg_color = Color(0.7261559, 0.7289545, 0.68919826, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yp2fy"]
+font = ExtResource("43_ppr8l")
+font_size = 10
 font_color = Color(0.5529556, 0.55295557, 0.55295557, 1)
 
 [node name="PlayerController" type="CharacterBody3D" unique_id=1403665214 node_paths=PackedStringArray("MESH", "CROWN") groups=["Player"]]
@@ -1104,6 +1107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018001217, -0.123229206
 
 [node name="EmptyInteractable" type="Node3D" parent="MeshParts/Beak/GrabPoint" unique_id=1330320654]
 script = ExtResource("4_l7evj")
+ITEM_NAME = " ---"
 
 [node name="Wings" type="Node3D" parent="MeshParts" unique_id=1564395972]
 
@@ -1366,7 +1370,7 @@ script = ExtResource("4_x8g6g")
 WING_ROTATION_DIST = Vector3(-60, 90, 0)
 GLIDE_LERP = 0.2
 
-[node name="GrabController" type="Node" parent="." unique_id=202790247 node_paths=PackedStringArray("GRAB_POINT", "STATE_MACHINE", "BEAK_TOP", "BEAK_BOTTOM", "EYE_LID_R", "EYE_LID_L")]
+[node name="GrabController" type="Node" parent="." unique_id=202790247 node_paths=PackedStringArray("GRAB_POINT", "STATE_MACHINE", "BEAK_TOP", "BEAK_BOTTOM", "EYE_LID_R", "EYE_LID_L", "ITEM_LIST")]
 script = ExtResource("19_vi1d0")
 GRAB_POINT = NodePath("../MeshParts/Beak/GrabPoint")
 STATE_MACHINE = NodePath("../MovementStateMachine")
@@ -1375,6 +1379,7 @@ BEAK_TOP = NodePath("../MeshParts/Beak/BeakTop")
 BEAK_BOTTOM = NodePath("../MeshParts/Beak/BeakBottom")
 EYE_LID_R = NodePath("../MeshParts/EyeR/EyeLid_R")
 EYE_LID_L = NodePath("../MeshParts/EyeL/EyeLid_L")
+ITEM_LIST = NodePath("../HUD&Stats/FPSCounter/ItemList")
 MAX_ITEMS = 99
 BEAK_ROT_PER_ITEM = 17
 
@@ -1551,13 +1556,22 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 21.0
 offset_top = 68.5
-offset_right = 121.0
+offset_right = 133.0
 offset_bottom = 268.5
 grow_vertical = 2
 theme = ExtResource("44_t4i8i")
-item_count = 2
-item_0/text = "Testing"
-item_1/text = "Test2"
+allow_search = false
+auto_width = true
+scroll_hint_mode = 1
+
+[node name="Label" type="Label" parent="HUD&Stats/FPSCounter" unique_id=318671806]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 63.0
+offset_right = 61.0
+offset_bottom = 86.0
+theme = ExtResource("44_t4i8i")
+text = "Items"
 
 [node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("28_be8bd")]
 visible = false
@@ -1571,3 +1585,4 @@ script = ExtResource("47_t4i8i")
 SHIT_INTERVAL = Vector2(80, 180)
 
 [connection signal="body_entered" from="FishingCollider" to="GrabController" method="_on_grab_area_body_entered"]
+[connection signal="item_selected" from="HUD&Stats/FPSCounter/ItemList" to="GrabController" method="select_item"]

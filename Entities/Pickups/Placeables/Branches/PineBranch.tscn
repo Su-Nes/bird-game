@@ -22,6 +22,7 @@ size = Vector3(1.5, 0.125, 0.125)
 [node name="PineBranch" type="RigidBody3D" unique_id=943419720 node_paths=PackedStringArray("MESH", "COLLIDER", "RIGIDBODY") groups=["Interactable"]]
 linear_damp = 3.0
 script = ExtResource("1_vxamt")
+ITEM_NAME = "pine branch"
 CONST_PATH = "PineBranch"
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = 10.0

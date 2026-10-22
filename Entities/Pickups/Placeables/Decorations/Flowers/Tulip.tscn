@@ -120,6 +120,7 @@ freeze = true
 script = ExtResource("1_lvwdl")
 DECOR_VALUE = 3
 ALIGN_NORMALS = true
+ITEM_NAME = "tulip"
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = -20.0
 MESH = NodePath("Mesh")

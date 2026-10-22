@@ -52,6 +52,7 @@ size = Vector3(0.20000005, 0.08369338, 0.20000005)
 script = ExtResource("1_38xwq")
 DECOR_VALUE = 2
 ALIGN_NORMALS = true
+ITEM_NAME = "white seashell"
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = -5.0
 MESH = NodePath("Shell1")
