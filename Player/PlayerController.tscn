@@ -1571,7 +1571,7 @@ offset_top = 63.0
 offset_right = 61.0
 offset_bottom = 86.0
 theme = ExtResource("44_t4i8i")
-text = "Items"
+text = "items"
 
 [node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("28_be8bd")]
 visible = false

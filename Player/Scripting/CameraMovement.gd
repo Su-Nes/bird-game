@@ -29,7 +29,7 @@ func _input(event):
 		disable_look_timer = 0
 		
 func _process(delta: float):
-	if Engine.time_scale == 1:
+	if Engine.time_scale == 1 and !StatController.fainted:
 		if Input.is_action_pressed("toggle"):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			return
@@ -42,8 +42,8 @@ func _process(delta: float):
 	if look_movement.length() > 0:
 		disable_look_timer = 0
 	
-	pivot.rotate_y(deg_to_rad(-look_movement.x * PlayerParameters.player_camera_sensitivity * 5))
-	rotate_x(deg_to_rad(look_movement.y * PlayerParameters.player_camera_sensitivity * 5))
+	pivot.rotate_y(deg_to_rad(-look_movement.x * PlayerParameters.player_camera_sensitivity * 15))
+	rotate_x(deg_to_rad(look_movement.y * PlayerParameters.player_camera_sensitivity * 15))
 
 	if rot_clamped:
 		rotation.x = clampf(rotation.x, deg_to_rad(-90), deg_to_rad(90))

@@ -1,4 +1,4 @@
-[gd_resource type="Environment" format=3 uid="uid://cq6j2ugrf8g5p"]
+[gd_resource type="Environment" format=3 uid="uid://cdl4uwtb41p2u"]
 
 [ext_resource type="Shader" uid="uid://dcnakafcrt4fu" path="res://World/Shaders/FreemanSky.gdshader" id="1_8egbc"]
 
@@ -27,30 +27,37 @@ shader_parameter/ground_color = Vector3(0.12, 0.11, 0.08)
 shader_parameter/view_samples = 24
 shader_parameter/sun_samples = 8
 shader_parameter/clouds_enabled = true
-shader_parameter/cloud_color = Color(1, 1, 1, 1)
+shader_parameter/cloud_color = Color(0.88269824, 0.92978925, 0.9250933, 1)
 shader_parameter/cloud_color_dark = Color(0, 0, 0, 1)
-shader_parameter/cloud_edge_sharpness = 0.178000008455
-shader_parameter/cloud_scale = 2.02000009269012
-shader_parameter/cloud_speed = 0.02
+shader_parameter/cloud_edge_sharpness = 0.3910000185725
+shader_parameter/cloud_scale = 2.74300012703262
+shader_parameter/cloud_speed = 0.010000000475
 
 [sub_resource type="Sky" id="Sky_y6flb"]
 sky_material = SubResource("ShaderMaterial_eue43")
 
 [resource]
 background_mode = 2
+background_energy_multiplier = 0.04
 sky = SubResource("Sky_y6flb")
 ambient_light_source = 3
+ambient_light_color = Color(0.7882353, 0.90588236, 0.7254902, 1)
+ambient_light_sky_contribution = 0.97
 reflected_light_source = 2
 fog_enabled = true
 fog_mode = 1
-fog_density = 0.3666
+fog_density = 0.8
 fog_aerial_perspective = 1.0
-fog_depth_curve = 1.9318734
-fog_depth_begin = 111.3
-fog_depth_end = 921.5
+fog_height = -151.37
+fog_depth_begin = 0.0
+fog_depth_end = 814.6
 volumetric_fog_density = 0.0162
 volumetric_fog_anisotropy = 0.67
 volumetric_fog_length = 340.52
 volumetric_fog_detail_spread = 1.5691681
 volumetric_fog_ambient_inject = 0.56
 volumetric_fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_brightness = 0.97
+adjustment_contrast = 1.115
+adjustment_saturation = 1.65

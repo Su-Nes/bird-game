@@ -17,7 +17,8 @@ func _ready() -> void:
 	var window = get_window()
 	default_window_size = window.size
 	
-	get_tree().scene_changed.connect(set_render_distance.bind(player_render_distance))
+	if !get_tree().scene_changed.is_connected(set_render_distance.bind(player_render_distance)):
+		get_tree().scene_changed.connect(set_render_distance.bind(player_render_distance))
 	
 	load_settings()
 	
@@ -36,7 +37,7 @@ func save_settings():
 func load_settings():
 	if !FileAccess.file_exists("user://settings.tres"):
 		save_settings()
-		_ready()
+		load_settings()
 		return
 		
 	settings_resource = load("user://settings.tres")
