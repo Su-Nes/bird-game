@@ -21,7 +21,9 @@ var direction
 var flight_timer
 
 func enter():
-	WING_STATES.change_state("wingsidle")
+	state_machine.ANIMATOR.play("RESET")
+	state_machine.ANIMATOR.play("Walk")
+	
 	SfxPlayer.play_clip(SPLASH_SOUND)
 
 func update(delta: float):
