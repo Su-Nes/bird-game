@@ -9,7 +9,7 @@ var loading_screen : PackedScene = preload("uid://c7vitgfjnht88")
 var loaded_resource : PackedScene
 var scene_path : String
 var progress : Array = []
-var use_sub_threads : bool = true
+var use_sub_threads : bool = false
 
 func _ready() -> void:
 	set_process(true)
@@ -39,6 +39,7 @@ func _process(_delta: float) -> void:
 	var load_status = ResourceLoader.load_threaded_get_status(scene_path, progress)
 
 	progress_changed.emit(progress[0])
+
 	match load_status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE, ResourceLoader.THREAD_LOAD_FAILED:
 			set_process(false)

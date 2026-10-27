@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbuuycsq7i3wg"]
 
-[ext_resource type="Environment" uid="uid://0l888a5e54jf" path="res://World/Scenes/EnvironmentCycle.tres" id="1_auryq"]
+[ext_resource type="Environment" uid="uid://eirugfxkrhp6" path="res://World/Scenes/EnvironmentDay.tres" id="1_auryq"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kvd28"]
 
@@ -10,7 +10,7 @@ compositor_effects = Array[CompositorEffect]([null])
 [node name="Environment" type="Node" unique_id=163002060]
 
 [node name="Light" type="Node3D" parent="." unique_id=1809537469]
-transform = Transform3D(0.7107598, 0.7034352, 0, 0.5572955, -0.5630981, 0.61019903, 0.42923552, -0.43370476, -0.7922484, 0, 0, 0)
+transform = Transform3D(-0.71079975, -0.70339483, 0, 0.5572926, -0.56315905, 0.6101453, -0.4291731, 0.43369088, 0.7922898, 0, 0, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="Light" unique_id=1451648926 groups=["Sun"]]
 transform = Transform3D(0.022198655, 0.9542499, 0.29818386, -0.2503806, 0.29405886, -0.9224091, -0.96789294, -0.054183252, 0.24545357, 0, 0, 0)

@@ -10,3 +10,10 @@ signal clear_items
 signal win
 
 var build_controller : BuildController
+
+func empty_func():
+	player_change_state.is_null()
+	player_changed_state.is_null()
+	grab_item.is_null()
+	clear_items.is_null()
+	win.is_null()
