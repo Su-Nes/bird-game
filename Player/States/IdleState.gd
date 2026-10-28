@@ -19,7 +19,7 @@ var direction
 
 
 func enter():
-	WING_STATES.change_state("wingsidle")
+	state_machine.ANIMATOR.play("RESET")
 	CAMERA_SCRIPT.move_cam(CAMERA_DISTANCE, CAMERA_POSITION, CAMERA_MOVE_LERP)
 	
 # Get the gravity from the project settings to be synced with RigidBody nodes.

@@ -1,7 +1,9 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bjiokxfkh6jd5"]
 
 [ext_resource type="Shader" uid="uid://bh0pnxd4pwjm" path="res://World/Shaders/StylisedDayNight.gdshader" id="1_8hce2"]
-[ext_resource type="Texture2D" uid="uid://djgw6bih2mojh" path="res://World/Shaders/StarrySky_540_Dark.png" id="2_8hce2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xg05k"]
+load_path = "res://.godot/imported/StarrySky_540.png-46629de5c77b826ffe726f5f595c296c.s3tc.ctex"
 
 [resource]
 shader = ExtResource("1_8hce2")
@@ -31,6 +33,6 @@ shader_parameter/clouds_cutoff = 0.55999998748288
 shader_parameter/clouds_fuzziness = 0.41999999061216
 shader_parameter/clouds_weight = 0.01999999955296
 shader_parameter/clouds_blur = 0.25
-shader_parameter/stars_texture = ExtResource("2_8hce2")
+shader_parameter/stars_texture = SubResource("CompressedTexture2D_xg05k")
 shader_parameter/stars_speed = 0.0
 shader_parameter/overwritten_time = 0.0

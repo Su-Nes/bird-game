@@ -21,7 +21,7 @@ var direction
 var flight_timer
 
 func enter():
-	WING_STATES.change_state("wingsgliding")
+	state_machine.ANIMATOR.play("Glide")
 	
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

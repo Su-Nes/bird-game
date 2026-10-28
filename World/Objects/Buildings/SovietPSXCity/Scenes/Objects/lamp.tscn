@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://eikmhhxyx5v8"]
 
+[ext_resource type="Script" uid="uid://ccbpj5w5fgcle" path="res://World/Objects/Buildings/SovietPSXCity/Scenes/Objects/EnableLightOnSignal.gd" id="1_tbbr3"]
 [ext_resource type="Texture2D" uid="uid://wyl2ofpdw2g6" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_StreetLamp.png" id="1_w4qfh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5m26g"]
@@ -47,6 +48,15 @@ data = PackedVector3Array(-1.0302, -0.0381, -1, -0.16409999, 1.9619, -0.5, -1.03
 
 [node name="Lamp" type="StaticBody3D" unique_id=62448105]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="." unique_id=842842350]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -5.736809, 4.2244077, 1.118676e-09)
+light_color = Color(0.95069176, 0.69738305, 1.92523e-06, 1)
+light_energy = 2.0
+distance_fade_enabled = true
+distance_fade_begin = 200.0
+omni_range = 30.0
+script = ExtResource("1_tbbr3")
 
 [node name="Street_Lampt" type="MeshInstance3D" parent="." unique_id=2123466069]
 transform = Transform3D(-0.2092764, 0, 9.147762e-09, 0, 0.72626126, 0, -9.147762e-09, 0, -0.2092764, 0, 0, 0)

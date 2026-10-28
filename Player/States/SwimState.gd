@@ -21,6 +21,7 @@ var direction
 var flight_timer
 
 func enter():
+	WING_STATES.ANIMATOR.play("RESET")
 	state_machine.ANIMATOR.play("RESET")
 	state_machine.ANIMATOR.play("Walk")
 	

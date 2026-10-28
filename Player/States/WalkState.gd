@@ -19,7 +19,6 @@ var direction
 var velocity
 
 func enter() -> void:
-	WING_STATES.change_state("wingsidle")
 	state_machine.ANIMATOR.play("Walk")
 	
 func update(delta: float):

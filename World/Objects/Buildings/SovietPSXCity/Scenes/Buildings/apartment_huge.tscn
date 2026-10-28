@@ -1,20 +1,12 @@
 [gd_scene format=4 uid="uid://ds02mqxy5x0aw"]
 
-[ext_resource type="Texture2D" uid="uid://dy3jhy30nnfc6" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Apartment_Dirt.jpg" id="1_smeww"]
+[ext_resource type="Material" uid="uid://1rroguwdws8n" path="res://World/Objects/Buildings/SovietPSXCity/ApartmentWallMat.tres" id="1_smeww"]
 [ext_resource type="Texture2D" uid="uid://bxb5r0ccgxiox" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_RoofTile.png" id="2_kh0sm"]
 [ext_resource type="Texture2D" uid="uid://cjsjoio3quv67" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_ElectricalBox.png" id="3_1estd"]
 [ext_resource type="Texture2D" uid="uid://bta3wgvbx1fmx" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Wall_Rooftop.png" id="4_o5qnm"]
 [ext_resource type="Texture2D" uid="uid://ceqia32ded4q7" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_AC.png" id="5_grs2a"]
 [ext_resource type="Texture2D" uid="uid://ccpkof30j7ctc" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Metal.png" id="6_5xj1q"]
 [ext_resource type="Texture2D" uid="uid://cbllq7gq0veno" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_TV_Dish.png" id="7_at3kh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a05mo"]
-resource_name = "M_Apartment_Dirt"
-cull_mode = 2
-albedo_texture = ExtResource("1_smeww")
-roughness = 0.5
-texture_filter = 2
-metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlodc"]
 resource_name = "M_Rooftile"
@@ -151,7 +143,7 @@ _surfaces = [{
 "index_count": 102,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AFAAVABYAFAAXABUAGAAZABoAGAAbABkAEAARABIAEAATABEAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALQAsAC8ALwAsADAALQAvADEAMgAzADQAMwAyADUANQAyADYAMwA1ADcAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0A"),
 "lods": [0.82327497, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA")],
-"material": SubResource("StandardMaterial3D_a05mo"),
+"material": ExtResource("1_smeww"),
 "name": "M_Apartment_Dirt",
 "primitive": 3,
 "uv_scale": Vector4(64.72583, 6.2343745, 0, 0),
@@ -325,7 +317,7 @@ _surfaces = [{
 "index_count": 102,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AFAAVABYAFAAXABUAGAAZABoAGAAbABkAEAARABIAEAATABEAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALQAsAC8ALwAsADAALQAvADEAMgAzADQAMwAyADUANQAyADYAMwA1ADcAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0A"),
 "lods": [0.8232748, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA")],
-"material": SubResource("StandardMaterial3D_a05mo"),
+"material": ExtResource("1_smeww"),
 "name": "M_Apartment_Dirt",
 "primitive": 3,
 "uv_scale": Vector4(64.72583, 3.8326502, 0, 0),

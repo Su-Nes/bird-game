@@ -4,7 +4,7 @@ extends Node
 # Stamina gain
 var MAX_BASE_STAMINA : float = 100
 var stamina_max_limit : float
-var STAMINA_REGEN : float = 10
+var STAMINA_REGEN : float = 11
 var regen_delay_timer : float
 var PENALTY_VALUE : float = 1
 var PENALTY_TIME : float = 1.5

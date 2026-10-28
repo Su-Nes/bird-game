@@ -12366,6 +12366,14 @@ metadata/asset_placer_res_id = "uid://b8eibrg38f2i3"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1046.0544, -422.00516, 304.85785)
 collision_mask = 3
 
+[node name="AreaLight3D" type="AreaLight3D" parent="---Zones/TownVolcano/Lava" unique_id=1633984564]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1061.0558, 281.04193, -310.06723)
+light_color = Color(0.9059704, 0.5170525, 0.017034568, 1)
+light_energy = 16.0
+area_range = 171.545
+area_attenuation = 0.0
+area_size = Vector2(3.025, 3.025)
+
 [node name="Sword" parent="---Zones/TownVolcano" unique_id=1542541612 instance=ExtResource("43_0wvge")]
 transform = Transform3D(-5.9604645e-08, -0.5763928, 0.81717277, -1, 0, -8.686834e-08, 2.9802322e-08, -0.8171728, -0.5763928, -13.956396, -53.014984, 4.8742266)
 

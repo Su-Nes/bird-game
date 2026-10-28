@@ -1,20 +1,12 @@
 [gd_scene format=4 uid="uid://bosrmq6auk1el"]
 
-[ext_resource type="Texture2D" uid="uid://cvucwa85pgg0i" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Apartment_Damage.jpg" id="1_cijdv"]
+[ext_resource type="Material" uid="uid://1rroguwdws8n" path="res://World/Objects/Buildings/SovietPSXCity/ApartmentWallMat.tres" id="1_cijdv"]
 [ext_resource type="Texture2D" uid="uid://bxb5r0ccgxiox" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_RoofTile.png" id="2_xd3r6"]
 [ext_resource type="Texture2D" uid="uid://cjsjoio3quv67" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_ElectricalBox.png" id="3_2gv8v"]
 [ext_resource type="Texture2D" uid="uid://bta3wgvbx1fmx" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Wall_Rooftop.png" id="4_5rjmd"]
 [ext_resource type="Texture2D" uid="uid://ceqia32ded4q7" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_AC.png" id="5_pubdq"]
 [ext_resource type="Texture2D" uid="uid://ccpkof30j7ctc" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_Metal.png" id="6_tmyys"]
 [ext_resource type="Texture2D" uid="uid://cbllq7gq0veno" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_TV_Dish.png" id="7_f3oap"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kw0vy"]
-resource_name = "M_Apartment_damage"
-cull_mode = 2
-albedo_texture = ExtResource("1_cijdv")
-roughness = 0.5
-texture_filter = 2
-metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlodc"]
 resource_name = "M_Rooftile"
@@ -152,7 +144,7 @@ _surfaces = [{
 "index_count": 90,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJQAkACcAJwAkACgAJQAnACkAKgArACwAKgAtACsALgAvADAALgAxAC8AMgAzADQAMgA1ADMANgA3ADgANgA5ADcA"),
 "lods": [0.81317174, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A")],
-"material": SubResource("StandardMaterial3D_kw0vy"),
+"material": ExtResource("1_cijdv"),
 "name": "M_Apartment_damage",
 "primitive": 3,
 "uv_scale": Vector4(10.337568, 2.237074, 0, 0),

@@ -10,6 +10,7 @@ signal clear_items
 signal win
 
 var build_controller : BuildController
+var time_controller : TimeController
 
 func empty_func():
 	player_change_state.is_null()

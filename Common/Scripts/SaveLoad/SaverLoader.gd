@@ -37,7 +37,9 @@ func save_game():
 		saved_game.player_position = Vector3(523.871, 265.411, -87.083)
 	
 	saved_game.game_complete = game_complete
+	saved_game.time_deg = Signals.time_controller.LIGHT_HOLDER.rotation_degrees.x
 	
+	# save all persistant objects
 	var saved_data : Array[SavedData]
 	
 	get_tree().call_group("Persistent", "on_save_data", saved_data)
@@ -64,6 +66,7 @@ func load_game():
 			new_scene.on_loaded(data)
 			
 	load_player(saved_game)
+	load_time(saved_game)
 			
 func load_player(save: SavedGame):
 	StatController.stamina_max_limit = save.player_max_stamina
@@ -74,6 +77,9 @@ func load_player(save: SavedGame):
 	
 	player.velocity = Vector3.ZERO
 	Signals.player_change_state.emit("HoverState")
+	
+func load_time(save: SavedGame):
+	Signals.time_controller.on_loaded(save)
 	
 func activate_crown(state: bool):
 	var player_func : PlayerExtensionFunctions = get_tree().get_first_node_in_group("Player")
