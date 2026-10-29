@@ -5,6 +5,7 @@ class_name AreaSpawner
 @export var SPAWN_AREA : CollisionShape3D
 var spawn_box : BoxShape3D
 @export var SPAWNABLE : Array[PackedScene]
+@export var SPAWNABLE_NIGHT : Array[PackedScene]
 @export var OBJECT_HOLDER : Node3D
 @export var SPAWN_TIME : Vector2
 @export var SPAWN_GROUP : Vector2
@@ -50,7 +51,14 @@ func spawn_nodes():
 		
 		var rand_pos = Vector3(randf_range(-spawn_box.size.x, spawn_box.size.x), randf_range(-spawn_box.size.x, spawn_box.size.y), randf_range(-spawn_box.size.x, spawn_box.size.z))
 
-		var new_node : Node3D = SPAWNABLE[randi() % SPAWNABLE.size()].instantiate()
+		var new_node : Node3D 
+		if !Signals.time_controller.is_night:
+			new_node = SPAWNABLE[randi() % SPAWNABLE.size()].instantiate()
+		elif SPAWNABLE_NIGHT.size() > 0:
+			new_node = SPAWNABLE_NIGHT[randi() % SPAWNABLE.size()].instantiate()
+		else:
+			new_node = SPAWNABLE[randi() % SPAWNABLE.size()].instantiate()
+			
 		OBJECT_HOLDER.add_child(new_node)
 		new_node.global_position = SPAWN_AREA.global_position + rand_pos
 		

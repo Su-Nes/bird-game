@@ -1,20 +1,23 @@
 [gd_scene format=3 uid="uid://djduaq5dcrf5n"]
 
 [ext_resource type="Script" uid="uid://bvkeke4dy4a43" path="res://Common/Scripts/Entity/AreaSpawner.gd" id="1_e2v7o"]
+[ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="2_e2v7o"]
+[ext_resource type="PackedScene" uid="uid://ljafriy4scd6" path="res://Entities/Pickups/Edibles/Bugs/FireFly/Firefly.tscn" id="3_tr0p4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
 size = Vector3(10, 1, 10)
 
-[node name="BugSpawner" type="Marker3D" unique_id=1818136732 node_paths=PackedStringArray("SPAWN_AREA", "OBJECT_HOLDER")]
+[node name="BugSpawner" type="Marker3D" unique_id=1818136732]
 gizmo_extents = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=713874303 node_paths=PackedStringArray("SPAWN_AREA", "OBJECT_HOLDER")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+shape = SubResource("BoxShape3D_qkran")
 script = ExtResource("1_e2v7o")
-SPAWN_AREA = NodePath("CollisionShape3D")
-SPAWNABLE = Array[PackedScene]([null])
-OBJECT_HOLDER = NodePath(".")
+SPAWN_AREA = NodePath(".")
+SPAWNABLE = Array[PackedScene]([ExtResource("2_e2v7o")])
+SPAWNABLE_NIGHT = Array[PackedScene]([ExtResource("3_tr0p4")])
+OBJECT_HOLDER = NodePath("..")
 SPAWN_TIME = Vector2(10, 40)
 SPAWN_GROUP = Vector2(2, 5)
 MAX_SPAWNED = 10
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=713874303]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-shape = SubResource("BoxShape3D_qkran")

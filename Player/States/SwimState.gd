@@ -16,6 +16,7 @@ class_name SwimState
 @export var SWIM_INERTIA : float = 10
 @export var CAMERA_MOVEMENT : CameraMovement
 @export var CAMERA_FOLLOW_STRENGTH = .05
+@export var NIGHT_HEAL_SPEED : float = 2
 
 var direction
 var flight_timer
@@ -26,8 +27,16 @@ func enter():
 	state_machine.ANIMATOR.play("Walk")
 	
 	SfxPlayer.play_clip(SPLASH_SOUND)
+	
 
 func update(delta: float):
+	if Signals.time_controller.is_night:
+		if !$"../../Audio/HealLoop".playing:
+			$"../../Audio/HealLoop".play()
+		StatController.regain_max_stamina(NIGHT_HEAL_SPEED * delta)
+	else:
+		$"../../Audio/HealLoop".stop()
+	
 	if player_controller.velocity.length() > MAX_VELOCITY:
 		player_controller.velocity = player_controller.velocity.normalized() * MAX_VELOCITY
 	
@@ -53,4 +62,9 @@ func handle_velocity(delta):
 	var look_at_flat = player_controller.velocity
 	look_at_flat.y = 0
 	extension_functions.handle_model_transform(look_at_flat, Vector3.UP, .05)
+	
+func exit():
+	await get_tree().create_timer(1).timeout
+	if state_machine.current_state.name.to_lower() != "swimstate":
+		$"../../Audio/HealLoop".stop()
 	

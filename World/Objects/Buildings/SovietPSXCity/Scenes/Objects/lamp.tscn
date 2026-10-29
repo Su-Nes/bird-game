@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://eikmhhxyx5v8"]
 
-[ext_resource type="Script" uid="uid://ccbpj5w5fgcle" path="res://World/Objects/Buildings/SovietPSXCity/Scenes/Objects/EnableLightOnSignal.gd" id="1_tbbr3"]
+[ext_resource type="Script" uid="uid://ccbpj5w5fgcle" path="res://World/Objects/Buildings/SovietPSXCity/Scenes/Objects/ShowDuringNight.gd" id="1_tbbr3"]
 [ext_resource type="Texture2D" uid="uid://wyl2ofpdw2g6" path="res://World/Objects/Buildings/SovietPSXCity/Soviet PSX City Pack.blend1_T_StreetLamp.png" id="1_w4qfh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5m26g"]

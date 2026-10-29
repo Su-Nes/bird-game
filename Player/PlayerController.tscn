@@ -40,6 +40,7 @@
 [ext_resource type="Script" uid="uid://dakctn6vdoqtv" path="res://Player/Scripting/SpeedSFX.gd" id="32_boddd"]
 [ext_resource type="AudioStream" uid="uid://dt1bxsua66d8j" path="res://World/Ambience/wind-light-calm-soft-breeze-deep-big-gusty.wav" id="32_n68f6"]
 [ext_resource type="AudioStream" uid="uid://2v2q42glksnu" path="res://Player/Audio/StrongWindLoop.wav" id="34_1c4sq"]
+[ext_resource type="AudioStream" uid="uid://cimrhcrg874i3" path="res://Player/Audio/HealLoop.wav" id="34_o4uld"]
 [ext_resource type="AudioStream" uid="uid://bdleds4kvnnmg" path="res://Player/Audio/WingFlap_Crunchy_2.wav" id="35_1c4sq"]
 [ext_resource type="Texture2D" uid="uid://bjy5kvn6k5b8h" path="res://Common/UI/Border/panel-border-000_24.png" id="35_vui7j"]
 [ext_resource type="AudioStream" uid="uid://dx4q2vt7tni0p" path="res://Player/Audio/Footstep_Crunchy_1.wav" id="36_d6s72"]
@@ -1449,6 +1450,12 @@ debug_fill = false
 stream = ExtResource("32_n68f6")
 attenuation_model = 3
 autoplay = true
+panning_strength = 0.0
+
+[node name="HealLoop" type="AudioStreamPlayer3D" parent="Audio" unique_id=1113333484]
+stream = ExtResource("34_o4uld")
+attenuation_model = 3
+volume_db = -15.0
 panning_strength = 0.0
 
 [node name="SpeedWind" type="AudioStreamPlayer3D" parent="Audio" unique_id=317451995]

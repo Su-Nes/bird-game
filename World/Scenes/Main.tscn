@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://d0h7ggfdl5k44" path="res://World/Scenes/TimeController.gd" id="2_0ue4v"]
 [ext_resource type="Environment" uid="uid://0l888a5e54jf" path="res://World/Scenes/EnvironmentCycle.tres" id="2_ber85"]
 [ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="4_7pm5o"]
-[ext_resource type="Material" uid="uid://1rroguwdws8n" path="res://World/Objects/Buildings/SovietPSXCity/ApartmentWallMat.tres" id="4_yv70t"]
 [ext_resource type="PackedScene" uid="uid://rbf3r26b40pt" path="res://World/Terrain/World.tscn" id="5_7pm5o"]
 [ext_resource type="PackedScene" uid="uid://jquro10032sp" path="res://Player/Scripting/UI/Menus/WinScreen.tscn" id="6_ber85"]
 
@@ -19,12 +18,11 @@ script = ExtResource("1_7pm5o")
 
 [node name="Environment" type="Node" parent="." unique_id=163002060 node_paths=PackedStringArray("LIGHT_HOLDER", "SUN", "MOON")]
 script = ExtResource("2_0ue4v")
-TIME_SPEED = 0.2
+TIME_SPEED = 0.1
 LIGHT_HOLDER = NodePath("Light")
 SUN = NodePath("Light/Sun")
 MOON = NodePath("Light/Moon")
 ENVIRONMENT = ExtResource("2_ber85")
-BUILDING_MATERIAL = ExtResource("4_yv70t")
 DAY_HORIZON = Color(1.1155957, 1.0780554, 0.7938207, 1)
 NIGHT_HORIZON = Color(0.012617188, 0.011627772, 0.005830113, 1)
 

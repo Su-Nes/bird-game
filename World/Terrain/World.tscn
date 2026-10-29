@@ -3,10 +3,8 @@
 [ext_resource type="Terrain3DAssets" uid="uid://ronu5hq0rd3t" path="res://World/Terrain/new_terrain_3d_assets.res" id="1_jocfy"]
 [ext_resource type="Material" uid="uid://brh64my442it4" path="res://Materials/EA_Water_64.tres" id="3_8ltlb"]
 [ext_resource type="PackedScene" uid="uid://ctd6yevovrnl1" path="res://World/Objects/Trees/Scenes/PineTree1.tscn" id="4_jjvf7"]
-[ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="5_f4bsu"]
 [ext_resource type="PackedScene" uid="uid://dipqgg0d0k4h3" path="res://Entities/Spawners/BerryBush/BerryBush.tscn" id="5_lrfnj"]
 [ext_resource type="PackedScene" uid="uid://bgh5pndnen6fm" path="res://World/Objects/Water/Lake.tscn" id="5_ph8fn"]
-[ext_resource type="PackedScene" uid="uid://ciwdfugksg6gx" path="res://Entities/Pickups/Edibles/Berry/Berry.tscn" id="5_xc2tr"]
 [ext_resource type="PackedScene" uid="uid://gdjylqfpd733" path="res://Entities/Pickups/Placeables/Decorations/Flowers/Rose.tscn" id="7_h1wen"]
 [ext_resource type="Shader" uid="uid://cpnyel6dxqphc" path="res://World/Shaders/LeavesFalling.gdshader" id="8_t84eb"]
 [ext_resource type="PackedScene" uid="uid://l3uqhubwsy3t" path="res://Entities/Pickups/Placeables/Decorations/PrettyRock.tscn" id="9_7iqxj"]
@@ -176,6 +174,12 @@ shader_parameter/wind_speed_min = -5.0
 shader_parameter/wind_speed_max = 40.0
 shader_parameter/wind_change = Vector2(0.123, 0.456)
 shader_parameter/vortex_force = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pna3i"]
+emission_shape_scale = Vector3(0, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(125, 50, 50)
+gravity = Vector3(0, 5, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxpqk"]
 resource_name = "M_Sidewalk"
@@ -484,12 +488,24 @@ size = Vector2(60, 60)
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4vpn"]
 size = Vector3(55.61621, 50, 59.904785)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v0fo6"]
+emission_shape_scale = Vector3(0, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(20, 20, 20)
+gravity = Vector3(0, 5, 0)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_tmqdb"]
 material = ExtResource("3_8ltlb")
 size = Vector2(1800, 1300)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxmka"]
 size = Vector3(1800, 50, 1300)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tscnu"]
+emission_shape_scale = Vector3(0, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(125, 800, 500)
+gravity = Vector3(0, 5, 0)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jfkkv"]
 _surfaces = [{
@@ -821,22 +837,18 @@ metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
 [node name="BugSpawner" parent="Bushes" unique_id=1818136732 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, -1.4776085e-09, -1.880369e-17, 1.4776085e-09, 1, 2.6187579e-09, 1.4934192e-17, -2.6187579e-09, 1, -1192.7196, 6.748103e-10, 149.67001)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_xc2tr")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (1)" parent="Bushes" unique_id=2132919151 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, -3.211403e-08, 2.2098882e-15, 3.211403e-08, 1, -4.568244e-08, -7.428408e-16, 4.568244e-08, 1, -1094.9266, 4.076511e-06, 149.9899)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_xc2tr")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (2)" parent="Bushes" unique_id=2084933497 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 7.8365974e-16, 0, 1, 0, -7.8365974e-16, 0, 1, -1383.0715, 0, 204.17726)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_xc2tr")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (3)" parent="Bushes" unique_id=619556547 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -400.11798, 58.32707, -252.75188)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_xc2tr")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BerryBush (40)" parent="Bushes" unique_id=1982589913 instance=ExtResource("5_lrfnj")]
@@ -1139,262 +1151,210 @@ metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
 [node name="BugSpawner" parent="Bugs" unique_id=1213267788 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.34422, 52.174644, 169.96756)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (1)" parent="Bugs" unique_id=635307031 instance=ExtResource("10_vu1al")]
 transform = Transform3D(0.86472344, 0.49580038, -0.080221266, -0.50209063, 0.84935, -0.16281785, -0.012589217, 0.18107073, 0.98338956, 289.72937, 20.801655, 93.91841)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (2)" parent="Bugs" unique_id=667314994 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 1.7184753e-06, -1.0147856e-09, 0.9999998, 0.00059051503, -1.7184751e-06, -0.00059051503, 0.9999998, 797.9549, 150.00002, 259.1458)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (3)" parent="Bugs" unique_id=1298725716 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 1.5258789e-05, -0.00017119583, -1.5260879e-05, 1, -1.2204419e-05, 0.00017119564, 1.2207031e-05, 1, 825.31573, 150.00017, 308.7166)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (4)" parent="Bugs" unique_id=1098031495 instance=ExtResource("10_vu1al")]
 transform = Transform3D(0.99826187, 0, -0.058934018, 0, 1, 0, 0.058934018, 0, 0.99826187, 660.67346, 150.00002, 185.83829)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (5)" parent="Bugs" unique_id=1636294103 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, -0.00024397933, 0, 1, 0, 0.00024397933, 0, 1, 761.2297, 150.00002, -38.836727)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (6)" parent="Bugs" unique_id=597401796 instance=ExtResource("10_vu1al")]
 transform = Transform3D(0.9999594, 0.009012732, -0.00027772298, -0.009014608, 0.99992955, -0.0077227913, 0.00020809998, 0.0077249804, 0.9999702, 964.7162, 149.94572, -107.21353)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (7)" parent="Bugs" unique_id=1033219763 instance=ExtResource("10_vu1al")]
 transform = Transform3D(-0.35923797, 0.06986252, 0.9306279, 0.07613703, 0.9960643, -0.04538469, -0.93013555, 0.05455131, -0.36314303, 485.15762, 249.98907, -93.33891)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (8)" parent="Bugs" unique_id=1634182828 instance=ExtResource("10_vu1al")]
 transform = Transform3D(0.1737223, -0.09794886, 0.97991234, -0.10432148, 0.9876131, 0.11721309, -0.9792545, -0.122588344, 0.16135216, -24.405838, 17.965382, 514.2931)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (9)" parent="Bugs" unique_id=151287116 instance=ExtResource("10_vu1al")]
 transform = Transform3D(0.09929597, 0.13068384, 0.98644, -0.20375267, 0.9730043, -0.10839395, -0.97397494, -0.19022654, 0.1232425, 452.87238, 8.009362, 713.08765)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (10)" parent="Bugs" unique_id=2075127990 instance=ExtResource("10_vu1al")]
 transform = Transform3D(0.11971228, -0.028458681, 0.9924022, -0.01245985, 0.9994686, 0.030164342, -0.9927323, -0.015976207, 0.11929396, 414.66788, 1.1864953, 518.8985)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (11)" parent="Bugs" unique_id=232143858 instance=ExtResource("10_vu1al")]
 transform = Transform3D(0.18395036, 0.08799396, 0.9789902, 0.07644066, 0.99168926, -0.10349843, -0.9799601, 0.09387313, 0.17569506, 475.47968, 43.22396, 929.4507)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (12)" parent="Bugs" unique_id=1177635759 instance=ExtResource("10_vu1al")]
 transform = Transform3D(-0.5269975, -0.005431958, 0.8498506, 0.0022070853, 0.99996793, 0.0077600842, -0.8498651, 0.0059652347, -0.52696836, 683.1183, 99.92358, 912.0202)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (13)" parent="Bugs" unique_id=1301038115 instance=ExtResource("10_vu1al")]
 transform = Transform3D(-0.5268893, 0.029669382, 0.8494171, 0.005701864, 0.99949193, -0.03137453, -0.8499159, -0.011687638, -0.52679056, 731.4968, 99.85969, 884.8363)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (15)" parent="Bugs" unique_id=1737789637 instance=ExtResource("10_vu1al")]
 transform = Transform3D(-0.5116597, -0.0011843375, 0.85918856, 0.024546525, 0.9995713, 0.01599567, -0.8588386, 0.029274413, -0.51141095, 715.51544, 99.855576, 953.9134)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (17)" parent="Bugs" unique_id=1089193147 instance=ExtResource("10_vu1al")]
 transform = Transform3D(0.99137795, 0.109073825, -0.072618775, -0.09360467, 0.97730386, 0.19004281, 0.09169931, -0.18160677, 0.9790872, 846.7356, 9.841861, 634.98883)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (18)" parent="Bugs" unique_id=756960112 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -372.30307, 0.00011083158, -236.75302)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (19)" parent="Bugs" unique_id=964333110 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -386.0224, 7.524377e-06, -111.79739)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (20)" parent="Bugs" unique_id=1685099138 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -429.16013, 0.0003749685, -203.79138)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (21)" parent="Bugs" unique_id=674394723 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -340.84436, 9.4735415e-06, -288.43802)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (22)" parent="Bugs" unique_id=2055284598 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -365.33734, 0.0009942274, -342.73547)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (23)" parent="Bugs" unique_id=1561563570 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -298.7753, 0.00088098506, -380.55798)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (24)" parent="Bugs" unique_id=1350886004 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -298.7868, 0.00096149155, -381.00476)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (25)" parent="Bugs" unique_id=538895910 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -279.86472, 7.483063e-06, -466.93286)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (26)" parent="Bugs" unique_id=2016944289 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.66293, 99.801025, -753.81696)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner2" parent="Bugs" unique_id=1390342484 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -543.6444, 7.1882734, 404.20715)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (2)2" parent="Bugs" unique_id=726511161 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.49594, 18.273174, 483.92303)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (3)2" parent="Bugs" unique_id=753434363 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -326.93683, 26.133047, 519.3429)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (4)2" parent="Bugs" unique_id=2085657000 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -734.41376, 7.4376776e-06, 401.5215)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (5)2" parent="Bugs" unique_id=636993218 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -445.48016, 99.99917, 27.114132)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (8)2" parent="Bugs" unique_id=1390897953 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -578.81964, 119.821396, -94.06485)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (9)2" parent="Bugs" unique_id=1820561456 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -190.34692, 100.000275, -869.26135)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (10)2" parent="Bugs" unique_id=1437714881 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -339.46396, -0.024862926, -1517.5474)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (11)2" parent="Bugs" unique_id=1570463694 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -317.19647, -0.05938307, -1509.9423)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (12)2" parent="Bugs" unique_id=1945416702 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -187.00333, -1.0400974, -1661.2067)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (40)" parent="Bugs" unique_id=2057835841 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 621.7645, 2.1042975e-05, -735.4748)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (41)" parent="Bugs" unique_id=1692059635 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 830.48096, -24.716475, -754.5974)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (42)" parent="Bugs" unique_id=749532992 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 882.6712, -54.091305, -969.5617)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (43)" parent="Bugs" unique_id=765023112 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 923.06464, -37.67885, -1001.1342)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (44)" parent="Bugs" unique_id=147120955 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 940.8326, -55.27366, -897.44385)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (45)" parent="Bugs" unique_id=650868447 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 814.89813, -52.425, -999.43445)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (46)" parent="Bugs" unique_id=1676092506 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 756.36456, -19.68806, -1068.7006)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (47)" parent="Bugs" unique_id=399996521 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 749.0576, -1.1283488, -1312.9205)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner3" parent="Bugs" unique_id=2139635514 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.9762, 29.489866, 355.78812)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (1)3" parent="Bugs" unique_id=2068268556 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.44358, 29.402397, 363.86658)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (2)3" parent="Bugs" unique_id=1601204036 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.054688, 29.426085, 369.34442)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (48)" parent="Bugs" unique_id=315851653 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -971.55035, 100.0009, -2006.9651)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (49)" parent="Bugs" unique_id=1989237469 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -921.18286, 100.07307, -1918.1475)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (50)" parent="Bugs" unique_id=1195481241 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1133.5615, 100.00002, -1965.5941)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner4" parent="Bugs" unique_id=281716030 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1639.9719, 130.89127, -1713.2279)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (1)2" parent="Bugs" unique_id=688886424 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1674.064, 132.79892, -1681.2263)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (2)4" parent="Bugs" unique_id=730187611 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1701.6862, 129.9687, -1728.705)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="Flowers" type="Node3D" parent="." unique_id=611967210]
@@ -6482,6 +6442,10 @@ SPAWN_RATE = Vector2(10, 15)
 SPAWN_GROUP = Vector2(5, 15)
 MAX_FISH = 20.0
 
+[node name="GPUParticles3D" parent="---Zones/Oasis/Lake" index="2" unique_id=1731499397]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 0.99999994, 1.8049774, 0, 7.240692)
+process_material = SubResource("ParticleProcessMaterial_pna3i")
+
 [node name="Beach" type="Node3D" parent="---Zones" unique_id=1221045170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -468.65817, 0, 1190.1797)
 
@@ -9238,22 +9202,18 @@ metadata/asset_placer_res_id = "uid://b8eibrg38f2i3"
 
 [node name="BugSpawner" parent="---Zones/Beach/IndustrialZone" unique_id=35719707 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 576.063, 1.1464005, 549.89014)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (1)" parent="---Zones/Beach/IndustrialZone" unique_id=97614417 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 575.04297, 1.1464005, 582.38916)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (2)" parent="---Zones/Beach/IndustrialZone" unique_id=1282303676 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 602.2759, 1.1464005, 572.0376)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (3)" parent="---Zones/Beach/IndustrialZone" unique_id=382383949 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 508.62866, 1.1111517, 525.6617)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="PrettyRock" parent="---Zones/Beach/IndustrialZone" unique_id=1335518858 instance=ExtResource("9_7iqxj")]
@@ -11737,6 +11697,10 @@ mesh = SubResource("PlaneMesh_q4vpn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1918945, -25, -0.047607422)
 shape = SubResource("BoxShape3D_q4vpn")
 
+[node name="GPUParticles3D" parent="---Zones/UpperTown/Lake" index="2" unique_id=1731499397]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_v0fo6")
+
 [node name="Bench" parent="---Zones/UpperTown" unique_id=1569610492 instance=ExtResource("19_qipxa")]
 transform = Transform3D(0.65053695, -0.2098802, 0.72989863, 0.29630384, 0.9550355, 0.010530939, -0.6992894, 0.20942095, 0.6834744, -67.94757, -3.1013336, 36.738434)
 metadata/asset_placer_res_id = "uid://b8eibrg38f2i3"
@@ -11815,42 +11779,34 @@ metadata/asset_placer_res_id = "uid://dipqgg0d0k4h3"
 
 [node name="BugSpawner" parent="---Zones/UpperTown" unique_id=529403184 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.300049, -2.247879, 25.862244)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (1)" parent="---Zones/UpperTown" unique_id=1326303763 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.35449, -1.7419586, 21.272247)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (2)" parent="---Zones/UpperTown" unique_id=315750815 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.11316, -2.2038116, 78.693054)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (3)" parent="---Zones/UpperTown" unique_id=694781961 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.620605, -2.1175232, 16.431335)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (4)" parent="---Zones/UpperTown" unique_id=85051429 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.352905, -2.3001862, -99.959015)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (5)" parent="---Zones/UpperTown" unique_id=73460449 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.75482, -2.331665, -56.206787)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (6)" parent="---Zones/UpperTown" unique_id=1011114108 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.8338, -4.589691, -110.32834)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (7)" parent="---Zones/UpperTown" unique_id=1976487858 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.9151, -4.627121, -110.27841)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="LakeIsland" type="Node3D" parent="---Zones" unique_id=553029564]
@@ -11871,6 +11827,11 @@ mesh = SubResource("PlaneMesh_tmqdb")
 transform = Transform3D(0.91414523, 0, -0.40538684, 0, 1, 0, 0.40538684, 0, 0.91414523, -1.6401062, -24.811966, 21.006226)
 shape = SubResource("BoxShape3D_qxmka")
 debug_color = Color(0.91951925, 6.266624e-05, 0.69636506, 1)
+
+[node name="GPUParticles3D" parent="---Zones/LakeIsland/Lake" index="2" unique_id=1731499397]
+transform = Transform3D(-3.7821778e-08, -0.8652613, -0.50132096, 1, -4.3711385e-08, 1.0435179e-15, -2.1913435e-08, -0.50132096, 0.8652613, 69.6759, 0, -64.053955)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_tscnu")
 
 [node name="FishSpawns" type="Node3D" parent="---Zones/LakeIsland/Lake" unique_id=1619661622]
 
@@ -12175,17 +12136,14 @@ metadata/asset_placer_res_id = "uid://bnqqeqo01t5lo"
 
 [node name="BugSpawner (8)" parent="---Zones/LakeIsland" unique_id=1092448148 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.407074, -64.61734, -55.64331)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (9)" parent="---Zones/LakeIsland" unique_id=1944807504 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.25461, -45.398712, -26.192139)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="BugSpawner (10)" parent="---Zones/LakeIsland" unique_id=2140019079 instance=ExtResource("10_vu1al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.96118, -87.08385, 93.55371)
-SPAWNABLE = Array[PackedScene]([ExtResource("5_f4bsu")])
 metadata/asset_placer_res_id = "uid://djduaq5dcrf5n"
 
 [node name="CampFire" parent="---Zones/LakeIsland" unique_id=87597627 instance=ExtResource("41_bfsat")]
@@ -13702,6 +13660,7 @@ debug_fill = false
 
 [connection signal="body_exited" from="PlayerConfine" to="PlayerConfine" method="on_exit_confine"]
 
+[editable path="---Zones/Oasis/Lake"]
 [editable path="---Zones/Beach/Lake"]
 [editable path="---Zones/Beach/Beach"]
 [editable path="---Zones/UpperTown/Lake"]

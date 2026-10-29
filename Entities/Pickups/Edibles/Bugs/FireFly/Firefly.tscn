@@ -1,0 +1,129 @@
+[gd_scene format=4 uid="uid://ljafriy4scd6"]
+
+[ext_resource type="Script" uid="uid://exoyfvb4frkp" path="res://Entities/Pickups/Edibles/Berry/Edible.gd" id="1_tfawn"]
+[ext_resource type="Script" uid="uid://dm2dd5qgbqoj2" path="res://Common/Scripts/StateMachine/StateMachine.gd" id="2_c3pks"]
+[ext_resource type="Script" uid="uid://cysb1w7wv3ier" path="res://Entities/Pickups/Edibles/Bugs/FireFly/FireflyFly.gd" id="3_16ajk"]
+[ext_resource type="Script" uid="uid://d1q361ejpf3xw" path="res://Entities/Pickups/Edibles/Bugs/FireFly/FireflyGrabbed.gd" id="4_5jjom"]
+[ext_resource type="Material" uid="uid://dm6msat12a3lp" path="res://Entities/Pickups/Edibles/Bugs/Bug1.tres" id="5_dtlmv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jfedg"]
+margin = 0.1
+size = Vector3(0.36108398, 0.20605469, 0.31445313)
+
+[sub_resource type="Animation" id="Animation_f7h2h"]
+resource_name = "Blink"
+length = 0.8666667
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/Bug:mesh:surface_0/material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(11.79, -0.25, 0, 0.25, 0, 0, -0.07222223, 1.965, 0, 0, 11.79, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.43333337, 0.8666667)
+}
+
+[sub_resource type="Animation" id="Animation_16ajk"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/Bug:mesh:surface_0/material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5jjom"]
+_data = {
+&"Blink": SubResource("Animation_f7h2h"),
+&"RESET": SubResource("Animation_16ajk")
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bqm18"]
+_surfaces = [{
+"aabb": AABB(-1, -0.16197643, -1.1718214, 2, 0.38910443, 2.1718214),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("DAABAAIADAAAAAEABAAAAAwABAAFAAAABgAEAAwADQAMAAIABgAMAA0ADQACAAMABwAGAA0ADgANAAMABwANAA4ACAAHAA4ADgADAAoACAAOAAkACQAOAAoACQAKAAsA"),
+"lods": [0.45110035, PackedByteArray("AAABAAIAAwAAAAIABAAFAAAABgAEAAAABgAAAAMABwAGAAMACAAHAAMACAADAAkACQADAAoACQAKAAsA")],
+"name": "Bug",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("/39D/wAAAAAL7kP/AAAAAP//RjR8LwAA//9GNAhgAAAAAEY0fC8AAPMRQ/8AAAAAAABGNAhgAAAAAEY0A7AAAAAAAAAn4gAA/386dP//AAD//0Y0A7AAAP//AAAn4gAAgIHFujwqAAD/f///CGAAAP9/7OWLtAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w4y42"]
+resource_name = "Bug_Plane"
+_surfaces = [{
+"aabb": AABB(-1, -0.16197643, -1.1718214, 2, 0.38910443, 2.1718214),
+"attribute_data": PackedByteArray("/38AAP//AAD//5Id//9KUgAAkh0AAAAAAABKUgAAJKkAAJbf/3//////JKn//5bf/39WGv9/SlL/fySp"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("DAABAAIADAAAAAEABAAAAAwABAAFAAAABgAEAAwADQAMAAIABgAMAA0ADQACAAMABwAGAA0ADgANAAMABwANAA4ACAAHAA4ADgADAAoACAAOAAkACQAOAAoACQAKAAsA"),
+"lods": [0.45110035, PackedByteArray("AAABAAIAAwAAAAIABAAFAAAABgAEAAAABgAAAAMABwAGAAMACAAHAAMACAADAAkACQADAAoACQAKAAsA")],
+"material": ExtResource("5_dtlmv"),
+"name": "Bug",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("/39D/wAAU6wL7kP/AACurP//RjR8Lxy7//9GNAhgcsIAAEY0fC8zu/MRQ/8AAJGsAABGNAhgksIAAEY0A7CQuwAAAAAn4nS3/386dP//hrb//0Y0A7CQu///AAAn4nS3gIHFujwqELj/f///CGDWwf9/7OWLtKy64f8vgMHwfHvZ6R52LeU8cjX25pWJ+xSPRfKtmlvxfJzs8Tyc////f4HjW3HB4+xxa/++f+v/KYD///9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_bqm18")
+
+[node name="Firefly" type="CharacterBody3D" unique_id=1711860546 node_paths=PackedStringArray("STATE_MACHINE", "GRABBED_STATE", "MESH", "COLLIDER") groups=["Interactable"]]
+collision_layer = 8
+floor_constant_speed = true
+floor_snap_length = 0.05
+script = ExtResource("1_tfawn")
+STATE_MACHINE = NodePath("StateMachine")
+GRABBED_STATE = NodePath("")
+STAMINA_VALUE = 15.0
+ITEM_NAME = "bug"
+CONST_PATH = "Bug"
+MESH = NodePath("Mesh/Bug")
+COLLIDER = NodePath("CollisionShape3D")
+
+[node name="StateMachine" type="Node" parent="." unique_id=504063939 node_paths=PackedStringArray("initial_state", "ANIMATOR")]
+script = ExtResource("2_c3pks")
+initial_state = NodePath("FireflyFly")
+ANIMATOR = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
+
+[node name="FireflyFly" type="Node" parent="StateMachine" unique_id=341747382]
+script = ExtResource("3_16ajk")
+FLIGHT_SPEED_RANGE = Vector2(1, 5)
+metadata/_custom_type_script = "uid://cysb1w7wv3ier"
+
+[node name="FireflyGrabbed" type="Node" parent="StateMachine" unique_id=1982178194]
+script = ExtResource("4_5jjom")
+metadata/_custom_type_script = "uid://d1q361ejpf3xw"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=442753892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03444963, -0.0043273643)
+shape = SubResource("BoxShape3D_jfedg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=247050384]
+libraries/ = SubResource("AnimationLibrary_5jjom")
+
+[node name="Mesh" type="Node3D" parent="." unique_id=1813718030]
+transform = Transform3D(-6.556708e-09, 0, -0.14999999, 0, 0.14999999, 0, 0.14999999, 0, -6.556708e-09, 0, -0.010797783, 0)
+
+[node name="Bug" type="MeshInstance3D" parent="Mesh" unique_id=1159770989]
+transform = Transform3D(0.898458, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_w4y42")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1636611541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.052470163, 0)
+light_color = Color(0.56, 0.5264, 0.22399999, 1)
+distance_fade_enabled = true
+distance_fade_begin = 200.0
