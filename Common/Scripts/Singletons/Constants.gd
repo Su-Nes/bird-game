@@ -12,4 +12,5 @@ const SCENE_PATHS : Dictionary = {
 	"Fish" : "uid://vnib5g438mv",
 	"Berry" : "uid://ciwdfugksg6gx",
 	"Bug" : "uid://btfej8wypkufu",
+	"Firefly" : "uid://ljafriy4scd6"
 }

@@ -18,7 +18,7 @@ script = ExtResource("1_7pm5o")
 
 [node name="Environment" type="Node" parent="." unique_id=163002060 node_paths=PackedStringArray("LIGHT_HOLDER", "SUN", "MOON")]
 script = ExtResource("2_0ue4v")
-TIME_SPEED = 0.1
+TIME_SPEED = 0.01
 LIGHT_HOLDER = NodePath("Light")
 SUN = NodePath("Light/Sun")
 MOON = NodePath("Light/Moon")
