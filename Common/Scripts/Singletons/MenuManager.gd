@@ -63,8 +63,8 @@ func on_revive():
 	Signals.player_change_state.emit("HoverState")
 	
 	on_unpaused()
-	if FileAccess.file_exists("user://save.tres"):
-		SaverLoader.load_player(load("user://save.tres"))
+	if FileAccess.file_exists(Constants.SAVE_PATH):
+		SaverLoader.load_player(load(Constants.SAVE_PATH))
 	
 	Engine.time_scale = 1.0
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

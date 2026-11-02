@@ -1,21 +1,33 @@
-[gd_scene format=3 uid="uid://bbuuycsq7i3wg"]
+[gd_scene format=3 uid="uid://cctkwkw6eo3xp"]
 
-[ext_resource type="Environment" uid="uid://eirugfxkrhp6" path="res://World/Scenes/EnvironmentDay.tres" id="1_auryq"]
+[ext_resource type="Script" uid="uid://d0h7ggfdl5k44" path="res://World/Scenes/TimeController.gd" id="1_4ksjc"]
+[ext_resource type="Environment" uid="uid://0l888a5e54jf" path="res://World/Scenes/EnvironmentCycle.tres" id="2_1aipj"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kvd28"]
 
 [sub_resource type="Compositor" id="Compositor_35w67"]
 compositor_effects = Array[CompositorEffect]([null])
 
-[node name="Environment" type="Node" unique_id=163002060]
+[node name="Environment" type="Node" unique_id=1359825031 node_paths=PackedStringArray("LIGHT_HOLDER", "SUN", "MOON")]
+script = ExtResource("1_4ksjc")
+TIME_SPEED = 0.01
+LIGHT_HOLDER = NodePath("Light")
+SUN = NodePath("Light/Sun")
+MOON = NodePath("Light/Moon")
+ENVIRONMENT = ExtResource("2_1aipj")
+DAY_HORIZON = Color(1.1155957, 1.0780554, 0.7938207, 1)
+NIGHT_HORIZON = Color(0.012617188, 0.011627772, 0.005830113, 1)
 
-[node name="Light" type="Node3D" parent="." unique_id=1809537469]
-transform = Transform3D(-0.71079975, -0.70339483, 0, 0.5572926, -0.56315905, 0.6101453, -0.4291731, 0.43369088, 0.7922898, 0, 0, 0)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=385488734]
+environment = ExtResource("2_1aipj")
+camera_attributes = SubResource("CameraAttributesPractical_kvd28")
+compositor = SubResource("Compositor_35w67")
 
-[node name="Sun" type="DirectionalLight3D" parent="Light" unique_id=1451648926 groups=["Sun"]]
-transform = Transform3D(0.022198655, 0.9542499, 0.29818386, -0.2503806, 0.29405886, -0.9224091, -0.96789294, -0.054183252, 0.24545357, 0, 0, 0)
+[node name="Light" type="Node3D" parent="." unique_id=131257876]
+
+[node name="Sun" type="DirectionalLight3D" parent="Light" unique_id=264175171 groups=["Sun"]]
+transform = Transform3D(-0.27618256, -0.94305205, -0.1854066, -0.07233892, -0.17196584, 0.98244333, -0.958379, 0.28474587, -0.020725414, 0, 0, 0)
 light_color = Color(1, 0.953049, 0.78668225, 1)
-light_energy = 0.0
 shadow_enabled = true
 shadow_normal_bias = 10.0
 directional_shadow_mode = 0
@@ -25,19 +37,15 @@ directional_shadow_fade_start = 0.543
 directional_shadow_max_distance = 600.0
 directional_shadow_pancake_size = 3.5
 
-[node name="Moon" type="DirectionalLight3D" parent="Light" unique_id=1071667215]
-transform = Transform3D(0.022198657, -0.95425004, -0.29818386, -0.25038067, -0.29405895, 0.9224091, -0.96789294, 0.054183267, -0.24545357, 0, 0, 0)
+[node name="Moon" type="DirectionalLight3D" parent="Light" unique_id=2013296430]
+transform = Transform3D(-0.27618262, 0.9430522, 0.1854064, -0.072338834, 0.17196554, -0.98244333, -0.9583789, -0.28474587, 0.020725405, 0, 0, 0)
 light_color = Color(0.8039216, 0.8980392, 0.91764706, 1)
 light_energy = 0.1
 shadow_enabled = true
 shadow_normal_bias = 10.0
-shadow_opacity = 0.4
+shadow_opacity = 0.2
+shadow_blur = 5.0
 directional_shadow_mode = 0
 directional_shadow_fade_start = 0.543
 directional_shadow_max_distance = 600.0
 directional_shadow_pancake_size = 3.5
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1703432688]
-environment = ExtResource("1_auryq")
-camera_attributes = SubResource("CameraAttributesPractical_kvd28")
-compositor = SubResource("Compositor_35w67")

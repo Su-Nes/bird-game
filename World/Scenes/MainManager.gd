@@ -4,7 +4,7 @@ class_name MainManager
 
 
 func _ready() -> void:
-	if FileAccess.file_exists("user://save.tres"):
+	if FileAccess.file_exists(Constants.SAVE_PATH):
 		SaverLoader.load_game()
 	else:
 		SaverLoader.save_game()

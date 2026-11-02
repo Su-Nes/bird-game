@@ -48,7 +48,7 @@ func _ready() -> void:
 		LEAVE_TUTORIAL_BUTTON.hide()
 
 func _on_start_game_pressed() -> void:
-	if FileAccess.file_exists("user://save.tres"):
+	if FileAccess.file_exists(Constants.SAVE_PATH):
 		SceneLoader.load_scene(MAIN_SCENE)
 	else:
 		SceneLoader.load_scene(TUTORIAL_SCENE)

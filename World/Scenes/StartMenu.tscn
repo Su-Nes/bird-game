@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4k6vyxj4k8ij"]
 
-[ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="1_c4fdm"]
+[ext_resource type="PackedScene" uid="uid://cctkwkw6eo3xp" path="res://World/Scenes/Environment.tscn" id="1_c4fdm"]
 [ext_resource type="Shader" uid="uid://cr4upde56h0ra" path="res://Common/Scripts/Shaders/LensFlare.gdshader" id="4_ek445"]
 [ext_resource type="AudioStream" uid="uid://dt1bxsua66d8j" path="res://World/Ambience/wind-light-calm-soft-breeze-deep-big-gusty.wav" id="4_s8ns8"]
 [ext_resource type="Script" uid="uid://h8iodtllfo1" path="res://Common/Scripts/Shaders/PassSunToLensFlare.gd" id="5_8gjfs"]
@@ -37,7 +37,8 @@ outline_color = Color(0.4305673, 0.6045085, 0.629604, 1)
 
 [node name="StartMenu" type="Node3D" unique_id=72681683]
 
-[node name="Environment" parent="." unique_id=163002060 instance=ExtResource("1_c4fdm")]
+[node name="Environment" parent="." unique_id=1359825031 instance=ExtResource("1_c4fdm")]
+TIME_SPEED = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1113705394]
 transform = Transform3D(0.38659847, 0.7654773, 0.5143794, 0.31229544, 0.4161362, -0.853992, -0.8677634, 0.49079025, -0.07817741, 0, 0, 0)

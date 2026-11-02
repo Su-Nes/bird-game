@@ -45,10 +45,10 @@ func save_game():
 	get_tree().call_group("Persistent", "on_save_data", saved_data)
 	saved_game.saved_data = saved_data
 
-	ResourceSaver.save(saved_game, "user://save.tres")
+	ResourceSaver.save(saved_game, Constants.SAVE_PATH)
 	
 func load_game():
-	var saved_game : SavedGame = load("user://save.tres")
+	var saved_game : SavedGame = load(Constants.SAVE_PATH)
 	
 	get_tree().call_group("Persistent", "queue_free")
 
@@ -66,7 +66,7 @@ func load_game():
 			new_scene.on_loaded(data)
 			
 	load_player(saved_game)
-	load_time(saved_game)
+	#load_time(saved_game)
 			
 func load_player(save: SavedGame):
 	StatController.stamina_max_limit = save.player_max_stamina
@@ -91,7 +91,7 @@ func clear_save():
 	saved_game.player_max_stamina = StatController.MAX_BASE_STAMINA
 	saved_game.player_position = Vector3(0, 100, 0)
 	
-	ResourceSaver.save(saved_game, "user://save.tres")
+	ResourceSaver.save(saved_game, Constants.SAVE_PATH)
 	
 func show_text():
 	label.show()

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_ueddx"]
 [ext_resource type="Script" uid="uid://bny747drbssrb" path="res://World/Scenes/TutorialManager.gd" id="1_yur33"]
 [ext_resource type="PackedScene" uid="uid://b2hi2h7ux3480" path="res://World/Scenes/Tutorial_Part2.tscn" id="2_hsk8h"]
-[ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="2_va2em"]
+[ext_resource type="PackedScene" uid="uid://cctkwkw6eo3xp" path="res://World/Scenes/Environment.tscn" id="2_va2em"]
 [ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="3_p0xwk"]
 [ext_resource type="PackedScene" uid="uid://ctd6yevovrnl1" path="res://World/Objects/Trees/Scenes/PineTree1.tscn" id="4_0vxd1"]
 [ext_resource type="Material" uid="uid://b4k1dekrpaubd" path="res://World/Terrain/Materials/Grass.tres" id="4_2w2hp"]
@@ -14,7 +14,6 @@
 [ext_resource type="Shader" uid="uid://cpnyel6dxqphc" path="res://World/Shaders/LeavesFalling.gdshader" id="9_yu4ji"]
 [ext_resource type="Texture2D" uid="uid://1mrsn80kvdoo" path="res://World/Shaders/Leaf_64.png" id="10_2fwfl"]
 [ext_resource type="PackedScene" uid="uid://djduaq5dcrf5n" path="res://Entities/Spawners/bug_spawner.tscn" id="12_wop43"]
-[ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="13_p26ef"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yur33"]
 size = Vector3(50, 1, 391.9829)
@@ -84,6 +83,7 @@ SPAWN_POS = Vector3(0, 3, 0)
 NEXT_SCENE = ExtResource("2_hsk8h")
 
 [node name="Environment" parent="." unique_id=163002060 instance=ExtResource("2_va2em")]
+TIME_SPEED = 0.0
 
 [node name="PlayerReset" type="Area3D" parent="." unique_id=784373209]
 collision_mask = 3
@@ -294,7 +294,6 @@ shape = SubResource("BoxShape3D_6md3q")
 
 [node name="BugSpawner" parent="Sections/StaminaSection" unique_id=1601154953 instance=ExtResource("12_wop43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.077135324, 1.4964194, 4.8783417)
-SPAWNABLE = Array[PackedScene]([ExtResource("13_p26ef")])
 
 [node name="Particles" type="Node3D" parent="." unique_id=1606249569]
 

@@ -42,11 +42,18 @@ func _ready() -> void:
 	moon_energy_start = MOON.light_energy
 	
 	shader_mat = ENVIRONMENT.sky.sky_material
+		
+	get_tree().scene_changed.connect(load_scene_time)
+	load_scene_time()
+	
+func load_scene_time():
+	if FileAccess.file_exists(Constants.SAVE_PATH):
+		var saved_game : SavedGame = load(Constants.SAVE_PATH)
+		set_time(saved_game.time_deg)
+	else:
+		set_time(300)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("toggle"):
-		set_time(100)
-	
 	handle_time(delta)
 		
 	var sun_value = remap(abs(LIGHT_HOLDER.rotation_degrees.x), 0.0, 90, 1.0, 0.0)
@@ -91,15 +98,18 @@ func on_loaded(save: SavedGame):
 	
 func set_time(value_deg: float):
 	LIGHT_HOLDER.rotation.x = deg_to_rad(value_deg)
-	handle_time(get_physics_process_delta_time())
 	emit_time_signals()
 
 func emit_time_signals():
-	if last_deg >= MORNING_DEG and last_deg < NOON_DEG:
+	handle_time(get_physics_process_delta_time())
+	
+	var deg = roundi($Light.rotation_degrees.x + 180)
+	print(deg)
+	if deg >= MORNING_DEG and deg < NOON_DEG:
 		morning.emit()
-	if last_deg >= NOON_DEG and last_deg < EVENING_DEG:
+	if deg >= NOON_DEG and deg < EVENING_DEG:
 		noon.emit()
-	if last_deg >= EVENING_DEG and last_deg < NIGHT_DEG:
+	if deg >= EVENING_DEG and deg < NIGHT_DEG:
 		evening.emit()
-	if last_deg >= 0 and last_deg < MORNING_DEG:
+	if deg >= 0 and deg < MORNING_DEG:
 		night.emit()

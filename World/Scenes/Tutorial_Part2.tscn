@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bny747drbssrb" path="res://World/Scenes/TutorialManager.gd" id="1_t4vkm"]
 [ext_resource type="PackedScene" uid="uid://gyv0w2cpssjs" path="res://World/Scenes/Main.tscn" id="2_ucq1f"]
-[ext_resource type="PackedScene" uid="uid://bbuuycsq7i3wg" path="res://World/Scenes/Environment.tscn" id="3_h51e2"]
+[ext_resource type="PackedScene" uid="uid://cctkwkw6eo3xp" path="res://World/Scenes/Environment.tscn" id="3_h51e2"]
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="4_nau6f"]
 [ext_resource type="Material" uid="uid://b4k1dekrpaubd" path="res://World/Terrain/Materials/Grass.tres" id="5_iaaxk"]
 [ext_resource type="Material" uid="uid://nk7jrenmsugk" path="res://World/Terrain/Materials/Rock.tres" id="6_fbpw1"]
@@ -98,6 +98,7 @@ NEST = NodePath("Sections/NestBuildingSection/NestArea")
 NEXT_SCENE = ExtResource("2_ucq1f")
 
 [node name="Environment" parent="." unique_id=163002060 instance=ExtResource("3_h51e2")]
+TIME_SPEED = 0.0
 
 [node name="PlayerBounds" type="Area3D" parent="." unique_id=784373209]
 collision_mask = 3

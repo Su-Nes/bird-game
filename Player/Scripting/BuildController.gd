@@ -45,6 +45,10 @@ func initiate_building(block: Placeable):
 
 	ghost = ghost_scene.instantiate()
 	ghost.COLLIDER.queue_free() # Get rid of collider on the placeable block
+	for child in ghost.get_children():
+		child.hide()
+	ghost.MESH.get_parent_node_3d().show()
+	ghost.MESH.show()
 	ghost.remove_from_group("Persistent")
 	
 	if current_buildable.ALIGN_NORMALS:

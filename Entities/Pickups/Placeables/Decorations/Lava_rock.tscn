@@ -41,4 +41,6 @@ ITEM_NAME = "lava rock"
 mesh = SubResource("ArrayMesh_227os")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1219465039]
-light_color = Color(1, 0.8745098, 0.43529412, 1)
+light_color = Color(1, 0.8505, 0.31, 1)
+omni_range = 10.0
+omni_attenuation = 0.2

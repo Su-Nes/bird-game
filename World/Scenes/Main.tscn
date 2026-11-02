@@ -2,62 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dhu6qvt64ta7g" path="res://World/Scenes/MainManager.gd" id="1_7pm5o"]
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
-[ext_resource type="Script" uid="uid://d0h7ggfdl5k44" path="res://World/Scenes/TimeController.gd" id="2_0ue4v"]
-[ext_resource type="Environment" uid="uid://0l888a5e54jf" path="res://World/Scenes/EnvironmentCycle.tres" id="2_ber85"]
+[ext_resource type="PackedScene" uid="uid://cctkwkw6eo3xp" path="res://World/Scenes/Environment.tscn" id="2_ber85"]
 [ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="4_7pm5o"]
 [ext_resource type="PackedScene" uid="uid://rbf3r26b40pt" path="res://World/Terrain/World.tscn" id="5_7pm5o"]
 [ext_resource type="PackedScene" uid="uid://jquro10032sp" path="res://Player/Scripting/UI/Menus/WinScreen.tscn" id="6_ber85"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kvd28"]
-
-[sub_resource type="Compositor" id="Compositor_35w67"]
-compositor_effects = Array[CompositorEffect]([null])
-
 [node name="Main" type="Node3D" unique_id=2109053146]
 script = ExtResource("1_7pm5o")
 
-[node name="Environment" type="Node" parent="." unique_id=163002060 node_paths=PackedStringArray("LIGHT_HOLDER", "SUN", "MOON")]
-script = ExtResource("2_0ue4v")
-TIME_SPEED = 0.01
-LIGHT_HOLDER = NodePath("Light")
-SUN = NodePath("Light/Sun")
-MOON = NodePath("Light/Moon")
-ENVIRONMENT = ExtResource("2_ber85")
-DAY_HORIZON = Color(1.1155957, 1.0780554, 0.7938207, 1)
-NIGHT_HORIZON = Color(0.012617188, 0.011627772, 0.005830113, 1)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1703432688]
-environment = ExtResource("2_ber85")
-camera_attributes = SubResource("CameraAttributesPractical_kvd28")
-compositor = SubResource("Compositor_35w67")
-
-[node name="Light" type="Node3D" parent="Environment" unique_id=1809537469]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Sun" type="DirectionalLight3D" parent="Environment/Light" unique_id=1451648926 groups=["Sun"]]
-transform = Transform3D(-0.27618256, -0.94305205, -0.1854066, -0.07233892, -0.17196584, 0.98244333, -0.958379, 0.28474587, -0.020725414, 0, 0, 0)
-light_color = Color(1, 0.953049, 0.78668225, 1)
-shadow_enabled = true
-shadow_normal_bias = 10.0
-directional_shadow_mode = 0
-directional_shadow_split_1 = 0.5
-directional_shadow_blend_splits = true
-directional_shadow_fade_start = 0.543
-directional_shadow_max_distance = 600.0
-directional_shadow_pancake_size = 3.5
-
-[node name="Moon" type="DirectionalLight3D" parent="Environment/Light" unique_id=1071667215]
-transform = Transform3D(-0.27618262, 0.9430522, 0.1854064, -0.072338834, 0.17196554, -0.98244333, -0.9583789, -0.28474587, 0.020725405, 0, 0, 0)
-light_color = Color(0.8039216, 0.8980392, 0.91764706, 1)
-light_energy = 0.1
-shadow_enabled = true
-shadow_normal_bias = 10.0
-shadow_opacity = 0.2
-shadow_blur = 5.0
-directional_shadow_mode = 0
-directional_shadow_fade_start = 0.543
-directional_shadow_max_distance = 600.0
-directional_shadow_pancake_size = 3.5
+[node name="Environment" parent="." unique_id=1359825031 instance=ExtResource("2_ber85")]
 
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 523.87103, 265.4115, -87.08284)

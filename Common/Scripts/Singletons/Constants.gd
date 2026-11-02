@@ -6,11 +6,14 @@ const SCENE_PATHS : Dictionary = {
 	"OakBranch_small" : "uid://dcaqmr8n5v177",
 	"FirBranch" : "uid://civfny3ab4vy0",
 	"PineBranch" : "uid://cf3g34mvtspqt",
+	"Flashlight" : "uid://mm1lc6haijmf",
 	
 	"Nest" : "uid://bwmqd5nb80in3",
 	
 	"Fish" : "uid://vnib5g438mv",
 	"Berry" : "uid://ciwdfugksg6gx",
 	"Bug" : "uid://btfej8wypkufu",
-	"Firefly" : "uid://ljafriy4scd6"
+	"Firefly" : "uid://ljafriy4scd6",
 }
+
+const SAVE_PATH : String = "user://save_1_2.tres"

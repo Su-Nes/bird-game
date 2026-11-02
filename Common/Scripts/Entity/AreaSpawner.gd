@@ -51,7 +51,7 @@ func spawn_nodes():
 		
 		var rand_pos = Vector3(randf_range(-spawn_box.size.x, spawn_box.size.x), randf_range(-spawn_box.size.x, spawn_box.size.y), randf_range(-spawn_box.size.x, spawn_box.size.z))
 
-		var new_node : Node3D 
+		var new_node : Node3D
 		if !Signals.time_controller.is_night:
 			new_node = SPAWNABLE[randi() % SPAWNABLE.size()].instantiate()
 		elif SPAWNABLE_NIGHT.size() > 0:
