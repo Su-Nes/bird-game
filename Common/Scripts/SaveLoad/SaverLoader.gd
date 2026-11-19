@@ -40,6 +40,7 @@ func save_game():
 	
 	saved_game.game_complete = game_complete
 	saved_game.time_deg = Signals.time_controller.LIGHT_HOLDER.rotation_degrees.x
+	saved_game.day_counter = Signals.time_controller.day_counter
 	
 	# save all persistant objects
 	var saved_data : Array[SavedData]
@@ -85,6 +86,7 @@ func load_player(save: SavedGame):
 	
 func load_time(save: SavedGame):
 	Signals.time_controller.on_loaded(save)
+	Signals.time_controller.day_counter = save.day_counter
 	
 func activate_crown(state: bool):
 	var player_func : PlayerExtensionFunctions = get_tree().get_first_node_in_group("Player")

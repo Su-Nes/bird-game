@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dxqlgs5c8lach"]
 
+[ext_resource type="Script" uid="uid://dquj6mgwukkli" path="res://Entities/Shop/ShopBaloonMovement.gd" id="1_82j1j"]
 [ext_resource type="PackedScene" uid="uid://cf3g34mvtspqt" path="res://Entities/Pickups/Placeables/Branches/PineBranch.tscn" id="2_h5pxs"]
 [ext_resource type="PackedScene" uid="uid://l8o8q4d88dkt" path="res://Entities/Shop/purchase_box.tscn" id="2_wmhks"]
 [ext_resource type="PackedScene" uid="uid://ch6v56n6hjc" path="res://Entities/Shop/sell_box.tscn" id="3_oxbxm"]
@@ -53,6 +54,7 @@ size = Vector3(37.5, 1, 10.75)
 size = Vector3(50, 20.75, 50)
 
 [node name="ShoppingBaloon" type="AnimatableBody3D" unique_id=1984543046]
+script = ExtResource("1_82j1j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=343412202]
 shape = SubResource("BoxShape3D_wmhks")

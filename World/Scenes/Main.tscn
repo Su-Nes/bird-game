@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dhu6qvt64ta7g" path="res://World/Scenes/MainManager.gd" id="1_7pm5o"]
 [ext_resource type="PackedScene" uid="uid://babt3u5ap0jca" path="res://Player/PlayerController.tscn" id="1_folwd"]
 [ext_resource type="PackedScene" uid="uid://cctkwkw6eo3xp" path="res://World/Scenes/Environment.tscn" id="2_ber85"]
-[ext_resource type="PackedScene" uid="uid://btfej8wypkufu" path="res://Entities/Pickups/Edibles/Bugs/Bug.tscn" id="4_7pm5o"]
 [ext_resource type="PackedScene" uid="uid://rbf3r26b40pt" path="res://World/Terrain/World.tscn" id="5_7pm5o"]
+[ext_resource type="Script" uid="uid://b6k5g3habbsmc" path="res://Entities/Shop/ShopManager.gd" id="6_0ue4v"]
 [ext_resource type="PackedScene" uid="uid://jquro10032sp" path="res://Player/Scripting/UI/Menus/WinScreen.tscn" id="6_ber85"]
 
 [node name="Main" type="Node3D" unique_id=2109053146]
@@ -15,9 +15,71 @@ script = ExtResource("1_7pm5o")
 [node name="PlayerController" parent="." unique_id=1403665214 instance=ExtResource("1_folwd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 523.87103, 265.4115, -87.08284)
 
-[node name="Bug" parent="." unique_id=1711860546 instance=ExtResource("4_7pm5o")]
-transform = Transform3D(-0.81275344, 0, 0.5826078, 0, 1, 0, -0.5826078, 0, -0.81275344, 920.1606, 151.47607, 311.63187)
-
 [node name="Terrain" parent="." unique_id=750404762 instance=ExtResource("5_7pm5o")]
 
 [node name="WinScreen" parent="." unique_id=172216686 instance=ExtResource("6_ber85")]
+
+[node name="TimeEvents" type="Node" parent="." unique_id=551916236]
+
+[node name="ShopManager" type="Node3D" parent="TimeEvents" unique_id=1164831076]
+script = ExtResource("6_0ue4v")
+
+[node name="Path1" type="Node3D" parent="TimeEvents/ShopManager" unique_id=778860344]
+
+[node name="Limit-Z" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=1175806175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -596.49335, 1050.276, -2735.709)
+gizmo_extents = 10.0
+
+[node name="PathPoint1" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=1858296316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -596.49335, 1050.276, -2403.1833)
+gizmo_extents = 10.0
+
+[node name="PathPoint2" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=1541554921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -717.6323, 93.216, -1765.7183)
+gizmo_extents = 10.0
+
+[node name="PathPoint3" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=1492036975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -496.90588, 163.8639, -1388.9545)
+gizmo_extents = 10.0
+
+[node name="PathPoint4" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=331522124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215.92828, 163.8639, -757.31433)
+gizmo_extents = 10.0
+
+[node name="PathPoint5" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=702317710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -309.51508, 182.87965, -180.86023)
+gizmo_extents = 10.0
+
+[node name="PathPoint6" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=1753647378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.74803, 173.83893, 118.96893)
+gizmo_extents = 10.0
+
+[node name="PathPoint7" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=1680424318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -249.97235, 173.83893, 420.7175)
+gizmo_extents = 10.0
+
+[node name="PathPoint8" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=184886318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -249.97235, 173.83893, 824.667)
+gizmo_extents = 10.0
+
+[node name="PathPoint9" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=19863045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -249.97235, 467.01373, 1619.1705)
+gizmo_extents = 10.0
+
+[node name="PathPoint10" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=2142106478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -596.493, 1050.276, 2414.9792)
+gizmo_extents = 10.0
+
+[node name="Limit+Z" type="Marker3D" parent="TimeEvents/ShopManager/Path1" unique_id=1041259328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -596.493, 1050.276, 2735.709)
+gizmo_extents = 10.0
+
+[node name="Path2" type="Node3D" parent="TimeEvents/ShopManager" unique_id=725656908]
+
+[node name="Limit-X-Z" type="Marker3D" parent="TimeEvents/ShopManager/Path2" unique_id=1577466761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2682.943, 1050, -1814.6875)
+
+[node name="PathPoint1" type="Marker3D" parent="TimeEvents/ShopManager/Path2" unique_id=147156136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2300.6968, 1050, -1625.4431)
+
+[node name="Path3" type="Node3D" parent="TimeEvents/ShopManager" unique_id=848963383]

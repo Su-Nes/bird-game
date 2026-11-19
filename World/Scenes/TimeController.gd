@@ -27,6 +27,8 @@ var is_night = false
 var clock_deg : float
 var last_deg = 0
 
+var day_counter : int
+
 signal morning
 signal noon
 signal evening
@@ -56,6 +58,10 @@ func load_scene_time():
 func _physics_process(delta: float) -> void:
 	handle_time(delta)
 		
+	handle_visuals()
+
+	
+func handle_visuals():
 	var sun_value = remap(abs(LIGHT_HOLDER.rotation_degrees.x), 0.0, 90, 1.0, 0.0)
 	sun_value = clamp(sun_value, 0.0, 1.0)
 	
@@ -85,6 +91,7 @@ func handle_time(delta: float):
 		
 		match last_deg:
 			MORNING_DEG:
+				day_counter += 1
 				morning.emit()
 			NOON_DEG:
 				noon.emit()
