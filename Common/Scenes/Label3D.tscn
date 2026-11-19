@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://m1s0hpj4abqw"]
+
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="1_dhqhk"]
+[ext_resource type="Script" uid="uid://ccbsl8ohsmj7w" path="res://Common/Scripts/Entity/MoveAndDie.gd" id="2_scyov"]
+
+[node name="Label3D" type="Label3D" unique_id=307818097]
+pixel_size = 0.002
+text = "+7"
+font = ExtResource("1_dhqhk")
+font_size = 64
+outline_size = 16
+script = ExtResource("2_scyov")

@@ -2,7 +2,7 @@ extends Node
 
 
 var game_complete : bool = false
-const LABEL = preload("uid://m1s0hpj4abqw")
+const LABEL = preload(Constants.SCENE_PATHS.Label)
 var label : Label
 
 var autosave_interval : float = 60
@@ -30,6 +30,8 @@ func save_game():
 	
 	saved_game.player_max_stamina = StatController.stamina_max_limit
 	saved_game.player_max_stamina = clamp(saved_game.player_max_stamina, StatController.MAX_BASE_STAMINA / 2, StatController.MAX_BASE_STAMINA)
+	saved_game.player_seeds = StatController.seeds
+	
 	var player = get_tree().get_first_node_in_group("Player") as Node3D
 	
 	saved_game.player_position = player.global_position
@@ -71,6 +73,9 @@ func load_game():
 func load_player(save: SavedGame):
 	StatController.stamina_max_limit = save.player_max_stamina
 	StatController.stamina = StatController.stamina_max_limit
+	
+	if save.player_seeds:
+		StatController.seeds = save.player_seeds
 	
 	var player = get_tree().get_first_node_in_group("Player") as CharacterBody3D
 	player.global_position = save.player_position

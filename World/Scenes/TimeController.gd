@@ -104,7 +104,7 @@ func emit_time_signals():
 	handle_time(get_physics_process_delta_time())
 	
 	var deg = roundi($Light.rotation_degrees.x + 180)
-	print(deg)
+
 	if deg >= MORNING_DEG and deg < NOON_DEG:
 		morning.emit()
 	if deg >= NOON_DEG and deg < EVENING_DEG:

@@ -81,7 +81,7 @@ func _process(_delta: float) -> void:
 	change_ghost_material(GHOST_MATERIAL if can_place else ERROR_MATERIAL)
 
 func handle_normal_aligned_placement():
-	can_place = NORMAL_RAY.get_collider()
+	can_place = NORMAL_RAY.get_collider() and Signals.building_enabled
 	
 	ghost.rotation.z = SHAPE_RAY.rotation.z
 	
@@ -93,7 +93,7 @@ func handle_normal_aligned_placement():
 		ghost.global_position = NORMAL_RAY.global_position - NORMAL_RAY.global_basis.z * NORMAL_RAY.target_position.length()
 		
 func handle_collision_placement():
-	can_place = SHAPE_RAY.is_colliding()
+	can_place = SHAPE_RAY.is_colliding() and Signals.building_enabled
 	
 	ghost.global_rotation = SHAPE_RAY.global_rotation
 	

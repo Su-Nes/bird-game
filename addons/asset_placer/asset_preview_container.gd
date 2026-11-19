@@ -18,6 +18,10 @@ func init(p_asset: AssetResource, p_options: AssetPlacerOptions, p_material: Mat
 
 	var initial_instance = _instantiate_asset_resource(asset)
 	self.preview_aabb = AABBProvider.provide_aabb(initial_instance)
+	if options.brush_radius <= 0.0:
+		var rng := RandomNumberGenerator.new()
+		rng.seed = _stroke_id
+		_apply_single_instance_transform(initial_instance, rng)
 	self.add_child(initial_instance)
 	self.preview_rids = _get_collision_rids(self)
 	_apply_preview_material(initial_instance)
@@ -31,9 +35,8 @@ func update_preview(snapped_pos: Vector3, normal: Vector3, is_brush_mode: bool) 
 		var density_factor = options.brush_density
 		var brush_area = PI * r * r
 		var asset_area = max(0.25, preview_aabb.size.x * preview_aabb.size.z)
-		var max_assets = (brush_area / asset_area) * 0.2
-		var curved_density = pow(density_factor, 2.0)
-		amount_to_spawn = max(1, int(round(max_assets * curved_density)))
+		var max_assets = brush_area / asset_area
+		amount_to_spawn = max(1, int(round(max_assets * density_factor)))
 
 	_sync_preview_children(amount_to_spawn, is_brush_mode)
 
@@ -72,28 +75,9 @@ func _sync_preview_children(count: int, is_brush: bool) -> void:
 				_apply_preview_material(new_child)
 
 				if not is_brush:
-					var orig_transform = new_child.transform
-					var new_basis = _manual_rotation * orig_transform.basis
-					new_basis = new_basis.scaled(_manual_scale)
-					new_child.transform = Transform3D(new_basis, orig_transform.origin)
+					_apply_single_instance_transform(new_child, rng)
 				else:
-					var radius = options.brush_radius
-					var angle = rng.randf() * TAU
-					var r = sqrt(rng.randf()) * radius
-					var local_pos = Vector3(cos(angle) * r, 0, sin(angle) * r)
-
-					var new_transform = Transform3D(Basis(), local_pos)
-					new_transform = AssetTransformations.transform_rotation(
-						new_transform, options, rng
-					)
-					new_transform = AssetTransformations.transform_scale(
-						new_transform, options, rng
-					)
-
-					new_transform.basis = new_transform.basis * _manual_rotation
-					new_transform.basis = new_transform.basis.scaled(_manual_scale)
-
-					new_child.transform = new_transform
+					_apply_brush_instance_transform(new_child, rng)
 
 		var new_rids = []
 		for child in get_children():
@@ -101,6 +85,29 @@ func _sync_preview_children(count: int, is_brush: bool) -> void:
 				new_rids.append_array(_get_collision_rids(child))
 		self.preview_rids.clear()
 		self.preview_rids.append_array(new_rids)
+
+
+func _apply_brush_instance_transform(node: Node3D, rng: RandomNumberGenerator) -> void:
+	var radius = options.brush_radius
+	var angle = rng.randf() * TAU
+	var r = sqrt(rng.randf()) * radius
+	var local_pos = Vector3(cos(angle) * r, 0, sin(angle) * r)
+
+	var new_transform = Transform3D(Basis(), local_pos)
+	new_transform = AssetTransformations.transform_rotation(new_transform, options, rng)
+	new_transform = AssetTransformations.transform_scale(new_transform, options, rng)
+	new_transform.basis = new_transform.basis * _manual_rotation
+	new_transform.basis = new_transform.basis.scaled(_manual_scale)
+	node.transform = new_transform
+
+
+func _apply_single_instance_transform(node: Node3D, rng: RandomNumberGenerator) -> void:
+	var new_transform := node.transform
+	new_transform = AssetTransformations.transform_rotation(new_transform, options, rng)
+	new_transform = AssetTransformations.transform_scale(new_transform, options, rng)
+	new_transform.basis = _manual_rotation * new_transform.basis
+	new_transform.basis = new_transform.basis.scaled(_manual_scale)
+	node.transform = new_transform
 
 
 func apply_manual_transform(
@@ -149,7 +156,16 @@ func get_children_transforms() -> Array[Transform3D]:
 
 
 func _instantiate_asset_resource(p_asset: AssetResource) -> Node3D:
-	return p_asset.get_resource().instantiate() as Node3D
+	var resource := p_asset.get_resource()
+	if resource is PackedScene:
+		return resource.instantiate() as Node3D
+	if resource is Mesh:
+		var mesh_instance := MeshInstance3D.new()
+		mesh_instance.name = p_asset.name
+		mesh_instance.mesh = resource
+		return mesh_instance
+	push_error("Not supported resource type %s" % str(resource))
+	return null
 
 
 func _apply_preview_material(node: Node) -> void:

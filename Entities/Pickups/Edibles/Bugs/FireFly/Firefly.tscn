@@ -131,7 +131,6 @@ COLLIDER = NodePath("CollisionShape3D")
 script = ExtResource("2_c3pks")
 initial_state = NodePath("FireflyFly")
 ANIMATOR = NodePath("../AnimationPlayer")
-DEBUG = true
 metadata/_custom_type_script = "uid://dm2dd5qgbqoj2"
 
 [node name="FireflyFly" type="Node" parent="StateMachine" unique_id=341747382]

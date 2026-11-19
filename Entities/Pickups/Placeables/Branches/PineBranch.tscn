@@ -24,6 +24,7 @@ linear_damp = 3.0
 script = ExtResource("1_vxamt")
 ITEM_NAME = "pine branch"
 CONST_PATH = "PineBranch"
+DISPLAY_SCALE = Vector3(0.3, 0.3, 0.3)
 GRAB_ONLY = true
 BEAK_ANGLE_MOD = 10.0
 MESH = NodePath("MeshInstance3D")

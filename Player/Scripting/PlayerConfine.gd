@@ -15,7 +15,7 @@ func on_exit_confine(body: Node3D):
 
 		Signals.player_change_state.emit("FlyState")
 	elif body is Interactable:
-		if body.is_grabbed:
+		if body.is_grabbed or !body.RIGIDBODY:
 			return
 		body.linear_velocity = Vector3.ZERO
 		body.global_position = LOST_AND_FOUND_SPAWN.global_position

@@ -29,6 +29,9 @@ func toggle_pause():
 		on_paused()
 
 func on_paused():
+	if !pause_menu:
+		return
+		
 	pause_menu.show()
 	
 	var time = 1.0 if get_tree().current_scene.name == "StartMenu" else 0.0
@@ -41,6 +44,9 @@ func on_paused():
 	paused = true
 	
 func on_unpaused():
+	if !pause_menu:
+		return
+	
 	pause_menu.hide()
 	Engine.time_scale = 1
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -50,6 +56,9 @@ func on_unpaused():
 	paused = false
 	
 func on_faint():
+	if !pause_menu:
+		return
+	
 	pause_menu.hide()
 	Engine.time_scale = .1
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -72,6 +81,9 @@ func on_revive():
 	faint_menu.hide()
 	
 func on_win():
+	if !win_menu:
+		return
+	
 	win_menu.show()
 	win_menu.play_win()
 	

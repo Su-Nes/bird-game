@@ -5,6 +5,8 @@ class_name Interactable
 
 @export var ITEM_NAME : String
 @export var CONST_PATH : String
+@export var PRICE : int = 5
+@export var DISPLAY_SCALE : Vector3 = Vector3.ONE
 @export var IS_GRABBABLE = true
 @export var GRAB_ONLY = false
 @export var GRAB_IS_INTERACT = false

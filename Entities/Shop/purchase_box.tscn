@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://l8o8q4d88dkt"]
+
+[ext_resource type="Script" uid="uid://c1iux8r4lebpb" path="res://Entities/Shop/PurchaseBox.gd" id="1_ep7ar"]
+[ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="1_fo2s6"]
+[ext_resource type="AudioStream" uid="uid://b7andf5furctx" path="res://Entities/Shop/Kaching_Crunchy.wav" id="3_h7ble"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yugyv"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.23529412)
+metallic = 0.57
+metallic_specular = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_nd5ly"]
+material = SubResource("StandardMaterial3D_yugyv")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wr7me"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5m3ef"]
+albedo_color = Color(0.47, 0.26194668, 0.079900004, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yugyv"]
+material = SubResource("StandardMaterial3D_5m3ef")
+size = Vector3(0.2, 0.1, 0.1)
+
+[node name="PurchaseBox" type="StaticBody3D" unique_id=1373022269 node_paths=PackedStringArray("MESH", "COLLIDER") groups=["Interactable"]]
+script = ExtResource("1_ep7ar")
+IS_GRABBABLE = false
+GRAB_IS_INTERACT = true
+MESH = NodePath("MeshInstance3D")
+COLLIDER = NodePath("CollisionShape3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1535982598]
+mesh = SubResource("BoxMesh_nd5ly")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=665808663]
+shape = SubResource("BoxShape3D_wr7me")
+
+[node name="PriceTag" type="MeshInstance3D" parent="." unique_id=2015159780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21275127, 0.25332627)
+mesh = SubResource("BoxMesh_yugyv")
+
+[node name="Label3D" type="Label3D" parent="PriceTag" unique_id=2028854584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0022283792, 0.050346136)
+pixel_size = 0.002
+shaded = true
+text = "125"
+font = ExtResource("1_fo2s6")
+font_size = 42
+
+[node name="Kaching" type="AudioStreamPlayer3D" parent="." unique_id=559969458]
+stream = ExtResource("3_h7ble")
+volume_db = -10.0

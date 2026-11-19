@@ -26,6 +26,7 @@ script = ExtResource("1_y3b7g")
 CHANCE_TO_SPLIT = 0.3
 ITEM_NAME = "fir branch"
 CONST_PATH = "FirBranch"
+DISPLAY_SCALE = Vector3(0.3, 0.3, 0.3)
 GRAB_ONLY = true
 MESH = NodePath("Mesh")
 COLLIDER = NodePath("CollisionShape3D")

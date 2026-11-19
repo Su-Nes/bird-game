@@ -16,6 +16,7 @@ script = ExtResource("1_wd43s")
 CHANCE_TO_SPLIT = 0.35
 ITEM_NAME = "small oak branch"
 CONST_PATH = "OakBranch_small"
+DISPLAY_SCALE = Vector3(0.3, 0.3, 0.3)
 GRAB_ONLY = true
 MESH = NodePath("MeshInstance3D")
 COLLIDER = NodePath("CollisionShape3D")

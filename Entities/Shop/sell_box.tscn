@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ch6v56n6hjc"]
+
+[ext_resource type="Script" uid="uid://w781bjk0064b" path="res://Entities/Shop/SellBox.gd" id="1_wch2h"]
+[ext_resource type="AudioStream" uid="uid://diw051u6afqf1" path="res://Entities/Shop/Kaching_Crunchy_Reversed.wav" id="2_3yvrx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yugyv"]
+albedo_color = Color(0.8400784, 0.47739726, 7.70092e-07, 1)
+metallic = 0.57
+metallic_specular = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_nd5ly"]
+material = SubResource("StandardMaterial3D_yugyv")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wr7me"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="SellBox" type="StaticBody3D" unique_id=1373022269 node_paths=PackedStringArray("MESH", "COLLIDER") groups=["Interactable"]]
+script = ExtResource("1_wch2h")
+SELL_FRACTION = 0.67
+IS_GRABBABLE = false
+GRAB_IS_INTERACT = true
+MESH = NodePath("MeshInstance3D")
+COLLIDER = NodePath("CollisionShape3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1535982598]
+mesh = SubResource("BoxMesh_nd5ly")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=665808663]
+shape = SubResource("BoxShape3D_wr7me")
+
+[node name="gnihcaK" type="AudioStreamPlayer3D" parent="." unique_id=1400447071]
+stream = ExtResource("2_3yvrx")
+volume_db = -10.0

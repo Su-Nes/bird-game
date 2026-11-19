@@ -96,6 +96,7 @@ PlayerParameters="*uid://dthidgu5wwqd2"
 SaverLoader="*uid://dqgry52td7nn7"
 SceneLoader="*uid://4sa6fxomsh3h"
 Constants="*uid://dhh4y3lq2wj25"
+DialogueManager="*uid://c3rodes2l3gxb"
 
 [debug_draw_3d]
 
@@ -113,7 +114,7 @@ export/convert_text_resources_to_binary=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [file_customization]
 

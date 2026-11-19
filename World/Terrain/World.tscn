@@ -55,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://d0j4fl5w007ao" path="res://Entities/Pickups/Placeables/Decorations/Radio/RadioMOLDEN.tscn" id="46_q4vpn"]
 [ext_resource type="PackedScene" uid="uid://bosrmq6auk1el" path="res://World/Objects/Buildings/SovietPSXCity/Scenes/Buildings/apartment_short.tscn" id="49_3tmld"]
 [ext_resource type="PackedScene" uid="uid://mm1lc6haijmf" path="res://Entities/Pickups/Placeables/Decorations/Flashlight/Flashlight.tscn" id="51_6mycp"]
+[ext_resource type="PackedScene" uid="uid://dxqlgs5c8lach" path="res://Entities/Shop/shopping_baloon.tscn" id="56_tscnu"]
 
 [sub_resource type="Gradient" id="Gradient_l17ic"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -13795,6 +13796,9 @@ debug_fill = false
 [node name="Industrial" parent="." unique_id=794090394 instance=ExtResource("13_1m6ji")]
 transform = Transform3D(1.1999995, 9.155274e-07, -0.0012419315, -9.1647445e-07, 1.2, -9.145794e-07, 0.0012419315, 9.155274e-07, 1.1999995, 754.41254, 100.00001, 943.3947)
 metadata/asset_placer_res_id = "uid://d1cduv1v5bt7e"
+
+[node name="ShoppingBaloon" parent="." unique_id=1984543046 instance=ExtResource("56_tscnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.25305, 235.19241, -2.7019806)
 
 [connection signal="body_exited" from="PlayerConfine" to="PlayerConfine" method="on_exit_confine"]
 

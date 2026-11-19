@@ -14,6 +14,9 @@ const SCENE_PATHS : Dictionary = {
 	"Berry" : "uid://ciwdfugksg6gx",
 	"Bug" : "uid://btfej8wypkufu",
 	"Firefly" : "uid://ljafriy4scd6",
+	
+	"Label" : "uid://cub1olt4mlllb",
+	"Label3D" : "uid://m1s0hpj4abqw",
 }
 
 const SAVE_PATH : String = "user://save_1_2.tres"

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://dxqlgs5c8lach"]
+
+[ext_resource type="PackedScene" uid="uid://cf3g34mvtspqt" path="res://Entities/Pickups/Placeables/Branches/PineBranch.tscn" id="2_h5pxs"]
+[ext_resource type="PackedScene" uid="uid://l8o8q4d88dkt" path="res://Entities/Shop/purchase_box.tscn" id="2_wmhks"]
+[ext_resource type="PackedScene" uid="uid://ch6v56n6hjc" path="res://Entities/Shop/sell_box.tscn" id="3_oxbxm"]
+[ext_resource type="Script" uid="uid://crbre7n62mw1c" path="res://Entities/Shop/NoBuildZone.gd" id="4_oxbxm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmhks"]
+size = Vector3(6, 0.25, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h5pxs"]
+size = Vector3(0.25, 0.75, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxbxm"]
+size = Vector3(0.25, 0.75, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_82j1j"]
+size = Vector3(6.5, 0.75, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_caqt8"]
+size = Vector3(6.5, 0.75, 0.25)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8yita"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nmjod"]
+size = Vector3(37.5, 1, 10.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qkran"]
+size = Vector3(6, 0.25, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6md3q"]
+size = Vector3(0.25, 0.75, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8yita"]
+size = Vector3(0.25, 0.75, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wmhks"]
+size = Vector3(6.5, 0.75, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_joydu"]
+size = Vector3(6.5, 0.75, 0.25)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qkran"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_60uoq"]
+size = Vector3(37.5, 1, 10.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkran"]
+size = Vector3(50, 20.75, 50)
+
+[node name="ShoppingBaloon" type="AnimatableBody3D" unique_id=1984543046]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=343412202]
+shape = SubResource("BoxShape3D_wmhks")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1231994760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.125, 0.25, 0)
+shape = SubResource("BoxShape3D_h5pxs")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=340859181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.125, 0.25, 0)
+shape = SubResource("BoxShape3D_oxbxm")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1720444043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -6.125)
+shape = SubResource("BoxShape3D_82j1j")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1650398276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 6.125)
+shape = SubResource("BoxShape3D_caqt8")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=2043434493]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 9.749999, 0)
+shape = SubResource("CapsuleShape3D_8yita")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=1782715829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.25, 0)
+shape = SubResource("BoxShape3D_nmjod")
+
+[node name="BaloonMesh" type="Node3D" parent="." unique_id=1559080002]
+
+[node name="Platform" type="MeshInstance3D" parent="BaloonMesh" unique_id=1065519967]
+mesh = SubResource("BoxMesh_qkran")
+
+[node name="Wall+X" type="MeshInstance3D" parent="BaloonMesh" unique_id=1007167868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.125, 0.25, 0)
+mesh = SubResource("BoxMesh_6md3q")
+
+[node name="Wall-X" type="MeshInstance3D" parent="BaloonMesh" unique_id=2039755512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.125, 0.25, 0)
+mesh = SubResource("BoxMesh_8yita")
+
+[node name="Wall-Z" type="MeshInstance3D" parent="BaloonMesh" unique_id=340982084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -6.125)
+mesh = SubResource("BoxMesh_wmhks")
+
+[node name="Wall+Z" type="MeshInstance3D" parent="BaloonMesh" unique_id=1716060526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 6.125)
+mesh = SubResource("BoxMesh_joydu")
+
+[node name="Baloon" type="MeshInstance3D" parent="BaloonMesh" unique_id=1584719084]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 9.749999, 0)
+mesh = SubResource("CapsuleMesh_qkran")
+
+[node name="Wings" type="MeshInstance3D" parent="BaloonMesh" unique_id=356247317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.25, 0)
+mesh = SubResource("BoxMesh_60uoq")
+
+[node name="PurchaseBox" parent="." unique_id=1373022269 instance=ExtResource("2_wmhks")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.25, 0.5, 0)
+ITEM_SCENE = ExtResource("2_h5pxs")
+
+[node name="SellBox" parent="." unique_id=1483349824 instance=ExtResource("3_oxbxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2.25)
+
+[node name="NoBuildZone" type="Area3D" parent="." unique_id=264298139]
+collision_mask = 3
+script = ExtResource("4_oxbxm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoBuildZone" unique_id=1802467123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.447027, 0)
+shape = SubResource("BoxShape3D_qkran")
+
+[connection signal="body_entered" from="NoBuildZone" to="NoBuildZone" method="_on_body_entered"]
+[connection signal="body_exited" from="NoBuildZone" to="NoBuildZone" method="_on_body_exited"]

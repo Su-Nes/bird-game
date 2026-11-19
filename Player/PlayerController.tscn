@@ -48,6 +48,7 @@
 [ext_resource type="Script" uid="uid://h8iodtllfo1" path="res://Common/Scripts/Shaders/PassSunToLensFlare.gd" id="42_gbrrj"]
 [ext_resource type="FontFile" uid="uid://bahk0ju5j074r" path="res://Common/UI/Fonts/MilkyNice.ttf" id="43_ppr8l"]
 [ext_resource type="Theme" uid="uid://c40fev0exkwqr" path="res://Common/UI/MainTheme.tres" id="44_t4i8i"]
+[ext_resource type="Script" uid="uid://bpvkgyl8lgllj" path="res://Player/DisplaySeeds.gd" id="47_onyvq"]
 [ext_resource type="Script" uid="uid://c84nt3rc0jgp0" path="res://Player/Scripting/Shitting.gd" id="47_t4i8i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6md3q"]
@@ -1621,6 +1622,16 @@ offset_right = 61.0
 offset_bottom = 86.0
 theme = ExtResource("44_t4i8i")
 text = "items"
+
+[node name="SeedLabel" type="Label" parent="HUD&Stats/FPSCounter" unique_id=72087639]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 279.0
+offset_right = 86.0
+offset_bottom = 302.0
+theme = ExtResource("44_t4i8i")
+text = "seeds: 20"
+script = ExtResource("47_onyvq")
 
 [node name="PauseMenu" parent="." unique_id=172216686 instance=ExtResource("28_be8bd")]
 visible = false

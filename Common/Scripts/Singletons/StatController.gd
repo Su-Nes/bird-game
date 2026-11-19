@@ -16,6 +16,9 @@ var STAMINA_LIMIT_DRAIN : float = 1
 var DRAIN_PERIOD : float = 20
 var drain_timer : float
 
+# Seeds
+var seeds := 0
+
 
 var fainted
 signal has_fainted

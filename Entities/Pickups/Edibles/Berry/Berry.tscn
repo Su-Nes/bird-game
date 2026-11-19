@@ -64,6 +64,7 @@ script = ExtResource("1_24rjq")
 STAMINA_VALUE = 4.0
 ITEM_NAME = "berry"
 CONST_PATH = "Berry"
+PRICE = 3
 MESH = NodePath("MeshInstance3D")
 COLLIDER = NodePath("CollisionShape3D")
 RIGIDBODY = NodePath(".")

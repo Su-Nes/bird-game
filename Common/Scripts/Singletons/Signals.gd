@@ -9,8 +9,11 @@ signal clear_items
 
 signal win
 
+var grab_controller : GrabScript
 var build_controller : BuildController
 var time_controller : TimeController
+
+var building_enabled = true
 
 func empty_func():
 	player_change_state.is_null()

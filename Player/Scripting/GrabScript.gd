@@ -22,6 +22,7 @@ class_name GrabScript
 var active_index = 0
 
 func _ready() -> void:
+	Signals.grab_controller = self
 	Signals.grab_item.connect(grab_item)
 	Signals.clear_items.connect(clear_items)
 
@@ -160,6 +161,12 @@ func remove_selected_item(drop_physically = false):
 	item.has_physics(true, true)
 	if item.RIGIDBODY:
 		item.RIGIDBODY.linear_velocity = player_controller.velocity * DROP_VELOCITY_MOD
+
+func get_active_item() -> Interactable:
+	if GRAB_POINT.get_child(active_index).get_child_count() < 1:
+		return null
+	else:
+		return GRAB_POINT.get_child(active_index)
 
 func handle_beak_rotation():
 	BEAK_TOP.rotation.x = 0
